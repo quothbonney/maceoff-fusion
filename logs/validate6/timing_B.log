@@ -1,0 +1,81 @@
+job=1025 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 345 MHz, 1980 MHz, 2619 MHz
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:89: DeprecationWarning: `torch.jit.save` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/modules/models.py:87: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+aspirin hybrid {'E': 302, 'eager_model': 15.346056781709194, 'eager_full_step': 15.913453884422779, 'eager_peak_MiB': 55.16455078125, 'capture_wall_s': 0.5654783137142658, 'capture_s_reported': 0.5654489751905203, 'E_cap': 384, 'graph_resident_MiB': 128.05810546875, 'graph_reserved_delta_MiB': 138.0, 'graphed_copyin_replay': 1.3981042429804802, 'graphed_replay_only': 1.3359691947698593, 'graphed_full_step': 1.8498916178941727, 'gpu_build_only': 0.41655823588371277, 'peak_incl_capture_MiB': 153.61669921875, 'total_peak_process_MiB': 270.921875, 'sanity_max_dF': 3.552713678800501e-15, 'recapture_s': 0.06664581969380379}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/validate6/v_timing.py:49: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/validate6/timing_B.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+aspirin flash {'E': 302, 'eager_model': 9.786438196897507, 'eager_full_step': 10.31816378235817, 'eager_peak_MiB': 74.63330078125, 'capture_wall_s': 0.04814510978758335, 'capture_s_reported': 0.048113515600562096, 'E_cap': 384, 'graph_resident_MiB': 64.05810546875, 'graph_reserved_delta_MiB': 74.0, 'graphed_copyin_replay': 1.9662920385599136, 'graphed_replay_only': 1.9013239070773125, 'graphed_full_step': 2.420114353299141, 'gpu_build_only': 0.4143333062529564, 'peak_incl_capture_MiB': 138.43017578125, 'total_peak_process_MiB': 447.75390625, 'sanity_max_dF': 1.5543122344752192e-15, 'recapture_s': 0.06046127527952194}
+aspirin e3nn {'E': 302, 'eager_model': 11.939743533730507, 'eager_full_step': 12.229357846081257, 'eager_peak_MiB': 80.97265625, 'capture_wall_s': 0.05657259561121464, 'capture_s_reported': 0.05654500052332878, 'E_cap': 384, 'graph_resident_MiB': 64.05810546875, 'graph_reserved_delta_MiB': 92.0, 'graphed_copyin_replay': 2.5449981912970543, 'graphed_replay_only': 2.47863307595253, 'graphed_full_step': 3.0152909457683563, 'gpu_build_only': 0.425693579018116, 'peak_incl_capture_MiB': 155.6591796875, 'total_peak_process_MiB': 592.9990234375, 'sanity_max_dF': 1.8596235662471372e-15, 'recapture_s': 0.057536644861102104}
+water192 hybrid {'E': 6634, 'eager_model': 15.699566341936588, 'eager_full_step': 16.1830997094512, 'eager_peak_MiB': 285.07177734375, 'capture_wall_s': 0.0784411896020174, 'capture_s_reported': 0.07841217890381813, 'E_cap': 8000, 'graph_resident_MiB': 64.849609375, 'graph_reserved_delta_MiB': 108.0, 'graphed_copyin_replay': 2.9636258259415627, 'graphed_replay_only': 2.8991904109716415, 'graphed_full_step': 3.45680583268404, 'gpu_build_only': 0.4436075687408447, 'peak_incl_capture_MiB': 390.24365234375, 'total_peak_process_MiB': 956.017578125, 'sanity_max_dF': 2.1094237467877974e-15, 'recapture_s': 0.08339230716228485}
+water192 flash {'E': 6634, 'eager_model': 10.103636421263218, 'eager_full_step': 10.720248334109783, 'eager_peak_MiB': 639.25927734375, 'capture_wall_s': 0.10020003654062748, 'capture_s_reported': 0.10017671622335911, 'E_cap': 8000, 'graph_resident_MiB': 65.849609375, 'graph_reserved_delta_MiB': 96.0, 'graphed_copyin_replay': 6.6369036212563515, 'graphed_replay_only': 6.570134311914444, 'graphed_full_step': 7.120348513126373, 'gpu_build_only': 0.4363385960459709, 'peak_incl_capture_MiB': 714.3955078125, 'total_peak_process_MiB': 1408.2255859375, 'sanity_max_dF': 1.9984014443252818e-15, 'recapture_s': 0.051514821127057076}
+water192 e3nn {'E': 6634, 'eager_model': 13.421804644167423, 'eager_full_step': 13.905948959290981, 'eager_peak_MiB': 1130.685546875, 'capture_wall_s': 0.06900431215763092, 'capture_s_reported': 0.06897993199527264, 'E_cap': 8000, 'graph_resident_MiB': 64.849609375, 'graph_reserved_delta_MiB': 518.0, 'graphed_copyin_replay': 11.568816378712654, 'graphed_replay_only': 11.502662673592567, 'graphed_full_step': 12.077579274773598, 'gpu_build_only': 0.443347729742527, 'peak_incl_capture_MiB': 1365.9501953125, 'total_peak_process_MiB': 2188.82470703125, 'sanity_max_dF': 1.9984014443252818e-15, 'recapture_s': 0.06892281584441662}
+water648 hybrid {'E': 26550, 'eager_model': 15.84845781326294, 'eager_full_step': 16.356579028069973, 'eager_peak_MiB': 1076.548828125, 'capture_wall_s': 0.07801290042698383, 'capture_s_reported': 0.0779873039573431, 'E_cap': 31872, 'graph_resident_MiB': 67.32177734375, 'graph_reserved_delta_MiB': 208.0, 'graphed_copyin_replay': 7.708027958869934, 'graphed_replay_only': 7.633786648511887, 'graphed_full_step': 8.210505358874798, 'gpu_build_only': 0.4618009552359581, 'peak_incl_capture_MiB': 1296.3310546875, 'total_peak_process_MiB': 2248.5595703125, 'sanity_max_dF': 3.2751579226442118e-15, 'recapture_s': 0.07852471247315407}
+water648 flash {'E': 26550, 'eager_model': 20.704627968370914, 'eager_full_step': 21.25719841569662, 'eager_peak_MiB': 2161.85009765625, 'capture_wall_s': 0.09163080714643002, 'capture_s_reported': 0.09160484932363033, 'E_cap': 31872, 'graph_resident_MiB': 67.32177734375, 'graph_reserved_delta_MiB': -300.0, 'graphed_copyin_replay': 19.715179689228535, 'graphed_replay_only': 19.644281826913357, 'graphed_full_step': 20.24634089320898, 'gpu_build_only': 0.4598284140229225, 'peak_incl_capture_MiB': 2278.24072265625, 'total_peak_process_MiB': 3358.62890625, 'sanity_max_dF': 3.9968028886505635e-15, 'recapture_s': 0.09339593350887299}
+water648 e3nn {'E': 26550, 'eager_model': 36.325979977846146, 'eager_full_step': 36.86117008328438, 'eager_peak_MiB': 4300.650390625, 'capture_wall_s': 0.1687360182404518, 'capture_s_reported': 0.16871065087616444, 'E_cap': 31872, 'graph_resident_MiB': 67.32177734375, 'graph_reserved_delta_MiB': 1728.0, 'graphed_copyin_replay': 38.25536649674177, 'graphed_replay_only': 38.18078804761171, 'graphed_full_step': 38.79296034574509, 'gpu_build_only': 0.46300608664751053, 'peak_incl_capture_MiB': 5030.955078125, 'total_peak_process_MiB': 6239.470703125, 'sanity_max_dF': 3.164135620181696e-15, 'recapture_s': 0.1725784968584776}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/validate6/v_timing.py:51: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/validate6/timing_B.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+DONE
+0, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 1980 MHz, 1980 MHz

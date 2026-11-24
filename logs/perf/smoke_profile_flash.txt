@@ -1,0 +1,31 @@
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                               aten::mm         6.30%       5.228ms         8.75%       7.259ms      18.378us      30.457ms        32.66%      30.457ms      77.106us           395  
+                                              aten::bmm         1.89%       1.567ms         2.72%       2.254ms      18.783us      15.969ms        17.12%      15.969ms     133.073us           120  
+    flashtp_large_kernel::sptp_linear_bwd_v2_shared_exp         1.02%     850.153us         2.12%       1.756ms     175.632us      12.729ms        13.65%      12.906ms       1.291ms            10  
+void bwd_sptp_lienar_kernel_v1_shared_exp<double>(do...         0.00%       0.000us         0.00%       0.000us       0.000us      12.610ms        13.52%      12.610ms       1.261ms            10  
+sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize64x128...         0.00%       0.000us         0.00%       0.000us       0.000us      12.260ms        13.15%      12.260ms     817.333us            15  
+sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x128...         0.00%       0.000us         0.00%       0.000us       0.000us      11.575ms        12.41%      11.575ms     578.759us            20  
+                                            aten::copy_         1.91%       1.587ms         3.80%       3.152ms       6.498us       8.410ms         9.02%       8.410ms      17.341us           485  
+void at::native::elementwise_kernel<128, 2, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us       8.302ms         8.90%       8.302ms      19.085us           435  
+                                              aten::mul         4.39%       3.647ms         6.74%       5.594ms       9.096us       7.808ms         8.37%       7.808ms      12.696us           615  
+void at::native::elementwise_kernel<128, 2, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us       6.428ms         6.89%       6.428ms      41.470us           155  
+GeneratedBackwardFor_flashtp_large_kernel_sptp_linea...         2.43%       2.020ms         3.24%       2.686ms     268.636us       6.157ms         6.60%       6.217ms     621.695us            10  
+void fwd_sptp_lienar_kernel_v2_shared_exp<double>(do...         0.00%       0.000us         0.00%       0.000us       0.000us       6.047ms         6.48%       6.047ms     604.719us            10  
+void at::native::vectorized_elementwise_kernel<2, at...         0.00%       0.000us         0.00%       0.000us       0.000us       5.931ms         6.36%       5.931ms      16.706us           355  
+                                              aten::add         0.87%     720.101us         1.35%       1.121ms       8.622us       4.729ms         5.07%       4.729ms      36.376us           130  
+std::enable_if<true, void>::type internal::gemvx::ke...         0.00%       0.000us         0.00%       0.000us       0.000us       2.895ms         3.10%       2.895ms      96.493us            30  
+sm80_xmma_gemm_f64f64_f64f64_f64_nt_n_tilesize32x32x...         0.00%       0.000us         0.00%       0.000us       0.000us       2.815ms         3.02%       2.815ms     140.771us            20  
+std::enable_if<true, void>::type internal::gemvx::ke...         0.00%       0.000us         0.00%       0.000us       0.000us       2.640ms         2.83%       2.640ms      65.988us            40  
+                                              aten::sum         0.72%     598.725us         1.06%     882.139us      11.762us       2.338ms         2.51%       2.338ms      31.170us            75  
+void at::native::reduce_kernel<128, 4, at::native::R...         0.00%       0.000us         0.00%       0.000us       0.000us       2.274ms         2.44%       2.274ms      41.349us            55  
+sm80_xmma_gemm_f64f64_f64f64_f64_nt_n_tilesize32x64x...         0.00%       0.000us         0.00%       0.000us       0.000us       2.232ms         2.39%       2.232ms     223.225us            10  
+sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize64x32x...         0.00%       0.000us         0.00%       0.000us       0.000us       1.671ms         1.79%       1.671ms     334.189us             5  
+                                             aten::add_         0.85%     702.377us         1.77%       1.465ms       5.233us       1.284ms         1.38%       1.284ms       4.587us           280  
+sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x64x...         0.00%       0.000us         0.00%       0.000us       0.000us       1.191ms         1.28%       1.191ms      26.470us            45  
+void cutlass::Kernel2<cutlass_80_tensorop_d884gemm_3...         0.00%       0.000us         0.00%       0.000us       0.000us       1.158ms         1.24%       1.158ms     231.699us             5  
+void cutlass::Kernel2<cutlass_80_tensorop_d884gemm_3...         0.00%       0.000us         0.00%       0.000us       0.000us       1.147ms         1.23%       1.147ms      57.358us            20  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 82.996ms
+Self CUDA time total: 93.264ms

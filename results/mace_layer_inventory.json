@@ -1,0 +1,2324 @@
+{
+ "meta": {
+  "host": "slurm-login-0",
+  "python": "3.11.17",
+  "torch": "2.11.0+cu128",
+  "e3nn": "0.4.4",
+  "mace": "0.3.17",
+  "mace_imported_from": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/mace/__init__.py",
+  "ase": "3.29.0",
+  "model_path": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/models/MACE-OFF23_medium.model",
+  "model_sha256": "4842c52ad210d6e1f84d6cf1ffa70fae25a7e0d755ed55cf223f43913f587db7",
+  "model_class": "ScaleShiftMACE",
+  "model_dtype": "torch.float64",
+  "torch_default_dtype_after_MACECalculator": "torch.float32",
+  "torch_default_dtype_set_by_script_for_reference_objects": "torch.float64",
+  "r_max": 5.0,
+  "num_interactions": 2,
+  "spherical_harmonics": {
+   "irreps_out": "1x0e+1x1o+1x2e+1x3o",
+   "normalize": true,
+   "normalization": "component"
+  },
+  "cuequivariance_importable": false,
+  "openequivariance_importable": false,
+  "device": "cpu"
+ },
+ "layers": [
+  {
+   "layer": 0,
+   "interaction_class": "mace.modules.blocks.RealAgnosticInteractionBlock",
+   "conv_tp_class": "e3nn.o3._tensor_product._tensor_product.TensorProduct",
+   "has_conv_fusion_attr": false,
+   "cueq_config": "'<absent>'",
+   "oeq_config": "'<absent>'",
+   "avg_num_neighbors": 18.41771125793457,
+   "node_feats_irreps": "128x0e",
+   "edge_irreps": "128x0e",
+   "edge_attrs_irreps": "1x0e+1x1o+1x2e+1x3o",
+   "edge_feats_irreps": "8x0e",
+   "target_irreps": "128x0e+128x1o+128x2e+128x3o",
+   "hidden_irreps": "128x0e+128x1o",
+   "linear_up": {
+    "class": "Linear",
+    "irreps_in": "128x0e",
+    "irreps_out": "128x0e",
+    "weight_numel": 16384
+   },
+   "conv_tp_weights": {
+    "class": "e3nn.nn._fc.FullyConnectedNet",
+    "hs": [
+     8,
+     64,
+     64,
+     64,
+     512
+    ],
+    "param_shapes": [
+     [
+      8,
+      64
+     ],
+     [
+      64,
+      64
+     ],
+     [
+      64,
+      64
+     ],
+     [
+      64,
+      512
+     ]
+    ],
+    "act": "None"
+   },
+   "linear": {
+    "class": "Linear",
+    "irreps_in": "128x0e+128x1o+128x2e+128x3o",
+    "irreps_out": "128x0e+128x1o+128x2e+128x3o",
+    "weight_numel": 65536
+   },
+   "skip_tp": {
+    "class": "FullyConnectedTensorProduct",
+    "irreps_in1": "128x0e+128x1o+128x2e+128x3o",
+    "irreps_in2": "10x0e",
+    "irreps_out": "128x0e+128x1o+128x2e+128x3o"
+   },
+   "reshape_irreps": {
+    "irreps": "128x0e+128x1o+128x2e+128x3o",
+    "cueq_config": "'<absent>'"
+   },
+   "conv_tp": {
+    "irreps_in1": "128x0e",
+    "irreps_in2": "1x0e+1x1o+1x2e+1x3o",
+    "irreps_out": "128x0e+128x1o+128x2e+128x3o",
+    "irreps_in1_dim": 128,
+    "irreps_in2_dim": 16,
+    "irreps_out_dim": 2048,
+    "instructions": [
+     {
+      "i_in1": 0,
+      "i_in2": 0,
+      "i_out": 0,
+      "connection_mode": "uvu",
+      "has_weight": true,
+      "path_weight": 1.0,
+      "path_shape": [
+       128,
+       1
+      ],
+      "in1": "128x0e",
+      "in2": "1x0e",
+      "out": "128x0e"
+     },
+     {
+      "i_in1": 0,
+      "i_in2": 1,
+      "i_out": 1,
+      "connection_mode": "uvu",
+      "has_weight": true,
+      "path_weight": 1.7320508075688772,
+      "path_shape": [
+       128,
+       1
+      ],
+      "in1": "128x0e",
+      "in2": "1x1o",
+      "out": "128x1o"
+     },
+     {
+      "i_in1": 0,
+      "i_in2": 2,
+      "i_out": 2,
+      "connection_mode": "uvu",
+      "has_weight": true,
+      "path_weight": 2.23606797749979,
+      "path_shape": [
+       128,
+       1
+      ],
+      "in1": "128x0e",
+      "in2": "1x2e",
+      "out": "128x2e"
+     },
+     {
+      "i_in1": 0,
+      "i_in2": 3,
+      "i_out": 3,
+      "connection_mode": "uvu",
+      "has_weight": true,
+      "path_weight": 2.6457513110645907,
+      "path_shape": [
+       128,
+       1
+      ],
+      "in1": "128x0e",
+      "in2": "1x3o",
+      "out": "128x3o"
+     }
+    ],
+    "n_instructions": 4,
+    "weight_numel": 512,
+    "shared_weights": false,
+    "internal_weights": false,
+    "irrep_normalization": "not stored by e3nn 0.4.4; default 'component' (no kwarg passed by wrapper_ops)",
+    "path_normalization": "not stored by e3nn 0.4.4; default 'element' (no kwarg passed by wrapper_ops)",
+    "in1_var": null,
+    "in2_var": null,
+    "out_var": null,
+    "irreps_out_is_sorted": true,
+    "irreps_out_is_simplified": true,
+    "instructions_sorted_by_i_out": true
+   },
+   "checks": {
+    "all_uvu": true,
+    "all_has_weight": true,
+    "irreps_in1_muls": [
+     128
+    ],
+    "irreps_out_muls": [
+     128,
+     128,
+     128,
+     128
+    ],
+    "irreps_in2_muls": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "in1_muls_mult_of_32": true,
+    "out_muls_mult_of_32": true,
+    "in2_all_mul_1": true,
+    "weight_numel_eq_sum_u*v": true,
+    "mlp_out_eq_weight_numel": true
+   },
+   "flashtp_inst_tuple": [
+    [
+     0,
+     0,
+     0,
+     "uvu",
+     true
+    ],
+    [
+     0,
+     1,
+     1,
+     "uvu",
+     true
+    ],
+    [
+     0,
+     2,
+     2,
+     "uvu",
+     true
+    ],
+    [
+     0,
+     3,
+     3,
+     "uvu",
+     true
+    ]
+   ],
+   "flashtp_reference_tp": {
+    "normalization_note": "e3nn 0.4.4 TensorProduct does not store irrep/path_normalization; they are folded into Instruction.path_weight (e3nn _tensor_product.py:213-217 defaults component/element, :289-314). Neither MACE wrapper_ops (return o3.TensorProduct(...) w/o kwargs) nor flashTP.uvu_TP pass them, so both use defaults; equality of path_weight below is the operative check.",
+    "path_weights_equal_mace": true,
+    "instructions_equal_mace": true,
+    "weight_numel_equal": true
+   },
+   "flashtp_metadata_emulation": {
+    "n_unique_cg": 5,
+    "kernel_variant": "fused_uvu_TP_exp_opt_large",
+    "i_out_is_permutation_of_range": true,
+    "one_instruction_per_output_irrep": true,
+    "cg_value_lookup_ok": true,
+    "total_fiber_nnz": 16,
+    "fiber_nnz_fits_uint16": true,
+    "fiber_ijk_fit_uint8": true,
+    "metadata_gen_assert_mul_mod_32_ok": true,
+    "every_in1_irrep_has_paths": true,
+    "in2_slice_stop_fits_uint8": true,
+    "out_ir_dim_fits_uint8": true,
+    "upath_cnt(per_exec_info)": 4,
+    "per_path": [
+     {
+      "i_in1": 0,
+      "i_in2": 0,
+      "i_out": 0,
+      "path_weight": 1.0,
+      "flashtp_weight_offset": 0
+     },
+     {
+      "i_in1": 0,
+      "i_in2": 1,
+      "i_out": 1,
+      "path_weight": 1.7320508075688772,
+      "flashtp_weight_offset": 128
+     },
+     {
+      "i_in1": 0,
+      "i_in2": 2,
+      "i_out": 2,
+      "path_weight": 2.23606797749979,
+      "flashtp_weight_offset": 256
+     },
+     {
+      "i_in1": 0,
+      "i_in2": 3,
+      "i_out": 3,
+      "path_weight": 2.6457513110645907,
+      "flashtp_weight_offset": 384
+     }
+    ]
+   }
+  },
+  {
+   "layer": 1,
+   "interaction_class": "mace.modules.blocks.RealAgnosticResidualInteractionBlock",
+   "conv_tp_class": "e3nn.o3._tensor_product._tensor_product.TensorProduct",
+   "has_conv_fusion_attr": false,
+   "cueq_config": "'<absent>'",
+   "oeq_config": "'<absent>'",
+   "avg_num_neighbors": 18.41771125793457,
+   "node_feats_irreps": "128x0e+128x1o",
+   "edge_irreps": "128x0e+128x1o",
+   "edge_attrs_irreps": "1x0e+1x1o+1x2e+1x3o",
+   "edge_feats_irreps": "8x0e",
+   "target_irreps": "128x0e+128x1o+128x2e+128x3o",
+   "hidden_irreps": "128x0e",
+   "linear_up": {
+    "class": "Linear",
+    "irreps_in": "128x0e+128x1o",
+    "irreps_out": "128x0e+128x1o",
+    "weight_numel": 32768
+   },
+   "conv_tp_weights": {
+    "class": "e3nn.nn._fc.FullyConnectedNet",
+    "hs": [
+     8,
+     64,
+     64,
+     64,
+     1280
+    ],
+    "param_shapes": [
+     [
+      8,
+      64
+     ],
+     [
+      64,
+      64
+     ],
+     [
+      64,
+      64
+     ],
+     [
+      64,
+      1280
+     ]
+    ],
+    "act": "None"
+   },
+   "linear": {
+    "class": "Linear",
+    "irreps_in": "256x0e+384x1o+384x2e+256x3o",
+    "irreps_out": "128x0e+128x1o+128x2e+128x3o",
+    "weight_numel": 163840
+   },
+   "skip_tp": {
+    "class": "FullyConnectedTensorProduct",
+    "irreps_in1": "128x0e+128x1o",
+    "irreps_in2": "10x0e",
+    "irreps_out": "128x0e"
+   },
+   "reshape_irreps": {
+    "irreps": "128x0e+128x1o+128x2e+128x3o",
+    "cueq_config": "'<absent>'"
+   },
+   "conv_tp": {
+    "irreps_in1": "128x0e+128x1o",
+    "irreps_in2": "1x0e+1x1o+1x2e+1x3o",
+    "irreps_out": "128x0e+128x0e+128x1o+128x1o+128x1o+128x2e+128x2e+128x2e+128x3o+128x3o",
+    "irreps_in1_dim": 512,
+    "irreps_in2_dim": 16,
+    "irreps_out_dim": 5120,
+    "instructions": [
+     {
+      "i_in1": 0,
+      "i_in2": 0,
+      "i_out": 0,
+      "connection_mode": "uvu",
+      "has_weight": true,
+      "path_weight": 1.0,
+      "path_shape": [
+       128,
+       1
+      ],
+      "in1": "128x0e",
+      "in2": "1x0e",
+      "out": "128x0e"
+     },
+     {
+      "i_in1": 1,
+      "i_in2": 1,
+      "i_out": 1,
+      "connection_mode": "uvu",
+      "has_weight": true,
+      "path_weight": 1.0,
+      "path_shape": [
+       128,
+       1
+      ],
+      "in1": "128x1o",
+      "in2": "1x1o",
+      "out": "128x0e"
+     },
+     {
+      "i_in1": 0,
+      "i_in2": 1,
+      "i_out": 2,
+      "connection_mode": "uvu",
+      "has_weight": true,
+      "path_weight": 1.7320508075688772,
+      "path_shape": [
+       128,
+       1
+      ],
+      "in1": "128x0e",
+      "in2": "1x1o",
+      "out": "128x1o"
+     },
+     {
+      "i_in1": 1,
+      "i_in2": 0,
+      "i_out": 3,
+      "connection_mode": "uvu",
+      "has_weight": true,
+      "path_weight": 1.7320508075688772,
+      "path_shape": [
+       128,
+       1
+      ],
+      "in1": "128x1o",
+      "in2": "1x0e",
+      "out": "128x1o"
+     },
+     {
+      "i_in1": 1,
+      "i_in2": 2,
+      "i_out": 4,
+      "connection_mode": "uvu",
+      "has_weight": true,
+      "path_weight": 1.7320508075688772,
+      "path_shape": [
+       128,
+       1
+      ],
+      "in1": "128x1o",
+      "in2": "1x2e",
+      "out": "128x1o"
+     },
+     {
+      "i_in1": 0,
+      "i_in2": 2,
+      "i_out": 5,
+      "connection_mode": "uvu",
+      "has_weight": true,
+      "path_weight": 2.23606797749979,
+      "path_shape": [
+       128,
+       1
+      ],
+      "in1": "128x0e",
+      "in2": "1x2e",
+      "out": "128x2e"
+     },
+     {
+      "i_in1": 1,
+      "i_in2": 1,
+      "i_out": 6,
+      "connection_mode": "uvu",
+      "has_weight": true,
+      "path_weight": 2.23606797749979,
+      "path_shape": [
+       128,
+       1
+      ],
+      "in1": "128x1o",
+      "in2": "1x1o",
+      "out": "128x2e"
+     },
+     {
+      "i_in1": 1,
+      "i_in2": 3,
+      "i_out": 7,
+      "connection_mode": "uvu",
+      "has_weight": true,
+      "path_weight": 2.23606797749979,
+      "path_shape": [
+       128,
+       1
+      ],
+      "in1": "128x1o",
+      "in2": "1x3o",
+      "out": "128x2e"
+     },
+     {
+      "i_in1": 0,
+      "i_in2": 3,
+      "i_out": 8,
+      "connection_mode": "uvu",
+      "has_weight": true,
+      "path_weight": 2.6457513110645907,
+      "path_shape": [
+       128,
+       1
+      ],
+      "in1": "128x0e",
+      "in2": "1x3o",
+      "out": "128x3o"
+     },
+     {
+      "i_in1": 1,
+      "i_in2": 2,
+      "i_out": 9,
+      "connection_mode": "uvu",
+      "has_weight": true,
+      "path_weight": 2.6457513110645907,
+      "path_shape": [
+       128,
+       1
+      ],
+      "in1": "128x1o",
+      "in2": "1x2e",
+      "out": "128x3o"
+     }
+    ],
+    "n_instructions": 10,
+    "weight_numel": 1280,
+    "shared_weights": false,
+    "internal_weights": false,
+    "irrep_normalization": "not stored by e3nn 0.4.4; default 'component' (no kwarg passed by wrapper_ops)",
+    "path_normalization": "not stored by e3nn 0.4.4; default 'element' (no kwarg passed by wrapper_ops)",
+    "in1_var": null,
+    "in2_var": null,
+    "out_var": null,
+    "irreps_out_is_sorted": true,
+    "irreps_out_is_simplified": false,
+    "instructions_sorted_by_i_out": true
+   },
+   "checks": {
+    "all_uvu": true,
+    "all_has_weight": true,
+    "irreps_in1_muls": [
+     128,
+     128
+    ],
+    "irreps_out_muls": [
+     128,
+     128,
+     128,
+     128,
+     128,
+     128,
+     128,
+     128,
+     128,
+     128
+    ],
+    "irreps_in2_muls": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "in1_muls_mult_of_32": true,
+    "out_muls_mult_of_32": true,
+    "in2_all_mul_1": true,
+    "weight_numel_eq_sum_u*v": true,
+    "mlp_out_eq_weight_numel": true
+   },
+   "flashtp_inst_tuple": [
+    [
+     0,
+     0,
+     0,
+     "uvu",
+     true
+    ],
+    [
+     1,
+     1,
+     1,
+     "uvu",
+     true
+    ],
+    [
+     0,
+     1,
+     2,
+     "uvu",
+     true
+    ],
+    [
+     1,
+     0,
+     3,
+     "uvu",
+     true
+    ],
+    [
+     1,
+     2,
+     4,
+     "uvu",
+     true
+    ],
+    [
+     0,
+     2,
+     5,
+     "uvu",
+     true
+    ],
+    [
+     1,
+     1,
+     6,
+     "uvu",
+     true
+    ],
+    [
+     1,
+     3,
+     7,
+     "uvu",
+     true
+    ],
+    [
+     0,
+     3,
+     8,
+     "uvu",
+     true
+    ],
+    [
+     1,
+     2,
+     9,
+     "uvu",
+     true
+    ]
+   ],
+   "flashtp_reference_tp": {
+    "normalization_note": "e3nn 0.4.4 TensorProduct does not store irrep/path_normalization; they are folded into Instruction.path_weight (e3nn _tensor_product.py:213-217 defaults component/element, :289-314). Neither MACE wrapper_ops (return o3.TensorProduct(...) w/o kwargs) nor flashTP.uvu_TP pass them, so both use defaults; equality of path_weight below is the operative check.",
+    "path_weights_equal_mace": true,
+    "instructions_equal_mace": true,
+    "weight_numel_equal": true
+   },
+   "flashtp_metadata_emulation": {
+    "n_unique_cg": 19,
+    "kernel_variant": "fused_uvu_TP_exp_opt_large",
+    "i_out_is_permutation_of_range": true,
+    "one_instruction_per_output_irrep": true,
+    "cg_value_lookup_ok": true,
+    "total_fiber_nnz": 86,
+    "fiber_nnz_fits_uint16": true,
+    "fiber_ijk_fit_uint8": true,
+    "metadata_gen_assert_mul_mod_32_ok": true,
+    "every_in1_irrep_has_paths": true,
+    "in2_slice_stop_fits_uint8": true,
+    "out_ir_dim_fits_uint8": true,
+    "upath_cnt(per_exec_info)": 8,
+    "per_path": [
+     {
+      "i_in1": 0,
+      "i_in2": 0,
+      "i_out": 0,
+      "path_weight": 1.0,
+      "flashtp_weight_offset": 0
+     },
+     {
+      "i_in1": 0,
+      "i_in2": 1,
+      "i_out": 2,
+      "path_weight": 1.7320508075688772,
+      "flashtp_weight_offset": 256
+     },
+     {
+      "i_in1": 0,
+      "i_in2": 2,
+      "i_out": 5,
+      "path_weight": 2.23606797749979,
+      "flashtp_weight_offset": 640
+     },
+     {
+      "i_in1": 0,
+      "i_in2": 3,
+      "i_out": 8,
+      "path_weight": 2.6457513110645907,
+      "flashtp_weight_offset": 1024
+     },
+     {
+      "i_in1": 1,
+      "i_in2": 1,
+      "i_out": 1,
+      "path_weight": 1.0,
+      "flashtp_weight_offset": 128
+     },
+     {
+      "i_in1": 1,
+      "i_in2": 0,
+      "i_out": 3,
+      "path_weight": 1.7320508075688772,
+      "flashtp_weight_offset": 384
+     },
+     {
+      "i_in1": 1,
+      "i_in2": 2,
+      "i_out": 4,
+      "path_weight": 1.7320508075688772,
+      "flashtp_weight_offset": 512
+     },
+     {
+      "i_in1": 1,
+      "i_in2": 1,
+      "i_out": 6,
+      "path_weight": 2.23606797749979,
+      "flashtp_weight_offset": 768
+     },
+     {
+      "i_in1": 1,
+      "i_in2": 3,
+      "i_out": 7,
+      "path_weight": 2.23606797749979,
+      "flashtp_weight_offset": 896
+     },
+     {
+      "i_in1": 1,
+      "i_in2": 2,
+      "i_out": 9,
+      "path_weight": 2.6457513110645907,
+      "flashtp_weight_offset": 1152
+     }
+    ]
+   }
+  }
+ ],
+ "layer0_vs_layer1_conv_tp_identical": false,
+ "needs_separate_flashtp_instances": true,
+ "call_sites_mace_v0.3.17": {
+  "RealAgnosticInteractionBlock.forward": [
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 906,
+    "text": "node_feats = self.linear_up(node_feats)"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 913,
+    "text": "tp_weights = self.conv_tp_weights(edge_feats)"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 915,
+    "text": "tp_weights = tp_weights * cutoff"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 918,
+    "text": "if hasattr(self, \"conv_fusion\"):"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 919,
+    "text": "message = self.conv_tp(node_feats, edge_attrs, tp_weights, edge_index)"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 921,
+    "text": "mji = self.conv_tp("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 922,
+    "text": "node_feats[edge_index[0]], edge_attrs, tp_weights"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 924,
+    "text": "message = scatter_sum("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 925,
+    "text": "src=mji, index=edge_index[1], dim=0, dim_size=node_feats.shape[0]"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 927,
+    "text": "message = self.truncate_ghosts(message, n_real)"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 929,
+    "text": "message = self.linear(message) / self.avg_num_neighbors"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 930,
+    "text": "message = self.skip_tp(message, node_attrs)"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 932,
+    "text": "self.reshape(message),"
+   }
+  ],
+  "RealAgnosticResidualInteractionBlock.forward": [
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1009,
+    "text": "sc = self.skip_tp(node_feats, node_attrs)"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1010,
+    "text": "node_feats = self.linear_up(node_feats)"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1017,
+    "text": "tp_weights = self.conv_tp_weights(edge_feats)"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1019,
+    "text": "tp_weights = tp_weights * cutoff"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1021,
+    "text": "if hasattr(self, \"conv_fusion\"):"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1022,
+    "text": "message = self.conv_tp(node_feats, edge_attrs, tp_weights, edge_index)"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1024,
+    "text": "mji = self.conv_tp("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1025,
+    "text": "node_feats[edge_index[0]], edge_attrs, tp_weights"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1027,
+    "text": "message = scatter_sum("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1028,
+    "text": "src=mji, index=edge_index[1], dim=0, dim_size=node_feats.shape[0]"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1030,
+    "text": "message = self.truncate_ghosts(message, n_real)"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1033,
+    "text": "message = self.linear(message) / self.avg_num_neighbors"
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1035,
+    "text": "self.reshape(message),"
+   }
+  ],
+  "conv_tp construction (both blocks)": [
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 554,
+    "text": "irreps_mid, instructions = tp_out_irreps_with_instructions("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 559,
+    "text": "self.conv_tp = TensorProduct("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 851,
+    "text": "irreps_mid, instructions = tp_out_irreps_with_instructions("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 856,
+    "text": "self.conv_tp = TensorProduct("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 954,
+    "text": "irreps_mid, instructions = tp_out_irreps_with_instructions("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 959,
+    "text": "self.conv_tp = TensorProduct("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1057,
+    "text": "irreps_mid, instructions = tp_out_irreps_with_instructions("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1062,
+    "text": "self.conv_tp = TensorProduct("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1178,
+    "text": "irreps_mid, instructions = tp_out_irreps_with_instructions("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1183,
+    "text": "self.conv_tp = TensorProduct("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1303,
+    "text": "irreps_mid, instructions = tp_out_irreps_with_instructions("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1308,
+    "text": "self.conv_tp = TensorProduct("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1445,
+    "text": "irreps_mid, instructions = tp_out_irreps_with_instructions("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1450,
+    "text": "self.conv_tp = TensorProduct("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1649,
+    "text": "irreps_mid, instructions = tp_out_irreps_with_instructions("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1654,
+    "text": "self.conv_tp = TensorProduct("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1802,
+    "text": "irreps_mid, instructions = tp_out_irreps_with_instructions("
+   },
+   {
+    "file": "mace/modules/blocks.py",
+    "line": 1807,
+    "text": "self.conv_tp = TensorProduct("
+   }
+  ],
+  "edge vectors (sender/receiver)": [
+   {
+    "file": "mace/modules/utils.py",
+    "line": 447,
+    "text": "sender = edge_index[0]"
+   },
+   {
+    "file": "mace/modules/utils.py",
+    "line": 448,
+    "text": "receiver = edge_index[1]"
+   },
+   {
+    "file": "mace/modules/utils.py",
+    "line": 449,
+    "text": "vectors = positions[receiver] - positions[sender] + shifts  # [n_edges, 3]"
+   }
+  ],
+  "edge_index construction": [
+   {
+    "file": "mace/data/neighborhood.py",
+    "line": 162,
+    "text": "edge_index = np.stack((sender, receiver))  # [2, n_edges]"
+   },
+   {
+    "file": "mace/data/atomic_data.py",
+    "line": 441,
+    "text": "edge_index=torch.tensor(edge_index, dtype=torch.long),"
+   }
+  ],
+  "interaction call in ScaleShiftMACE/MACE forward": [
+   {
+    "file": "mace/modules/models.py",
+    "line": 371,
+    "text": "node_feats, sc = interaction("
+   },
+   {
+    "file": "mace/modules/models.py",
+    "line": 376,
+    "text": "edge_index=data[\"edge_index\"],"
+   },
+   {
+    "file": "mace/modules/models.py",
+    "line": 377,
+    "text": "cutoff=cutoff,"
+   },
+   {
+    "file": "mace/modules/models.py",
+    "line": 423,
+    "text": "edge_index=data[\"edge_index\"],"
+   },
+   {
+    "file": "mace/modules/models.py",
+    "line": 554,
+    "text": "node_feats, sc = interaction("
+   },
+   {
+    "file": "mace/modules/models.py",
+    "line": 559,
+    "text": "edge_index=data[\"edge_index\"],"
+   }
+  ],
+  "tp_out_irreps_with_instructions": [
+   {
+    "file": "mace/modules/irreps_tools.py",
+    "line": 31,
+    "text": "instructions.append((i, j, k, \"uvu\", trainable))"
+   },
+   {
+    "file": "mace/modules/irreps_tools.py",
+    "line": 36,
+    "text": "irreps_out, permut, _ = irreps_out.sort()"
+   },
+   {
+    "file": "mace/modules/irreps_tools.py",
+    "line": 44,
+    "text": "instructions = sorted(instructions, key=lambda x: x[2])"
+   }
+  ],
+  "reshape_irreps layout (no cueq -> mul_ir)": [
+   {
+    "file": "mace/modules/irreps_tools.py",
+    "line": 92,
+    "text": "field = field.reshape(batch, mul, d)"
+   },
+   {
+    "file": "mace/modules/irreps_tools.py",
+    "line": 96,
+    "text": "field = field.reshape(batch, mul, d)"
+   },
+   {
+    "file": "mace/modules/irreps_tools.py",
+    "line": 98,
+    "text": "field = field.reshape(batch, mul, d)"
+   },
+   {
+    "file": "mace/modules/irreps_tools.py",
+    "line": 104,
+    "text": "return torch.cat(out, dim=-1)"
+   },
+   {
+    "file": "mace/modules/irreps_tools.py",
+    "line": 107,
+    "text": "return torch.cat(out, dim=-1)"
+   },
+   {
+    "file": "mace/modules/irreps_tools.py",
+    "line": 108,
+    "text": "return torch.cat(out, dim=-1)"
+   }
+  ],
+  "wrapper_ops.TensorProduct fallback to e3nn": [
+   {
+    "file": "mace/modules/wrapper_ops.py",
+    "line": 286,
+    "text": "CUET_AVAILABLE"
+   },
+   {
+    "file": "mace/modules/wrapper_ops.py",
+    "line": 321,
+    "text": "OEQ_AVAILABLE"
+   },
+   {
+    "file": "mace/modules/wrapper_ops.py",
+    "line": 343,
+    "text": "CUET_AVAILABLE"
+   },
+   {
+    "file": "mace/modules/wrapper_ops.py",
+    "line": 368,
+    "text": "return o3.TensorProduct("
+   }
+  ],
+  "scatter_sum impl": [
+   {
+    "file": "mace/tools/scatter.py",
+    "line": 46,
+    "text": "return out.scatter_add_(dim, index, src)"
+   },
+   {
+    "file": "mace/tools/scatter.py",
+    "line": 48,
+    "text": "return out.scatter_add_(dim, index, src)"
+   }
+  ]
+ },
+ "flashtp_source_refs": {
+  "uvu_TP signature": [
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 11,
+    "text": "def uvu_TP("
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 12,
+    "text": "irreps_in1,"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 15,
+    "text": "instructions,"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 16,
+    "text": "block_batch_cnt=None,"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 17,
+    "text": "smem_size = None,"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 18,
+    "text": "device=\"cuda\","
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 19,
+    "text": "dtype=torch.float32,"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 20,
+    "text": "use_lammps=False"
+   }
+  ],
+  "uvu_TP builds e3nn TP w/ defaults": [
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 53,
+    "text": "# irrep_normalization = \"component\""
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 54,
+    "text": "# path_normalization  = \"element\""
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 60,
+    "text": "tp = e3nn.o3.TensorProduct("
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 65,
+    "text": "shared_weights=False,"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 66,
+    "text": "internal_weights=False,"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 78,
+    "text": "if len(unique_cg_val) <= 256:"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 135,
+    "text": "cg = e3nn.o3.wigner_3j(ir_in1.l, ir_in2.l, ir_out.l)"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/flashTP.py",
+    "line": 140,
+    "text": "cg_fp32 = cg.to(torch.float32)"
+   }
+  ],
+  "asserts / layout assumptions (large kernel)": [
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 65,
+    "text": "node_cnt = in1.shape[0]"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 66,
+    "text": "out = torch.zeros((node_cnt, out_size), device=in1.device, dtype=in1.dtype)"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 68,
+    "text": "assert in2.dtype == in1.dtype"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 69,
+    "text": "assert weight.dtype == in1.dtype"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 265,
+    "text": "node_cnt = in1.shape[0]"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 279,
+    "text": "assert in2.dtype == in1.dtype"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 280,
+    "text": "assert weight.dtype == in1.dtype"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 281,
+    "text": "assert grad_output.dtype == in1.dtype"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 381,
+    "text": "node_cnt = in1.shape[0]"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 389,
+    "text": "dF_dout = torch.zeros((node_cnt, out_size), device=in1.device, dtype=in1.dtype)"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 399,
+    "text": "assert dF_in1.dtype == in1.dtype"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 400,
+    "text": "assert dF_in2.dtype == in1.dtype"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 401,
+    "text": "assert dF_dw.dtype == in1.dtype"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 402,
+    "text": "assert dE_dout.dtype == in1.dtype"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 403,
+    "text": "assert in2.dtype == in1.dtype"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 404,
+    "text": "assert weight.dtype == in1.dtype"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 693,
+    "text": "tp_inst_outorder = sorted(instructions, key=lambda x: x.i_out)"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 716,
+    "text": "gpu_name = torch.cuda.get_device_name()"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 766,
+    "text": "def forward(self, in1, in2, weight, per_edge_src, per_edge_dst):"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 832,
+    "text": "out2weight_order = torch.tensor(out_order).argsort()"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 852,
+    "text": "assert mul % self.WARPSIZE == 0"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 867,
+    "text": "fiber_start = per_path_fiber_start[out_ir_idx]"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 888,
+    "text": "weight_uv_pair_sorted_chunk[out2weight_order[out_ir_idx]].start"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 909,
+    "text": "dtype=torch.uint8,"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 917,
+    "text": "per_upath_fiber_start, dtype=torch.uint16, device=self.device"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 920,
+    "text": "per_upath_fiber_array, dtype=torch.uint8, device=self.device"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py",
+    "line": 927,
+    "text": "dtype=torch.uint16,"
+   }
+  ],
+  "C++ input checks": [
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/sptp_exp_opt_large.cpp",
+    "line": 5,
+    "text": "#define CHECK_CUDA(x) TORCH_CHECK(x.device().is_cuda(), #x \" must be a CUDA tensor\")"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/sptp_exp_opt_large.cpp",
+    "line": 6,
+    "text": "#define CHECK_CONTIGUOUS(x) TORCH_CHECK(x.is_contiguous(), #x \" must be contiguous\")"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/sptp_exp_opt_large.cpp",
+    "line": 40,
+    "text": "CHECK_INPUT(per_edge_src);"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/sptp_exp_opt_large.cpp",
+    "line": 85,
+    "text": "else if (in1.dtype() == torch::kFloat64){"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/sptp_exp_opt_large.cpp",
+    "line": 113,
+    "text": "else assert(false);"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/sptp_exp_opt_large.cpp",
+    "line": 154,
+    "text": "CHECK_INPUT(per_edge_src);"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/sptp_exp_opt_large.cpp",
+    "line": 208,
+    "text": "else if (in1.dtype() == torch::kFloat64){"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/sptp_exp_opt_large.cpp",
+    "line": 242,
+    "text": "else assert(false);"
+   }
+  ],
+  "CUDA kernel edge index type / scatter": [
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fwd_sptp_linear_v2_shared_exp_double.cu",
+    "line": 30,
+    "text": "const int* __restrict__ per_edge_src,"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fwd_sptp_linear_v2_shared_exp_double.cu",
+    "line": 65,
+    "text": "const int src_idx = per_edge_src[global_t_batch_idx];"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fwd_sptp_linear_v2_shared_exp_double.cu",
+    "line": 66,
+    "text": "const int dst_idx = per_edge_dst[global_t_batch_idx];"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fwd_sptp_linear_v2_shared_exp_double.cu",
+    "line": 144,
+    "text": "shmem_scratch[shmem_idx] = my_shmem_uvuv[i] * reg_w_path_norm;"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fwd_sptp_linear_v2_shared_exp_double.cu",
+    "line": 155,
+    "text": "atomicAdd(out+out_idx, shmem_scratch[shmem_idx]);"
+   },
+   {
+    "file": "../flashTP/flashTP_e3nn/sptp_exp_opt_large/fwd_sptp_linear_v2_shared_exp_double.cu",
+    "line": 232,
+    "text": "per_edge_src.data<int>(),"
+   }
+  ],
+  "reference usage in example": [
+   {
+    "file": "../flashTP/example/flashTP_test.py",
+    "line": 79,
+    "text": "flashtp = flashTP_e3nn.uvu_TP(i_in1,i_in2,i_out,inst_tuple, device=\"cuda\", dtype=used_dtype)"
+   },
+   {
+    "file": "../flashTP/example/flashTP_test.py",
+    "line": 87,
+    "text": "t_edge_src = torch.tensor(edge_src, device=\"cuda\", dtype=torch.int32)"
+   },
+   {
+    "file": "../flashTP/example/flashTP_test.py",
+    "line": 88,
+    "text": "t_edge_dst = torch.tensor(edge_dst, device=\"cuda\", dtype=torch.int32)"
+   },
+   {
+    "file": "../flashTP/example/flashTP_test.py",
+    "line": 108,
+    "text": "in1 = in1_node[edge_src]"
+   },
+   {
+    "file": "../flashTP/example/flashTP_test.py",
+    "line": 109,
+    "text": "out_large_exp = tp(in1,in2,weight)"
+   },
+   {
+    "file": "../flashTP/example/flashTP_test.py",
+    "line": 114,
+    "text": "out_exp.scatter_add_("
+   },
+   {
+    "file": "../flashTP/example/flashTP_test.py",
+    "line": 135,
+    "text": "out_ours = flashtp(in1_node_c,in2_c,weight_c, t_edge_src, t_edge_dst)"
+   }
+  ]
+ },
+ "systems": {
+  "H2O": {
+   "n_atoms": 3,
+   "energy_eV": -2081.11639716893,
+   "cpu_seconds": 0.10561180114746094,
+   "extent_A": [
+    0.0,
+    1.526478,
+    0.596309
+   ],
+   "layers": {
+    "0": {
+     "node_feats_in": {
+      "shape": [
+       3,
+       128
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       128,
+       1
+      ]
+     },
+     "edge_feats": {
+      "shape": [
+       6,
+       8
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       8,
+       1
+      ]
+     },
+     "cutoff": null,
+     "kwargs_keys": [
+      "cutoff",
+      "edge_attrs",
+      "edge_feats",
+      "edge_index",
+      "first_layer",
+      "lammps_class",
+      "lammps_natoms",
+      "node_attrs",
+      "node_feats"
+     ],
+     "conv_in1": {
+      "shape": [
+       6,
+       128
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       128,
+       1
+      ]
+     },
+     "conv_in2": {
+      "shape": [
+       6,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       16,
+       1
+      ]
+     },
+     "conv_w": {
+      "shape": [
+       6,
+       512
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       512,
+       1
+      ]
+     },
+     "conv_n_args": 3,
+     "mji": {
+      "shape": [
+       6,
+       2048
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       1
+      ]
+     },
+     "message_post_scatter": {
+      "shape": [
+       3,
+       2048
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       1
+      ]
+     },
+     "linear_out": {
+      "shape": [
+       3,
+       2048
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       1
+      ]
+     },
+     "reshape_in": {
+      "shape": [
+       3,
+       2048
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       1
+      ]
+     },
+     "reshape_out": {
+      "shape": [
+       3,
+       128,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       16,
+       1
+      ]
+     },
+     "interaction_out": {
+      "shape": [
+       3,
+       128,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       16,
+       1
+      ]
+     },
+     "sc": null,
+     "n_nodes": 3,
+     "n_edges": 6,
+     "edge_index": {
+      "shape": [
+       2,
+       6
+      ],
+      "dtype": "torch.int64",
+      "contiguous": true,
+      "stride": [
+       6,
+       1
+      ],
+      "row0_role": "sender (gathered: node_feats[edge_index[0]])",
+      "row1_role": "receiver (scatter index)",
+      "sorted_by_receiver(row1)": false,
+      "sorted_by_sender(row0)": true,
+      "row0_contiguous": true,
+      "max_index": 2,
+      "fits_int32": true,
+      "has_self_loops": false
+     },
+     "edge_attrs": {
+      "shape": [
+       6,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       16,
+       1
+      ]
+     },
+     "node_feats_into_gather(linear_up_out)": {
+      "shape": [
+       3,
+       128
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       128,
+       1
+      ]
+     },
+     "avg_neighbors_observed(n_edges/n_nodes)": 2.0,
+     "in_degree_min_max_mean": [
+      2.0,
+      2.0,
+      2.0
+     ],
+     "model_avg_num_neighbors": 18.41771125793457,
+     "numerics": {
+      "edges_checked": 6,
+      "max_abs_mji_mace_vs_e3nn_default_TP(as_uvu_TP_builds)": 0.0,
+      "max_abs_scatter_full_vs_captured_linear_input": 0.0,
+      "max_abs_flashtp_math_emulation_vs_mace_gather_tp_scatter": 5.551115123125783e-16,
+      "max_abs_flashtp_emulation_with_fp32_rounded_cg_table_vs_mace": 3.438214735140832e-08,
+      "ref_scale_max_abs_message": 2.0963427355671427
+     }
+    },
+    "1": {
+     "node_feats_in": {
+      "shape": [
+       3,
+       512
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       512,
+       1
+      ]
+     },
+     "edge_feats": {
+      "shape": [
+       6,
+       8
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       8,
+       1
+      ]
+     },
+     "cutoff": null,
+     "kwargs_keys": [
+      "cutoff",
+      "edge_attrs",
+      "edge_feats",
+      "edge_index",
+      "first_layer",
+      "lammps_class",
+      "lammps_natoms",
+      "node_attrs",
+      "node_feats"
+     ],
+     "conv_in1": {
+      "shape": [
+       6,
+       512
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       512,
+       1
+      ]
+     },
+     "conv_in2": {
+      "shape": [
+       6,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       16,
+       1
+      ]
+     },
+     "conv_w": {
+      "shape": [
+       6,
+       1280
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       1280,
+       1
+      ]
+     },
+     "conv_n_args": 3,
+     "mji": {
+      "shape": [
+       6,
+       5120
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       5120,
+       1
+      ]
+     },
+     "message_post_scatter": {
+      "shape": [
+       3,
+       5120
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       5120,
+       1
+      ]
+     },
+     "linear_out": {
+      "shape": [
+       3,
+       2048
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       1
+      ]
+     },
+     "reshape_in": {
+      "shape": [
+       3,
+       2048
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       1
+      ]
+     },
+     "reshape_out": {
+      "shape": [
+       3,
+       128,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       16,
+       1
+      ]
+     },
+     "interaction_out": {
+      "shape": [
+       3,
+       128,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       16,
+       1
+      ]
+     },
+     "sc": {
+      "shape": [
+       3,
+       128
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       128,
+       1
+      ]
+     },
+     "n_nodes": 3,
+     "n_edges": 6,
+     "edge_index": {
+      "shape": [
+       2,
+       6
+      ],
+      "dtype": "torch.int64",
+      "contiguous": true,
+      "stride": [
+       6,
+       1
+      ],
+      "row0_role": "sender (gathered: node_feats[edge_index[0]])",
+      "row1_role": "receiver (scatter index)",
+      "sorted_by_receiver(row1)": false,
+      "sorted_by_sender(row0)": true,
+      "row0_contiguous": true,
+      "max_index": 2,
+      "fits_int32": true,
+      "has_self_loops": false
+     },
+     "edge_attrs": {
+      "shape": [
+       6,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       16,
+       1
+      ]
+     },
+     "node_feats_into_gather(linear_up_out)": {
+      "shape": [
+       3,
+       512
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       512,
+       1
+      ]
+     },
+     "avg_neighbors_observed(n_edges/n_nodes)": 2.0,
+     "in_degree_min_max_mean": [
+      2.0,
+      2.0,
+      2.0
+     ],
+     "model_avg_num_neighbors": 18.41771125793457,
+     "numerics": {
+      "edges_checked": 6,
+      "max_abs_mji_mace_vs_e3nn_default_TP(as_uvu_TP_builds)": 4.440892098500626e-16,
+      "max_abs_scatter_full_vs_captured_linear_input": 0.0,
+      "max_abs_flashtp_math_emulation_vs_mace_gather_tp_scatter": 1.3322676295501878e-15,
+      "max_abs_flashtp_emulation_with_fp32_rounded_cg_table_vs_mace": 9.223157793059045e-08,
+      "ref_scale_max_abs_message": 6.395624045160338
+     }
+    }
+   }
+  },
+  "water_cluster_6x6x6": {
+   "n_atoms": 648,
+   "energy_eV": -449526.0097505144,
+   "cpu_seconds": 2.7795846462249756,
+   "extent_A": [
+    17.201056376022606,
+    17.295703088028752,
+    17.112123559914966
+   ],
+   "layers": {
+    "0": {
+     "node_feats_in": {
+      "shape": [
+       648,
+       128
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       128,
+       1
+      ]
+     },
+     "edge_feats": {
+      "shape": [
+       26550,
+       8
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       8,
+       1
+      ]
+     },
+     "cutoff": null,
+     "kwargs_keys": [
+      "cutoff",
+      "edge_attrs",
+      "edge_feats",
+      "edge_index",
+      "first_layer",
+      "lammps_class",
+      "lammps_natoms",
+      "node_attrs",
+      "node_feats"
+     ],
+     "conv_in1": {
+      "shape": [
+       26550,
+       128
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       128,
+       1
+      ]
+     },
+     "conv_in2": {
+      "shape": [
+       26550,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       16,
+       1
+      ]
+     },
+     "conv_w": {
+      "shape": [
+       26550,
+       512
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       512,
+       1
+      ]
+     },
+     "conv_n_args": 3,
+     "mji": {
+      "shape": [
+       26550,
+       2048
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       1
+      ]
+     },
+     "message_post_scatter": {
+      "shape": [
+       648,
+       2048
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       1
+      ]
+     },
+     "linear_out": {
+      "shape": [
+       648,
+       2048
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       1
+      ]
+     },
+     "reshape_in": {
+      "shape": [
+       648,
+       2048
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       1
+      ]
+     },
+     "reshape_out": {
+      "shape": [
+       648,
+       128,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       16,
+       1
+      ]
+     },
+     "interaction_out": {
+      "shape": [
+       648,
+       128,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       16,
+       1
+      ]
+     },
+     "sc": null,
+     "n_nodes": 648,
+     "n_edges": 26550,
+     "edge_index": {
+      "shape": [
+       2,
+       26550
+      ],
+      "dtype": "torch.int64",
+      "contiguous": true,
+      "stride": [
+       26550,
+       1
+      ],
+      "row0_role": "sender (gathered: node_feats[edge_index[0]])",
+      "row1_role": "receiver (scatter index)",
+      "sorted_by_receiver(row1)": false,
+      "sorted_by_sender(row0)": true,
+      "row0_contiguous": true,
+      "max_index": 647,
+      "fits_int32": true,
+      "has_self_loops": false
+     },
+     "edge_attrs": {
+      "shape": [
+       26550,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       16,
+       1
+      ]
+     },
+     "node_feats_into_gather(linear_up_out)": {
+      "shape": [
+       648,
+       128
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       128,
+       1
+      ]
+     },
+     "avg_neighbors_observed(n_edges/n_nodes)": 40.97222222222222,
+     "in_degree_min_max_mean": [
+      15.0,
+      62.0,
+      40.97222222222222
+     ],
+     "model_avg_num_neighbors": 18.41771125793457,
+     "numerics": {
+      "edges_checked": 4096,
+      "max_abs_mji_mace_vs_e3nn_default_TP(as_uvu_TP_builds)": 0.0,
+      "max_abs_scatter_full_vs_captured_linear_input": 0.0,
+      "max_abs_flashtp_math_emulation_vs_mace_gather_tp_scatter": 1.9984014443252818e-15,
+      "max_abs_flashtp_emulation_with_fp32_rounded_cg_table_vs_mace": 3.900606682094576e-08,
+      "ref_scale_max_abs_message": 2.1732540298960954
+     }
+    },
+    "1": {
+     "node_feats_in": {
+      "shape": [
+       648,
+       512
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       512,
+       1
+      ]
+     },
+     "edge_feats": {
+      "shape": [
+       26550,
+       8
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       8,
+       1
+      ]
+     },
+     "cutoff": null,
+     "kwargs_keys": [
+      "cutoff",
+      "edge_attrs",
+      "edge_feats",
+      "edge_index",
+      "first_layer",
+      "lammps_class",
+      "lammps_natoms",
+      "node_attrs",
+      "node_feats"
+     ],
+     "conv_in1": {
+      "shape": [
+       26550,
+       512
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       512,
+       1
+      ]
+     },
+     "conv_in2": {
+      "shape": [
+       26550,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       16,
+       1
+      ]
+     },
+     "conv_w": {
+      "shape": [
+       26550,
+       1280
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       1280,
+       1
+      ]
+     },
+     "conv_n_args": 3,
+     "mji": {
+      "shape": [
+       26550,
+       5120
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       5120,
+       1
+      ]
+     },
+     "message_post_scatter": {
+      "shape": [
+       648,
+       5120
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       5120,
+       1
+      ]
+     },
+     "linear_out": {
+      "shape": [
+       648,
+       2048
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       1
+      ]
+     },
+     "reshape_in": {
+      "shape": [
+       648,
+       2048
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       1
+      ]
+     },
+     "reshape_out": {
+      "shape": [
+       648,
+       128,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       16,
+       1
+      ]
+     },
+     "interaction_out": {
+      "shape": [
+       648,
+       128,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       2048,
+       16,
+       1
+      ]
+     },
+     "sc": {
+      "shape": [
+       648,
+       128
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       128,
+       1
+      ]
+     },
+     "n_nodes": 648,
+     "n_edges": 26550,
+     "edge_index": {
+      "shape": [
+       2,
+       26550
+      ],
+      "dtype": "torch.int64",
+      "contiguous": true,
+      "stride": [
+       26550,
+       1
+      ],
+      "row0_role": "sender (gathered: node_feats[edge_index[0]])",
+      "row1_role": "receiver (scatter index)",
+      "sorted_by_receiver(row1)": false,
+      "sorted_by_sender(row0)": true,
+      "row0_contiguous": true,
+      "max_index": 647,
+      "fits_int32": true,
+      "has_self_loops": false
+     },
+     "edge_attrs": {
+      "shape": [
+       26550,
+       16
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       16,
+       1
+      ]
+     },
+     "node_feats_into_gather(linear_up_out)": {
+      "shape": [
+       648,
+       512
+      ],
+      "dtype": "torch.float64",
+      "contiguous": true,
+      "stride": [
+       512,
+       1
+      ]
+     },
+     "avg_neighbors_observed(n_edges/n_nodes)": 40.97222222222222,
+     "in_degree_min_max_mean": [
+      15.0,
+      62.0,
+      40.97222222222222
+     ],
+     "model_avg_num_neighbors": 18.41771125793457,
+     "numerics": {
+      "edges_checked": 4096,
+      "max_abs_mji_mace_vs_e3nn_default_TP(as_uvu_TP_builds)": 4.440892098500626e-16,
+      "max_abs_scatter_full_vs_captured_linear_input": 0.0,
+      "max_abs_flashtp_math_emulation_vs_mace_gather_tp_scatter": 3.9968028886505635e-15,
+      "max_abs_flashtp_emulation_with_fp32_rounded_cg_table_vs_mace": 1.0766835423225984e-07,
+      "ref_scale_max_abs_message": 6.213285447496633
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,117 @@
+{
+ "global_default": "torch.float64",
+ "slurm_job": "1011",
+ "gpu": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845",
+ "tests": {
+  "zero_edge": {
+   "single_Cl": {
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 0.0,
+     "rms_dF": 0.0,
+     "max_absF_ref": 0.0,
+     "S": null
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 0.0,
+     "rms_dF": 0.0,
+     "max_absF_ref": 0.0,
+     "S": null
+    },
+    "n_edges": 0
+   },
+   "far3": {
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 0.0,
+     "rms_dF": 0.0,
+     "max_absF_ref": 0.0,
+     "S": null
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 0.0,
+     "rms_dF": 0.0,
+     "max_absF_ref": 0.0,
+     "S": null
+    },
+    "n_edges": 0
+   },
+   "pbc_single_O": {
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 0.0,
+     "rms_dF": 0.0,
+     "max_absF_ref": 0.0,
+     "max_dS_eV_A3": 0.0,
+     "max_absS_ref": 0.0,
+     "S": 0.0
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 0.0,
+     "rms_dF": 0.0,
+     "max_absF_ref": 0.0,
+     "max_dS_eV_A3": 0.0,
+     "max_absS_ref": 0.0,
+     "S": 0.0
+    },
+    "n_edges": 0
+   },
+   "batch_all_isolated": {
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 0.0,
+     "rms_dF": 0.0,
+     "max_absF_ref": 0.0,
+     "S": null
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 0.0,
+     "rms_dF": 0.0,
+     "max_absF_ref": 0.0,
+     "S": null
+    },
+    "n_edges": 0
+   },
+   "train_single_Cl": {
+    "e3nn": {
+     "ok": true,
+     "n_grads": 29,
+     "forces_requires_grad": true
+    },
+    "flash": {
+     "ok": true,
+     "n_grads": 29,
+     "forces_requires_grad": true
+    },
+    "n_common": 29,
+    "max_param_grad_diff": 0.0,
+    "keys_only_e3nn": [],
+    "keys_only_flash": []
+   },
+   "train_mixed_ethanol+Cl": {
+    "e3nn": {
+     "ok": true,
+     "n_grads": 29,
+     "forces_requires_grad": true
+    },
+    "flash": {
+     "ok": true,
+     "n_grads": 29,
+     "forces_requires_grad": true
+    },
+    "n_common": 29,
+    "max_param_grad_diff": 1.4210854715202004e-14,
+    "keys_only_e3nn": [],
+    "keys_only_flash": []
+   },
+   "status": "ok",
+   "sec": 19.83
+  }
+ },
+ "failures": [],
+ "default_at_end": "torch.float64"
+}

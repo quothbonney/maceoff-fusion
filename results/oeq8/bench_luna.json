@@ -1,0 +1,1884 @@
+{
+ "env": {
+  "job": "1057",
+  "host": "slurm-h100-206-077",
+  "gpu": "NVIDIA H100 80GB HBM3, GPU-3ef4e875-4571-3cea-d408-241db662acb5",
+  "torch": "2.11.0+cu128",
+  "python": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-luna/bin/python"
+ },
+ "backend": "luna",
+ "results": {
+  "aspirin_L0": {
+   "N": 21,
+   "E": 302,
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 4.0698736981758313e-16,
+      "max_ref": 3.2734864232944796,
+      "n_nearzero": 14592,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 3.092843971185856e-16,
+      "max_ref": 34.46064895512645,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 9.43689570931383e-16,
+      "scaled": 2.4439169983279803e-16,
+      "max_ref": 3.8613814281623053,
+      "n_nearzero": 38,
+      "max_abs_nearzero": 5.37667398159468e-24,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-16,
+      "scaled": 3.711132852136607e-16,
+      "max_ref": 2.3932811222017425,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.1888154074549675,
+      "p10": 0.1853998750448227,
+      "p90": 0.19330251961946487,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.16983132809400558,
+      "p10": 0.16662552952766418,
+      "p90": 0.17372947186231613,
+      "n": 50
+     },
+     "graph_bwd": {
+      "error": "AcceleratorError(\"CUDA error: operation failed due to a previous error during capture\\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\\nCUDA kernel errors might be asynchronously reported at some other AP"
+     },
+     "eager_fwd_bwd": {
+      "median": 0.4391912370920181,
+      "p10": 0.42792800813913345,
+      "p90": 0.45247897505760193,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 4.0698736981758313e-16,
+      "max_ref": 3.2734864232944796,
+      "n_nearzero": 14592,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 3.092843971185856e-16,
+      "max_ref": 34.46064895512645,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 9.43689570931383e-16,
+      "scaled": 2.4439169983279803e-16,
+      "max_ref": 3.8613814281623053,
+      "n_nearzero": 38,
+      "max_abs_nearzero": 5.37667398159468e-24,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-16,
+      "scaled": 3.711132852136607e-16,
+      "max_ref": 2.3932811222017425,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.025350600481033325,
+      "p10": 0.024307332932949066,
+      "p90": 0.027383863925933838,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.009488000068813562,
+      "p10": 0.009247999638319016,
+      "p90": 0.009955200273543597,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.0926479697227478,
+      "p10": 0.09117759764194489,
+      "p90": 0.09646397083997726,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.028351999819278717,
+      "p10": 0.02815680019557476,
+      "p90": 0.028547199442982674,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.12848153710365295,
+      "p10": 0.12552477419376373,
+      "p90": 0.13231821358203888,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.033695999532938004,
+      "p10": 0.03347200155258179,
+      "p90": 0.03388800099492073,
+      "n": 50
+     }
+    }
+   }
+  },
+  "aspirin_L1": {
+   "N": 21,
+   "E": 302,
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 6.217248937900877e-15,
+      "scaled": 8.275261049656356e-16,
+      "max_ref": 7.513054755123475,
+      "n_nearzero": 36480,
+      "max_abs_nearzero": 4.440892098500626e-16,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 9.356978094044098e-16,
+      "max_ref": 26.578020704604526,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 3.754856738624877e-16,
+      "max_ref": 28.38494722518969,
+      "n_nearzero": 7,
+      "max_abs_nearzero": 4.632211430296955e-23,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 4.440892098500626e-15,
+      "scaled": 4.596272428341833e-16,
+      "max_ref": 9.661942732369189,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.19607692956924438,
+      "p10": 0.19434429705142975,
+      "p90": 0.20304862409830093,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.17990265041589737,
+      "p10": 0.17639249563217163,
+      "p90": 0.1838376745581627,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.06864000111818314,
+      "p10": 0.06841599941253662,
+      "p90": 0.06897920295596123,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.4230877384543419,
+      "p10": 0.41723791509866714,
+      "p90": 0.43099336326122284,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 6.217248937900877e-15,
+      "scaled": 8.275261049656356e-16,
+      "max_ref": 7.513054755123475,
+      "n_nearzero": 36480,
+      "max_abs_nearzero": 4.440892098500626e-16,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 9.356978094044098e-16,
+      "max_ref": 26.578020704604526,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 3.754856738624877e-16,
+      "max_ref": 28.38494722518969,
+      "n_nearzero": 7,
+      "max_abs_nearzero": 4.632211430296955e-23,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 4.440892098500626e-15,
+      "scaled": 4.596272428341833e-16,
+      "max_ref": 9.661942732369189,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.027447938919067383,
+      "p10": 0.026635825634002686,
+      "p90": 0.029251724481582645,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.011376000009477139,
+      "p10": 0.011103999800980091,
+      "p90": 0.011619199998676777,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.10106619447469711,
+      "p10": 0.09960290044546127,
+      "p90": 0.10327324271202087,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.0395359992980957,
+      "p10": 0.039292801171541214,
+      "p90": 0.04000319913029671,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.1364024356007576,
+      "p10": 0.13378262519836426,
+      "p90": 0.1395992934703827,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.04451199993491173,
+      "p10": 0.044252801686525345,
+      "p90": 0.04467200115323067,
+      "n": 50
+     }
+    }
+   }
+  },
+  "water192_L0": {
+   "N": 192,
+   "E": 6634,
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 6.010606591963413e-16,
+      "max_ref": 2.216527748349925,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.552713678800501e-14,
+      "scaled": 9.984426692417714e-16,
+      "max_ref": 35.582550588492694,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 4.413348081158003e-16,
+      "max_ref": 6.03744642412442,
+      "n_nearzero": 713,
+      "max_abs_nearzero": 1.0164395367051604e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.9659737436931325e-16,
+      "max_ref": 3.3592447042011284,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 5.678739661783732e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.24529173970222473,
+      "p10": 0.2384888008236885,
+      "p90": 0.24724788963794708,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.24963542819023132,
+      "p10": 0.24759862571954727,
+      "p90": 0.2509335055947304,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.18188799917697906,
+      "p10": 0.18108479976654052,
+      "p90": 0.1826911985874176,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.4931613802909851,
+      "p10": 0.4878990352153778,
+      "p90": 0.4994535818696022,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 6.010606591963413e-16,
+      "max_ref": 2.216527748349925,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.552713678800501e-14,
+      "scaled": 9.984426692417714e-16,
+      "max_ref": 35.582550588492694,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 4.413348081158003e-16,
+      "max_ref": 6.03744642412442,
+      "n_nearzero": 713,
+      "max_abs_nearzero": 1.0164395367051604e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.9659737436931325e-16,
+      "max_ref": 3.3592447042011284,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 5.678739661783732e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.033387914299964905,
+      "p10": 0.0327620655298233,
+      "p90": 0.03692060708999634,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.017872000113129616,
+      "p10": 0.01759999990463257,
+      "p90": 0.018211200647056103,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.12350920587778091,
+      "p10": 0.12227408587932587,
+      "p90": 0.1249261200428009,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.06966400146484375,
+      "p10": 0.06904959678649902,
+      "p90": 0.07021119818091393,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.14694221317768097,
+      "p10": 0.1456884667277336,
+      "p90": 0.14960411936044693,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.08796799927949905,
+      "p10": 0.0874176025390625,
+      "p90": 0.08864959701895714,
+      "n": 50
+     }
+    }
+   }
+  },
+  "water192_L1": {
+   "N": 192,
+   "E": 6634,
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 1.931550371708583e-15,
+      "max_ref": 5.977747008424197,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.263256414560601e-14,
+      "scaled": 1.2635051167764388e-15,
+      "max_ref": 33.74150494488999,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.9539925233402755e-14,
+      "scaled": 5.805698035916633e-16,
+      "max_ref": 33.65646148408008,
+      "n_nearzero": 436,
+      "max_abs_nearzero": 6.352747104407253e-22,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 6.716315564498641e-16,
+      "max_ref": 13.224191316960937,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.2899244427680969,
+      "p10": 0.28810761868953705,
+      "p90": 0.29575396329164505,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.35627372562885284,
+      "p10": 0.35387352108955383,
+      "p90": 0.35954415798187256,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.28379198908805847,
+      "p10": 0.28239681124687194,
+      "p90": 0.2852959901094437,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.6021950393915176,
+      "p10": 0.5977297201752663,
+      "p90": 0.6093455478549004,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 1.931550371708583e-15,
+      "max_ref": 5.977747008424197,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.263256414560601e-14,
+      "scaled": 1.2635051167764388e-15,
+      "max_ref": 33.74150494488999,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.9539925233402755e-14,
+      "scaled": 5.805698035916633e-16,
+      "max_ref": 33.65646148408008,
+      "n_nearzero": 436,
+      "max_abs_nearzero": 6.352747104407253e-22,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 6.716315564498641e-16,
+      "max_ref": 13.224191316960937,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.06293505430221558,
+      "p10": 0.06208159029483795,
+      "p90": 0.0643707811832428,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.046879999339580536,
+      "p10": 0.046486400067806244,
+      "p90": 0.04758400097489357,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.16757473349571228,
+      "p10": 0.16628894954919815,
+      "p90": 0.17029717564582825,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.11089600250124931,
+      "p10": 0.11004800349473953,
+      "p90": 0.11175360158085823,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.19674282521009445,
+      "p10": 0.19492395222187042,
+      "p90": 0.20081344991922379,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.1512639969587326,
+      "p10": 0.14993919432163239,
+      "p90": 0.15243840515613555,
+      "n": 50
+     }
+    }
+   }
+  },
+  "org192_L0": {
+   "N": 196,
+   "E": 3670,
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.155659105278037e-16,
+      "max_ref": 4.221836342594442,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 7.986579378153286e-16,
+      "max_ref": 31.13848191333433,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 5.597423670912835e-16,
+      "max_ref": 4.760288689503183,
+      "n_nearzero": 516,
+      "max_abs_nearzero": 3.3881317890172014e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 3.167988228176149e-16,
+      "max_ref": 8.410811742928674,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 9.177254567643072e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.19461661577224731,
+      "p10": 0.1861363649368286,
+      "p90": 0.1991385594010353,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.22755935788154602,
+      "p10": 0.22459644824266434,
+      "p90": 0.23008398711681366,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.1605599969625473,
+      "p10": 0.15962560176849366,
+      "p90": 0.16154559403657914,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.4379991441965103,
+      "p10": 0.43220315128564835,
+      "p90": 0.4464970901608467,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.155659105278037e-16,
+      "max_ref": 4.221836342594442,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 7.986579378153286e-16,
+      "max_ref": 31.13848191333433,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 5.597423670912835e-16,
+      "max_ref": 4.760288689503183,
+      "n_nearzero": 516,
+      "max_abs_nearzero": 3.3881317890172014e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 3.167988228176149e-16,
+      "max_ref": 8.410811742928674,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 9.177254567643072e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.029556453227996826,
+      "p10": 0.028912536799907684,
+      "p90": 0.030413828790187836,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.013999999966472387,
+      "p10": 0.013724800199270248,
+      "p90": 0.014275199733674526,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.09886547923088074,
+      "p10": 0.09783022105693817,
+      "p90": 0.10035932064056396,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.045791998505592346,
+      "p10": 0.045343998819589615,
+      "p90": 0.0461760014295578,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.1342175528407097,
+      "p10": 0.13160128146409988,
+      "p90": 0.1365259289741516,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.0647520013153553,
+      "p10": 0.06406080350279808,
+      "p90": 0.06515199691057205,
+      "n": 50
+     }
+    }
+   }
+  },
+  "org192_L1": {
+   "N": 196,
+   "E": 3670,
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 7.993605777301127e-15,
+      "scaled": 8.956407229503275e-16,
+      "max_ref": 8.925013761064161,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 7.479639737434374e-17,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.197442310920451e-14,
+      "scaled": 7.739088358021108e-16,
+      "max_ref": 41.315490442830914,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 1.190845691432607e-15,
+      "max_ref": 22.375151358988386,
+      "n_nearzero": 358,
+      "max_abs_nearzero": 3.3881317890172014e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.2434497875801753e-14,
+      "scaled": 9.18041628790815e-16,
+      "max_ref": 13.544590447580976,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.21190382540225983,
+      "p10": 0.21027140319347382,
+      "p90": 0.21891966462135315,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.29370561242103577,
+      "p10": 0.2914510667324066,
+      "p90": 0.2970477566123009,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.22472000122070312,
+      "p10": 0.22326399385929108,
+      "p90": 0.22593920528888703,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.5082143470644951,
+      "p10": 0.5043057724833488,
+      "p90": 0.5161512643098831,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 7.993605777301127e-15,
+      "scaled": 8.956407229503275e-16,
+      "max_ref": 8.925013761064161,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 7.479639737434374e-17,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.197442310920451e-14,
+      "scaled": 7.739088358021108e-16,
+      "max_ref": 41.315490442830914,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 1.190845691432607e-15,
+      "max_ref": 22.375151358988386,
+      "n_nearzero": 358,
+      "max_abs_nearzero": 3.3881317890172014e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.2434497875801753e-14,
+      "scaled": 9.18041628790815e-16,
+      "max_ref": 13.544590447580976,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.047043897211551666,
+      "p10": 0.04627257585525513,
+      "p90": 0.04885531961917877,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.03147200122475624,
+      "p10": 0.030937600880861282,
+      "p90": 0.03207039833068848,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.1505548134446144,
+      "p10": 0.14914609491825104,
+      "p90": 0.15161801129579544,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.09444799646735191,
+      "p10": 0.09372799843549728,
+      "p90": 0.09513920173048973,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.17879530787467957,
+      "p10": 0.17665624618530273,
+      "p90": 0.18091779202222824,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.11856000125408173,
+      "p10": 0.11727999895811081,
+      "p90": 0.11934079974889755,
+      "n": 50
+     }
+    }
+   }
+  },
+  "water648_L0": {
+   "N": 648,
+   "E": 26550,
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 5.162170049923089e-16,
+      "max_ref": 2.5808286373092986,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.197442310920451e-14,
+      "scaled": 8.564320481708919e-16,
+      "max_ref": 37.33445423661254,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 5.884464108210672e-16,
+      "max_ref": 6.037446424124418,
+      "n_nearzero": 3117,
+      "max_abs_nearzero": 2.541098841762901e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.4433824295622105e-16,
+      "max_ref": 3.869066700556904,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 3.6129057127692983e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.36115944385528564,
+      "p10": 0.35897810012102127,
+      "p90": 0.3655143082141876,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.4692310467362404,
+      "p10": 0.4665698856115341,
+      "p90": 0.4745837301015854,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.391744002699852,
+      "p10": 0.390720009803772,
+      "p90": 0.39321921169757845,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.7822271436452866,
+      "p10": 0.7786707952618599,
+      "p90": 0.7882548496127129,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 5.162170049923089e-16,
+      "max_ref": 2.5808286373092986,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.197442310920451e-14,
+      "scaled": 8.564320481708919e-16,
+      "max_ref": 37.33445423661254,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 5.884464108210672e-16,
+      "max_ref": 6.037446424124418,
+      "n_nearzero": 3117,
+      "max_abs_nearzero": 2.541098841762901e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.4433824295622105e-16,
+      "max_ref": 3.869066700556904,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 3.6129057127692983e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.07593166083097458,
+      "p10": 0.0748777762055397,
+      "p90": 0.07833708077669144,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.05984000116586685,
+      "p10": 0.05896959863603115,
+      "p90": 0.06120640002191067,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.21355785429477692,
+      "p10": 0.2107035368680954,
+      "p90": 0.21900124847888947,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.15876799821853638,
+      "p10": 0.1577216014266014,
+      "p90": 0.15971200168132782,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.2429559826850891,
+      "p10": 0.24087261408567429,
+      "p90": 0.2453278750181198,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.21529600024223328,
+      "p10": 0.2142688065767288,
+      "p90": 0.2166208028793335,
+      "n": 50
+     }
+    }
+   }
+  },
+  "water648_L1": {
+   "N": 648,
+   "E": 26550,
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 1.422600361052068e-15,
+      "max_ref": 6.867678994173819,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.973799150320701e-14,
+      "scaled": 1.013171780189752e-15,
+      "max_ref": 49.09137075836422,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 6.953803666598138e-16,
+      "max_ref": 35.76315487746527,
+      "n_nearzero": 1959,
+      "max_abs_nearzero": 5.082197683525802e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 7.211535814508211e-16,
+      "max_ref": 13.547686467903421,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 2.7669191489898776e-22,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.5675405263900757,
+      "p10": 0.5651755258440971,
+      "p90": 0.5707025527954102,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.8801110088825226,
+      "p10": 0.8776148781180382,
+      "p90": 0.8833397179841995,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.7982079982757568,
+      "p10": 0.7964415907859802,
+      "p90": 0.7996607899665833,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.388699747622013,
+      "p10": 1.3839557766914368,
+      "p90": 1.3951914384961128,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 1.422600361052068e-15,
+      "max_ref": 6.867678994173819,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.973799150320701e-14,
+      "scaled": 1.013171780189752e-15,
+      "max_ref": 49.09137075836422,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 6.953803666598138e-16,
+      "max_ref": 35.76315487746527,
+      "n_nearzero": 1959,
+      "max_abs_nearzero": 5.082197683525802e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 7.211535814508211e-16,
+      "max_ref": 13.547686467903421,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 2.7669191489898776e-22,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.15851855278015137,
+      "p10": 0.15787556767463684,
+      "p90": 0.1600632444024086,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.1428000032901764,
+      "p10": 0.1422047957777977,
+      "p90": 0.14360319823026657,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.40275417268276215,
+      "p10": 0.40150657296180725,
+      "p90": 0.4060862585902214,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.3461120128631592,
+      "p10": 0.34492799639701843,
+      "p90": 0.3470111906528473,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.5074180662631989,
+      "p10": 0.5052333697676659,
+      "p90": 0.5134962499141693,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.48446398973464966,
+      "p10": 0.48351680040359496,
+      "p90": 0.4856672078371048,
+      "n": 50
+     }
+    }
+   }
+  },
+  "org648_L0": {
+   "N": 650,
+   "E": 14856,
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 2.220446049250313e-15,
+      "scaled": 5.34236989557675e-16,
+      "max_ref": 4.15629410290131,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 6.695267050361766e-16,
+      "max_ref": 42.450449275011806,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 3.6708858426597353e-16,
+      "max_ref": 4.839041352790185,
+      "n_nearzero": 1464,
+      "max_abs_nearzero": 4.235164736271502e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.9500794280750075e-16,
+      "max_ref": 6.021386483683129,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 2.3732638954758917e-20,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.29749516397714615,
+      "p10": 0.29619578272104263,
+      "p90": 0.30044689774513245,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.33821817487478256,
+      "p10": 0.3361934795975685,
+      "p90": 0.3416365012526512,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.2709600031375885,
+      "p10": 0.2700383931398392,
+      "p90": 0.2717759907245636,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.6028730422258377,
+      "p10": 0.5991129204630852,
+      "p90": 0.6120834499597549,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 2.220446049250313e-15,
+      "scaled": 5.34236989557675e-16,
+      "max_ref": 4.15629410290131,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 6.695267050361766e-16,
+      "max_ref": 42.450449275011806,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 3.6708858426597353e-16,
+      "max_ref": 4.839041352790185,
+      "n_nearzero": 1464,
+      "max_abs_nearzero": 4.235164736271502e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.9500794280750075e-16,
+      "max_ref": 6.021386483683129,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 2.3732638954758917e-20,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.05523208528757095,
+      "p10": 0.05449671298265457,
+      "p90": 0.0569462776184082,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.03991999849677086,
+      "p10": 0.03935360163450241,
+      "p90": 0.04086719825863838,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.15585590153932571,
+      "p10": 0.15435777604579926,
+      "p90": 0.15882663428783417,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.10120000317692757,
+      "p10": 0.10052799805998802,
+      "p90": 0.1023423969745636,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.18343515694141388,
+      "p10": 0.1812310889363289,
+      "p90": 0.18703211098909378,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.1385120004415512,
+      "p10": 0.1378496065735817,
+      "p90": 0.13942399621009827,
+      "n": 50
+     }
+    }
+   }
+  },
+  "org648_L1": {
+   "N": 650,
+   "E": 14856,
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 1.022810764138021e-15,
+      "max_ref": 8.683702311723735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.618527782440651e-14,
+      "scaled": 1.2737983029728801e-15,
+      "max_ref": 36.257920674423936,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 7.608320180808008e-16,
+      "max_ref": 32.68657885131538,
+      "n_nearzero": 1003,
+      "max_abs_nearzero": 9.317362419797304e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 6.566375391159382e-16,
+      "max_ref": 17.584007566254858,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 1.4123720184455048e-18,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.41546765714883804,
+      "p10": 0.4141753539443016,
+      "p90": 0.4208564758300781,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.5834400653839111,
+      "p10": 0.5806311964988708,
+      "p90": 0.5866611376404762,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.5116159915924072,
+      "p10": 0.5097887814044952,
+      "p90": 0.5129408061504364,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.9344164282083511,
+      "p10": 0.9260984137654305,
+      "p90": 0.9463610127568245,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 1.022810764138021e-15,
+      "max_ref": 8.683702311723735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.618527782440651e-14,
+      "scaled": 1.2737983029728801e-15,
+      "max_ref": 36.257920674423936,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 7.608320180808008e-16,
+      "max_ref": 32.68657885131538,
+      "n_nearzero": 1003,
+      "max_abs_nearzero": 9.317362419797304e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 6.566375391159382e-16,
+      "max_ref": 17.584007566254858,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 1.4123720184455048e-18,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.10567624121904373,
+      "p10": 0.10490939021110535,
+      "p90": 0.10731257498264313,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.09008000046014786,
+      "p10": 0.0894688032567501,
+      "p90": 0.09059199690818787,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.2742242068052292,
+      "p10": 0.27258656919002533,
+      "p90": 0.2767186611890793,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.21758399903774261,
+      "p10": 0.2167008027434349,
+      "p90": 0.21824959367513658,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.3288686275482178,
+      "p10": 0.3127880394458771,
+      "p90": 0.3315873444080353,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.30246400833129883,
+      "p10": 0.301651194691658,
+      "p90": 0.30349758863449094,
+      "n": 50
+     }
+    }
+   }
+  },
+  "wbox648_L0": {
+   "N": 648,
+   "E": 35698,
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 7.631167801038455e-16,
+      "max_ref": 2.3277654032958397,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 7.809993214382474e-16,
+      "max_ref": 36.39146494783642,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 4.380913931764089e-16,
+      "max_ref": 6.082144731903991,
+      "n_nearzero": 4901,
+      "max_abs_nearzero": 4.743384504624082e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.4157429435793685e-16,
+      "max_ref": 3.900374388694777,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 1.1806638396183758e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.41810981929302216,
+      "p10": 0.4150843247771263,
+      "p90": 0.4206838086247444,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.5716392770409584,
+      "p10": 0.5681110545992851,
+      "p90": 0.5745818838477135,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.49273601174354553,
+      "p10": 0.49112961292266843,
+      "p90": 0.49383040368556974,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.9346641600131989,
+      "p10": 0.9295446798205376,
+      "p90": 0.9388498961925507,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 7.631167801038455e-16,
+      "max_ref": 2.3277654032958397,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 7.809993214382474e-16,
+      "max_ref": 36.39146494783642,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 4.380913931764089e-16,
+      "max_ref": 6.082144731903991,
+      "n_nearzero": 4901,
+      "max_abs_nearzero": 4.743384504624082e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.4157429435793685e-16,
+      "max_ref": 3.900374388694777,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 1.1806638396183758e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.09167380630970001,
+      "p10": 0.09071789681911469,
+      "p90": 0.09367689490318298,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.0759039968252182,
+      "p10": 0.07484480366110802,
+      "p90": 0.07669120207428932,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.2615218982100487,
+      "p10": 0.2597589045763016,
+      "p90": 0.2638978883624077,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.20601599663496017,
+      "p10": 0.20546880662441253,
+      "p90": 0.20716799795627594,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.3034370020031929,
+      "p10": 0.30186958611011505,
+      "p90": 0.30520837754011154,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.27932800352573395,
+      "p10": 0.27848959863185885,
+      "p90": 0.28046078979969025,
+      "n": 50
+     }
+    }
+   }
+  },
+  "wbox648_L1": {
+   "N": 648,
+   "E": 35698,
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 1.418114807631002e-15,
+      "max_ref": 6.889401735408402,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.973799150320701e-14,
+      "scaled": 1.2769020613436034e-15,
+      "max_ref": 38.95208020172735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 6.459746410970785e-16,
+      "max_ref": 41.248295050330675,
+      "n_nearzero": 3189,
+      "max_abs_nearzero": 7.411538288475128e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 6.490890145245065e-16,
+      "max_ref": 13.683460971077517,
+      "n_nearzero": 15,
+      "max_abs_nearzero": 7.3603192649458445e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.6903456524014473,
+      "p10": 0.6881006062030792,
+      "p90": 0.6929082795977592,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 1.1265864595770836,
+      "p10": 1.1228010058403015,
+      "p90": 1.1307859793305397,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 1.0375040173530579,
+      "p10": 1.0353888392448425,
+      "p90": 1.040287971496582,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.7581209540367126,
+      "p10": 1.7532063648104668,
+      "p90": 1.7651794478297234,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 1.418114807631002e-15,
+      "max_ref": 6.889401735408402,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.973799150320701e-14,
+      "scaled": 1.2769020613436034e-15,
+      "max_ref": 38.95208020172735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 6.459746410970785e-16,
+      "max_ref": 41.248295050330675,
+      "n_nearzero": 3189,
+      "max_abs_nearzero": 7.411538288475128e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 6.490890145245065e-16,
+      "max_ref": 13.683460971077517,
+      "n_nearzero": 15,
+      "max_abs_nearzero": 7.3603192649458445e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.2042548730969429,
+      "p10": 0.20293407142162323,
+      "p90": 0.20550303161144257,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.18856000155210495,
+      "p10": 0.1877695992588997,
+      "p90": 0.18931839615106583,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.5154944956302643,
+      "p10": 0.5125120282173157,
+      "p90": 0.5183761939406395,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.45817600190639496,
+      "p10": 0.4566080033779144,
+      "p90": 0.46065281331539154,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.6710952147841454,
+      "p10": 0.6681941449642181,
+      "p90": 0.6767699494957924,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.6425760090351105,
+      "p10": 0.6405087947845459,
+      "p90": 0.6442111849784851,
+      "n": 50
+     }
+    }
+   }
+  }
+ },
+ "build": {
+  "L0": "ok",
+  "L1": "ok"
+ },
+ "lib": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-luna/lib/python3.11/site-packages/LunaEquivariance/__init__.py",
+ "E0": {
+  "L0": {
+   "luna_full": {
+    "out_abs_max": 0.0,
+    "gx_abs_max": 0.0,
+    "shapes": [
+     [
+      3,
+      2048
+     ],
+     [
+      3,
+      128
+     ],
+     [
+      0,
+      16
+     ],
+     [
+      0,
+      512
+     ]
+    ]
+   },
+   "luna_kernel": {
+    "out_abs_max": 0.0,
+    "gx_abs_max": 0.0,
+    "shapes": [
+     [
+      3,
+      2048
+     ],
+     [
+      3,
+      128
+     ],
+     [
+      0,
+      16
+     ],
+     [
+      0,
+      512
+     ]
+    ]
+   }
+  },
+  "L1": {
+   "luna_full": {
+    "out_abs_max": 0.0,
+    "gx_abs_max": 0.0,
+    "shapes": [
+     [
+      3,
+      5120
+     ],
+     [
+      3,
+      512
+     ],
+     [
+      0,
+      16
+     ],
+     [
+      0,
+      1280
+     ]
+    ]
+   },
+   "luna_kernel": {
+    "out_abs_max": 0.0,
+    "gx_abs_max": 0.0,
+    "shapes": [
+     [
+      3,
+      5120
+     ],
+     [
+      3,
+      512
+     ],
+     [
+      0,
+      16
+     ],
+     [
+      0,
+      1280
+     ]
+    ]
+   }
+  }
+ }
+}

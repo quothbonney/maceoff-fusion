@@ -1,0 +1,16 @@
+job=1075 host=slurm-h100-206-077 date=2026-11-10T05:25:03+00:00 args=dyncheck.py graphed water2187,wbox2187 --steps 500 --every 10
+0, NVIDIA H100 80GB HBM3, GPU-061de6be-fae9-91f4-5990-bfea9ed265ca, 345 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+water2187 graphed_nodehybrid+embed+node_proto step 0 E=99334 dE/at=0.00e+00 maxdF=3.66e-15 dS=0.00e+00 eq=True ok=True
+water2187 graphed_nodehybrid+embed+node_proto step 200 E=96628 dE/at=1.06e-13 maxdF=4.00e-15 dS=0.00e+00 eq=True ok=True
+water2187 graphed_nodehybrid+embed+node_proto step 400 E=93420 dE/at=0.00e+00 maxdF=4.22e-15 dS=0.00e+00 eq=True ok=True
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE water2187 graphed_nodehybrid+embed+node_proto samples=51 fails=0 worst={'dE_per_atom': 1.0646119965883385e-13, 'max_dF': 5.995204332975845e-15, 'rms_dF': 1.4361701153896257e-15, 'dstress': 0.0, 'maxF': 5.422357879175681} edges_eq=True +100726/-108224 wall=24.0s
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+wbox2187 graphed_nodehybrid+embed+node_proto step 0 E=120698 dE/at=1.06e-13 maxdF=3.94e-15 dS=1.30e-17 eq=True ok=True
+wbox2187 graphed_nodehybrid+embed+node_proto step 200 E=117274 dE/at=0.00e+00 maxdF=4.02e-15 dS=8.67e-18 eq=True ok=True
+wbox2187 graphed_nodehybrid+embed+node_proto step 400 E=113960 dE/at=0.00e+00 maxdF=4.44e-15 dS=1.52e-17 eq=True ok=True
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE wbox2187 graphed_nodehybrid+embed+node_proto samples=51 fails=0 worst={'dE_per_atom': 1.0646119965883385e-13, 'max_dF': 5.10702591327572e-15, 'rms_dF': 1.5051991135882274e-15, 'dstress': 4.163336342344337e-17, 'maxF': 4.829800487213031} edges_eq=True +137984/-145194 wall=33.1s
+0, GPU-061de6be-fae9-91f4-5990-bfea9ed265ca, 1980 MHz
+exit=0 date=2026-11-10T05:26:31+00:00

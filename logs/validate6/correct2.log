@@ -1,0 +1,33 @@
+job=1026 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 345 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+##### check2b_recapture
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  return dict(dE_per_atom=float((E - Er).abs().max()) / max(n, 1), max_dF=float(d.max()) if d.numel() else 0.0,
+hybrid recaptures [{'old_cap': 6656, 'new_cap': 8704, 'E': 6934, 'capture_s': 0.7152950521558523}, {'old_cap': 8704, 'new_cap': 11008, 'E': 8772, 'capture_s': 0.07835933193564415}] all ok False [(6634, 6656, False, '4.0e-15', '3.6e-15', '2.3e-15', '3'), (6934, 8704, True, '3.6e-15', '3.6e-15', '3.1e-15', '3'), (7210, 8704, False, '4.1e-15', '3.8e-15', '3.1e-15', '2'), (7528, 8704, False, '5.3e-15', '4.4e-15', '4.0e-15', '4'), (7822, 8704, False, '6.7e-15', '3.6e-15', '5.8e-15', '6'), (8102, 8704, False, '9.8e-15', '7.1e-15', '8.9e-15', '8'), (8438, 8704, False, '1.1e-14', '1.1e-14', '7.1e-15', '10'), (8772, 11008, True, '1.2e-14', '1.2e-14', '1.2e-14', '13'), (9184, 11008, False, '2.5e-14', '2.1e-14', '1.4e-14', '16'), (9550, 11008, False, '3.2e-14', '3.4e-14', '1.7e-14', '18'), (10026, 11008, False, '9.8e-13', '9.1e-13', '2.8e-13', '101'), (10638, 11008, False, '1.2e-11', '5.9e-12', '6.0e-12', '443'), (6634, 11008, False, '2.7e-15', '3.2e-15', '3.3e-15', '3'), (8102, 11008, False, '7.3e-15', '6.0e-15', '4.7e-15', '8'), (10638, 11008, False, '4.4e-12', '4.7e-12', '9.0e-12', '443')]
+flash recaptures [{'old_cap': 6656, 'new_cap': 8704, 'E': 6934, 'capture_s': 0.05420103296637535}, {'old_cap': 8704, 'new_cap': 11008, 'E': 8772, 'capture_s': 0.05738852918148041}] all ok False [(6634, 6656, False, '2.9e-15', '2.7e-15', '2.2e-15', '3'), (6934, 8704, True, '2.9e-15', '3.7e-15', '2.9e-15', '3'), (7210, 8704, False, '3.6e-15', '2.5e-15', '4.0e-15', '2'), (7528, 8704, False, '4.4e-15', '4.9e-15', '4.0e-15', '4'), (7822, 8704, False, '6.2e-15', '5.3e-15', '5.3e-15', '6'), (8102, 8704, False, '8.7e-15', '6.2e-15', '7.1e-15', '8'), (8438, 8704, False, '1.1e-14', '8.9e-15', '8.9e-15', '10'), (8772, 11008, True, '1.3e-14', '1.2e-14', '1.2e-14', '13'), (9184, 11008, False, '2.1e-14', '2.0e-14', '1.1e-14', '16'), (9550, 11008, False, '2.8e-14', '3.2e-14', '2.1e-14', '18'), (10026, 11008, False, '2.6e-13', '2.1e-13', '2.8e-13', '101'), (10638, 11008, False, '1.2e-11', '1.4e-11', '7.5e-12', '443'), (6634, 11008, False, '3.6e-15', '2.8e-15', '2.4e-15', '3'), (8102, 11008, False, '8.4e-15', '8.4e-15', '4.9e-15', '8'), (10638, 11008, False, '1.9e-11', '1.5e-11', '5.1e-12', '443')]
+  res["gpu_end"] = gpuinfo(); json.dump(res, open(out_path, "w"), indent=1)
+##### check3_edge_cases
+zero_edge/single_C/hybrid {'dE_per_atom': 0.0, 'max_dF': 0.0, 'rms_dF': 0.0, 'finite': True, 'E_edges': 0, 'F_exact_zero': True, 'E_exact': True, 'ok': True}
+zero_edge/single_C/flash {'dE_per_atom': 0.0, 'max_dF': 0.0, 'rms_dF': 0.0, 'finite': True, 'E_edges': 0, 'F_exact_zero': True, 'E_exact': True, 'ok': True}
+zero_edge/far_pair/hybrid {'dE_per_atom': 0.0, 'max_dF': 0.0, 'rms_dF': 0.0, 'finite': True, 'E_edges': 0, 'F_exact_zero': True, 'E_exact': True, 'ok': True}
+zero_edge/far_pair/flash {'dE_per_atom': 0.0, 'max_dF': 0.0, 'rms_dF': 0.0, 'finite': True, 'E_edges': 0, 'F_exact_zero': True, 'E_exact': True, 'ok': True}
+cap_exact/hybrid {'dE_per_atom': 0.0, 'max_dF': 3.4416913763379853e-15, 'rms_dF': 1.7484347349696366e-15, 'finite': True, 'E': 301, 'E_cap': 301, 'ok': True}
+cap_plus1/hybrid {'dE_per_atom': 0.0, 'max_dF': 4.9960036108132044e-15, 'rms_dF': 2.0437530169003044e-15, 'finite': True, 'E': 302, 'recaptures': [{'old_cap': 301, 'new_cap': 384, 'E': 302, 'capture_s': 0.06613680347800255}], 'E_cap': 384, 'ok': True}
+cap_back_to_minus1/hybrid {'dE_per_atom': 0.0, 'max_dF': 3.219646771412954e-15, 'rms_dF': 1.4627481825339375e-15, 'finite': True, 'ok': True}
+cap_exact/flash {'dE_per_atom': 0.0, 'max_dF': 2.886579864025407e-15, 'rms_dF': 1.301033055624272e-15, 'finite': True, 'E': 301, 'E_cap': 301, 'ok': True}
+cap_plus1/flash {'dE_per_atom': 0.0, 'max_dF': 1.9984014443252818e-15, 'rms_dF': 1.291468398523609e-15, 'finite': True, 'E': 302, 'recaptures': [{'old_cap': 301, 'new_cap': 384, 'E': 302, 'capture_s': 0.04573599994182587}], 'E_cap': 384, 'ok': True}
+cap_back_to_minus1/flash {'dE_per_atom': 0.0, 'max_dF': 3.1086244689504383e-15, 'rms_dF': 1.4174244932422146e-15, 'finite': True, 'ok': True}
+periodic_wbox648/hybrid {'ok': True, 'pbc': True}
+periodic_wbox648/flash {'ok': True, 'pbc': True}
+multi_model_ABA {'ok': True, 'outputs_isolated': True, 'n_graphs_alive': 4}
+hazard_same_N_diff_species {'dE_per_atom': 6.678858565297906, 'max_dF': 307.7898781727833, 'rms_dF': 117.09151926679287, 'finite': True, 'silently_wrong': True}
+hazard_diff_N no error (BAD)
+hazard_diff_N_state_after {'N_attr': 21, 'static_positions_rows': 192, 'E_cap': 8320, 'recaptures': [{'old_cap': 512, 'new_cap': 8320, 'E': 6634, 'capture_s': 0.07298738323152065}]}
+hazard_diff_N_result_vs_eager_water192 {'dE_per_atom': 0.0, 'max_dF': 3.0808688933348094e-15, 'rms_dF': 1.5106188207809495e-15, 'finite': True}
+hazard_back_to_original raised RuntimeError: The size of tensor a (192) must match the size of tensor b (21) at non-singleton dimension 0
+hazard_outputs_are_views True
+pass_ True
+  res["gpu_end"] = gpuinfo(); json.dump(res, open(out_path, "w"), indent=1)
+  res["gpu_end"] = gpuinfo(); json.dump(res, open(out_path, "w"), indent=1)
+DONE failures: []

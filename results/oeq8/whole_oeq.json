@@ -1,0 +1,51 @@
+{
+ "env": {
+  "job": "1062",
+  "host": "slurm-h100-206-077",
+  "gpu": "NVIDIA H100 80GB HBM3, GPU-edefc586-3f13-ab62-907d-ba075a79f443",
+  "torch": "2.11.0+cu128",
+  "python": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-oeq/bin/python"
+ },
+ "results": {
+  "aspirin": {
+   "n_atoms": 21,
+   "e3nn_call_ms": {
+    "median": 14.216858893632889,
+    "p10": 14.138458296656609,
+    "p90": 14.32843990623951,
+    "n": 50
+   },
+   "oeq_call_ms": {
+    "median": 12.575434520840645,
+    "p10": 12.54370715469122,
+    "p90": 12.754477001726627,
+    "n": 50
+   },
+   "dE_per_atom": 0.0,
+   "max_dF": 2.2551405187698492e-15,
+   "oeq_rerun_bitwise_E": true
+  },
+  "water648": {
+   "n_atoms": 648,
+   "e3nn_call_ms": {
+    "median": 44.369555078446865,
+    "p10": 44.32666897773743,
+    "p90": 44.48919594287872,
+    "n": 50
+   },
+   "oeq_call_ms": {
+    "median": 26.859955862164497,
+    "p10": 26.831087470054626,
+    "p90": 26.930252835154533,
+    "n": 50
+   },
+   "dE_per_atom": 0.0,
+   "max_dF": 3.1086244689504383e-15,
+   "oeq_rerun_bitwise_E": true
+  }
+ },
+ "oeq_conv_types": [
+  "TensorProductConv",
+  "TensorProductConv"
+ ]
+}

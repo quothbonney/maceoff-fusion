@@ -1,0 +1,81 @@
+srun: job 1146 queued and waiting for resources
+srun: job 1146 has been allocated resources
+job=1146 host=slurm-h100-206-077 start=2026-11-10T06:17:03+00:00
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+TIMING_LOCK: 1146 int9 slurm-h100-206-077 2026-11-10T06:17:04+00:00
+md5 f7eb8bd6702c903c53f2c2748640e256  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/bench9.py
+md5 cc67e5325688f2464021000ca27ccda9  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/brute_nl.py
+md5 6c51ea1bfec7e04832c6677527ed5800  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/common9.py
+md5 66315a7690b7b071eeab957017e0e854  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/dbg_ovf.py
+md5 feea88e7a96b84602efdebf61e4da52d  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/fin9.py
+md5 78133beb87bb1c30f8e8bf94f9b84733  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gen_systems.py
+md5 a4ce5f49b54371c6c84fb90e796b4098  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gpu_step.py
+md5 64a8038bea51576265d2efefbb3f87d8  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/nodeconv_ext.py
+md5 1b039179a8e03ee3c221db8a90cc308f  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/prof9.py
+md5 d410bebfded9a70d729f166f8276f76b  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/summ9.py
+md5 5614810ddc470c6a37e9aad2824b3ad7  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/test9.py
+built stock {'build_install_s': 0.2325945571064949}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built hybrid+embed+node {'build_install_s': 3.343274347484112}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built nodehybrid+embed+node {'build_install_s': 0.6486823130398989}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built gpustep {'build_install_s': 0.4728668313473463}
+aspirin stock {"E": 302, "B1": 11.4381, "B2": 16.2103, "peak_MiB": 112.79150390625}
+  json.dump(res, open(out_path, "w"), indent=1)
+aspirin hybrid+embed+node {"first_step_s": 13.157987544313073, "E": 302, "E_cap": 384, "B1": 0.6864, "B2": 0.9125, "B2_nl_only": 0.0872, "B2host": 1.2541, "peak_MiB": 142.51416015625}
+  json.dump(res, open(out_path, "w"), indent=1)
+aspirin nodehybrid+embed+node {"first_step_s": 2.555845318362117, "E": 302, "E_cap": 384, "B1": 0.7598, "B2": 0.9368, "B2_nl_only": 0.0894, "B2host": 1.2846, "peak_MiB": 77.3203125}
+  json.dump(res, open(out_path, "w"), indent=1)
+aspirin gpustep {"first_step_s": 0.4928495865315199, "E": 302, "E_cap": 384, "B1": 0.8067, "B2": 0.8138, "B2chk": 0.8267, "peak_MiB": 77.33642578125}
+  json.dump(res, open(out_path, "w"), indent=1)
+aspirin gpustep_hyb {"first_step_s": 0.22945522144436836, "E": 302, "E_cap": 384, "B1": 0.8723, "B2": 0.8791, "B2chk": 0.8914, "peak_MiB": 78.4453125}
+water192 hybrid+embed+node {"first_step_s": 0.08492190390825272, "E": 6634, "E_cap": 8000, "B1": 2.2062, "B2": 2.3843, "B2_nl_only": 0.0919, "B2host": 2.7365, "peak_MiB": 311.7236328125}
+water192 nodehybrid+embed+node {"first_step_s": 0.06318232975900173, "E": 6634, "E_cap": 8000, "B1": 1.5424, "B2": 1.7227, "B2_nl_only": 0.091, "B2host": 2.079, "peak_MiB": 296.4052734375}
+water192 gpustep {"first_step_s": 0.23823750391602516, "E": 6634, "E_cap": 8000, "B1": 1.5768, "B2": 1.5849, "B2chk": 1.5969, "peak_MiB": 296.06005859375}
+water192 gpustep_hyb {"first_step_s": 0.24508689157664776, "E": 6634, "E_cap": 8000, "B1": 2.3889, "B2": 2.3959, "B2chk": 2.4104, "peak_MiB": 310.5947265625}
+water192 stock {"E": 6634, "B1": 13.1825, "B2": 17.8299, "peak_MiB": 1131.810546875}
+wbox192 nodehybrid+embed+node {"first_step_s": 0.07593336701393127, "E": 10588, "E_cap": 12736, "B1": 1.7573, "B2": 2.3915, "B2_nl_only": 0.5161, "B2host": 2.7296, "peak_MiB": 423.24267578125}
+wbox192 gpustep {"first_step_s": 0.1412416808307171, "E": 10588, "E_cap": 12736, "B1": 1.7642, "B2": 2.4249, "B2chk": 2.4282, "peak_MiB": 423.412109375}
+wbox192 gpustep_hyb {"first_step_s": 0.08670873008668423, "E": 10588, "E_cap": 12736, "B1": 2.9724, "B2": 3.6322, "B2chk": 3.6475, "peak_MiB": 443.4111328125}
+wbox192 stock {"E": 10588, "B1": 15.7894, "B2": 21.8668, "peak_MiB": 1623.31396484375}
+wbox192 hybrid+embed+node {"first_step_s": 0.06804859079420567, "E": 10588, "E_cap": 12736, "B1": 2.9669, "B2": 3.6032, "B2_nl_only": 0.517, "B2host": 3.9432, "peak_MiB": 443.36572265625}
+org648 gpustep {"first_step_s": 0.2775104455649853, "E": 14856, "E_cap": 17856, "B1": 2.4014, "B2": 2.4093, "B2chk": 2.4269, "peak_MiB": 596.70751953125}
+org648 gpustep_hyb {"first_step_s": 0.32418749295175076, "E": 14856, "E_cap": 17856, "B1": 4.5114, "B2": 4.5157, "B2chk": 4.529, "peak_MiB": 639.0}
+org648 stock {"E": 14856, "B1": 27.9558, "B2": 35.2327, "peak_MiB": 2856.7705078125}
+org648 hybrid+embed+node {"first_step_s": 0.07078390568494797, "E": 14856, "E_cap": 17856, "B1": 4.2537, "B2": 4.4364, "B2_nl_only": 0.0943, "B2host": 4.8219, "peak_MiB": 641.56103515625}
+org648 nodehybrid+embed+node {"first_step_s": 0.06741363182663918, "E": 14856, "E_cap": 17856, "B1": 2.3765, "B2": 2.5529, "B2_nl_only": 0.0995, "B2host": 2.9319, "peak_MiB": 597.90869140625}
+water648 gpustep_hyb {"first_step_s": 0.2736950274556875, "E": 26550, "E_cap": 31872, "B1": 6.8866, "B2": 6.8932, "B2chk": 6.9069, "peak_MiB": 1035.91259765625}
+water648 stock {"E": 26550, "B1": 36.3494, "B2": 45.3117, "peak_MiB": 4306.95458984375}
+water648 hybrid+embed+node {"first_step_s": 0.07743486575782299, "E": 26550, "E_cap": 31872, "B1": 6.4937, "B2": 6.6779, "B2_nl_only": 0.106, "B2host": 7.0545, "peak_MiB": 1039.02685546875}
+water648 nodehybrid+embed+node {"first_step_s": 0.07028735801577568, "E": 26550, "E_cap": 31872, "B1": 3.0288, "B2": 3.2172, "B2_nl_only": 0.1062, "B2host": 3.5938, "peak_MiB": 980.75439453125}
+water648 gpustep {"first_step_s": 0.25715216994285583, "E": 26550, "E_cap": 31872, "B1": 3.0769, "B2": 3.0874, "B2chk": 3.1004, "peak_MiB": 976.08984375}
+wbox648 stock {"E": 35724, "B1": 43.1079, "B2": 55.9116, "peak_MiB": 5445.22705078125}
+wbox648 hybrid+embed+node {"first_step_s": 0.08787930198013783, "E": 35724, "E_cap": 42880, "B1": 8.3826, "B2": 9.5037, "B2_nl_only": 1.0183, "B2host": 9.8582, "peak_MiB": 1338.8359375}
+wbox648 nodehybrid+embed+node {"first_step_s": 0.0788064394146204, "E": 35724, "E_cap": 42880, "B1": 3.7028, "B2": 4.8263, "B2_nl_only": 1.0141, "B2host": 5.1787, "peak_MiB": 1270.349609375}
+wbox648 gpustep {"first_step_s": 0.35639810003340244, "E": 35724, "E_cap": 42880, "B1": 3.758, "B2": 3.7705, "B2chk": 3.7835, "peak_MiB": 1264.75830078125}
+wbox648 gpustep_hyb {"first_step_s": 0.28418061695992947, "E": 35724, "E_cap": 42880, "B1": 8.914, "B2": 8.9232, "B2chk": 8.9357, "peak_MiB": 1332.900390625}
+water2187 hybrid+embed+node {"first_step_s": 0.14566169120371342, "E": 99438, "E_cap": 119360, "B1": 22.7027, "B2": 23.0871, "B2_nl_only": 0.324, "B2host": 23.5009, "peak_MiB": 3652.7919921875}
+water2187 nodehybrid+embed+node {"first_step_s": 0.09940863214433193, "E": 99438, "E_cap": 119360, "B1": 9.318, "B2": 9.6987, "B2_nl_only": 0.3224, "B2host": 10.1343, "peak_MiB": 3449.5859375}
+water2187 gpustep {"first_step_s": 0.3827504962682724, "E": 99438, "E_cap": 119360, "B1": 9.4236, "B2": 9.425, "B2chk": 9.4442, "peak_MiB": 3440.4384765625}
+water2187 gpustep_hyb {"first_step_s": 0.36121574603021145, "E": 99438, "E_cap": 119360, "B1": 23.9547, "B2": 23.9622, "B2chk": 23.9743, "peak_MiB": 3635.6455078125}
+water2187 stock {"E": 99438, "B1": 121.183, "B2": 141.5504, "peak_MiB": 15720.3544921875}
+wbox2187 nodehybrid+embed+node {"first_step_s": 0.17117321863770485, "E": 120506, "E_cap": 144640, "B1": 10.813, "B2": 18.4805, "B2_nl_only": 7.5866, "B2host": 18.8497, "peak_MiB": 4130.00927734375}
+wbox2187 gpustep {"first_step_s": 0.5175748262554407, "E": 120506, "E_cap": 144640, "B1": 10.9147, "B2": 10.9252, "B2chk": 10.941, "peak_MiB": 4110.9775390625}
+wbox2187 gpustep_hyb {"first_step_s": 0.5755989160388708, "E": 120506, "E_cap": 144640, "B1": 28.5444, "B2": 28.5489, "B2chk": 28.5624, "peak_MiB": 4337.2890625}
+wbox2187 stock {"E": 120506, "B1": 136.9824, "B2": 207.5179, "peak_MiB": 18331.5341796875}
+wbox2187 hybrid+embed+node {"first_step_s": 0.2316211797297001, "E": 120506, "E_cap": 144640, "B1": 27.1275, "B2": 34.8098, "B2_nl_only": 7.5957, "B2host": 35.1801, "peak_MiB": 4295.19384765625}
+water5184 gpustep {"first_step_s": 0.8221047520637512, "E": 247652, "E_cap": 297216, "B1": 21.7158, "B2": 21.7741, "B2chk": 21.731, "peak_MiB": 8382.37841796875}
+water5184 gpustep_hyb {"first_step_s": 0.8236089125275612, "E": 247652, "E_cap": 297216, "B1": 58.3948, "B2": 58.398, "B2chk": 58.4169, "peak_MiB": 8863.4892578125}
+water5184 stock {"E": 247652, "B1": 290.7519, "B2": 420.3902, "peak_MiB": 38713.873046875}
+water5184 hybrid+embed+node {"first_step_s": 0.35733612440526485, "E": 247652, "E_cap": 297216, "B1": 55.8424, "B2": 57.2138, "B2_nl_only": 1.2614, "B2host": 57.7365, "peak_MiB": 8905.2451171875}
+water5184 nodehybrid+embed+node {"first_step_s": 0.24917402863502502, "E": 247652, "E_cap": 297216, "B1": 21.5815, "B2": 22.8875, "B2_nl_only": 1.26, "B2host": 23.3907, "peak_MiB": 8408.01171875}
+wbox5184 gpustep_hyb {"first_step_s": 1.0693488083779812, "E": 285460, "E_cap": 342592, "B1": 66.6345, "B2": 66.6481, "B2chk": 66.6601, "peak_MiB": 10122.08154296875}
+wbox5184 stock {"E": 285460, "B1": 319.3819, "B2": 447.3094, "peak_MiB": 43406.4296875}
+wbox5184 hybrid+embed+node {"first_step_s": 0.4899376854300499, "E": 285460, "E_cap": 342592, "B1": 63.6165, "B2": 105.9315, "B2_nl_only": 42.1806, "B2host": 106.3796, "peak_MiB": 10168.5087890625}
+wbox5184 nodehybrid+embed+node {"first_step_s": 0.34077464044094086, "E": 285460, "E_cap": 342592, "B1": 24.1114, "B2": 66.37, "B2_nl_only": 42.1695, "B2host": 66.8282, "peak_MiB": 9627.5703125}
+wbox5184 gpustep {"first_step_s": 0.8359978832304478, "E": 285460, "E_cap": 342592, "B1": 24.2875, "B2": 24.3118, "B2chk": 24.3328, "peak_MiB": 9574.99072265625}
+  json.dump(res, open(out_path, "w"), indent=1)
+DONE
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz
+end=2026-11-10T06:21:22+00:00

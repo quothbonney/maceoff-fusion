@@ -1,0 +1,67 @@
+job=1041 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 345 MHz, 1980 MHz
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+  torch.load(f=model_path, map_location=device)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built hybrid {'build_install_s': 3.5269084833562374}
+  torch.load(f=model_path, map_location=device)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built hybrid+embed {'build_install_s': 3.112654808908701}
+  torch.load(f=model_path, map_location=device)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built hybrid+node {'build_install_s': 0.8520754370838404}
+  torch.load(f=model_path, map_location=device)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built hybrid+embed+node {'build_install_s': 0.7163614556193352}
+  torch.load(f=model_path, map_location=device)
+built flash {'build_install_s': 0.3159845434129238}
+  torch.load(f=model_path, map_location=device)
+built flash+embed {'build_install_s': 0.31470116041600704}
+  _warn_once(
+H2O hybrid {"replay": 1.0044, "step": 1.6121, "nk": 623, "first": 14.166, "fused_us": 0, "peak": 135}
+  json.dump(res, open(out_path, "w"), indent=1)
+H2O hybrid+embed {"replay": 0.9279, "step": 1.5358, "nk": 465, "first": 0.139, "fused_us": 16.6, "peak": 71}
+H2O hybrid+node {"replay": 0.8958, "step": 1.5208, "nk": 458, "first": 0.616, "fused_us": 67.7, "peak": 67}
+  json.dump(res, open(out_path, "w"), indent=1)
+H2O hybrid+embed+node {"replay": 0.6701, "step": 1.2757, "nk": 300, "first": 0.089, "fused_us": 84.3, "peak": 67}
+H2O flash {"replay": 1.5023, "step": 2.1428, "nk": 684, "first": 0.122, "fused_us": 0, "peak": 84}
+H2O flash+embed {"replay": 1.2423, "step": 1.8688, "nk": 526, "first": 0.114, "fused_us": 18.2, "peak": 84}
+aspirin hybrid+embed {"replay": 1.0695, "step": 1.7053, "nk": 441, "first": 0.071, "fused_us": 19.0, "peak": 90}
+aspirin hybrid+node {"replay": 1.0211, "step": 1.67, "nk": 446, "first": 0.57, "fused_us": 107.2, "peak": 79}
+aspirin hybrid+embed+node {"replay": 0.744, "step": 1.3652, "nk": 288, "first": 0.065, "fused_us": 122.6, "peak": 79}
+aspirin flash {"replay": 1.912, "step": 2.5549, "nk": 661, "first": 0.058, "fused_us": 0, "peak": 138}
+aspirin flash+embed {"replay": 1.6244, "step": 2.2526, "nk": 503, "first": 0.052, "fused_us": 18.7, "peak": 138}
+aspirin hybrid {"replay": 1.3648, "step": 2.0293, "nk": 599, "first": 0.079, "fused_us": 0, "peak": 90}
+water192 hybrid+node {"replay": 2.539, "step": 3.1998, "nk": 455, "first": 0.756, "fused_us": 144.5, "peak": 314}
+water192 hybrid+embed+node {"replay": 2.2029, "step": 2.8471, "nk": 297, "first": 0.069, "fused_us": 163.9, "peak": 312}
+water192 flash {"replay": 6.6061, "step": 7.295, "nk": 669, "first": 0.069, "fused_us": 0, "peak": 715}
+water192 flash+embed {"replay": 6.2712, "step": 6.9469, "nk": 511, "first": 0.136, "fused_us": 20.2, "peak": 712}
+water192 hybrid {"replay": 2.9324, "step": 3.6073, "nk": 608, "first": 0.086, "fused_us": 0, "peak": 391}
+water192 hybrid+embed {"replay": 2.5981, "step": 3.2557, "nk": 450, "first": 0.078, "fused_us": 20.8, "peak": 388}
+org192 hybrid+embed+node {"replay": 1.6901, "step": 2.3465, "nk": 298, "first": 0.079, "fused_us": 262.2, "peak": 214}
+org192 flash {"replay": 6.0395, "step": 6.7067, "nk": 670, "first": 0.067, "fused_us": 0, "peak": 703}
+org192 flash+embed {"replay": 5.719, "step": 6.3769, "nk": 512, "first": 0.119, "fused_us": 20.7, "peak": 701}
+org192 hybrid {"replay": 2.3166, "step": 2.9746, "nk": 609, "first": 0.13, "fused_us": 0, "peak": 293}
+org192 hybrid+embed {"replay": 1.9951, "step": 2.6447, "nk": 451, "first": 0.076, "fused_us": 20.2, "peak": 292}
+org192 hybrid+node {"replay": 2.0098, "step": 2.6551, "nk": 456, "first": 0.072, "fused_us": 242.3, "peak": 216}
+water648 flash {"replay": 19.6886, "step": 20.4017, "nk": 689, "first": 0.117, "fused_us": 0, "peak": 2280}
+water648 flash+embed {"replay": 19.3296, "step": 20.0269, "nk": 531, "first": 0.112, "fused_us": 30.9, "peak": 2269}
+water648 hybrid {"replay": 7.6751, "step": 8.3775, "nk": 610, "first": 0.099, "fused_us": 0, "peak": 1298}
+water648 hybrid+embed {"replay": 7.3194, "step": 8.0059, "nk": 452, "first": 0.092, "fused_us": 30.8, "peak": 1286}
+water648 hybrid+node {"replay": 6.8415, "step": 7.5412, "nk": 459, "first": 0.093, "fused_us": 314.1, "peak": 1049}
+water648 hybrid+embed+node {"replay": 6.4981, "step": 7.1769, "nk": 301, "first": 0.082, "fused_us": 345.5, "peak": 1039}
+org648 flash+embed {"replay": 17.026, "step": 17.7358, "nk": 531, "first": 0.101, "fused_us": 27.3, "peak": 2177}
+org648 hybrid {"replay": 5.2988, "step": 6.0102, "nk": 610, "first": 0.093, "fused_us": 0, "peak": 834}
+org648 hybrid+embed {"replay": 4.967, "step": 5.6643, "nk": 452, "first": 0.086, "fused_us": 27.7, "peak": 827}
+org648 hybrid+node {"replay": 4.5552, "step": 5.252, "nk": 459, "first": 0.081, "fused_us": 400.6, "peak": 584}
+org648 hybrid+embed+node {"replay": 4.2233, "step": 4.8955, "nk": 301, "first": 0.074, "fused_us": 428.4, "peak": 578}
+org648 flash {"replay": 17.3646, "step": 18.0898, "nk": 689, "first": 0.199, "fused_us": 0, "peak": 2119}
+wbox648 hybrid {"replay": 9.5866, "step": 11.2644, "nk": 610, "first": 0.147, "fused_us": 0, "peak": 1539}
+wbox648 hybrid+embed {"replay": 9.2258, "step": 10.8849, "nk": 452, "first": 0.104, "fused_us": 37.6, "peak": 1523}
+wbox648 hybrid+node {"replay": 8.7655, "step": 10.4261, "nk": 459, "first": 0.098, "fused_us": 314.4, "peak": 1290}
+wbox648 hybrid+embed+node {"replay": 8.3976, "step": 10.0481, "nk": 301, "first": 0.297, "fused_us": 350.8, "peak": 1275}
+wbox648 flash {"replay": 21.5953, "step": 23.2892, "nk": 689, "first": 0.132, "fused_us": 0, "peak": 2406}
+wbox648 flash+embed {"replay": 21.2325, "step": 22.9058, "nk": 531, "first": 0.167, "fused_us": 37.7, "peak": 2391}
+  json.dump(res, open(out_path, "w"), indent=1)
+DONE
+0, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 1980 MHz

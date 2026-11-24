@@ -1,0 +1,59 @@
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+WARNING:root:No dtype selected, switching to float64 to match model dtype.
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/run_h2o.py:47: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/h2o_run1.json' mode='w' encoding='UTF-8'>
+  json.dump(out, open(os.path.join(os.environ["R"], "results", f"h2o_{label}.json"), "w"), indent=2)
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+[run1] GPU=NVIDIA H100 80GB HBM3 dtype=torch.float64 E = -2081.1163971689 eV
+  O: Fx= 0.0000000000 Fy= 0.0000000000 Fz=-0.6474868257 eV/A
+  H: Fx= 0.0000000000 Fy=-0.3437656014 Fz= 0.3237434129 eV/A
+  H: Fx= 0.0000000000 Fy= 0.3437656014 Fz= 0.3237434129 eV/A
+  post-warmup median 14.41 ms (n=10), first call 0.46 s, within-run max|dE|=0.00e+00 max|dF|=2.22e-16

@@ -1,0 +1,47 @@
+job=1096 host=slurm-h100-206-077 date=2026-11-10T05:36:12+00:00 args=dyncheck.py gpustep wbox192,wbox648,water648 --steps 1000 --every 5 --tag brute
+0, NVIDIA H100 80GB HBM3, GPU-edefc586-3f13-ab62-907d-ba075a79f443, 345 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+wbox192 gpustep_nodeext+embed+node_brute_graph step 0 E=10552 dE/at=0.00e+00 maxdF=3.44e-15 dS=1.39e-17 eq=True ok=True
+wbox192 gpustep_nodeext+embed+node_brute_graph step 100 E=10488 dE/at=0.00e+00 maxdF=3.05e-15 dS=1.88e-17 eq=True ok=True
+wbox192 gpustep_nodeext+embed+node_brute_graph step 200 E=10430 dE/at=0.00e+00 maxdF=4.00e-15 dS=1.27e-17 eq=True ok=True
+wbox192 gpustep_nodeext+embed+node_brute_graph step 300 E=10222 dE/at=0.00e+00 maxdF=3.22e-15 dS=3.64e-17 eq=True ok=True
+wbox192 gpustep_nodeext+embed+node_brute_graph step 400 E=10154 dE/at=0.00e+00 maxdF=3.55e-15 dS=1.30e-17 eq=True ok=True
+wbox192 gpustep_nodeext+embed+node_brute_graph step 500 E=10028 dE/at=0.00e+00 maxdF=3.55e-15 dS=1.44e-17 eq=True ok=True
+wbox192 gpustep_nodeext+embed+node_brute_graph step 600 E=9968 dE/at=0.00e+00 maxdF=3.11e-15 dS=9.32e-18 eq=True ok=True
+wbox192 gpustep_nodeext+embed+node_brute_graph step 700 E=9946 dE/at=1.52e-13 maxdF=3.00e-15 dS=1.73e-17 eq=True ok=True
+wbox192 gpustep_nodeext+embed+node_brute_graph step 800 E=9928 dE/at=1.52e-13 maxdF=3.09e-15 dS=2.95e-17 eq=True ok=True
+wbox192 gpustep_nodeext+embed+node_brute_graph step 900 E=9890 dE/at=1.52e-13 maxdF=3.05e-15 dS=2.73e-17 eq=True ok=True
+wbox192 gpustep_nodeext+embed+node_brute_graph step 1000 E=9968 dE/at=0.00e+00 maxdF=4.11e-15 dS=8.67e-18 eq=True ok=True
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE wbox192 gpustep_nodeext+embed+node_brute_graph samples=201 fails=0 worst={'dE_per_atom': 1.5158245029548803e-13, 'max_dF': 4.884981308350689e-15, 'rms_dF': 1.6237560439123895e-15, 'dstress': 4.683753385137379e-17, 'maxF': 4.166764384032665} edges_eq=True +18554/-19138 wall=30.9s
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+wbox648 gpustep_nodeext+embed+node_brute_graph step 0 E=35698 dE/at=0.00e+00 maxdF=2.94e-15 dS=9.54e-18 eq=True ok=True
+wbox648 gpustep_nodeext+embed+node_brute_graph step 100 E=35344 dE/at=0.00e+00 maxdF=3.33e-15 dS=1.47e-17 eq=True ok=True
+wbox648 gpustep_nodeext+embed+node_brute_graph step 200 E=34970 dE/at=0.00e+00 maxdF=3.83e-15 dS=1.47e-17 eq=True ok=True
+wbox648 gpustep_nodeext+embed+node_brute_graph step 300 E=34636 dE/at=0.00e+00 maxdF=4.44e-15 dS=1.24e-17 eq=True ok=True
+wbox648 gpustep_nodeext+embed+node_brute_graph step 400 E=34302 dE/at=0.00e+00 maxdF=3.55e-15 dS=1.08e-17 eq=True ok=True
+wbox648 gpustep_nodeext+embed+node_brute_graph step 500 E=33926 dE/at=0.00e+00 maxdF=3.55e-15 dS=1.34e-17 eq=True ok=True
+wbox648 gpustep_nodeext+embed+node_brute_graph step 600 E=33600 dE/at=0.00e+00 maxdF=4.02e-15 dS=2.21e-17 eq=True ok=True
+wbox648 gpustep_nodeext+embed+node_brute_graph step 700 E=33584 dE/at=0.00e+00 maxdF=3.44e-15 dS=2.34e-17 eq=True ok=True
+wbox648 gpustep_nodeext+embed+node_brute_graph step 800 E=33534 dE/at=0.00e+00 maxdF=3.55e-15 dS=9.97e-18 eq=True ok=True
+wbox648 gpustep_nodeext+embed+node_brute_graph step 900 E=33616 dE/at=0.00e+00 maxdF=4.00e-15 dS=7.81e-18 eq=True ok=True
+wbox648 gpustep_nodeext+embed+node_brute_graph step 1000 E=33504 dE/at=0.00e+00 maxdF=3.77e-15 dS=7.37e-18 eq=True ok=True
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE wbox648 gpustep_nodeext+embed+node_brute_graph samples=201 fails=0 worst={'dE_per_atom': 8.982663721214106e-14, 'max_dF': 5.856426454897701e-15, 'rms_dF': 1.5446683019095611e-15, 'dstress': 4.336808689942018e-17, 'maxF': 4.057602079990559} edges_eq=True +74890/-77084 wall=102.4s
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+water648 gpustep_nodeext+embed+node_brute_graph step 0 E=26512 dE/at=0.00e+00 maxdF=3.75e-15 dS=0.00e+00 eq=True ok=True
+water648 gpustep_nodeext+embed+node_brute_graph step 100 E=26256 dE/at=0.00e+00 maxdF=4.16e-15 dS=0.00e+00 eq=True ok=True
+water648 gpustep_nodeext+embed+node_brute_graph step 200 E=26278 dE/at=0.00e+00 maxdF=3.77e-15 dS=0.00e+00 eq=True ok=True
+water648 gpustep_nodeext+embed+node_brute_graph step 300 E=25978 dE/at=0.00e+00 maxdF=3.77e-15 dS=0.00e+00 eq=True ok=True
+water648 gpustep_nodeext+embed+node_brute_graph step 400 E=25580 dE/at=0.00e+00 maxdF=4.22e-15 dS=0.00e+00 eq=True ok=True
+water648 gpustep_nodeext+embed+node_brute_graph step 500 E=25290 dE/at=0.00e+00 maxdF=4.00e-15 dS=0.00e+00 eq=True ok=True
+water648 gpustep_nodeext+embed+node_brute_graph step 600 E=25204 dE/at=0.00e+00 maxdF=3.44e-15 dS=0.00e+00 eq=True ok=True
+water648 gpustep_nodeext+embed+node_brute_graph step 700 E=25056 dE/at=0.00e+00 maxdF=3.16e-15 dS=0.00e+00 eq=True ok=True
+water648 gpustep_nodeext+embed+node_brute_graph step 800 E=24874 dE/at=0.00e+00 maxdF=3.11e-15 dS=0.00e+00 eq=True ok=True
+water648 gpustep_nodeext+embed+node_brute_graph step 900 E=24576 dE/at=0.00e+00 maxdF=3.08e-15 dS=0.00e+00 eq=True ok=True
+water648 gpustep_nodeext+embed+node_brute_graph step 1000 E=24330 dE/at=0.00e+00 maxdF=3.55e-15 dS=0.00e+00 eq=True ok=True
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE water648 gpustep_nodeext+embed+node_brute_graph samples=201 fails=0 worst={'dE_per_atom': 8.982663721214106e-14, 'max_dF': 5.10702591327572e-15, 'rms_dF': 1.4348078499764702e-15, 'dstress': 0.0, 'maxF': 4.32696542753687} edges_eq=True +48706/-50888 wall=60.2s
+0, GPU-edefc586-3f13-ab62-907d-ba075a79f443, 1980 MHz
+exit=0 date=2026-11-10T05:39:57+00:00

@@ -1,0 +1,794 @@
+{
+ "slurm_job": "1129",
+ "host": "slurm-h100-206-077",
+ "torch": "2.11.0+cu128",
+ "gpu": "0, NVIDIA H100 80GB HBM3, GPU-edefc586-3f13-ab62-907d-ba075a79f443, 345 MHz, 1980 MHz",
+ "date": "2026-11-10T05:56:39",
+ "warm": 10,
+ "steps": 200,
+ "dt_fs": 0.5,
+ "rows": [
+  {
+   "provider": "stock",
+   "system": "water192",
+   "N": 192,
+   "periodic": false,
+   "setup_first_force_s": 0.635718921199441,
+   "provider_name": "stock_eager",
+   "warmup_s": 2.0418541561812162,
+   "ms_step_mean": 16.991355139762163,
+   "ms_step_blocks": [
+    16.883943527936935,
+    16.91243849694729,
+    17.039885818958282,
+    17.12904218584299
+   ],
+   "ms_step_median": 16.976162157952785,
+   "ms_step_min": 16.883943527936935,
+   "ms_step_max": 17.12904218584299,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 11309.976790605419,
+   "ns_per_day_at_dt": 2.5447447778862187,
+   "peak_mem_MiB": 1237.509765625,
+   "sync_audit": {
+    "per_step": 38.1,
+    "n_steps": 10,
+    "kinds": {
+     "Synchronization debug mode is a prototype feature and does not yet detect all synchronizing operations (Triggered intern": 0.1,
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 38.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.00038522258842021984,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "ase",
+   "system": "water192",
+   "N": 192,
+   "periodic": false,
+   "setup_first_force_s": 0.12260167673230171,
+   "note": "ASE VelocityVerlet + MACECalculator(default_dtype=float64, compute_stress default)",
+   "warmup_s": 0.18179941177368164,
+   "ms_step_mean": 18.038827050477266,
+   "ms_step_blocks": [
+    17.960738614201546,
+    17.977779023349285,
+    18.13764415681362,
+    18.079068176448345
+   ],
+   "ms_step_median": 18.028423599898815,
+   "ms_step_min": 17.960738614201546,
+   "ms_step_max": 18.13764415681362,
+   "timed_steps": 200,
+   "atom_steps_per_s": 10649.849607542925,
+   "ns_per_day_at_dt": 2.396216161697158,
+   "peak_mem_MiB": 1237.48046875,
+   "sync_audit": {
+    "per_step": 43.0,
+    "n_steps": 10,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 43.0
+    }
+   }
+  },
+  {
+   "provider": "graphed",
+   "system": "water192",
+   "N": 192,
+   "periodic": false,
+   "setup_first_force_s": 18.830653151497245,
+   "provider_name": "graphed_nodehybrid+embed+node_proto",
+   "warmup_s": 0.021693702787160873,
+   "ms_step_mean": 2.1029397659003735,
+   "ms_step_blocks": [
+    2.1005698293447495,
+    2.102598585188389,
+    2.108159400522709,
+    2.100362330675125
+   ],
+   "ms_step_median": 2.101584207266569,
+   "ms_step_min": 2.100362330675125,
+   "ms_step_max": 2.108159400522709,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 91359.65113181228,
+   "ns_per_day_at_dt": 20.55592150465776,
+   "peak_mem_MiB": 837.60009765625,
+   "runner_stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 15.895595202222466,
+    "key": {
+     "n_atoms": 192,
+     "numbers_sha1": "c8aa538e33c6",
+     "pbc": [
+      false,
+      false,
+      false
+     ],
+     "cell_is_none": true,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     8000
+    ]
+   },
+   "sync_audit": {
+    "per_step": 2.0,
+    "n_steps": 10,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 2.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.000385222588306533,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "gpustep",
+   "system": "water192",
+   "N": 192,
+   "periodic": false,
+   "setup_first_force_s": 0.7259562388062477,
+   "provider_name": "gpustep_nodeext+embed+node_cell_graph",
+   "warmup_s": 0.01583164371550083,
+   "ms_step_mean": 1.5845558512955904,
+   "ms_step_blocks": [
+    1.581011675298214,
+    1.5822572633624077,
+    1.5912918373942375,
+    1.583608165383339
+   ],
+   "ms_step_median": 1.5829327143728733,
+   "ms_step_min": 1.581011675298214,
+   "ms_step_max": 1.5912918373942375,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "check": 0.1
+   },
+   "atom_steps_per_s": 121293.84796754713,
+   "ns_per_day_at_dt": 27.2911157926981,
+   "peak_mem_MiB": 999.2177734375,
+   "gpustep_stats": {
+    "path": "graph",
+    "nl": "cell",
+    "captures": 1,
+    "recaptures": 0,
+    "proactive_recaptures": 0,
+    "overflows": 0,
+    "checks": 22,
+    "host_syncs": 22,
+    "steps": 211,
+    "evictions": 0,
+    "last_capture_s": 0.2423547375947237,
+    "E_cap": 8000,
+    "n_edges_last": 6804,
+    "n_graphs": 1,
+    "ext_csr_layer_calls": 8,
+    "sort_fallback_layer_calls": 0,
+    "events": [
+     {
+      "reason": "new_key",
+      "N": 192,
+      "E": 6634,
+      "old_cap": null,
+      "E_cap": 8000,
+      "nl": "cell",
+      "capture_s": 0.2423547375947237
+     }
+    ]
+   },
+   "sync_audit": {
+    "per_step": 0.0,
+    "n_steps": 10,
+    "kinds": {}
+   },
+   "Etot_per_atom_range_during_bench": 0.000385222588306533,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "gpustep_cg",
+   "system": "water192",
+   "N": 192,
+   "periodic": false,
+   "setup_first_force_s": 0.7886203955858946,
+   "vv_capture_s": 0.0004133470356464386,
+   "provider_name": "gpustep_nodeext+embed+node_cell_graph",
+   "warmup_s": 0.016096623614430428,
+   "ms_step_mean": 1.5776543226093054,
+   "ms_step_blocks": [
+    1.5721720084547997,
+    1.578192114830017,
+    1.5846505016088486,
+    1.5755528956651688
+   ],
+   "ms_step_median": 1.576872505247593,
+   "ms_step_min": 1.5721720084547997,
+   "ms_step_max": 1.5846505016088486,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "check": 0.1
+   },
+   "atom_steps_per_s": 121760.00238513455,
+   "ns_per_day_at_dt": 27.39600053665527,
+   "peak_mem_MiB": 1029.38134765625,
+   "gpustep_stats": {
+    "path": "graph",
+    "nl": "cell",
+    "captures": 1,
+    "recaptures": 0,
+    "proactive_recaptures": 0,
+    "overflows": 0,
+    "checks": 22,
+    "host_syncs": 22,
+    "steps": 211,
+    "evictions": 0,
+    "last_capture_s": 0.10155738703906536,
+    "E_cap": 8000,
+    "n_edges_last": 6804,
+    "n_graphs": 1,
+    "ext_csr_layer_calls": 8,
+    "sort_fallback_layer_calls": 0,
+    "events": [
+     {
+      "reason": "new_key",
+      "N": 192,
+      "E": 6634,
+      "old_cap": null,
+      "E_cap": 8000,
+      "nl": "cell",
+      "capture_s": 0.10155738703906536
+     }
+    ]
+   },
+   "sync_audit": {
+    "per_step": 0.0,
+    "n_steps": 10,
+    "kinds": {}
+   },
+   "Etot_per_atom_range_during_bench": 0.00038522258842021984,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 1
+  },
+  {
+   "provider": "stock",
+   "system": "wbox648",
+   "N": 648,
+   "periodic": true,
+   "setup_first_force_s": 0.056960392743349075,
+   "provider_name": "stock_eager",
+   "warmup_s": 0.5482562072575092,
+   "ms_step_mean": 54.66182818636298,
+   "ms_step_blocks": [
+    54.96561389416456,
+    54.711410105228424,
+    54.521711841225624,
+    54.448483884334564
+   ],
+   "ms_step_median": 54.616560973227024,
+   "ms_step_min": 54.448483884334564,
+   "ms_step_max": 54.96561389416456,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 11864.533182849957,
+   "ns_per_day_at_dt": 0.7909688788566637,
+   "peak_mem_MiB": 5811.1181640625,
+   "sync_audit": {
+    "per_step": 38.0,
+    "n_steps": 10,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 38.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.00028799794188216765,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "ase",
+   "system": "wbox648",
+   "N": 648,
+   "periodic": true,
+   "setup_first_force_s": 0.06089002639055252,
+   "note": "ASE VelocityVerlet + MACECalculator(default_dtype=float64, compute_stress default)",
+   "warmup_s": 0.5628494713455439,
+   "ms_step_mean": 56.193529004231095,
+   "ms_step_blocks": [
+    57.00457822531462,
+    56.03931535035372,
+    55.85797231644392,
+    55.87216928601265
+   ],
+   "ms_step_median": 55.955742318183184,
+   "ms_step_min": 55.85797231644392,
+   "ms_step_max": 57.00457822531462,
+   "timed_steps": 200,
+   "atom_steps_per_s": 11580.580886859723,
+   "ns_per_day_at_dt": 0.7720387257906481,
+   "peak_mem_MiB": 5814.267578125,
+   "sync_audit": {
+    "per_step": 43.0,
+    "n_steps": 10,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 43.0
+    }
+   }
+  },
+  {
+   "provider": "graphed",
+   "system": "wbox648",
+   "N": 648,
+   "periodic": true,
+   "setup_first_force_s": 0.6278905887156725,
+   "provider_name": "graphed_nodehybrid+embed+node_proto",
+   "warmup_s": 0.05247225798666477,
+   "ms_step_mean": 5.168833779171109,
+   "ms_step_blocks": [
+    5.159381292760372,
+    5.162044428288937,
+    5.185583494603634,
+    5.168257020413876
+   ],
+   "ms_step_median": 5.165150724351406,
+   "ms_step_min": 5.159381292760372,
+   "ms_step_max": 5.185583494603634,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 125456.16470492641,
+   "ns_per_day_at_dt": 8.36374431366176,
+   "peak_mem_MiB": 1676.0234375,
+   "runner_stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.11837988160550594,
+    "key": {
+     "n_atoms": 648,
+     "numbers_sha1": "1f532494b7d0",
+     "pbc": [
+      true,
+      true,
+      true
+     ],
+     "cell_is_none": false,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     42880
+    ]
+   },
+   "sync_audit": {
+    "per_step": 4.0,
+    "n_steps": 10,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 4.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.00028799794188216765,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "gpustep",
+   "system": "wbox648",
+   "N": 648,
+   "periodic": true,
+   "setup_first_force_s": 0.6814932636916637,
+   "provider_name": "gpustep_nodeext+embed+node_cell_graph",
+   "warmup_s": 0.037473373115062714,
+   "ms_step_mean": 3.7509783171117306,
+   "ms_step_blocks": [
+    3.7395115196704865,
+    3.75018909573555,
+    3.756701275706291,
+    3.757423311471939
+   ],
+   "ms_step_median": 3.7534451857209206,
+   "ms_step_min": 3.7395115196704865,
+   "ms_step_max": 3.757423311471939,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "check": 0.1
+   },
+   "atom_steps_per_s": 172641.39155812375,
+   "ns_per_day_at_dt": 11.509426103874915,
+   "peak_mem_MiB": 1771.8505859375,
+   "gpustep_stats": {
+    "path": "graph",
+    "nl": "cell",
+    "captures": 1,
+    "recaptures": 0,
+    "proactive_recaptures": 0,
+    "overflows": 0,
+    "checks": 22,
+    "host_syncs": 22,
+    "steps": 211,
+    "evictions": 0,
+    "last_capture_s": 0.12065546400845051,
+    "E_cap": 42880,
+    "n_edges_last": 34940,
+    "n_graphs": 1,
+    "ext_csr_layer_calls": 8,
+    "sort_fallback_layer_calls": 0,
+    "events": [
+     {
+      "reason": "new_key",
+      "N": 648,
+      "E": 35698,
+      "old_cap": null,
+      "E_cap": 42880,
+      "nl": "cell",
+      "capture_s": 0.12065546400845051
+     }
+    ]
+   },
+   "sync_audit": {
+    "per_step": 0.0,
+    "n_steps": 10,
+    "kinds": {}
+   },
+   "Etot_per_atom_range_during_bench": 0.00028799794188216765,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "gpustep_cg",
+   "system": "wbox648",
+   "N": 648,
+   "periodic": true,
+   "setup_first_force_s": 0.6478377748280764,
+   "vv_capture_s": 0.0006169918924570084,
+   "provider_name": "gpustep_nodeext+embed+node_cell_graph",
+   "warmup_s": 0.03772510774433613,
+   "ms_step_mean": 3.7424075696617365,
+   "ms_step_blocks": [
+    3.7315889075398445,
+    3.739481456577778,
+    3.7467027455568314,
+    3.7518013641238213
+   ],
+   "ms_step_median": 3.7430921010673046,
+   "ms_step_min": 3.7315889075398445,
+   "ms_step_max": 3.7518013641238213,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "check": 0.1
+   },
+   "atom_steps_per_s": 173118.90343687494,
+   "ns_per_day_at_dt": 11.541260229124994,
+   "peak_mem_MiB": 1870.5625,
+   "gpustep_stats": {
+    "path": "graph",
+    "nl": "cell",
+    "captures": 1,
+    "recaptures": 0,
+    "proactive_recaptures": 0,
+    "overflows": 0,
+    "checks": 22,
+    "host_syncs": 22,
+    "steps": 211,
+    "evictions": 0,
+    "last_capture_s": 0.12466808035969734,
+    "E_cap": 42880,
+    "n_edges_last": 34940,
+    "n_graphs": 1,
+    "ext_csr_layer_calls": 8,
+    "sort_fallback_layer_calls": 0,
+    "events": [
+     {
+      "reason": "new_key",
+      "N": 648,
+      "E": 35698,
+      "old_cap": null,
+      "E_cap": 42880,
+      "nl": "cell",
+      "capture_s": 0.12466808035969734
+     }
+    ]
+   },
+   "sync_audit": {
+    "per_step": 0.0,
+    "n_steps": 10,
+    "kinds": {}
+   },
+   "Etot_per_atom_range_during_bench": 0.00028799794188216765,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 1
+  },
+  {
+   "provider": "stock",
+   "system": "wbox2187",
+   "N": 2187,
+   "periodic": true,
+   "setup_first_force_s": 0.20753032341599464,
+   "provider_name": "stock_eager",
+   "warmup_s": 2.047882905229926,
+   "ms_step_mean": 206.53605369850993,
+   "ms_step_blocks": [
+    205.66361375153065,
+    203.9618679881096,
+    209.94342528283596,
+    206.57520335167646
+   ],
+   "ms_step_median": 206.11940855160356,
+   "ms_step_min": 203.9618679881096,
+   "ms_step_max": 209.94342528283596,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 10610.354528804442,
+   "ns_per_day_at_dt": 0.20958724995169267,
+   "peak_mem_MiB": 19003.0322265625,
+   "sync_audit": {
+    "per_step": 38.0,
+    "n_steps": 10,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 38.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.0003128955445390602,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "ase",
+   "system": "wbox2187",
+   "N": 2187,
+   "periodic": true,
+   "setup_first_force_s": 0.21910962834954262,
+   "note": "ASE VelocityVerlet + MACECalculator(default_dtype=float64, compute_stress default)",
+   "warmup_s": 2.1152657493948936,
+   "ms_step_mean": 209.84831967391074,
+   "ms_step_blocks": [
+    209.95182286947966,
+    211.22127145528793,
+    207.9309206455946,
+    210.28917655348778
+   ],
+   "ms_step_median": 210.12049971148372,
+   "ms_step_min": 207.9309206455946,
+   "ms_step_max": 211.22127145528793,
+   "timed_steps": 200,
+   "atom_steps_per_s": 10408.313339264698,
+   "ns_per_day_at_dt": 0.20559631287436436,
+   "peak_mem_MiB": 19015.52490234375,
+   "sync_audit": {
+    "per_step": 43.0,
+    "n_steps": 10,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 43.0
+    }
+   }
+  },
+  {
+   "provider": "graphed",
+   "system": "wbox2187",
+   "N": 2187,
+   "periodic": true,
+   "setup_first_force_s": 0.7168427053838968,
+   "provider_name": "graphed_nodehybrid+embed+node_proto",
+   "warmup_s": 0.192217405885458,
+   "ms_step_mean": 18.84217976592481,
+   "ms_step_blocks": [
+    18.823553062975407,
+    18.829356506466866,
+    18.855465427041054,
+    18.86023610830307
+   ],
+   "ms_step_median": 18.84241096675396,
+   "ms_step_min": 18.823553062975407,
+   "ms_step_max": 18.86023610830307,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 116067.9492586591,
+   "ns_per_day_at_dt": 2.292700232269809,
+   "peak_mem_MiB": 4838.00537109375,
+   "runner_stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.13314644247293472,
+    "key": {
+     "n_atoms": 2187,
+     "numbers_sha1": "a2accae2fe7f",
+     "pbc": [
+      true,
+      true,
+      true
+     ],
+     "cell_is_none": false,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     144896
+    ]
+   },
+   "sync_audit": {
+    "per_step": 8.0,
+    "n_steps": 10,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 8.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.0003128955444253734,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "gpustep",
+   "system": "wbox2187",
+   "N": 2187,
+   "periodic": true,
+   "setup_first_force_s": 0.8525743894279003,
+   "provider_name": "gpustep_nodeext+embed+node_cell_graph",
+   "warmup_s": 0.10792072303593159,
+   "ms_step_mean": 10.816691676154733,
+   "ms_step_blocks": [
+    10.805845260620117,
+    10.81603653728962,
+    10.820717066526413,
+    10.824089534580708
+   ],
+   "ms_step_median": 10.818376801908016,
+   "ms_step_min": 10.805845260620117,
+   "ms_step_max": 10.824089534580708,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "check": 0.1
+   },
+   "atom_steps_per_s": 202156.0202649147,
+   "ns_per_day_at_dt": 3.9932053385662156,
+   "peak_mem_MiB": 4931.23388671875,
+   "gpustep_stats": {
+    "path": "graph",
+    "nl": "cell",
+    "captures": 1,
+    "recaptures": 0,
+    "proactive_recaptures": 0,
+    "overflows": 0,
+    "checks": 22,
+    "host_syncs": 22,
+    "steps": 211,
+    "evictions": 0,
+    "last_capture_s": 0.2897390238940716,
+    "E_cap": 144896,
+    "n_edges_last": 117030,
+    "n_graphs": 1,
+    "ext_csr_layer_calls": 8,
+    "sort_fallback_layer_calls": 0,
+    "events": [
+     {
+      "reason": "new_key",
+      "N": 2187,
+      "E": 120698,
+      "old_cap": null,
+      "E_cap": 144896,
+      "nl": "cell",
+      "capture_s": 0.2897390238940716
+     }
+    ]
+   },
+   "sync_audit": {
+    "per_step": 0.0,
+    "n_steps": 10,
+    "kinds": {}
+   },
+   "Etot_per_atom_range_during_bench": 0.0003128955445390602,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "gpustep_cg",
+   "system": "wbox2187",
+   "N": 2187,
+   "periodic": true,
+   "setup_first_force_s": 1.160458069294691,
+   "vv_capture_s": 0.0005070362240076065,
+   "provider_name": "gpustep_nodeext+embed+node_cell_graph",
+   "warmup_s": 0.10809935815632343,
+   "ms_step_mean": 10.794518562033772,
+   "ms_step_blocks": [
+    10.80265961587429,
+    10.78919991850853,
+    10.790766887366772,
+    10.795349925756454
+   ],
+   "ms_step_median": 10.793058406561613,
+   "ms_step_min": 10.78919991850853,
+   "ms_step_max": 10.80265961587429,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "check": 0.1
+   },
+   "atom_steps_per_s": 202630.2385865362,
+   "ns_per_day_at_dt": 4.002572614055036,
+   "peak_mem_MiB": 4822.794921875,
+   "gpustep_stats": {
+    "path": "graph",
+    "nl": "cell",
+    "captures": 1,
+    "recaptures": 0,
+    "proactive_recaptures": 0,
+    "overflows": 0,
+    "checks": 22,
+    "host_syncs": 22,
+    "steps": 211,
+    "evictions": 0,
+    "last_capture_s": 0.2780753057450056,
+    "E_cap": 144896,
+    "n_edges_last": 117030,
+    "n_graphs": 1,
+    "ext_csr_layer_calls": 8,
+    "sort_fallback_layer_calls": 0,
+    "events": [
+     {
+      "reason": "new_key",
+      "N": 2187,
+      "E": 120698,
+      "old_cap": null,
+      "E_cap": 144896,
+      "nl": "cell",
+      "capture_s": 0.2780753057450056
+     }
+    ]
+   },
+   "sync_audit": {
+    "per_step": 0.0,
+    "n_steps": 10,
+    "kinds": {}
+   },
+   "Etot_per_atom_range_during_bench": 0.0003128955445390602,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 1
+  }
+ ],
+ "gpu_end": "0, NVIDIA H100 80GB HBM3, GPU-edefc586-3f13-ab62-907d-ba075a79f443, 1980 MHz, 1980 MHz"
+}

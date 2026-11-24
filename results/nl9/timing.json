@@ -1,0 +1,513 @@
+{
+ "job": "1125",
+ "node": "slurm-h100-206-077",
+ "gpu_start": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz",
+ "torch": "2.11.0+cu128",
+ "warmup": 10,
+ "reps": 100,
+ "squeue_at_start": "1125 nl9time RUNNING\n1124 md9dbg RUNNING\n1123 int9test RUNNING\n1098 md9dr_gs RUNNING",
+ "rows": [
+  {
+   "system": "aspirin",
+   "N": 21,
+   "E": 302,
+   "E_cap": 384,
+   "pbc": false,
+   "nbins": 216,
+   "bin_cap": 64,
+   "nl_buffers_bytes": 90840,
+   "nl_peak_alloc_bytes": 95744,
+   "cell_eager": {
+    "median_ms": 0.03898981958627701,
+    "p10_ms": 0.038552843034267426,
+    "p90_ms": 0.039624422788619995,
+    "n": 100
+   },
+   "cell_graph": {
+    "median_ms": 0.02366863191127777,
+    "p10_ms": 0.023496896028518677,
+    "p90_ms": 0.023960135877132416,
+    "n": 100
+   },
+   "cell_graph_device": {
+    "median_ms": 0.020767999812960625,
+    "p10_ms": 0.02054399996995926,
+    "p90_ms": 0.02099519968032837,
+    "n": 100
+   },
+   "kernels_ms": {
+    "k_prep(double const*, int, double*, int*": 0.0039775500000000154,
+    "void k_wscan<1>(double const*, int, doub": 0.002873649999999998,
+    "k_final(int, int const*, long long const": 0.0027009499999999776,
+    "void k_wscan<0>(double const*, int, doub": 0.002377600000000041,
+    "k_bin(double const*, int, double const*,": 0.002193700000000001,
+    "k_rowscan2(int const*, int, int*, int*, ": 0.001676850000000036
+   },
+   "proto_peak_alloc_bytes": 33608192,
+   "proto_build": {
+    "median_ms": 0.4318729043006897,
+    "p10_ms": 0.41868872940540314,
+    "p90_ms": 0.44866912066936493,
+    "n": 100
+   },
+   "stock_get_neighborhood_cpu": {
+    "median_ms": 0.09108800441026688,
+    "p10_ms": 0.08942205458879471,
+    "p90_ms": 0.09494218975305557,
+    "n": 100
+   }
+  },
+  {
+   "system": "water192",
+   "N": 192,
+   "E": 6634,
+   "E_cap": 8000,
+   "pbc": false,
+   "nbins": 729,
+   "bin_cap": 64,
+   "nl_buffers_bytes": 874908,
+   "nl_peak_alloc_bytes": 883712,
+   "cell_eager": {
+    "median_ms": 0.05074217915534973,
+    "p10_ms": 0.049469806253910065,
+    "p90_ms": 0.05149971693754196,
+    "n": 100
+   },
+   "cell_graph": {
+    "median_ms": 0.03404542803764343,
+    "p10_ms": 0.033871643245220184,
+    "p90_ms": 0.03421250730752945,
+    "n": 100
+   },
+   "cell_graph_device": {
+    "median_ms": 0.030944000929594043,
+    "p10_ms": 0.03081599995493889,
+    "p90_ms": 0.031168000772595406,
+    "n": 100
+   },
+   "kernels_ms": {
+    "void k_wscan<1>(double const*, int, doub": 0.007160049999999956,
+    "void k_wscan<0>(double const*, int, doub": 0.005246349999999984,
+    "k_prep(double const*, int, double*, int*": 0.004107150000000013,
+    "k_final(int, int const*, long long const": 0.0036014499999999883,
+    "k_bin(double const*, int, double const*,": 0.002001449999999989,
+    "k_rowscan2(int const*, int, int*, int*, ": 0.0017615500000000453
+   },
+   "proto_peak_alloc_bytes": 2120704,
+   "proto_build": {
+    "median_ms": 0.4523498937487602,
+    "p10_ms": 0.44167544692754745,
+    "p90_ms": 0.4652278497815132,
+    "n": 100
+   },
+   "stock_get_neighborhood_cpu": {
+    "median_ms": 0.8934764191508293,
+    "p10_ms": 0.8823838084936142,
+    "p90_ms": 0.9335504844784737,
+    "n": 100
+   }
+  },
+  {
+   "system": "org648",
+   "N": 650,
+   "E": 14856,
+   "E_cap": 17856,
+   "pbc": false,
+   "nbins": 2197,
+   "bin_cap": 64,
+   "nl_buffers_bytes": 2113804,
+   "nl_peak_alloc_bytes": 2135552,
+   "cell_eager": {
+    "median_ms": 0.05070492625236511,
+    "p10_ms": 0.04953574389219284,
+    "p90_ms": 0.05186107009649277,
+    "n": 100
+   },
+   "cell_graph": {
+    "median_ms": 0.03466755151748657,
+    "p10_ms": 0.03451202064752579,
+    "p90_ms": 0.03491714596748352,
+    "n": 100
+   },
+   "cell_graph_device": {
+    "median_ms": 0.03171199932694435,
+    "p10_ms": 0.0315839983522892,
+    "p90_ms": 0.031936001032590866,
+    "n": 100
+   },
+   "kernels_ms": {
+    "void k_wscan<1>(double const*, int, doub": 0.006921699999999987,
+    "void k_wscan<0>(double const*, int, doub": 0.005340599999999995,
+    "k_prep(double const*, int, double*, int*": 0.00461925000000006,
+    "k_final(int, int const*, long long const": 0.003751999999999998,
+    "k_bin(double const*, int, double const*,": 0.002076800000000003,
+    "k_rowscan2(int const*, int, int*, int*, ": 0.001833700000000033
+   },
+   "proto_peak_alloc_bytes": 24517120,
+   "proto_build": {
+    "median_ms": 0.4800036549568176,
+    "p10_ms": 0.46740081161260605,
+    "p90_ms": 0.4955712705850601,
+    "n": 100
+   },
+   "stock_get_neighborhood_cpu": {
+    "median_ms": 2.516956999897957,
+    "p10_ms": 2.413061074912548,
+    "p90_ms": 2.5554586201906204,
+    "n": 100
+   }
+  },
+  {
+   "system": "water648",
+   "N": 648,
+   "E": 26550,
+   "E_cap": 31872,
+   "pbc": false,
+   "nbins": 2197,
+   "bin_cap": 64,
+   "nl_buffers_bytes": 3291020,
+   "nl_peak_alloc_bytes": 3312640,
+   "cell_eager": {
+    "median_ms": 0.0589294359087944,
+    "p10_ms": 0.05831923335790634,
+    "p90_ms": 0.059505365788936615,
+    "n": 100
+   },
+   "cell_graph": {
+    "median_ms": 0.04195328801870346,
+    "p10_ms": 0.04174932837486267,
+    "p90_ms": 0.042268820106983185,
+    "n": 100
+   },
+   "cell_graph_device": {
+    "median_ms": 0.0390079990029335,
+    "p10_ms": 0.03871680051088333,
+    "p90_ms": 0.03929920122027397,
+    "n": 100
+   },
+   "kernels_ms": {
+    "void k_wscan<1>(double const*, int, doub": 0.0108351,
+    "void k_wscan<0>(double const*, int, doub": 0.008335799999999973,
+    "k_prep(double const*, int, double*, int*": 0.004635300000000041,
+    "k_final(int, int const*, long long const": 0.004380700000000013,
+    "k_bin(double const*, int, double const*,": 0.0019583000000000027,
+    "k_rowscan2(int const*, int, int*, int*, ": 0.0018782999999999788
+   },
+   "proto_peak_alloc_bytes": 24496128,
+   "proto_build": {
+    "median_ms": 0.47938432544469833,
+    "p10_ms": 0.46639740467071533,
+    "p90_ms": 0.49617309123277664,
+    "n": 100
+   },
+   "stock_get_neighborhood_cpu": {
+    "median_ms": 3.996148705482483,
+    "p10_ms": 3.951161913573742,
+    "p90_ms": 4.18479535728693,
+    "n": 100
+   }
+  },
+  {
+   "system": "wbox648",
+   "N": 648,
+   "E": 35698,
+   "E_cap": 42880,
+   "pbc": true,
+   "nbins": 27,
+   "bin_cap": 64,
+   "nl_buffers_bytes": 3651492,
+   "nl_peak_alloc_bytes": 3673600,
+   "cell_eager": {
+    "median_ms": 0.07150694727897644,
+    "p10_ms": 0.07079634815454483,
+    "p90_ms": 0.0729849562048912,
+    "n": 100
+   },
+   "cell_graph": {
+    "median_ms": 0.05187094211578369,
+    "p10_ms": 0.05159657448530197,
+    "p90_ms": 0.05226489156484604,
+    "n": 100
+   },
+   "cell_graph_device": {
+    "median_ms": 0.048928000032901764,
+    "p10_ms": 0.04854400083422661,
+    "p90_ms": 0.04915520139038563,
+    "n": 100
+   },
+   "kernels_ms": {
+    "void k_wscan<1>(double const*, int, doub": 0.017790649999999988,
+    "void k_wscan<0>(double const*, int, doub": 0.014488050000000004,
+    "k_final(int, int const*, long long const": 0.005054699999999968,
+    "k_bin(double const*, int, double const*,": 0.0021423500000000103,
+    "k_rowscan2(int const*, int, int*, int*, ": 0.001860800000000006,
+    "k_prep(double const*, int, double*, int*": 0.0009087999999999823
+   },
+   "proto_peak_alloc_bytes": 636157952,
+   "proto_build": {
+    "median_ms": 1.4595650136470795,
+    "p10_ms": 1.4426559209823608,
+    "p90_ms": 1.4791786670684814,
+    "n": 100
+   },
+   "stock_get_neighborhood_cpu": {
+    "median_ms": 8.114955388009548,
+    "p10_ms": 8.09062197804451,
+    "p90_ms": 8.159814961254597,
+    "n": 100
+   }
+  },
+  {
+   "system": "wbox648_tric",
+   "N": 648,
+   "E": 32864,
+   "E_cap": 39488,
+   "pbc": true,
+   "nbins": 27,
+   "bin_cap": 64,
+   "nl_buffers_bytes": 3366564,
+   "nl_peak_alloc_bytes": 3388928,
+   "cell_eager": {
+    "median_ms": 0.06999168545007706,
+    "p10_ms": 0.06946008652448654,
+    "p90_ms": 0.07166936993598938,
+    "n": 100
+   },
+   "cell_graph": {
+    "median_ms": 0.05132332444190979,
+    "p10_ms": 0.05101542919874191,
+    "p90_ms": 0.05176234990358353,
+    "n": 100
+   },
+   "cell_graph_device": {
+    "median_ms": 0.048287998884916306,
+    "p10_ms": 0.04796480014920235,
+    "p90_ms": 0.048579201102256775,
+    "n": 100
+   },
+   "kernels_ms": {
+    "void k_wscan<1>(double const*, int, doub": 0.017428650000000014,
+    "void k_wscan<0>(double const*, int, doub": 0.014360050000000001,
+    "k_final(int, int const*, long long const": 0.004468849999999975,
+    "k_bin(double const*, int, double const*,": 0.0021696500000000243,
+    "k_rowscan2(int const*, int, int*, int*, ": 0.001879950000000008,
+    "k_prep(double const*, int, double*, int*": 0.0009121499999999628
+   },
+   "proto_peak_alloc_bytes": 636023296,
+   "proto_build": {
+    "median_ms": 1.466113142669201,
+    "p10_ms": 1.4499349519610405,
+    "p90_ms": 1.4894483610987663,
+    "n": 100
+   },
+   "stock_get_neighborhood_cpu": {
+    "median_ms": 7.977155968546867,
+    "p10_ms": 7.954437658190727,
+    "p90_ms": 8.004598692059517,
+    "n": 100
+   }
+  },
+  {
+   "system": "wclus2187",
+   "N": 2187,
+   "E": 99438,
+   "E_cap": 119360,
+   "pbc": false,
+   "nbins": 5832,
+   "bin_cap": 64,
+   "nl_buffers_bytes": 11683608,
+   "nl_peak_alloc_bytes": 11741696,
+   "cell_eager": {
+    "median_ms": 0.06447173655033112,
+    "p10_ms": 0.06385277956724167,
+    "p90_ms": 0.06521530449390411,
+    "n": 100
+   },
+   "cell_graph": {
+    "median_ms": 0.05044136196374893,
+    "p10_ms": 0.05019586533308029,
+    "p90_ms": 0.05083344876766205,
+    "n": 100
+   },
+   "cell_graph_device": {
+    "median_ms": 0.04726399853825569,
+    "p10_ms": 0.046908799558877945,
+    "p90_ms": 0.047593601047992706,
+    "n": 100
+   },
+   "kernels_ms": {
+    "void k_wscan<1>(double const*, int, doub": 0.011672050000000019,
+    "void k_wscan<0>(double const*, int, doub": 0.00879835000000001,
+    "k_final(int, int const*, long long const": 0.008646300000000008,
+    "k_prep(double const*, int, double*, int*": 0.006187150000000011,
+    "k_rowscan2(int const*, int, int*, int*, ": 0.002785500000000019,
+    "k_bin(double const*, int, double const*,": 0.001945550000000003
+   },
+   "proto_peak_alloc_bytes": 269472256,
+   "proto_build": {
+    "median_ms": 0.6980346515774727,
+    "p10_ms": 0.6870817393064499,
+    "p90_ms": 0.7116295397281647,
+    "n": 100
+   },
+   "stock_get_neighborhood_cpu": {
+    "median_ms": 14.594094827771187,
+    "p10_ms": 14.551897905766964,
+    "p90_ms": 14.667408727109432,
+    "n": 100
+   }
+  },
+  {
+   "system": "wbox2187",
+   "N": 2187,
+   "E": 120506,
+   "E_cap": 144640,
+   "pbc": true,
+   "nbins": 125,
+   "bin_cap": 64,
+   "nl_buffers_bytes": 12323308,
+   "nl_peak_alloc_bytes": 12381696,
+   "cell_eager": {
+    "median_ms": 0.08535943925380707,
+    "p10_ms": 0.08478667587041855,
+    "p90_ms": 0.08606258779764175,
+    "n": 100
+   },
+   "cell_graph": {
+    "median_ms": 0.05969032645225525,
+    "p10_ms": 0.05926750600337982,
+    "p90_ms": 0.0601891428232193,
+    "n": 100
+   },
+   "cell_graph_device": {
+    "median_ms": 0.05663999915122986,
+    "p10_ms": 0.05632000043988228,
+    "p90_ms": 0.05702719837427139,
+    "n": 100
+   },
+   "kernels_ms": {
+    "void k_wscan<1>(double const*, int, doub": 0.018105899999999998,
+    "void k_wscan<0>(double const*, int, doub": 0.01326264999999997,
+    "k_final(int, int const*, long long const": 0.009701000000000033,
+    "k_rowscan2(int const*, int, int*, int*, ": 0.0027776500000000056,
+    "k_bin(double const*, int, double const*,": 0.0022610999999999933,
+    "k_prep(double const*, int, double*, int*": 0.0009201999999999714
+   },
+   "proto_peak_alloc_bytes": 3732361216,
+   "proto_build": {
+    "median_ms": 8.035896345973015,
+    "p10_ms": 8.022435195744038,
+    "p90_ms": 8.068719878792763,
+    "n": 100
+   },
+   "stock_get_neighborhood_cpu": {
+    "median_ms": 21.54720388352871,
+    "p10_ms": 21.48130778223276,
+    "p90_ms": 21.645673736929893,
+    "n": 100
+   }
+  },
+  {
+   "system": "wclus5184",
+   "N": 5184,
+   "E": 247652,
+   "E_cap": 297216,
+   "pbc": false,
+   "nbins": 12167,
+   "bin_cap": 64,
+   "nl_buffers_bytes": 28462420,
+   "nl_peak_alloc_bytes": 29575168,
+   "cell_eager": {
+    "median_ms": 0.09245425462722778,
+    "p10_ms": 0.09197499603033066,
+    "p90_ms": 0.09340066462755203,
+    "n": 100
+   },
+   "cell_graph": {
+    "median_ms": 0.07468834519386292,
+    "p10_ms": 0.07429532706737518,
+    "p90_ms": 0.07525421679019928,
+    "n": 100
+   },
+   "cell_graph_device": {
+    "median_ms": 0.0716480016708374,
+    "p10_ms": 0.07132479920983315,
+    "p90_ms": 0.07209599763154984,
+    "n": 100
+   },
+   "kernels_ms": {
+    "k_final(int, int const*, long long const": 0.01751854999999996,
+    "void k_wscan<1>(double const*, int, doub": 0.01576015000000002,
+    "void k_wscan<0>(double const*, int, doub": 0.011153649999999994,
+    "k_prep(double const*, int, double*, int*": 0.009132850000000008,
+    "k_rowscan2(int const*, int, int*, int*, ": 0.006771250000000009,
+    "k_bin(double const*, int, double const*,": 0.0021423499999999878
+   },
+   "proto_peak_alloc_bytes": 1509066752,
+   "proto_build": {
+    "median_ms": 1.7116209492087364,
+    "p10_ms": 1.692488044500351,
+    "p90_ms": 1.7370516434311867,
+    "n": 30
+   },
+   "stock_get_neighborhood_cpu": {
+    "median_ms": 42.882817797362804,
+    "p10_ms": 42.723909951746464,
+    "p90_ms": 43.15908942371607,
+    "n": 30
+   }
+  },
+  {
+   "system": "wbox5184",
+   "N": 5184,
+   "E": 285464,
+   "E_cap": 342592,
+   "pbc": true,
+   "nbins": 343,
+   "bin_cap": 64,
+   "nl_buffers_bytes": 29199764,
+   "nl_peak_alloc_bytes": 29328896,
+   "cell_eager": {
+    "median_ms": 0.10658521205186844,
+    "p10_ms": 0.10580997914075851,
+    "p90_ms": 0.10743644088506699,
+    "n": 100
+   },
+   "cell_graph": {
+    "median_ms": 0.08097756654024124,
+    "p10_ms": 0.0803634524345398,
+    "p90_ms": 0.08158870041370392,
+    "n": 100
+   },
+   "cell_graph_device": {
+    "median_ms": 0.07795199751853943,
+    "p10_ms": 0.07721279934048653,
+    "p90_ms": 0.07862720265984535,
+    "n": 100
+   },
+   "kernels_ms": {
+    "void k_wscan<1>(double const*, int, doub": 0.022465449999999984,
+    "k_final(int, int const*, long long const": 0.020252850000000003,
+    "void k_wscan<0>(double const*, int, doub": 0.015734299999999996,
+    "k_rowscan2(int const*, int, int*, int*, ": 0.006782299999999992,
+    "k_bin(double const*, int, double const*,": 0.002512050000000022,
+    "k_prep(double const*, int, double*, int*": 0.0009520500000000226
+   },
+   "proto_peak_alloc_bytes": 3719193600,
+   "proto_build": {
+    "median_ms": 42.91627462953329,
+    "p10_ms": 42.74826403707266,
+    "p90_ms": 43.133958615362644,
+    "n": 30
+   },
+   "stock_get_neighborhood_cpu": {
+    "median_ms": 57.83689022064209,
+    "p10_ms": 57.19998646527529,
+    "p90_ms": 58.256397768855095,
+    "n": 30
+   }
+  }
+ ],
+ "gpu_end": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz, 1980 MHz",
+ "squeue_at_end": "1125 nl9time RUNNING\n1123 int9test RUNNING\n1098 md9dr_gs RUNNING"
+}

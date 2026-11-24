@@ -1,0 +1,5 @@
+Sun Nov  8 09:09:15 PM UTC 2026
+slurm-login-0
+Python 3.10.12
+Filesystem                                                                                                   Size  Used Avail Use% Mounted on
+all-tenants.storage-backend01.us-west-04a.int.coreweave.cloud:/k8s/pvc-ef79ed00-9d7f-455b-b18a-7e8e767ea021   20T  7.4T   13T  37% /mnt/home

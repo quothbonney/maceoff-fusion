@@ -1,0 +1,124 @@
+job=1144 host=slurm-h100-206-077 start=2026-11-10T06:12:01+00:00
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+md5 f7eb8bd6702c903c53f2c2748640e256  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/bench9.py
+md5 cc67e5325688f2464021000ca27ccda9  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/brute_nl.py
+md5 6c51ea1bfec7e04832c6677527ed5800  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/common9.py
+md5 66315a7690b7b071eeab957017e0e854  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/dbg_ovf.py
+md5 1a487a9cab64687a057a54151adf0892  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/fin9.py
+md5 78133beb87bb1c30f8e8bf94f9b84733  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gen_systems.py
+md5 a4ce5f49b54371c6c84fb90e796b4098  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gpu_step.py
+md5 64a8038bea51576265d2efefbb3f87d8  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/nodeconv_ext.py
+md5 1b039179a8e03ee3c221db8a90cc308f  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/prof9.py
+md5 d410bebfded9a70d729f166f8276f76b  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/summ9.py
+md5 5614810ddc470c6a37e9aad2824b3ad7  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/test9.py
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  return dict(E=float(o[0][0]), F=o[1].detach().cpu().numpy().copy(), S=o[2].detach().cpu().numpy().copy() if stress else None)
+bin_overflow done 17.4 s; failures so far 0
+  json.dump(res, open(out_path, "w"), indent=1, default=float)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+fallback done 2.7 s; failures so far 0
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+ext_csr done 0.8 s; failures so far 0
+  json.dump(res, open(out_path, "w"), indent=1, default=float)
+tiny done 0.8 s; failures so far 0
+traps done 0.8 s; failures so far 0
+overflow done 5.6 s; failures so far 0
+systems done 5.1 s; failures so far 0
+FAILURES 0 []
+DONE
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz
+end=2026-11-10T06:12:46+00:00
+job=1144 host=slurm-h100-206-077 start=2026-11-10T06:12:46+00:00
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz, 1980 MHz
+md5 f7eb8bd6702c903c53f2c2748640e256  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/bench9.py
+md5 cc67e5325688f2464021000ca27ccda9  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/brute_nl.py
+md5 6c51ea1bfec7e04832c6677527ed5800  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/common9.py
+md5 66315a7690b7b071eeab957017e0e854  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/dbg_ovf.py
+md5 1a487a9cab64687a057a54151adf0892  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/fin9.py
+md5 78133beb87bb1c30f8e8bf94f9b84733  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gen_systems.py
+md5 a4ce5f49b54371c6c84fb90e796b4098  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gpu_step.py
+md5 64a8038bea51576265d2efefbb3f87d8  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/nodeconv_ext.py
+md5 1b039179a8e03ee3c221db8a90cc308f  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/prof9.py
+md5 d410bebfded9a70d729f166f8276f76b  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/summ9.py
+md5 5614810ddc470c6a37e9aad2824b3ad7  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/test9.py
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  return dict(E=float(o[0][0]), F=o[1].detach().cpu().numpy().copy(), S=o[2].detach().cpu().numpy().copy() if stress else None)
+systems done 18.9 s; failures so far 0
+  json.dump(res, open(out_path, "w"), indent=1, default=float)
+FAILURES 0 []
+DONE
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz
+end=2026-11-10T06:13:19+00:00
+job=1144 host=slurm-h100-206-077 start=2026-11-10T06:13:19+00:00
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz, 1980 MHz
+md5 f7eb8bd6702c903c53f2c2748640e256  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/bench9.py
+md5 cc67e5325688f2464021000ca27ccda9  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/brute_nl.py
+md5 6c51ea1bfec7e04832c6677527ed5800  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/common9.py
+md5 66315a7690b7b071eeab957017e0e854  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/dbg_ovf.py
+md5 1a487a9cab64687a057a54151adf0892  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/fin9.py
+md5 78133beb87bb1c30f8e8bf94f9b84733  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gen_systems.py
+md5 a4ce5f49b54371c6c84fb90e796b4098  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gpu_step.py
+md5 64a8038bea51576265d2efefbb3f87d8  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/nodeconv_ext.py
+md5 1b039179a8e03ee3c221db8a90cc308f  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/prof9.py
+md5 d410bebfded9a70d729f166f8276f76b  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/summ9.py
+md5 5614810ddc470c6a37e9aad2824b3ad7  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/test9.py
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  return dict(E=float(o[0][0]), F=o[1].detach().cpu().numpy().copy(), S=o[2].detach().cpu().numpy().copy() if stress else None)
+systems done 21.7 s; failures so far 0
+  json.dump(res, open(out_path, "w"), indent=1, default=float)
+FAILURES 0 []
+DONE
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz
+end=2026-11-10T06:13:55+00:00
+job=1144 host=slurm-h100-206-077 start=2026-11-10T06:13:55+00:00
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz, 1980 MHz
+md5 f7eb8bd6702c903c53f2c2748640e256  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/bench9.py
+md5 cc67e5325688f2464021000ca27ccda9  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/brute_nl.py
+md5 6c51ea1bfec7e04832c6677527ed5800  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/common9.py
+md5 66315a7690b7b071eeab957017e0e854  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/dbg_ovf.py
+md5 1a487a9cab64687a057a54151adf0892  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/fin9.py
+md5 78133beb87bb1c30f8e8bf94f9b84733  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gen_systems.py
+md5 a4ce5f49b54371c6c84fb90e796b4098  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gpu_step.py
+md5 64a8038bea51576265d2efefbb3f87d8  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/nodeconv_ext.py
+md5 1b039179a8e03ee3c221db8a90cc308f  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/prof9.py
+md5 d410bebfded9a70d729f166f8276f76b  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/summ9.py
+md5 5614810ddc470c6a37e9aad2824b3ad7  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/test9.py
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  return dict(E=float(o[0][0]), F=o[1].detach().cpu().numpy().copy(), S=o[2].detach().cpu().numpy().copy() if stress else None)
+systems done 22.4 s; failures so far 0
+  json.dump(res, open(out_path, "w"), indent=1, default=float)
+FAILURES 0 []
+DONE
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz
+end=2026-11-10T06:14:31+00:00
+job=1144 host=slurm-h100-206-077 start=2026-11-10T06:14:31+00:00
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz, 1980 MHz
+md5 f7eb8bd6702c903c53f2c2748640e256  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/bench9.py
+md5 cc67e5325688f2464021000ca27ccda9  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/brute_nl.py
+md5 6c51ea1bfec7e04832c6677527ed5800  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/common9.py
+md5 66315a7690b7b071eeab957017e0e854  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/dbg_ovf.py
+md5 1a487a9cab64687a057a54151adf0892  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/fin9.py
+md5 78133beb87bb1c30f8e8bf94f9b84733  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gen_systems.py
+md5 a4ce5f49b54371c6c84fb90e796b4098  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gpu_step.py
+md5 64a8038bea51576265d2efefbb3f87d8  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/nodeconv_ext.py
+md5 1b039179a8e03ee3c221db8a90cc308f  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/prof9.py
+md5 d410bebfded9a70d729f166f8276f76b  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/summ9.py
+md5 5614810ddc470c6a37e9aad2824b3ad7  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/test9.py
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  return dict(E=float(o[0][0]), F=o[1].detach().cpu().numpy().copy(), S=o[2].detach().cpu().numpy().copy() if stress else None)
+systems done 27.9 s; failures so far 0
+  json.dump(res, open(out_path, "w"), indent=1, default=float)
+FAILURES 0 []
+DONE
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz
+end=2026-11-10T06:15:13+00:00

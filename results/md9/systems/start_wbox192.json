@@ -1,0 +1,13 @@
+{
+ "src": "results/workloads/systems/wbox192.extxyz (already 30 FIRE e3nn fp64)",
+ "mb_seed": 20261109,
+ "name": "wbox192",
+ "n_atoms": 192,
+ "pbc": [
+  true,
+  true,
+  true
+ ],
+ "T_start_K": 322.0581369890255,
+ "slurm_job": "1068"
+}

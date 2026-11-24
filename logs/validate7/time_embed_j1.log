@@ -1,0 +1,46 @@
+job=1039 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 345 MHz, 1980 MHz
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+  torch.load(f=model_path, map_location=device)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built hybrid {'build_install_s': 3.126935014501214}
+  torch.load(f=model_path, map_location=device)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built hybrid+embed {'build_install_s': 0.7953877039253712}
+  torch.load(f=model_path, map_location=device)
+built flash {'build_install_s': 0.4998098723590374}
+  torch.load(f=model_path, map_location=device)
+built flash+embed {'build_install_s': 0.31624874845147133}
+  _warn_once(
+H2O hybrid {"replay": 1.0001, "step": 1.6023, "nk": 623, "first": 14.2, "fused_us": 0, "peak": 167}
+  json.dump(res, open(out_path, "w"), indent=1)
+H2O hybrid+embed {"replay": 0.925, "step": 1.5334, "nk": 465, "first": 0.135, "fused_us": 16.5, "peak": 71}
+H2O flash {"replay": 1.4986, "step": 2.1318, "nk": 684, "first": 0.118, "fused_us": 0, "peak": 84}
+H2O flash+embed {"replay": 1.2445, "step": 1.8634, "nk": 526, "first": 0.112, "fused_us": 18.0, "peak": 84}
+aspirin hybrid+embed {"replay": 1.0762, "step": 1.7079, "nk": 441, "first": 0.071, "fused_us": 18.8, "peak": 90}
+aspirin flash {"replay": 1.9149, "step": 2.546, "nk": 661, "first": 0.564, "fused_us": 0, "peak": 138}
+aspirin flash+embed {"replay": 1.6274, "step": 2.248, "nk": 503, "first": 0.05, "fused_us": 18.8, "peak": 138}
+aspirin hybrid {"replay": 1.3675, "step": 2.0087, "nk": 599, "first": 0.077, "fused_us": 0, "peak": 90}
+water192 flash {"replay": 6.6072, "step": 7.2904, "nk": 669, "first": 0.719, "fused_us": 0, "peak": 715}
+water192 flash+embed {"replay": 6.2767, "step": 6.9427, "nk": 511, "first": 0.06, "fused_us": 20.4, "peak": 712}
+water192 hybrid {"replay": 2.934, "step": 3.6062, "nk": 608, "first": 0.089, "fused_us": 0, "peak": 391}
+water192 hybrid+embed {"replay": 2.6017, "step": 3.2529, "nk": 450, "first": 0.076, "fused_us": 20.6, "peak": 388}
+org192 flash+embed {"replay": 5.7236, "step": 6.3851, "nk": 512, "first": 0.059, "fused_us": 20.2, "peak": 701}
+org192 hybrid {"replay": 2.3111, "step": 2.9688, "nk": 609, "first": 0.084, "fused_us": 0, "peak": 293}
+org192 hybrid+embed {"replay": 2.0008, "step": 2.6515, "nk": 451, "first": 0.075, "fused_us": 20.4, "peak": 292}
+org192 flash {"replay": 6.0359, "step": 6.7034, "nk": 670, "first": 0.073, "fused_us": 0, "peak": 703}
+water648 hybrid {"replay": 7.6796, "step": 8.3898, "nk": 610, "first": 0.102, "fused_us": 0, "peak": 1298}
+water648 hybrid+embed {"replay": 7.3247, "step": 8.0139, "nk": 452, "first": 0.093, "fused_us": 33.0, "peak": 1286}
+water648 flash {"replay": 19.6834, "step": 20.3953, "nk": 689, "first": 0.117, "fused_us": 0, "peak": 2280}
+water648 flash+embed {"replay": 19.332, "step": 20.0413, "nk": 531, "first": 0.113, "fused_us": 33.6, "peak": 2269}
+org648 hybrid+embed {"replay": 4.9709, "step": 5.6613, "nk": 452, "first": 0.144, "fused_us": 27.0, "peak": 891}
+org648 flash {"replay": 17.3591, "step": 18.0776, "nk": 689, "first": 0.105, "fused_us": 0, "peak": 2183}
+org648 flash+embed {"replay": 17.0325, "step": 17.7312, "nk": 531, "first": 0.1, "fused_us": 28.2, "peak": 2177}
+org648 hybrid {"replay": 5.3036, "step": 6.0156, "nk": 610, "first": 0.094, "fused_us": 0, "peak": 898}
+wbox648 flash {"replay": 21.5944, "step": 23.2904, "nk": 689, "first": 0.163, "fused_us": 0, "peak": 2470}
+wbox648 flash+embed {"replay": 21.2348, "step": 22.9264, "nk": 531, "first": 0.127, "fused_us": 39.6, "peak": 2455}
+wbox648 hybrid {"replay": 9.5946, "step": 11.2787, "nk": 610, "first": 0.11, "fused_us": 0, "peak": 1603}
+wbox648 hybrid+embed {"replay": 9.2292, "step": 10.9007, "nk": 452, "first": 0.1, "fused_us": 39.9, "peak": 1587}
+  json.dump(res, open(out_path, "w"), indent=1)
+DONE
+0, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 1980 MHz

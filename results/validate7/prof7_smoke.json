@@ -1,0 +1,2347 @@
+{
+ "job": "1032",
+ "node": "slurm-h100-206-077",
+ "torch": "2.11.0+cu128",
+ "systems": {
+  "aspirin": {
+   "flash": {
+    "N": 21,
+    "E": 302,
+    "E_cap": 384,
+    "E_cap_tight": 320,
+    "t_replay": {
+     "median": 1.9046682864427567,
+     "p10": 1.9025309011340141,
+     "p90": 1.907820999622345
+    },
+    "t_copyin_replay": {
+     "median": 1.9663060083985329,
+     "p10": 1.9638733938336372,
+     "p90": 1.970645971596241
+    },
+    "replay_profiled_wall_ms": 3.8834121078252792,
+    "replay_n_gpu_ops": 661,
+    "replay_n_kernels": 660,
+    "replay_kernel_sum_us": 1704.9579999999967,
+    "replay_busy_us": 1704.96240234375,
+    "replay_span_us": 2071.22216796875,
+    "align_ok": true,
+    "eager_n_gpu_ops": 661,
+    "align_first_mismatches": [],
+    "n_name_mismatch": 0,
+    "multiset_equal": true,
+    "per_op": {
+     "prepare_graph/e0": {
+      "fwd_us": 26.464000000000002,
+      "bwd_us": 47.10399999999999,
+      "n_fwd": 12,
+      "n_bwd": 26,
+      "top_kernels": [
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        19.1
+       ],
+       [
+        "void at::native::index_elementwise_kernel<...>",
+        13.2
+       ],
+       [
+        "void (anonymous namespace)::indexing_backward_kernel_small_stride<...> [bwd]",
+        12.2
+       ],
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        9.4
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        5.2
+       ]
+      ]
+     },
+     "node_embedding": {
+      "fwd_us": 3.7439999999999998,
+      "bwd_us": 0.0,
+      "n_fwd": 2,
+      "n_bwd": 0,
+      "top_kernels": [
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize",
+        2.5
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        1.2
+       ]
+      ]
+     },
+     "embed.SH": {
+      "fwd_us": 33.21600000000001,
+      "bwd_us": 84.19499999999998,
+      "n_fwd": 24,
+      "n_bwd": 58,
+      "top_kernels": [
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        39.2
+       ],
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        29.8
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        10.5
+       ],
+       [
+        "void at::native::(anonymous namespace)::CatArrayBatchedCopy<...>",
+        5.3
+       ],
+       [
+        "fused_mul_mul [bwd]",
+        4.1
+       ]
+      ]
+     },
+     "embed.radial_basis+cutoff": {
+      "fwd_us": 50.14399999999999,
+      "bwd_us": 84.28799999999995,
+      "n_fwd": 29,
+      "n_bwd": 46,
+      "top_kernels": [
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        43.5
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        27.6
+       ],
+       [
+        "void at::native::elementwise_kernel<...>",
+        25.3
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        12.8
+       ],
+       [
+        "void at::native::unrolled_elementwise_kernel<...>",
+        12.0
+       ]
+      ]
+     },
+     "embed.glue(after radial)": {
+      "fwd_us": 0.896,
+      "bwd_us": 0.0,
+      "n_fwd": 1,
+      "n_bwd": 0,
+      "top_kernels": [
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        0.9
+       ]
+      ]
+     },
+     "node.linear_up": {
+      "fwd_us": 17.952,
+      "bwd_us": 25.248,
+      "n_fwd": 9,
+      "n_bwd": 14,
+      "top_kernels": [
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        9.8
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize",
+        9.2
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize [bwd]",
+        9.1
+       ],
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        6.4
+       ],
+       [
+        "void at::native::elementwise_kernel<...>",
+        6.2
+       ]
+      ]
+     },
+     "embed.radial_MLP": {
+      "fwd_us": 72.25300000000001,
+      "bwd_us": 57.373999999999995,
+      "n_fwd": 34,
+      "n_bwd": 26,
+      "top_kernels": [
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        48.0
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        29.8
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize [bwd]",
+        27.5
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize",
+        19.1
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x64x32_stage3_warpsize",
+        5.2
+       ]
+      ]
+     },
+     "conv(FlashTP)": {
+      "fwd_us": 62.528000000000006,
+      "bwd_us": 93.88399999999999,
+      "n_fwd": 26,
+      "n_bwd": 27,
+      "top_kernels": [
+       [
+        "void bwd_sptp_lienar_kernel_v1_shared_exp<...> [bwd]",
+        60.3
+       ],
+       [
+        "void fwd_sptp_lienar_kernel_v2_shared_exp<...>",
+        34.9
+       ],
+       [
+        "memcpy32_post [bwd]",
+        23.0
+       ],
+       [
+        "memcpy32_post",
+        19.2
+       ],
+       [
+        "void at::native::reduce_kernel<...> [bwd]",
+        6.8
+       ]
+      ]
+     },
+     "node.interaction_linear(+avg,reshape)": {
+      "fwd_us": 72.32000000000001,
+      "bwd_us": 103.36099999999998,
+      "n_fwd": 33,
+      "n_bwd": 62,
+      "top_kernels": [
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        46.1
+       ],
+       [
+        "void at::native::elementwise_kernel<...>",
+        31.6
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        31.4
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize",
+        29.7
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize [bwd]",
+        25.8
+       ]
+      ]
+     },
+     "node.skip_tp": {
+      "fwd_us": 61.50599999999999,
+      "bwd_us": 73.82400000000001,
+      "n_fwd": 23,
+      "n_bwd": 41,
+      "top_kernels": [
+       [
+        "void cutlass::Kernel2<...>",
+        22.4
+       ],
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        22.1
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        21.4
+       ],
+       [
+        "void at::native::elementwise_kernel<...>",
+        17.5
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize [bwd]",
+        9.3
+       ]
+      ]
+     },
+     "SC(cueq/e3nn)": {
+      "fwd_us": 294.59400000000005,
+      "bwd_us": 300.73699999999997,
+      "n_fwd": 48,
+      "n_bwd": 34,
+      "top_kernels": [
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x64x32_stage3_warpsize [bwd]",
+        67.3
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x64x32_stage3_warpsize",
+        63.3
+       ],
+       [
+        "void at::native::elementwise_kernel<...>",
+        55.5
+       ],
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        48.1
+       ],
+       [
+        "void gemv2N_kernel<...> [bwd]",
+        46.3
+       ]
+      ]
+     },
+     "products.linear(+sc_add)": {
+      "fwd_us": 22.239999999999995,
+      "bwd_us": 21.983,
+      "n_fwd": 10,
+      "n_bwd": 13,
+      "top_kernels": [
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize",
+        10.0
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize [bwd]",
+        9.2
+       ],
+       [
+        "void at::native::elementwise_kernel<...>",
+        7.8
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        6.8
+       ],
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        6.0
+       ]
+      ]
+     },
+     "readouts": {
+      "fwd_us": 15.583,
+      "bwd_us": 12.607999999999999,
+      "n_fwd": 8,
+      "n_bwd": 9,
+      "top_kernels": [
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        6.9
+       ],
+       [
+        "std::enable_if<...>",
+        5.6
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        5.2
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize",
+        3.1
+       ],
+       [
+        "void gemmk1_kernel<...> [bwd]",
+        2.7
+       ]
+      ]
+     },
+     "outputs/energy_sum/scale_shift": {
+      "fwd_us": 20.098000000000003,
+      "bwd_us": 29.50500000000001,
+      "n_fwd": 13,
+      "n_bwd": 21,
+      "top_kernels": [
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        17.8
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        5.9
+       ],
+       [
+        "void at::native::index_elementwise_kernel<...>",
+        4.7
+       ],
+       [
+        "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<...> [bwd]",
+        4.5
+       ],
+       [
+        "void (anonymous namespace)::indexing_backward_kernel_stride_1<...> [bwd]",
+        3.9
+       ]
+      ]
+     },
+     "scale_shift": {
+      "fwd_us": 6.368,
+      "bwd_us": 1.183,
+      "n_fwd": 4,
+      "n_bwd": 1,
+      "top_kernels": [
+       [
+        "void at::native::index_elementwise_kernel<...>",
+        3.6
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        2.8
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        1.2
+       ]
+      ]
+     },
+     "bwd_unmapped:torch::jit::(anonymous namespace)::DifferentiableGraphBackward": {
+      "fwd_us": 0.0,
+      "bwd_us": 9.758,
+      "n_fwd": 0,
+      "n_bwd": 7,
+      "top_kernels": [
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        6.3
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        3.5
+       ]
+      ]
+     }
+    },
+    "top_kernels": [
+     [
+      "void at::native::elementwise_kernel<...>",
+      366.8
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<...>",
+      365.3
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_c",
+      95.3
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_c",
+      78.7
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x64x32_stage3_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_c",
+      77.9
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x64x32_stage3_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_c",
+      63.3
+     ],
+     [
+      "void at::native::reduce_kernel<...>",
+      60.8
+     ],
+     [
+      "void bwd_sptp_lienar_kernel_v1_shared_exp<...>",
+      60.3
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize64x64x16_stage4_warpsize2x2x1_tensor16x8x8_execute_kernel__5x_cu",
+      55.0
+     ],
+     [
+      "memcpy32_post",
+      48.8
+     ],
+     [
+      "void gemv2N_kernel<...>",
+      46.3
+     ],
+     [
+      "std::enable_if<...>",
+      43.0
+     ],
+     [
+      "void cutlass::Kernel2<...>",
+      39.4
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x64x32_stage3_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_c",
+      37.7
+     ],
+     [
+      "void fwd_sptp_lienar_kernel_v2_shared_exp<...>",
+      34.9
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nt_n_tilesize64x32x32_stage3_warpsize2x2x1_tensor16x8x8_execute_kernel__5x_cu",
+      34.8
+     ],
+     [
+      "void at::native::unrolled_elementwise_kernel<...>",
+      25.3
+     ],
+     [
+      "void gemmk1_kernel<...>",
+      24.8
+     ],
+     [
+      "void at::native::index_elementwise_kernel<...>",
+      21.5
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nt_n_tilesize64x64x16_stage4_warpsize2x2x1_tensor16x8x8_execute_kernel__5x_cu",
+      16.7
+     ],
+     [
+      "void (anonymous namespace)::indexing_backward_kernel_small_stride<...>",
+      12.2
+     ],
+     [
+      "void at::native::(anonymous namespace)::CatArrayBatchedCopy<...>",
+      10.9
+     ],
+     [
+      "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized<...>",
+      10.7
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_exec",
+      9.3
+     ],
+     [
+      "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<...>",
+      9.2
+     ]
+    ],
+    "io_bytes": {
+     "model": {
+      "in_MB": 0.0,
+      "out_MB": 0.0,
+      "inputs": [],
+      "outputs": []
+     },
+     "node_embedding": {
+      "in_MB": 0.00168,
+      "out_MB": 0.021504,
+      "inputs": [
+       [
+        [
+         21,
+         10
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ]
+     },
+     "spherical_harmonics": {
+      "in_MB": 0.009216,
+      "out_MB": 0.049152,
+      "inputs": [
+       [
+        [
+         384,
+         3
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         384,
+         16
+        ],
+        8
+       ]
+      ]
+     },
+     "radial_embedding": {
+      "in_MB": 0.010976,
+      "out_MB": 0.024576,
+      "inputs": [
+       [
+        [
+         384,
+         1
+        ],
+        8
+       ],
+       [
+        [
+         21,
+         10
+        ],
+        8
+       ],
+       [
+        [
+         2,
+         384
+        ],
+        8
+       ],
+       [
+        [
+         10
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         384,
+         8
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.0": {
+      "in_MB": 0.0,
+      "out_MB": 0.344064,
+      "inputs": [],
+      "outputs": [
+       [
+        [
+         21,
+         128,
+         16
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.0.linear_up": {
+      "in_MB": 0.021504,
+      "out_MB": 0.021504,
+      "inputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.0.conv_tp_weights": {
+      "in_MB": 0.024576,
+      "out_MB": 1.572864,
+      "inputs": [
+       [
+        [
+         384,
+         8
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         384,
+         512
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.0.conv_tp": {
+      "in_MB": 1.649664,
+      "out_MB": 0.344064,
+      "inputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ],
+       [
+        [
+         384,
+         16
+        ],
+        8
+       ],
+       [
+        [
+         384,
+         512
+        ],
+        8
+       ],
+       [
+        [
+         2,
+         384
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         2048
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.0.linear": {
+      "in_MB": 0.344064,
+      "out_MB": 0.344064,
+      "inputs": [
+       [
+        [
+         21,
+         2048
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         2048
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.0.skip_tp": {
+      "in_MB": 0.345744,
+      "out_MB": 0.344064,
+      "inputs": [
+       [
+        [
+         21,
+         2048
+        ],
+        8
+       ],
+       [
+        [
+         21,
+         10
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         2048
+        ],
+        8
+       ]
+      ]
+     },
+     "products.0": {
+      "in_MB": 0.0,
+      "out_MB": 0.086016,
+      "inputs": [],
+      "outputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ]
+      ]
+     },
+     "products.0.symmetric_contractions": {
+      "in_MB": 0.345744,
+      "out_MB": 0.086016,
+      "inputs": [
+       [
+        [
+         21,
+         128,
+         16
+        ],
+        8
+       ],
+       [
+        [
+         21,
+         10
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ]
+      ]
+     },
+     "products.0.linear": {
+      "in_MB": 0.086016,
+      "out_MB": 0.086016,
+      "inputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.1": {
+      "in_MB": 0.0,
+      "out_MB": 0.365568,
+      "inputs": [],
+      "outputs": [
+       [
+        [
+         21,
+         128,
+         16
+        ],
+        8
+       ],
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.1.skip_tp": {
+      "in_MB": 0.087696,
+      "out_MB": 0.021504,
+      "inputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ],
+       [
+        [
+         21,
+         10
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.1.linear_up": {
+      "in_MB": 0.086016,
+      "out_MB": 0.086016,
+      "inputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.1.conv_tp_weights": {
+      "in_MB": 0.024576,
+      "out_MB": 3.93216,
+      "inputs": [
+       [
+        [
+         384,
+         8
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         384,
+         1280
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.1.conv_tp": {
+      "in_MB": 4.073472,
+      "out_MB": 0.86016,
+      "inputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ],
+       [
+        [
+         384,
+         16
+        ],
+        8
+       ],
+       [
+        [
+         384,
+         1280
+        ],
+        8
+       ],
+       [
+        [
+         2,
+         384
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         5120
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.1.linear": {
+      "in_MB": 0.86016,
+      "out_MB": 0.344064,
+      "inputs": [
+       [
+        [
+         21,
+         5120
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         2048
+        ],
+        8
+       ]
+      ]
+     },
+     "products.1": {
+      "in_MB": 0.0,
+      "out_MB": 0.021504,
+      "inputs": [],
+      "outputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ]
+     },
+     "products.1.symmetric_contractions": {
+      "in_MB": 0.345744,
+      "out_MB": 0.021504,
+      "inputs": [
+       [
+        [
+         21,
+         128,
+         16
+        ],
+        8
+       ],
+       [
+        [
+         21,
+         10
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ]
+     },
+     "products.1.linear": {
+      "in_MB": 0.021504,
+      "out_MB": 0.021504,
+      "inputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ]
+     },
+     "readouts.0": {
+      "in_MB": 0.086184,
+      "out_MB": 0.000168,
+      "inputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ],
+       [
+        [
+         21
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         1
+        ],
+        8
+       ]
+      ]
+     },
+     "readouts.1": {
+      "in_MB": 0.021672,
+      "out_MB": 0.000168,
+      "inputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ],
+       [
+        [
+         21
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         1
+        ],
+        8
+       ]
+      ]
+     },
+     "scale_shift": {
+      "in_MB": 0.000336,
+      "out_MB": 0.000168,
+      "inputs": [
+       [
+        [
+         21
+        ],
+        8
+       ],
+       [
+        [
+         21
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21
+        ],
+        8
+       ]
+      ]
+     }
+    },
+    "flops": {
+     "L0.linear_up": 688128,
+     "L0.linear": 11010048,
+     "L0.skip_tp(approx, FullyConnectedTP w/ one-hot = per-species linear)": null,
+     "L0.conv_tp_weights(radial MLP)": 31850496,
+     "L1.linear_up": 2752512,
+     "L1.linear": 27525120,
+     "L1.skip_tp(approx, FullyConnectedTP w/ one-hot = per-species linear)": null,
+     "L1.conv_tp_weights(radial MLP)": 69599232,
+     "P0.linear": 2752512,
+     "P1.linear": 688128
+    },
+    "t_replay_tight_cap": {
+     "median": 1.912369392812252,
+     "p10": 1.9092507660388947,
+     "p90": 1.9167551770806313
+    }
+   },
+   "hybrid": {
+    "N": 21,
+    "E": 302,
+    "E_cap": 384,
+    "E_cap_tight": 320,
+    "t_replay": {
+     "median": 1.3697128742933273,
+     "p10": 1.3681823387742043,
+     "p90": 1.3721134513616562
+    },
+    "t_copyin_replay": {
+     "median": 1.4535225927829742,
+     "p10": 1.4511944726109505,
+     "p90": 1.4596523717045784
+    },
+    "replay_profiled_wall_ms": 2.4784114211797714,
+    "replay_n_gpu_ops": 598,
+    "replay_n_kernels": 555,
+    "replay_kernel_sum_us": 1145.7359999999983,
+    "replay_busy_us": 1145.740234375,
+    "replay_span_us": 1407.8701171875,
+    "align_ok": true,
+    "eager_n_gpu_ops": 598,
+    "align_first_mismatches": [],
+    "n_name_mismatch": 0,
+    "multiset_equal": true,
+    "per_op": {
+     "prepare_graph/e0": {
+      "fwd_us": 22.528,
+      "bwd_us": 47.68,
+      "n_fwd": 11,
+      "n_bwd": 26,
+      "top_kernels": [
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        19.2
+       ],
+       [
+        "void (anonymous namespace)::indexing_backward_kernel_small_stride<...> [bwd]",
+        12.6
+       ],
+       [
+        "void at::native::index_elementwise_kernel<...>",
+        9.9
+       ],
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        9.5
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        5.7
+       ]
+      ]
+     },
+     "node_embedding": {
+      "fwd_us": 4.193,
+      "bwd_us": 0.0,
+      "n_fwd": 2,
+      "n_bwd": 0,
+      "top_kernels": [
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize",
+        2.8
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        1.4
+       ]
+      ]
+     },
+     "embed.SH": {
+      "fwd_us": 35.389,
+      "bwd_us": 84.16,
+      "n_fwd": 24,
+      "n_bwd": 58,
+      "top_kernels": [
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        39.3
+       ],
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        29.9
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        10.8
+       ],
+       [
+        "void at::native::(anonymous namespace)::CatArrayBatchedCopy<...>",
+        5.5
+       ],
+       [
+        "fused_mul_mul [bwd]",
+        4.1
+       ]
+      ]
+     },
+     "embed.radial_basis+cutoff": {
+      "fwd_us": 53.097,
+      "bwd_us": 84.31999999999998,
+      "n_fwd": 29,
+      "n_bwd": 46,
+      "top_kernels": [
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        43.0
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        27.9
+       ],
+       [
+        "void at::native::elementwise_kernel<...>",
+        27.6
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        13.3
+       ],
+       [
+        "void at::native::unrolled_elementwise_kernel<...>",
+        12.2
+       ]
+      ]
+     },
+     "embed.glue(after radial)": {
+      "fwd_us": 0.96,
+      "bwd_us": 0.0,
+      "n_fwd": 1,
+      "n_bwd": 0,
+      "top_kernels": [
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        1.0
+       ]
+      ]
+     },
+     "node.linear_up": {
+      "fwd_us": 17.857,
+      "bwd_us": 23.233,
+      "n_fwd": 9,
+      "n_bwd": 14,
+      "top_kernels": [
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize",
+        9.2
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        8.6
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize [bwd]",
+        8.3
+       ],
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        6.3
+       ],
+       [
+        "void at::native::elementwise_kernel<...>",
+        6.1
+       ]
+      ]
+     },
+     "embed.radial_MLP": {
+      "fwd_us": 70.81800000000001,
+      "bwd_us": 54.977999999999994,
+      "n_fwd": 34,
+      "n_bwd": 26,
+      "top_kernels": [
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        47.1
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        28.3
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize [bwd]",
+        26.7
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize",
+        18.5
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x64x32_stage3_warpsize",
+        5.2
+       ]
+      ]
+     },
+     "conv(FlashTP)": {
+      "fwd_us": 61.022000000000006,
+      "bwd_us": 88.769,
+      "n_fwd": 26,
+      "n_bwd": 27,
+      "top_kernels": [
+       [
+        "void bwd_sptp_lienar_kernel_v1_shared_exp<...> [bwd]",
+        57.0
+       ],
+       [
+        "void fwd_sptp_lienar_kernel_v2_shared_exp<...>",
+        33.8
+       ],
+       [
+        "Memcpy DtoD (Device -> Device) [bwd]",
+        21.0
+       ],
+       [
+        "Memcpy DtoD (Device -> Device)",
+        18.4
+       ],
+       [
+        "void at::native::reduce_kernel<...> [bwd]",
+        7.5
+       ]
+      ]
+     },
+     "node.interaction_linear(+avg,reshape)": {
+      "fwd_us": 70.719,
+      "bwd_us": 101.85399999999998,
+      "n_fwd": 33,
+      "n_bwd": 62,
+      "top_kernels": [
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        46.0
+       ],
+       [
+        "void at::native::elementwise_kernel<...>",
+        30.8
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        30.8
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize",
+        29.2
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize [bwd]",
+        25.2
+       ]
+      ]
+     },
+     "node.skip_tp": {
+      "fwd_us": 60.127999999999986,
+      "bwd_us": 71.202,
+      "n_fwd": 23,
+      "n_bwd": 41,
+      "top_kernels": [
+       [
+        "void cutlass::Kernel2<...>",
+        22.1
+       ],
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        22.0
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        21.1
+       ],
+       [
+        "void at::native::elementwise_kernel<...>",
+        16.9
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize [bwd]",
+        8.2
+       ]
+      ]
+     },
+     "SC(cueq/e3nn)": {
+      "fwd_us": 34.624,
+      "bwd_us": 22.879,
+      "n_fwd": 15,
+      "n_bwd": 5,
+      "top_kernels": [
+       [
+        "segmented_polynomial_bwd_algo1_4 [bwd]",
+        15.4
+       ],
+       [
+        "void at::native::elementwise_kernel<...>",
+        11.6
+       ],
+       [
+        "void at::native::reduce_kernel<...>",
+        6.8
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize",
+        6.2
+       ],
+       [
+        "segmented_polynomial_algo1_4",
+        5.7
+       ]
+      ]
+     },
+     "products.linear(+sc_add)": {
+      "fwd_us": 20.224,
+      "bwd_us": 22.046000000000003,
+      "n_fwd": 10,
+      "n_bwd": 13,
+      "top_kernels": [
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize",
+        9.6
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize [bwd]",
+        9.4
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        6.8
+       ],
+       [
+        "void at::native::elementwise_kernel<...>",
+        6.5
+       ],
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        5.8
+       ]
+      ]
+     },
+     "readouts": {
+      "fwd_us": 14.623999999999999,
+      "bwd_us": 12.479999999999999,
+      "n_fwd": 8,
+      "n_bwd": 9,
+      "top_kernels": [
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        6.4
+       ],
+       [
+        "std::enable_if<...>",
+        5.2
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        5.2
+       ],
+       [
+        "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize",
+        3.0
+       ],
+       [
+        "void gemmk1_kernel<...> [bwd]",
+        2.7
+       ]
+      ]
+     },
+     "outputs/energy_sum/scale_shift": {
+      "fwd_us": 19.392000000000003,
+      "bwd_us": 29.504000000000005,
+      "n_fwd": 13,
+      "n_bwd": 21,
+      "top_kernels": [
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        17.8
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        6.0
+       ],
+       [
+        "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<...> [bwd]",
+        4.5
+       ],
+       [
+        "void at::native::index_elementwise_kernel<...>",
+        4.3
+       ],
+       [
+        "void (anonymous namespace)::indexing_backward_kernel_stride_1<...> [bwd]",
+        3.9
+       ]
+      ]
+     },
+     "scale_shift": {
+      "fwd_us": 6.144,
+      "bwd_us": 1.248,
+      "n_fwd": 4,
+      "n_bwd": 1,
+      "top_kernels": [
+       [
+        "void at::native::index_elementwise_kernel<...>",
+        3.6
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...>",
+        2.6
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        1.2
+       ]
+      ]
+     },
+     "bwd_unmapped:torch::jit::(anonymous namespace)::DifferentiableGraphBackward": {
+      "fwd_us": 0.0,
+      "bwd_us": 9.664,
+      "n_fwd": 0,
+      "n_bwd": 7,
+      "top_kernels": [
+       [
+        "void at::native::elementwise_kernel<...> [bwd]",
+        6.3
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<...> [bwd]",
+        3.4
+       ]
+      ]
+     }
+    },
+    "top_kernels": [
+     [
+      "void at::native::vectorized_elementwise_kernel<...>",
+      325.0
+     ],
+     [
+      "void at::native::elementwise_kernel<...>",
+      273.6
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_c",
+      75.8
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_c",
+      72.4
+     ],
+     [
+      "void bwd_sptp_lienar_kernel_v1_shared_exp<...>",
+      57.0
+     ],
+     [
+      "Memcpy DtoD (Device -> Device)",
+      45.0
+     ],
+     [
+      "void at::native::reduce_kernel<...>",
+      35.2
+     ],
+     [
+      "void fwd_sptp_lienar_kernel_v2_shared_exp<...>",
+      33.8
+     ],
+     [
+      "void at::native::unrolled_elementwise_kernel<...>",
+      28.3
+     ],
+     [
+      "void cutlass::Kernel2<...>",
+      26.6
+     ],
+     [
+      "void at::native::index_elementwise_kernel<...>",
+      17.7
+     ],
+     [
+      "segmented_polynomial_bwd_algo1_4",
+      15.4
+     ],
+     [
+      "void (anonymous namespace)::indexing_backward_kernel_small_stride<...>",
+      12.6
+     ],
+     [
+      "void at::native::(anonymous namespace)::CatArrayBatchedCopy<...>",
+      10.8
+     ],
+     [
+      "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<...>",
+      9.2
+     ],
+     [
+      "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized<...>",
+      8.7
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_exec",
+      8.2
+     ],
+     [
+      "fused_mul_mul",
+      7.6
+     ],
+     [
+      "std::enable_if<...>",
+      7.6
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_exec",
+      7.6
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_exec",
+      6.2
+     ],
+     [
+      "segmented_polynomial_algo1_4",
+      5.7
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x64x32_stage3_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_c",
+      5.2
+     ],
+     [
+      "void at::native::_scatter_gather_elementwise_kernel<...>",
+      4.9
+     ],
+     [
+      "void cublasLt::splitKreduce_kernel<...>",
+      4.7
+     ]
+    ],
+    "io_bytes": {
+     "model": {
+      "in_MB": 0.0,
+      "out_MB": 0.0,
+      "inputs": [],
+      "outputs": []
+     },
+     "node_embedding": {
+      "in_MB": 0.00168,
+      "out_MB": 0.021504,
+      "inputs": [
+       [
+        [
+         21,
+         10
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ]
+     },
+     "spherical_harmonics": {
+      "in_MB": 0.009216,
+      "out_MB": 0.049152,
+      "inputs": [
+       [
+        [
+         384,
+         3
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         384,
+         16
+        ],
+        8
+       ]
+      ]
+     },
+     "radial_embedding": {
+      "in_MB": 0.010976,
+      "out_MB": 0.024576,
+      "inputs": [
+       [
+        [
+         384,
+         1
+        ],
+        8
+       ],
+       [
+        [
+         21,
+         10
+        ],
+        8
+       ],
+       [
+        [
+         2,
+         384
+        ],
+        8
+       ],
+       [
+        [
+         10
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         384,
+         8
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.0": {
+      "in_MB": 0.0,
+      "out_MB": 0.344064,
+      "inputs": [],
+      "outputs": [
+       [
+        [
+         21,
+         128,
+         16
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.0.linear_up": {
+      "in_MB": 0.021504,
+      "out_MB": 0.021504,
+      "inputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.0.conv_tp_weights": {
+      "in_MB": 0.024576,
+      "out_MB": 1.572864,
+      "inputs": [
+       [
+        [
+         384,
+         8
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         384,
+         512
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.0.conv_tp": {
+      "in_MB": 1.649664,
+      "out_MB": 0.344064,
+      "inputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ],
+       [
+        [
+         384,
+         16
+        ],
+        8
+       ],
+       [
+        [
+         384,
+         512
+        ],
+        8
+       ],
+       [
+        [
+         2,
+         384
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         2048
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.0.linear": {
+      "in_MB": 0.344064,
+      "out_MB": 0.344064,
+      "inputs": [
+       [
+        [
+         21,
+         2048
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         2048
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.0.skip_tp": {
+      "in_MB": 0.345744,
+      "out_MB": 0.344064,
+      "inputs": [
+       [
+        [
+         21,
+         2048
+        ],
+        8
+       ],
+       [
+        [
+         21,
+         10
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         2048
+        ],
+        8
+       ]
+      ]
+     },
+     "products.0": {
+      "in_MB": 0.0,
+      "out_MB": 0.086016,
+      "inputs": [],
+      "outputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ]
+      ]
+     },
+     "products.0.symmetric_contractions": {
+      "in_MB": 0.345744,
+      "out_MB": 0.086016,
+      "inputs": [
+       [
+        [
+         21,
+         128,
+         16
+        ],
+        8
+       ],
+       [
+        [
+         21,
+         10
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ]
+      ]
+     },
+     "products.0.linear": {
+      "in_MB": 0.086016,
+      "out_MB": 0.086016,
+      "inputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.1": {
+      "in_MB": 0.0,
+      "out_MB": 0.365568,
+      "inputs": [],
+      "outputs": [
+       [
+        [
+         21,
+         128,
+         16
+        ],
+        8
+       ],
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.1.skip_tp": {
+      "in_MB": 0.087696,
+      "out_MB": 0.021504,
+      "inputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ],
+       [
+        [
+         21,
+         10
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.1.linear_up": {
+      "in_MB": 0.086016,
+      "out_MB": 0.086016,
+      "inputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.1.conv_tp_weights": {
+      "in_MB": 0.024576,
+      "out_MB": 3.93216,
+      "inputs": [
+       [
+        [
+         384,
+         8
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         384,
+         1280
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.1.conv_tp": {
+      "in_MB": 4.073472,
+      "out_MB": 0.86016,
+      "inputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ],
+       [
+        [
+         384,
+         16
+        ],
+        8
+       ],
+       [
+        [
+         384,
+         1280
+        ],
+        8
+       ],
+       [
+        [
+         2,
+         384
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         5120
+        ],
+        8
+       ]
+      ]
+     },
+     "interactions.1.linear": {
+      "in_MB": 0.86016,
+      "out_MB": 0.344064,
+      "inputs": [
+       [
+        [
+         21,
+         5120
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         2048
+        ],
+        8
+       ]
+      ]
+     },
+     "products.1": {
+      "in_MB": 0.0,
+      "out_MB": 0.021504,
+      "inputs": [],
+      "outputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ]
+     },
+     "products.1.symmetric_contractions": {
+      "in_MB": 0.345744,
+      "out_MB": 0.021504,
+      "inputs": [
+       [
+        [
+         21,
+         128,
+         16
+        ],
+        8
+       ],
+       [
+        [
+         21,
+         10
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ]
+     },
+     "products.1.linear": {
+      "in_MB": 0.021504,
+      "out_MB": 0.021504,
+      "inputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ]
+      ]
+     },
+     "readouts.0": {
+      "in_MB": 0.086184,
+      "out_MB": 0.000168,
+      "inputs": [
+       [
+        [
+         21,
+         512
+        ],
+        8
+       ],
+       [
+        [
+         21
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         1
+        ],
+        8
+       ]
+      ]
+     },
+     "readouts.1": {
+      "in_MB": 0.021672,
+      "out_MB": 0.000168,
+      "inputs": [
+       [
+        [
+         21,
+         128
+        ],
+        8
+       ],
+       [
+        [
+         21
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21,
+         1
+        ],
+        8
+       ]
+      ]
+     },
+     "scale_shift": {
+      "in_MB": 0.000336,
+      "out_MB": 0.000168,
+      "inputs": [
+       [
+        [
+         21
+        ],
+        8
+       ],
+       [
+        [
+         21
+        ],
+        8
+       ]
+      ],
+      "outputs": [
+       [
+        [
+         21
+        ],
+        8
+       ]
+      ]
+     }
+    },
+    "flops": {
+     "L0.linear_up": 688128,
+     "L0.linear": 11010048,
+     "L0.skip_tp(approx, FullyConnectedTP w/ one-hot = per-species linear)": null,
+     "L0.conv_tp_weights(radial MLP)": 31850496,
+     "L1.linear_up": 2752512,
+     "L1.linear": 27525120,
+     "L1.skip_tp(approx, FullyConnectedTP w/ one-hot = per-species linear)": null,
+     "L1.conv_tp_weights(radial MLP)": 69599232,
+     "P0.linear": 2752512,
+     "P1.linear": 688128
+    },
+    "t_replay_tight_cap": {
+     "median": 1.362411305308342,
+     "p10": 1.3607069849967957,
+     "p90": 1.365477778017521
+    }
+   }
+  }
+ }
+}

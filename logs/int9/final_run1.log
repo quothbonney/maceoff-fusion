@@ -1,0 +1,112 @@
+job=1128 host=slurm-h100-206-077 start=2026-11-10T05:51:17+00:00
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+TIMING_LOCK: 1128 int9 slurm-h100-206-077 2026-11-10T05:51:17+00:00
+other job: 1127 md9dr_gc2 jordan+123 slurm-h100-206-077 RUNNING
+other job: 1123 int9test jordan+123 slurm-h100-206-077 RUNNING
+md5 f7eb8bd6702c903c53f2c2748640e256  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/bench9.py
+md5 cc67e5325688f2464021000ca27ccda9  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/brute_nl.py
+md5 6c51ea1bfec7e04832c6677527ed5800  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/common9.py
+md5 78133beb87bb1c30f8e8bf94f9b84733  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gen_systems.py
+md5 0432479c74e4fe3fd36badd8386fe598  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gpu_step.py
+md5 64a8038bea51576265d2efefbb3f87d8  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/nodeconv_ext.py
+md5 1b039179a8e03ee3c221db8a90cc308f  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/prof9.py
+md5 d410bebfded9a70d729f166f8276f76b  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/summ9.py
+md5 5d27235dc87ec4b869f16198501deb41  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/test9.py
+built stock {'build_install_s': 0.24880712665617466}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built hybrid+embed+node {'build_install_s': 3.426836021244526}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built nodehybrid+embed+node {'build_install_s': 0.6908426061272621}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built gpustep {'build_install_s': 0.4908927921205759}
+aspirin stock {"E": 302, "B1": 11.4302, "B2": 16.1131, "peak_MiB": 112.79150390625}
+  json.dump(res, open(out_path, "w"), indent=1)
+aspirin hybrid+embed+node {"first_step_s": 13.234294837340713, "E": 302, "E_cap": 384, "B1": 0.6835, "B2": 0.905, "B2_nl_only": 0.0849, "B2host": 1.2401, "peak_MiB": 142.51416015625}
+  json.dump(res, open(out_path, "w"), indent=1)
+aspirin nodehybrid+embed+node {"first_step_s": 2.4314556531608105, "E": 302, "E_cap": 384, "B1": 0.757, "B2": 0.9315, "B2_nl_only": 0.0885, "B2host": 1.2776, "peak_MiB": 77.3203125}
+  json.dump(res, open(out_path, "w"), indent=1)
+aspirin gpustep {"first_step_s": 0.2777374368160963, "E": 302, "E_cap": 384, "B1": 0.7986, "B2": 0.8061, "B2chk": 0.8183, "peak_MiB": 77.36376953125}
+  json.dump(res, open(out_path, "w"), indent=1)
+aspirin gpustep_hyb {"first_step_s": 0.06744691170752048, "E": 302, "E_cap": 384, "B1": 0.8884, "B2": 0.8956, "B2chk": 0.9082, "peak_MiB": 78.56396484375}
+water192 hybrid+embed+node {"first_step_s": 0.08106283098459244, "E": 6634, "E_cap": 8000, "B1": 2.1968, "B2": 2.3752, "B2_nl_only": 0.0894, "B2host": 2.7313, "peak_MiB": 311.7236328125}
+water192 nodehybrid+embed+node {"first_step_s": 0.07114102877676487, "E": 6634, "E_cap": 8000, "B1": 1.5348, "B2": 1.7089, "B2_nl_only": 0.0897, "B2host": 2.067, "peak_MiB": 296.4052734375}
+water192 gpustep {"first_step_s": 0.07200931943953037, "E": 6634, "E_cap": 8000, "B1": 1.5689, "B2": 1.5782, "B2chk": 1.5898, "peak_MiB": 296.1787109375}
+water192 gpustep_hyb {"first_step_s": 0.07534867711365223, "E": 6634, "E_cap": 8000, "B1": 2.3715, "B2": 2.3791, "B2chk": 2.3934, "peak_MiB": 311.6142578125}
+water192 stock {"E": 6634, "B1": 13.116, "B2": 17.9065, "peak_MiB": 1131.810546875}
+wbox192 nodehybrid+embed+node {"first_step_s": 0.07677706517279148, "E": 10588, "E_cap": 12736, "B1": 1.7529, "B2": 2.3839, "B2_nl_only": 0.5107, "B2host": 2.7219, "peak_MiB": 423.24267578125}
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+wbox192 gpustep {"first_step_s": 0.09829049557447433, "E": 10588, "E_cap": 12736, "B1": 6.053, "B2": 6.0592, "B2chk": 6.0743, "peak_MiB": 447.14697265625}
+wbox192 gpustep_hyb {"first_step_s": 0.10546542890369892, "E": 10588, "E_cap": 12736, "B1": 7.4591, "B2": 7.4734, "B2chk": 7.4897, "peak_MiB": 465.361328125}
+wbox192 stock {"E": 10588, "B1": 15.9726, "B2": 22.7402, "peak_MiB": 1623.31396484375}
+wbox192 hybrid+embed+node {"first_step_s": 0.08053727447986603, "E": 10588, "E_cap": 12736, "B1": 2.9535, "B2": 3.5882, "B2_nl_only": 0.51, "B2host": 3.9452, "peak_MiB": 443.36572265625}
+org648 gpustep {"first_step_s": 0.1025654748082161, "E": 14856, "E_cap": 17856, "B1": 2.3889, "B2": 2.398, "B2chk": 2.4153, "peak_MiB": 597.72802734375}
+org648 gpustep_hyb {"first_step_s": 0.09245231002569199, "E": 14856, "E_cap": 17856, "B1": 4.4786, "B2": 4.4847, "B2chk": 4.4984, "peak_MiB": 641.46142578125}
+org648 stock {"E": 14856, "B1": 28.1911, "B2": 35.3147, "peak_MiB": 2854.30908203125}
+org648 hybrid+embed+node {"first_step_s": 0.071599580347538, "E": 14856, "E_cap": 17856, "B1": 4.2356, "B2": 4.44, "B2_nl_only": 0.0992, "B2host": 4.8582, "peak_MiB": 641.56103515625}
+org648 nodehybrid+embed+node {"first_step_s": 0.06863974779844284, "E": 14856, "E_cap": 17856, "B1": 2.3684, "B2": 2.5699, "B2_nl_only": 0.0931, "B2host": 2.9706, "peak_MiB": 597.90869140625}
+water648 gpustep_hyb {"first_step_s": 0.10172739066183567, "E": 26550, "E_cap": 31872, "B1": 6.8778, "B2": 6.8874, "B2chk": 6.9046, "peak_MiB": 1038.3740234375}
+water648 stock {"E": 26550, "B1": 36.3742, "B2": 45.7455, "peak_MiB": 4303.15673828125}
+water648 hybrid+embed+node {"first_step_s": 0.07941637746989727, "E": 26550, "E_cap": 31872, "B1": 6.4902, "B2": 6.6872, "B2_nl_only": 0.1044, "B2host": 7.0883, "peak_MiB": 1039.02685546875}
+water648 nodehybrid+embed+node {"first_step_s": 0.08221120946109295, "E": 26550, "E_cap": 31872, "B1": 3.0309, "B2": 3.2154, "B2_nl_only": 0.1039, "B2host": 3.6, "peak_MiB": 980.75439453125}
+water648 gpustep {"first_step_s": 0.09481020644307137, "E": 26550, "E_cap": 31872, "B1": 3.0721, "B2": 3.0787, "B2chk": 3.0928, "peak_MiB": 979.8876953125}
+wbox648 stock {"E": 35724, "B1": 43.1034, "B2": 56.3159, "peak_MiB": 5445.22705078125}
+wbox648 hybrid+embed+node {"first_step_s": 0.08782953023910522, "E": 35724, "E_cap": 42880, "B1": 8.3815, "B2": 9.4969, "B2_nl_only": 1.0044, "B2host": 9.859, "peak_MiB": 1338.8359375}
+wbox648 nodehybrid+embed+node {"first_step_s": 0.08222739957273006, "E": 35724, "E_cap": 42880, "B1": 3.7013, "B2": 4.8214, "B2_nl_only": 1.0012, "B2host": 5.1688, "peak_MiB": 1270.349609375}
+wbox648 gpustep {"first_step_s": 0.10818934440612793, "E": 35724, "E_cap": 42880, "B1": 3.7542, "B2": 3.761, "B2chk": 3.776, "peak_MiB": 1268.55615234375}
+wbox648 gpustep_hyb {"first_step_s": 0.12116089090704918, "E": 35724, "E_cap": 42880, "B1": 8.8996, "B2": 8.9049, "B2chk": 8.9196, "peak_MiB": 1332.900390625}
+water2187 hybrid+embed+node {"first_step_s": 0.14754637517035007, "E": 99438, "E_cap": 119360, "B1": 22.7064, "B2": 23.1898, "B2_nl_only": 0.3274, "B2host": 23.7455, "peak_MiB": 3652.79296875}
+water2187 nodehybrid+embed+node {"first_step_s": 0.10302945226430893, "E": 99438, "E_cap": 119360, "B1": 9.3183, "B2": 9.7245, "B2_nl_only": 0.3257, "B2host": 10.1728, "peak_MiB": 3449.5869140625}
+water2187 gpustep {"first_step_s": 0.14077730104327202, "E": 99438, "E_cap": 119360, "B1": 9.3846, "B2": 9.3904, "B2chk": 9.4076, "peak_MiB": 3444.74951171875}
+water2187 gpustep_hyb {"first_step_s": 0.18908217921853065, "E": 99438, "E_cap": 119360, "B1": 23.8393, "B2": 23.8454, "B2chk": 23.8598, "peak_MiB": 3649.13330078125}
+water2187 stock {"E": 99438, "B1": 120.8862, "B2": 141.8201, "peak_MiB": 15706.54345703125}
+wbox2187 nodehybrid+embed+node {"first_step_s": 0.1761186569929123, "E": 120506, "E_cap": 144640, "B1": 10.8158, "B2": 18.5226, "B2_nl_only": 7.6033, "B2host": 18.902, "peak_MiB": 4129.9248046875}
+wbox2187 gpustep {"first_step_s": 0.3312295973300934, "E": 120506, "E_cap": 144640, "B1": 10.8803, "B2": 10.8923, "B2chk": 10.9069, "peak_MiB": 4123.36279296875}
+wbox2187 gpustep_hyb {"first_step_s": 0.39199506491422653, "E": 120506, "E_cap": 144640, "B1": 28.405, "B2": 28.4125, "B2chk": 28.4271, "peak_MiB": 4338.17578125}
+wbox2187 stock {"E": 120506, "B1": 136.609, "B2": 206.094, "peak_MiB": 18329.892578125}
+wbox2187 hybrid+embed+node {"first_step_s": 0.23250902816653252, "E": 120506, "E_cap": 144640, "B1": 26.9843, "B2": 34.6584, "B2_nl_only": 7.5723, "B2host": 35.0424, "peak_MiB": 4295.62548828125}
+water5184 gpustep {"first_step_s": 0.5693194642663002, "E": 247652, "E_cap": 297216, "B1": 21.7063, "B2": 21.6655, "B2chk": 21.6919, "peak_MiB": 8397.365234375}
+water5184 gpustep_hyb {"first_step_s": 0.7068272437900305, "E": 247652, "E_cap": 297216, "B1": 58.3851, "B2": 58.3936, "B2chk": 58.4247, "peak_MiB": 8863.54296875}
+water5184 stock {"E": 247652, "B1": 291.642, "B2": 405.3203, "peak_MiB": 38715.244140625}
+water5184 hybrid+embed+node {"first_step_s": 0.394200935959816, "E": 247652, "E_cap": 297216, "B1": 55.8465, "B2": 57.1538, "B2_nl_only": 1.259, "B2host": 57.6737, "peak_MiB": 8906.3994140625}
+water5184 nodehybrid+embed+node {"first_step_s": 0.24837652035057545, "E": 247652, "E_cap": 297216, "B1": 21.5943, "B2": 22.8955, "B2_nl_only": 1.2617, "B2host": 23.438, "peak_MiB": 8409.166015625}
+wbox5184 gpustep_hyb {"first_step_s": 0.7258226722478867, "E": 285460, "E_cap": 342592, "B1": 66.6428, "B2": 66.6517, "B2chk": 66.6755, "peak_MiB": 10155.24609375}
+wbox5184 stock {"E": 285460, "B1": 319.1353, "B2": 445.4256, "peak_MiB": 43403.744140625}
+wbox5184 hybrid+embed+node {"first_step_s": 0.5053324196487665, "E": 285460, "E_cap": 342592, "B1": 63.62, "B2": 106.0984, "B2_nl_only": 42.2203, "B2host": 106.9302, "peak_MiB": 10167.3662109375}
+wbox5184 nodehybrid+embed+node {"first_step_s": 0.258966451510787, "E": 285460, "E_cap": 342592, "B1": 24.1619, "B2": 66.5742, "B2_nl_only": 42.1586, "B2host": 66.7898, "peak_MiB": 9626.4267578125}
+wbox5184 gpustep {"first_step_s": 0.5335137471556664, "E": 285460, "E_cap": 342592, "B1": 24.2653, "B2": 24.3148, "B2chk": 24.3296, "peak_MiB": 9610.97314453125}
+  json.dump(res, open(out_path, "w"), indent=1)
+DONE
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz
+end=2026-11-10T05:55:35+00:00
+job=1128 host=slurm-h100-206-077 start=2026-11-10T05:55:35+00:00
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz, 1980 MHz
+TIMING_LOCK: 1128 int9 slurm-h100-206-077 2026-11-10T05:55:35+00:00
+other job: 1129 md9b3c jordan+123 slurm-h100-206-077 RUNNING
+md5 f7eb8bd6702c903c53f2c2748640e256  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/bench9.py
+md5 cc67e5325688f2464021000ca27ccda9  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/brute_nl.py
+md5 6c51ea1bfec7e04832c6677527ed5800  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/common9.py
+md5 78133beb87bb1c30f8e8bf94f9b84733  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gen_systems.py
+md5 73ae2a6933993b8c3f18131329624aa9  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gpu_step.py
+md5 64a8038bea51576265d2efefbb3f87d8  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/nodeconv_ext.py
+md5 1b039179a8e03ee3c221db8a90cc308f  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/prof9.py
+md5 d410bebfded9a70d729f166f8276f76b  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/summ9.py
+md5 305c9a3da3330ac7f8c15506e8411299  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/test9.py
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+proto/wbox5184 {"stage": {"nl": 42.145, "replay": 23.823, "load": 0.075, "step": 66.128}, "wall": 67498.668, "busy": 65755.62800000014, "idle": 1743.0399999998626, "cats": {"NL_build": 41973, "conv_bwd(node)": 6434, "gemm(radialMLP+linears)": 5998, "elementwise": 5486, "fused_node": 2368, "conv_fwd(node)": 2293, "cueq_SC": 469, "scatter/gather/index": 233, "fused_embed": 231, "csr_sort/search": 182, "memcpy/memset": 61, "reduce": 19, "other": 5}, "syncs": {"cudaMemcpyAsync": 37.0, "cudaStreamSynchronize": 29.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+  json.dump(res, open(out_path, "w"), indent=1, default=str)
+proto/water5184 {"stage": {"nl": 1.27, "replay": 21.298, "load": 0.094, "step": 22.737}, "wall": 23003.168999999998, "busy": 22490.04000000003, "idle": 513.1289999999681, "cats": {"conv_bwd(node)": 5586, "gemm(radialMLP+linears)": 5243, "elementwise": 4873, "fused_node": 2369, "conv_fwd(node)": 2034, "NL_build": 1248, "cueq_SC": 473, "scatter/gather/index": 207, "fused_embed": 205, "csr_sort/search": 176, "memcpy/memset": 58, "reduce": 18, "other": 5}, "syncs": {"cudaMemcpyAsync": 7.0, "cudaStreamSynchronize": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+proto/wbox2187 {"stage": {"nl": 7.67, "replay": 10.708, "load": 0.091, "step": 18.584}, "wall": 19046.522, "busy": 17976.86899999999, "idle": 1069.6530000000093, "cats": {"NL_build": 7329, "conv_bwd(node)": 2855, "gemm(radialMLP+linears)": 2645, "elementwise": 2441, "fused_node": 1022, "conv_fwd(node)": 1013, "cueq_SC": 224, "csr_sort/search": 142, "scatter/gather/index": 141, "fused_embed": 105, "memcpy/memset": 41, "reduce": 15, "other": 6}, "syncs": {"cudaMemcpyAsync": 14.0, "cudaStreamSynchronize": 7.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+proto/water2187 {"stage": {"nl": 0.336, "replay": 9.209, "load": 0.092, "step": 9.655}, "wall": 9921.416000000001, "busy": 9411.860000000008, "idle": 509.5559999999932, "cats": {"conv_bwd(node)": 2334, "gemm(radialMLP+linears)": 2210, "elementwise": 2109, "fused_node": 1016, "conv_fwd(node)": 840, "NL_build": 286, "cueq_SC": 221, "csr_sort/search": 133, "scatter/gather/index": 129, "fused_embed": 88, "memcpy/memset": 41, "reduce": 14, "other": 5}, "syncs": {"cudaMemcpyAsync": 7.0, "cudaStreamSynchronize": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+proto/wbox648 {"stage": {"nl": 1.103, "replay": 3.662, "load": 0.089, "step": 4.996}, "wall": 5329.853, "busy": 4296.573000000006, "idle": 1033.2799999999943, "cats": {"conv_bwd(node)": 925, "gemm(radialMLP+linears)": 880, "NL_build": 720, "elementwise": 719, "conv_fwd(node)": 342, "fused_node": 314, "csr_sort/search": 126, "scatter/gather/index": 101, "cueq_SC": 80, "fused_embed": 38, "memcpy/memset": 35, "reduce": 14, "other": 3}, "syncs": {"cudaMemcpyAsync": 13.0, "cudaStreamSynchronize": 3.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+proto/aspirin {"stage": {"nl": 0.113, "replay": 0.767, "load": 0.088, "step": 1.035}, "wall": 1481.8850000000002, "busy": 742.7090000000039, "idle": 739.1759999999963, "cats": {"elementwise": 227, "fused_node": 109, "gemm(radialMLP+linears)": 109, "conv_bwd(node)": 94, "csr_sort/search": 47, "scatter/gather/index": 46, "cueq_SC": 24, "NL_build": 21, "conv_fwd(node)": 20, "fused_embed": 18, "memcpy/memset": 15, "reduce": 10, "other": 1}, "syncs": {"cudaMemcpyAsync": 7.0, "cudaStreamSynchronize": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+gpustep/wbox5184 {"stage": {"nl_graph": 0.079, "step": 23.99}, "wall": 24303.181, "busy": 23874.159999999916, "idle": 429.0210000000843, "cats": {"conv_bwd(node)": 6519, "gemm(radialMLP+linears)": 6000, "elementwise": 5532, "fused_node": 2368, "conv_fwd(node)": 2273, "cueq_SC": 487, "scatter/gather/index": 262, "fused_embed": 233, "csr_sort/search": 85, "NL_build": 52, "memcpy/memset": 28, "other": 23, "reduce": 19, "scan/compact": 3}, "syncs": {"cudaMemcpyAsync": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+  json.dump(res, open(out_path, "w"), indent=1, default=str)
+gpustep/water5184 {"stage": {"nl_graph": 0.073, "step": 21.44}, "wall": 21748.731000000003, "busy": 21333.987999999998, "idle": 414.74300000000585, "cats": {"conv_bwd(node)": 5642, "gemm(radialMLP+linears)": 5240, "elementwise": 4924, "fused_node": 2370, "conv_fwd(node)": 2022, "cueq_SC": 487, "scatter/gather/index": 239, "fused_embed": 204, "csr_sort/search": 84, "NL_build": 49, "memcpy/memset": 29, "other": 20, "reduce": 18, "scan/compact": 3}, "syncs": {"cudaMemcpyAsync": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+gpustep/wbox2187 {"stage": {"nl_graph": 0.057, "step": 10.788}, "wall": 11190.193000000001, "busy": 10677.148, "idle": 513.0450000000019, "cats": {"conv_bwd(node)": 2896, "gemm(radialMLP+linears)": 2642, "elementwise": 2485, "fused_node": 1019, "conv_fwd(node)": 1003, "cueq_SC": 216, "scatter/gather/index": 168, "fused_embed": 108, "csr_sort/search": 55, "NL_build": 41, "memcpy/memset": 19, "reduce": 15, "other": 14, "scan/compact": 3}, "syncs": {"cudaMemcpyAsync": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+gpustep/water2187 {"stage": {"nl_graph": 0.05, "step": 9.28}, "wall": 9664.38, "busy": 9155.86899999998, "idle": 508.5110000000186, "cats": {"conv_bwd(node)": 2361, "gemm(radialMLP+linears)": 2205, "elementwise": 2139, "fused_node": 1014, "conv_fwd(node)": 838, "cueq_SC": 220, "scatter/gather/index": 156, "fused_embed": 90, "csr_sort/search": 52, "NL_build": 34, "memcpy/memset": 19, "reduce": 14, "other": 13, "scan/compact": 3}, "syncs": {"cudaMemcpyAsync": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+gpustep/wbox648 {"stage": {"nl_graph": 0.052, "step": 3.727}, "wall": 4102.94, "busy": 3605.3460000000086, "idle": 497.59399999999096, "cats": {"conv_bwd(node)": 936, "gemm(radialMLP+linears)": 881, "elementwise": 762, "conv_fwd(node)": 344, "fused_node": 312, "scatter/gather/index": 126, "cueq_SC": 80, "csr_sort/search": 45, "NL_build": 41, "fused_embed": 37, "memcpy/memset": 18, "reduce": 14, "other": 8, "scan/compact": 2}, "syncs": {"cudaMemcpyAsync": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+gpustep/aspirin {"stage": {"nl_graph": 0.026, "step": 0.839}, "wall": 1202.5079999999994, "busy": 765.2500000000036, "idle": 437.2579999999957, "cats": {"elementwise": 264, "gemm(radialMLP+linears)": 109, "fused_node": 109, "conv_bwd(node)": 102, "scatter/gather/index": 61, "cueq_SC": 28, "conv_fwd(node)": 20, "fused_embed": 18, "NL_build": 15, "reduce": 11, "csr_sort/search": 9, "memcpy/memset": 9, "other": 7, "scan/compact": 3}, "syncs": {"cudaMemcpyAsync": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+DONE
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz
+end=2026-11-10T05:56:18+00:00

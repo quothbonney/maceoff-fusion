@@ -1,0 +1,274 @@
+{
+ "n_atoms": 648,
+ "n_edges": 26550,
+ "layers": {
+  "0": {
+   "requires_grad": {
+    "x": false,
+    "edge_attrs": true,
+    "tp_weights": true
+   },
+   "shapes": {
+    "x": [
+     648,
+     128
+    ],
+    "edge_attrs": [
+     26550,
+     16
+    ],
+    "tp_weights": [
+     26550,
+     512
+    ]
+   },
+   "e3nn_fwd": {
+    "median": 1.0092305019497871,
+    "p10": 1.0077344253659248,
+    "p90": 1.012742519378662
+   },
+   "e3nn_fwdbwd": {
+    "median": 3.1473860144615173,
+    "p10": 3.1430721282958984,
+    "p90": 3.1563276425004005
+   },
+   "flash_fwd": {
+    "median": 0.4368079826235771,
+    "p10": 0.43297838419675827,
+    "p90": 0.4404885694384575
+   },
+   "flash_fwdbwd": {
+    "median": 1.1330768465995789,
+    "p10": 1.1276599019765854,
+    "p90": 1.1400645598769188
+   }
+  },
+  "1": {
+   "requires_grad": {
+    "x": true,
+    "edge_attrs": true,
+    "tp_weights": true
+   },
+   "shapes": {
+    "x": [
+     648,
+     512
+    ],
+    "edge_attrs": [
+     26550,
+     16
+    ],
+    "tp_weights": [
+     26550,
+     1280
+    ]
+   },
+   "e3nn_fwd": {
+    "median": 5.0566792488098145,
+    "p10": 5.052546784281731,
+    "p90": 5.0627026706933975
+   },
+   "e3nn_fwdbwd": {
+    "median": 16.793688759207726,
+    "p10": 16.785600781440735,
+    "p90": 16.807682253420353
+   },
+   "flash_fwd": {
+    "median": 1.1327043175697327,
+    "p10": 1.1301729828119278,
+    "p90": 1.136319525539875
+   },
+   "flash_fwdbwd": {
+    "median": 3.0656130984425545,
+    "p10": 3.0618617311120033,
+    "p90": 3.0695702880620956
+   }
+  }
+ },
+ "model_e3nn_fwd": {
+  "median": 13.797973282635212,
+  "p10": 13.781565055251122,
+  "p90": 13.828899711370468
+ },
+ "model_e3nn_fwdbwd": {
+  "median": 36.069766618311405,
+  "p10": 36.0232500359416,
+  "p90": 36.1307505518198
+ },
+ "profile_e3nn": {
+  "total_gpu_kernel_ms_per_call": 34.18441539999988,
+  "top_kernels_ms_per_call": [
+   {
+    "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double,",
+    "ms": 5.757072199999991,
+    "calls": 95
+   },
+   {
+    "name": "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul> >(int, at:",
+    "ms": 4.733342600000007,
+    "calls": 101
+   },
+   {
+    "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::T",
+    "ms": 2.914363400000025,
+    "calls": 120
+   },
+   {
+    "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize64x128x16_stage3_warpsize2x2x1_tensor16x8x8_execute_kernel__5x_cublas",
+    "ms": 2.4544588000000065,
+    "calls": 3
+   },
+   {
+    "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x128x16_stage3_warpsize2x2x1_tensor16x8x8_execute_kernel__5x_cublas",
+    "ms": 2.3142674000000087,
+    "calls": 4
+   },
+   {
+    "name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_f",
+    "ms": 1.4860231999999844,
+    "calls": 24
+   },
+   {
+    "name": "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::nat",
+    "ms": 1.3340477999999734,
+    "calls": 82
+   },
+   {
+    "name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized<at::native::(anonymous namespace)::OpaqueType<8u>",
+    "ms": 1.0931403999999851,
+    "calls": 9
+   },
+   {
+    "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel",
+    "ms": 0.9062340000000008,
+    "calls": 11
+   },
+   {
+    "name": "void at::native::_scatter_gather_elementwise_kernel<128, 8, at::native::_cuda_scatter_gather_internal_kernel<true, doubl",
+    "ms": 0.8494212,
+    "calls": 4
+   },
+   {
+    "name": "void at::native::vectorized_gather_kernel<16, long>(char*, char*, long*, int, long, long, long, long, bool)",
+    "ms": 0.6295878000000046,
+    "calls": 4
+   },
+   {
+    "name": "void cutlass::Kernel2<cutlass_80_tensorop_d884gemm_64x32_16x4_tt_align1>(cutlass_80_tensorop_d884gemm_64x32_16x4_tt_alig",
+    "ms": 0.6270275999999988,
+    "calls": 2
+   },
+   {
+    "name": "void cutlass::Kernel2<cutlass_80_tensorop_d884gemm_64x32_16x4_tn_align1>(cutlass_80_tensorop_d884gemm_64x32_16x4_tn_alig",
+    "ms": 0.6208962000000094,
+    "calls": 2
+   },
+   {
+    "name": "std::enable_if<true, void>::type internal::gemvx::kernel<int, int, double, double, double, double, true, true, false, fa",
+    "ms": 0.5798087999999922,
+    "calls": 9
+   },
+   {
+    "name": "std::enable_if<true, void>::type internal::gemvx::kernel<int, int, double, double, double, double, true, true, true, fal",
+    "ms": 0.5794436000000035,
+    "calls": 6
+   }
+  ]
+ },
+ "model_flash_fwd": {
+  "median": 9.815629571676254,
+  "p10": 9.791148640215397,
+  "p90": 9.841488301753998
+ },
+ "model_flash_fwdbwd": {
+  "median": 20.77872771769762,
+  "p10": 20.72733584791422,
+  "p90": 20.882013626396656
+ },
+ "profile_flash": {
+  "total_gpu_kernel_ms_per_call": 18.659988599999956,
+  "top_kernels_ms_per_call": [
+   {
+    "name": "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*",
+    "ms": 2.5217987999999996,
+    "calls": 2
+   },
+   {
+    "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize64x128x16_stage3_warpsize2x2x1_tensor16x8x8_execute_kernel__5x_cublas",
+    "ms": 2.453587199999995,
+    "calls": 3
+   },
+   {
+    "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x128x16_stage3_warpsize2x2x1_tensor16x8x8_execute_kernel__5x_cublas",
+    "ms": 2.3140027999999986,
+    "calls": 4
+   },
+   {
+    "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::T",
+    "ms": 1.6606456000000034,
+    "calls": 87
+   },
+   {
+    "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double,",
+    "ms": 1.2857531999999896,
+    "calls": 31
+   },
+   {
+    "name": "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int ",
+    "ms": 1.2136891999999966,
+    "calls": 2
+   },
+   {
+    "name": "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul> >(int, at:",
+    "ms": 1.185693199999991,
+    "calls": 71
+   },
+   {
+    "name": "std::enable_if<true, void>::type internal::gemvx::kernel<int, int, double, double, double, double, true, true, true, fal",
+    "ms": 0.5781311999999968,
+    "calls": 6
+   },
+   {
+    "name": "sm80_xmma_gemm_f64f64_f64f64_f64_nt_n_tilesize32x32x16_stage5_warpsize2x2x1_tensor8x8x4_execute_kernel__5x_cublas",
+    "ms": 0.5626751999999982,
+    "calls": 4
+   },
+   {
+    "name": "std::enable_if<true, void>::type internal::gemvx::kernel<int, int, double, double, double, double, true, true, false, fa",
+    "ms": 0.5276922000000038,
+    "calls": 8
+   },
+   {
+    "name": "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_f",
+    "ms": 0.4553466000000026,
+    "calls": 11
+   },
+   {
+    "name": "sm80_xmma_gemm_f64f64_f64f64_f64_nt_n_tilesize32x64x16_stage4_warpsize2x2x1_tensor8x8x4_execute_kernel__5x_cublas",
+    "ms": 0.44697639999999955,
+    "calls": 2
+   },
+   {
+    "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize64x32x32_stage3_warpsize2x2x1_tensor16x8x8_execute_kernel__5x_cublas",
+    "ms": 0.33460499999999993,
+    "calls": 1
+   },
+   {
+    "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x64x32_stage3_warpsize2x2x1_tensor16x8x8_execute_kernel__5x_cublas",
+    "ms": 0.23843200000000359,
+    "calls": 9
+   },
+   {
+    "name": "void cutlass::Kernel2<cutlass_80_tensorop_d884gemm_32x32_16x5_nt_align1>(cutlass_80_tensorop_d884gemm_32x32_16x5_nt_alig",
+    "ms": 0.23224300000000328,
+    "calls": 1
+   }
+  ]
+ },
+ "conv_sum_e3nn_fwd_ms": 6.065909750759602,
+ "conv_sum_flash_fwd_ms": 1.5695123001933098,
+ "conv_fraction_of_model_e3nn_fwd": 0.4396232422332319,
+ "conv_sum_e3nn_fwdbwd_ms": 19.941074773669243,
+ "conv_sum_flash_fwdbwd_ms": 4.198689945042133,
+ "conv_fraction_of_model_e3nn_fwdbwd": 0.5528473467734009
+}

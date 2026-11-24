@@ -1,0 +1,134 @@
+{
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "slurm_job": "971",
+  "gpu_uuid": "GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845",
+  "torch": "2.11.0+cu128",
+  "model_dtype": "torch.float64",
+  "nrep": 5,
+  "systems": {
+    "H2O": {
+      "n_atoms": 3,
+      "E_ref": -2081.11639716893,
+      "E_flash": -2081.1163971592873,
+      "fixed_geometry": {
+        "max_abs_dE_per_atom_eV": 3.2141542760655284e-09,
+        "max_abs_dF_eV_A": 3.32000604785776e-08,
+        "max_rms_dF_eV_A": 1.6013077784570535e-08,
+        "max_abs_F_ref": 0.6474868257116837,
+        "rms_F_ref": 0.3100552570090786
+      },
+      "perturbed_sequence": {
+        "max_abs_dE_per_atom_eV": 3.361795582653334e-09,
+        "max_abs_dF_eV_A": 3.81718172626222e-08,
+        "max_rms_dF_eV_A": 1.8146376627639942e-08,
+        "max_abs_F_ref": 1.6110355495092397,
+        "rms_F_ref": 0.36766834867373893
+      },
+      "ref_repeat": {
+        "max_abs_dE": 0.0,
+        "max_abs_dF": 2.220446049250313e-16,
+        "bitwise_identical": false
+      },
+      "flash_repeat": {
+        "max_abs_dE": 0.0,
+        "max_abs_dF": 0.0,
+        "bitwise_identical": true
+      },
+      "reverted_bitwise_equal_ref": false,
+      "all_finite": true
+    },
+    "water192": {
+      "n_atoms": 192,
+      "E_ref": -133194.08439848514,
+      "E_flash": -133194.08439800894,
+      "fixed_geometry": {
+        "max_abs_dE_per_atom_eV": 2.4803436341850707e-09,
+        "max_abs_dF_eV_A": 5.7642657536050024e-08,
+        "max_rms_dF_eV_A": 1.8090220045119535e-08,
+        "max_abs_F_ref": 2.8883389022792096,
+        "rms_F_ref": 0.47644598013973244
+      },
+      "perturbed_sequence": {
+        "max_abs_dE_per_atom_eV": 1.293616222981503,
+        "max_abs_dF_eV_A": 13.35654152066719,
+        "max_rms_dF_eV_A": 2.650438420496691,
+        "max_abs_F_ref": 5.2634564064568625,
+        "rms_F_ref": 0.9225191409688287
+      },
+      "ref_repeat": {
+        "max_abs_dE": 0.0,
+        "max_abs_dF": 2.7755575615628914e-15,
+        "bitwise_identical": false
+      },
+      "flash_repeat": {
+        "max_abs_dE": 2.9103830456733704e-11,
+        "max_abs_dF": 1.9984014443252818e-15,
+        "bitwise_identical": false
+      },
+      "reverted_bitwise_equal_ref": false,
+      "all_finite": true
+    },
+    "water648": {
+      "n_atoms": 648,
+      "E_ref": -449526.0097505144,
+      "E_flash": -449526.0097490688,
+      "fixed_geometry": {
+        "max_abs_dE_per_atom_eV": 2.2308445351635234e-09,
+        "max_abs_dF_eV_A": 6.382716621899931e-08,
+        "max_rms_dF_eV_A": 1.8915679537792927e-08,
+        "max_abs_F_ref": 2.1820918171182977,
+        "rms_F_ref": 0.4692834561194458
+      },
+      "perturbed_sequence": {
+        "max_abs_dE_per_atom_eV": 1.4552167785770933,
+        "max_abs_dF_eV_A": 78.98194811669539,
+        "max_rms_dF_eV_A": 6.33618065905834,
+        "max_abs_F_ref": 5.2472806666319025,
+        "rms_F_ref": 1.054699284723122
+      },
+      "ref_repeat": {
+        "max_abs_dE": 0.0,
+        "max_abs_dF": 3.552713678800501e-15,
+        "bitwise_identical": false
+      },
+      "flash_repeat": {
+        "max_abs_dE": 0.0,
+        "max_abs_dF": 2.942091015256665e-15,
+        "bitwise_identical": false
+      },
+      "reverted_bitwise_equal_ref": false,
+      "all_finite": true
+    },
+    "water1536": {
+      "n_atoms": 1536,
+      "E_ref": -1065538.247786699,
+      "E_flash": -1065538.2477833652,
+      "fixed_geometry": {
+        "max_abs_dE_per_atom_eV": 2.1705091057810932e-09,
+        "max_abs_dF_eV_A": 6.489842285795078e-08,
+        "max_rms_dF_eV_A": 1.9191853492758476e-08,
+        "max_abs_F_ref": 2.6786979374739626,
+        "rms_F_ref": 0.4834463134236359
+      },
+      "perturbed_sequence": {
+        "max_abs_dE_per_atom_eV": 2.0560643558079996e-09,
+        "max_abs_dF_eV_A": 9.764950847923615e-08,
+        "max_rms_dF_eV_A": 2.0484607261913928e-08,
+        "max_abs_F_ref": 6.595055625999747,
+        "rms_F_ref": 1.0643376908230293
+      },
+      "ref_repeat": {
+        "max_abs_dE": 0.0,
+        "max_abs_dF": 3.1086244689504383e-15,
+        "bitwise_identical": false
+      },
+      "flash_repeat": {
+        "max_abs_dE": 2.3283064365386963e-10,
+        "max_abs_dF": 3.885780586188048e-15,
+        "bitwise_identical": false
+      },
+      "reverted_bitwise_equal_ref": false,
+      "all_finite": true
+    }
+  }
+}

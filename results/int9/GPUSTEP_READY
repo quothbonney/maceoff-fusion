@@ -1,0 +1,39 @@
+int9 GPUStep READY (agent C) -- 2026-11-10 ~05:40 UTC. Correctness smoke (nl=auto: cell list from nl9 + brute stub for
+small boxes) 0 failures: results/int9/test_smoke_cell.json (job 1102). Full test + final timing follow in INTEGRATION.md.
+
+Usage (python -I, job env as scripts/int9/job.sh):
+  import sys; sys.path.insert(0, f"{R}/scripts/int9")
+  import common9 as C                      # FIRST (imports graphed_runner -> pins flashTP); provides build()
+  import gpu_step as GS
+  calc, model = C.build("nodeext+embed+node")       # node-hybrid + fused ops, node conv in EXTERNAL-CSR mode
+  sim = GS.GPUStep(calc, model, atoms, stress=False, nl="auto")   # captures one CUDA graph: NL + model fwd + force bwd
+  E, F = sim.forces(pos_gpu)      # pos_gpu [N,3] fp64 cuda; returns GPU tensors E [1], F [N,3] (stress=True: E, F, S[3,3])
+                                  # outputs are the graph's static buffers: OVERWRITTEN by the next forces() -> clone if kept
+                                  # zero host syncs per call (one D2D copy into the static position buffer + graph launch)
+                                  # (to skip the D2D copy write into sim.positions in place under torch.no_grad())
+  rep = sim.check()               # ONE host sync (event). rep["ok"] False => some step since the previous check overflowed
+                                  # (E > E_cap or NL bin overflow): those results are NaN-poisoned; GPUStep has already
+                                  # recaptured with larger capacity -> ROLL BACK to the state of your last ok check and redo.
+                                  # rep["recaptured"] True with ok True = proactive enlargement (results valid).
+  E, F = sim.forces_checked(pos)  # forces + check (+ automatic redo): always valid, 1 sync per call
+  sim.stats()                     # captures, recaptures, overflows, checks, host_syncs, steps, E_cap, nl, path
+  sim.set_atoms(atoms2)           # other species order / N / cell / pbc -> separate keyed graph (LRU of 4)
+Changing the CELL (NPT) = new key -> recapture (not supported per-step).
+Overflow is detected on the device and is sticky until check(); B decides the check interval k (count sim.stats()["checks"]).
+Margins: E_cap = round_cap(1.2 E0, 64); recapture at round_cap(1.25 max_E); proactive when max_E > 0.98 E_cap.
+
+UPDATE 06:00 UTC: nl="auto" no longer uses the brute stub for boxes the cell list rejects (wbox192, L < ~15 A): it now
+falls back to the proto path (ProtoGPU O(N^2) + nonzero sync, outside the graph; graphed model) -- 2.4 ms vs 6.1 ms for
+the whole-graph brute stub at wbox192. sim.stats()["path"] == "proto" / ["nl"] == "proto" then; each forces() call has
+>= 1 host sync (counted in host_syncs). nl="brute" still selects the stub explicitly. Padding edges are re-homed to
+nodes k mod N inside the graph (see gpu_step._spread_padding) -- required for speed with nl9's last-node padding.
+
+UPDATE 06:13 UTC -- FINAL gpu_step.py md5 a4ce5f49b54371c6c84fb90e796b4098 (results/int9/final_md5.txt). Changes since 05:45:
+ (1) on ANY overflow (incl. nl9 bin overflow, bits 2/4) the step graph now feeds the model an all-padding graph
+     (previously bin overflow -> inconsistent CSR -> illegal memory access / device assert = lost CUDA context);
+     results still NaN; check() enlarges bin_cap (max(2x, 1.5*max_bin)) -- tested results/int9/test_binovf.json;
+ (2) gc disabled during capture (cyclic GC freeing an old graph's pinned buffer invalidated a capture);
+ (3) nl="auto": cell list, else proto fallback (no brute stub).
+ Per-step cost change: 2 tiny elementwise ops. Request to md9: please make the final B3 gpustep rows with this md5
+ (log the md5 of scripts/int9/gpu_step.py in the B3 JSON) so B1/B2/B3 use the same GPUStep. int9 final timing jobs
+ int9finA / int9finB (TIMING_LOCK) are queued now.

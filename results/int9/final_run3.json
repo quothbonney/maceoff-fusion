@@ -1,0 +1,449 @@
+{
+ "job": "1137",
+ "node": "slurm-h100-206-077",
+ "gpu_start": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz, 27",
+ "warm": 10,
+ "reps": 60,
+ "torch": "2.11.0+cu128",
+ "configs": {
+  "stock": {
+   "build_install_s": 0.338772302493453
+  },
+  "hybrid+embed+node": {
+   "build_install_s": 5.0075087789446115
+  },
+  "nodehybrid+embed+node": {
+   "build_install_s": 0.6715569905936718
+  },
+  "gpustep": {
+   "build_install_s": 0.46530700847506523
+  }
+ },
+ "systems": {
+  "wbox192": {
+   "N": 192,
+   "pbc": true,
+   "order": [
+    "stock",
+    "hybrid+embed+node",
+    "nodehybrid+embed+node",
+    "gpustep",
+    "gpustep_hyb"
+   ],
+   "stock": {
+    "E": 10588,
+    "B1": {
+     "median": 15.565505251288414,
+     "p10": 15.550734288990498,
+     "p90": 15.696678310632706,
+     "n": 10
+    },
+    "B2": {
+     "median": 21.69402502477169,
+     "p10": 21.655827574431896,
+     "p90": 21.74456026405096,
+     "n": 60
+    },
+    "peak_MiB": 1655.31396484375
+   },
+   "hybrid+embed+node": {
+    "first_step_s": 13.082809148356318,
+    "E": 10588,
+    "E_cap": 12736,
+    "capture_s": 13.045735204592347,
+    "B1": {
+     "median": 2.849212847650051,
+     "p10": 2.8466084972023964,
+     "p90": 2.852095477283001,
+     "n": 60
+    },
+    "B2": {
+     "median": 3.5814661532640457,
+     "p10": 3.570191375911236,
+     "p90": 3.5965194925665855,
+     "n": 60
+    },
+    "B2_nl_only": {
+     "median": 0.5149291828274727,
+     "p10": 0.5049075931310654,
+     "p90": 0.5235567688941956,
+     "n": 60
+    },
+    "B2host": {
+     "median": 3.909819759428501,
+     "p10": 3.8952501490712166,
+     "p90": 3.9316046983003616,
+     "n": 60
+    },
+    "peak_MiB": 507.36669921875
+   },
+   "nodehybrid+embed+node": {
+    "first_step_s": 0.5997247863560915,
+    "E": 10588,
+    "E_cap": 12736,
+    "capture_s": 0.5913593806326389,
+    "B1": {
+     "median": 1.7417371273040771,
+     "p10": 1.7368575558066368,
+     "p90": 1.7462218180298805,
+     "n": 60
+    },
+    "B2": {
+     "median": 2.381645143032074,
+     "p10": 2.3704318329691887,
+     "p90": 2.397911436855793,
+     "n": 60
+    },
+    "B2_nl_only": {
+     "median": 0.5176542326807976,
+     "p10": 0.5088601261377335,
+     "p90": 0.5270209163427353,
+     "n": 60
+    },
+    "B2host": {
+     "median": 2.7255918830633163,
+     "p10": 2.7129041031003,
+     "p90": 2.744179032742977,
+     "n": 60
+    },
+    "peak_MiB": 423.36767578125
+   },
+   "gpustep": {
+    "first_step_s": 0.11454105377197266,
+    "check": {
+     "ok": true,
+     "recaptured": false,
+     "path": "proto"
+    },
+    "E": 10588,
+    "E_cap": 12736,
+    "capture_s": 0.0,
+    "nl": "proto",
+    "path": "proto",
+    "B1": {
+     "median": 1.745828427374363,
+     "p10": 1.7427440732717514,
+     "p90": 1.7497867345809937,
+     "n": 60
+    },
+    "B2": {
+     "median": 2.413257025182247,
+     "p10": 2.401689440011978,
+     "p90": 2.4310093373060226,
+     "n": 60
+    },
+    "B2chk": {
+     "median": 2.4105310440063477,
+     "p10": 2.3955516517162323,
+     "p90": 2.430460788309574,
+     "n": 60
+    },
+    "stats": {
+     "path": "proto",
+     "nl": "proto",
+     "captures": 0,
+     "recaptures": 0,
+     "proactive_recaptures": 0,
+     "overflows": 0,
+     "checks": 71,
+     "host_syncs": 141,
+     "steps": 141,
+     "evictions": 0,
+     "last_capture_s": 0.0,
+     "E_cap": 12736,
+     "n_edges_last": 10588,
+     "n_graphs": 0,
+     "ext_csr_layer_calls": 0,
+     "sort_fallback_layer_calls": 8,
+     "events": [
+      {
+       "reason": "nl_cell_unsupported",
+       "err": "NotImplementedError('periodic cell too small for cell list (bins per dim [2, 2, 2], need >= 3)')"
+      },
+      {
+       "reason": "fallback_proto"
+      }
+     ]
+    },
+    "peak_MiB": 423.4130859375
+   },
+   "gpustep_hyb": {
+    "first_step_s": 0.0825842060148716,
+    "check": {
+     "ok": true,
+     "recaptured": false,
+     "path": "proto"
+    },
+    "E": 10588,
+    "E_cap": 12736,
+    "capture_s": 0.0,
+    "nl": "proto",
+    "path": "proto",
+    "B1": {
+     "median": 2.9547857120633125,
+     "p10": 2.952607162296772,
+     "p90": 2.9583556577563286,
+     "n": 60
+    },
+    "B2": {
+     "median": 3.6223456263542175,
+     "p10": 3.609349951148033,
+     "p90": 3.6381635814905167,
+     "n": 60
+    },
+    "B2chk": {
+     "median": 3.6197351291775703,
+     "p10": 3.610244393348694,
+     "p90": 3.635275736451149,
+     "n": 60
+    },
+    "stats": {
+     "path": "proto",
+     "nl": "proto",
+     "captures": 0,
+     "recaptures": 0,
+     "proactive_recaptures": 0,
+     "overflows": 0,
+     "checks": 71,
+     "host_syncs": 141,
+     "steps": 141,
+     "evictions": 0,
+     "last_capture_s": 0.0,
+     "E_cap": 12736,
+     "n_edges_last": 10588,
+     "n_graphs": 0,
+     "ext_csr_layer_calls": null,
+     "sort_fallback_layer_calls": null,
+     "events": [
+      {
+       "reason": "nl_cell_unsupported",
+       "err": "NotImplementedError('periodic cell too small for cell list (bins per dim [2, 2, 2], need >= 3)')"
+      },
+      {
+       "reason": "fallback_proto"
+      }
+     ]
+    },
+    "peak_MiB": 443.412109375
+   }
+  },
+  "aspirin": {
+   "N": 21,
+   "pbc": false,
+   "order": [
+    "hybrid+embed+node",
+    "nodehybrid+embed+node",
+    "gpustep",
+    "gpustep_hyb",
+    "stock"
+   ],
+   "hybrid+embed+node": {
+    "first_step_s": 0.06877798028290272,
+    "E": 302,
+    "E_cap": 384,
+    "capture_s": 0.06462769396603107,
+    "B1": {
+     "median": 0.7449286058545113,
+     "p10": 0.7439497858285904,
+     "p90": 0.7460122928023338,
+     "n": 60
+    },
+    "B2": {
+     "median": 0.9175902232527733,
+     "p10": 0.9135672822594643,
+     "p90": 0.9258341044187546,
+     "n": 60
+    },
+    "B2_nl_only": {
+     "median": 0.0887187197804451,
+     "p10": 0.08788444101810455,
+     "p90": 0.09224768728017807,
+     "n": 60
+    },
+    "B2host": {
+     "median": 1.25869270414114,
+     "p10": 1.2472324073314667,
+     "p90": 1.2737073004245758,
+     "n": 60
+    },
+    "peak_MiB": 78.5146484375
+   },
+   "nodehybrid+embed+node": {
+    "first_step_s": 0.07501887530088425,
+    "E": 302,
+    "E_cap": 384,
+    "capture_s": 0.07092786394059658,
+    "B1": {
+     "median": 0.7582744583487511,
+     "p10": 0.7574211806058884,
+     "p90": 0.7591130211949348,
+     "n": 60
+    },
+    "B2": {
+     "median": 0.9314427152276039,
+     "p10": 0.9295010939240456,
+     "p90": 0.9338796138763428,
+     "n": 60
+    },
+    "B2_nl_only": {
+     "median": 0.08944515138864517,
+     "p10": 0.08836686611175537,
+     "p90": 0.09256880730390549,
+     "n": 60
+    },
+    "B2host": {
+     "median": 1.2741470709443092,
+     "p10": 1.2647312134504318,
+     "p90": 1.2861359864473343,
+     "n": 60
+    },
+    "peak_MiB": 77.1240234375
+   },
+   "gpustep": {
+    "first_step_s": 0.43521448224782944,
+    "check": {
+     "ok": true,
+     "overflow": 0,
+     "max_E": 302,
+     "last_E": 302,
+     "E_cap": 384,
+     "recaptured": false
+    },
+    "E": 302,
+    "E_cap": 384,
+    "capture_s": 0.43061692267656326,
+    "nl": "cell",
+    "path": "graph",
+    "B1": {
+     "median": 0.8371304720640182,
+     "p10": 0.8349968120455742,
+     "p90": 0.8381562307476997,
+     "n": 60
+    },
+    "B2": {
+     "median": 0.8445614948868752,
+     "p10": 0.8425675332546234,
+     "p90": 0.8458970114588737,
+     "n": 60
+    },
+    "B2chk": {
+     "median": 0.8565504103899002,
+     "p10": 0.8540881797671318,
+     "p90": 0.859108567237854,
+     "n": 60
+    },
+    "stats": {
+     "path": "graph",
+     "nl": "cell",
+     "captures": 1,
+     "recaptures": 0,
+     "proactive_recaptures": 0,
+     "overflows": 0,
+     "checks": 71,
+     "host_syncs": 71,
+     "steps": 141,
+     "evictions": 0,
+     "last_capture_s": 0.43061692267656326,
+     "E_cap": 384,
+     "n_edges_last": 302,
+     "n_graphs": 1,
+     "ext_csr_layer_calls": 8,
+     "sort_fallback_layer_calls": 8,
+     "events": [
+      {
+       "reason": "new_key",
+       "N": 21,
+       "E": 302,
+       "old_cap": null,
+       "E_cap": 384,
+       "nl": "cell",
+       "capture_s": 0.43061692267656326
+      }
+     ]
+    },
+    "peak_MiB": 77.3369140625
+   },
+   "gpustep_hyb": {
+    "first_step_s": 0.23430201783776283,
+    "check": {
+     "ok": true,
+     "overflow": 0,
+     "max_E": 302,
+     "last_E": 302,
+     "E_cap": 384,
+     "recaptured": false
+    },
+    "E": 302,
+    "E_cap": 384,
+    "capture_s": 0.22946267016232014,
+    "nl": "cell",
+    "path": "graph",
+    "B1": {
+     "median": 0.8397819474339485,
+     "p10": 0.8393129333853722,
+     "p90": 0.8409135043621063,
+     "n": 60
+    },
+    "B2": {
+     "median": 0.8465247228741646,
+     "p10": 0.8456714451313019,
+     "p90": 0.8475109934806824,
+     "n": 60
+    },
+    "B2chk": {
+     "median": 0.8592056110501289,
+     "p10": 0.8578412234783173,
+     "p90": 0.8631804957985878,
+     "n": 60
+    },
+    "stats": {
+     "path": "graph",
+     "nl": "cell",
+     "captures": 1,
+     "recaptures": 0,
+     "proactive_recaptures": 0,
+     "overflows": 0,
+     "checks": 71,
+     "host_syncs": 71,
+     "steps": 141,
+     "evictions": 0,
+     "last_capture_s": 0.22946267016232014,
+     "E_cap": 384,
+     "n_edges_last": 302,
+     "n_graphs": 1,
+     "ext_csr_layer_calls": null,
+     "sort_fallback_layer_calls": null,
+     "events": [
+      {
+       "reason": "new_key",
+       "N": 21,
+       "E": 302,
+       "old_cap": null,
+       "E_cap": 384,
+       "nl": "cell",
+       "capture_s": 0.22946267016232014
+      }
+     ]
+    },
+    "peak_MiB": 78.4453125
+   },
+   "stock": {
+    "E": 302,
+    "B1": {
+     "median": 12.007963843643665,
+     "p10": 11.970420368015766,
+     "p90": 12.129361741244793,
+     "n": 60
+    },
+    "B2": {
+     "median": 15.88334422558546,
+     "p10": 15.834424830973148,
+     "p90": 15.955930389463902,
+     "n": 60
+    },
+    "peak_MiB": 80.7880859375
+   }
+  }
+ },
+ "gpu_end": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz, 1980 MHz, 31"
+}

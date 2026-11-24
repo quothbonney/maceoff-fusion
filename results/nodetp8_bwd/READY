@@ -1,0 +1,82 @@
+STATUS (agent C, nodetp8_bwd) -- backward kernels + autograd op + install: WORKING, all correctness gates pass.
+
+API (sys.path.insert(0, f"{R}/scripts/nodetp8_bwd")):
+  csr.build_csr(edge_index, N) -> {perm_dst int64[E], rowptr_dst int32[N+1], perm_src int64[E], rowptr_src int32[N+1]}
+      stable torch.sort on int32 keys + searchsorted(out_int32); no host sync; capturable; E=0 ok.
+  layer_cfg.make_cfg(conv_tp) -> LayerCfg (see CSR_READY); reference_fwd / reference_bwd / tp_edges (plain torch).
+  nodetp_bwd.bwd(cfg, grad_out, x, y, w, edge_index, csr) -> (gx[N,d1], gy[E,16], gw[E,W])
+      ONE fused source-centric CUDA kernel per layer (load_inline, codegen per cfg, exact fp64 CG literals):
+      grid=N CTAs (one per SOURCE node), 128 threads (thread=channel u); x[n,u,:] and gx accumulators in registers;
+      walks outgoing edges via perm_src/rowptr_src; per edge reads y[e], w[e,p*128+u], grad_out[dst(e)] once and emits
+      gw[e] (direct store), gy[e] (warp-shuffle + 1 smem round, double-buffered, 1 __syncthreads/edge), gx at the end.
+      No atomics, deterministic. Fused rather than edge-kernel + src-kernel: all three grads share the same
+      g[dst]*x[src] products and g[dst] (E*d_out*8 B) is the dominant stream -> split would read it twice.
+      Current stream, no host sync, capturable, E=0 -> gx zeros, gy/gw [0,*]. First derivatives only (once_differentiable).
+  nodeconv.NodeConvFunction.apply(x, y, w, edge_index, csr_tuple, cfg, fwd_fn)  (forward=B's nodetp_fwd.fwd when
+      results/nodetp8_fwd/READY + import ok, else reference_fwd; backward=nodetp_bwd.bwd)
+  nodeconv.install(model, layers=None, fwd="auto"|"B"|"ref", csr_cache=True) -> handle ; nodeconv.uninstall(model, handle=None)
+      mirrors flashtp_adapter_v2: exact-class allowlist (mace 0.3.17 conv_fusion branch), refuses already-fused/non-e3nn
+      conv_tp, sets block.conv_fusion=True, conv_tp -> NodeConv(orig) (stock state_dict keys via hooks, not picklable),
+      uninstall restores exact original objects (verified). Usable as a graphed7 transform:
+        GR.build_backend("e3nn", transforms=[lambda m: NC.install(m)])                          # e3nn SC
+        GR.build_backend("e3nn", transforms=[GR.HB.install_cueq_sc, lambda m: NC.install(m)])   # cueq SC (hybrid-like)
+      CSR: layer 0 (producer) builds per call; layer 1 reuses it (same edge_index object/_version/N/capture state) ->
+      one build_csr per model call, never reused across calls/capture boundaries.
+
+CORRECTNESS (fp64, H100)
+ Local op vs MACE conv_tp + gather + scatter_sum + autograd, real captured inputs, both layers, 9 systems (aspirin, org192,
+ water192, org648, water648, wbox648, H2O, single_C E=0, far O pair E=0), random grad_out:
+   worst max-abs/max|ref|: out 1.1e-15, gx 3.3e-15, gy 8.9e-16, gw 8.5e-16   (gate 1e-12)
+   worst max-abs:          out 6.2e-15, gx 1.3e-13, gy 2.1e-14, gw 1.2e-14   (gate 1e-12)
+   near-zero entries (|ref|<1e-8): max abs diff <= 6e-16 (out), <= 5.3e-17 (gw), <= 1.6e-21 (gy); E=0 exact zeros.
+   (results/nodetp8_bwd/local_ref_time.json with fwd=reference, local_auto.json with fwd=B)
+ gradcheck (fp64, N=4, E=9, both layers): PASS. E=0: gx==0, gy [0,16], gw [0,W].
+ Ours vs FlashTP-graphcap grads on identical inputs: rel <= 3.2e-15.
+ Whole model vs eager stock e3nn (scripts/nodetp8_bwd/test_model.py = graphed7 test suite + eager test; fwd = B's kernel),
+ backends node (e3nn SC) and cueqsc_node: ALL 16 tests ok (eager walk+repeat+stress; graphed: 10 systems x 5-step 0.02 A
+ walk + 3 repeats; stress wbox192/wbox648 + forced recapture; recapture; species order; diff-N; LRU; stock builder).
+   worst |dE|/atom 1.25e-12 eV, max|dF| 6.8e-13 eV/A (aspirin species-permuted; typical <= 2.5e-14), |dsigma| <= 1.1e-16 eV/A^3.
+   (results/nodetp8_bwd/model_auto.json; FINAL rerun with int32-key CSR, job 1061: model_auto_final.json + local_auto.json,
+    0 failures, local worst rel out 1.4e-15 / gx 3.3e-15 / gy 8.9e-16 / gw 8.5e-16, gradcheck PASS; log logs/nodetp8_bwd/final.log)
+   Jobs: 1047 (local+eager timing, GPU-4b202516...), model_auto (GPU-884d19b4...), time_graph, bench_csr, 1061 final.
+
+TIMING (H100, fp64; us per call; median [p10-p90])
+ A) eager, cuda-synced per call (results/nodetp8_bwd/local_ref_time.json): node bwd (incl. python+alloc) vs FlashTP-gc autograd bwd
+   aspirin/L0   node    58.6 [57.3-60.0]  flash   159.3 [152.8-183.9]  x2.72
+   aspirin/L1   node    53.4 [52.7-55.1]  flash   157.5 [153.1-173.1]  x2.95
+   org192/L0    node   100.3 [99.1-101.5]  flash   190.0 [188.0-193.9]  x1.89
+   org192/L1    node   112.4 [111.6-114.7]  flash   377.2 [374.9-387.5]  x3.36
+   water192/L0  node   179.6 [178.0-180.9]  flash   264.8 [262.0-270.5]  x1.47
+   water192/L1  node   181.7 [180.7-182.8]  flash   577.1 [574.6-580.3]  x3.18
+   org648/L0    node   155.9 [153.9-158.0]  flash   468.2 [465.6-471.9]  x3.00
+   org648/L1    node   267.2 [265.0-271.1]  flash  1171.8 [1167.4-1186.0]  x4.38
+   water648/L0  node   230.0 [228.7-232.2]  flash   745.1 [742.5-751.6]  x3.24
+   water648/L1  node   423.0 [419.2-428.2]  flash  1988.4 [1986.4-1996.1]  x4.70
+   wbox648/L0   node   255.7 [253.7-257.7]  flash   961.5 [959.2-970.2]  x3.76
+   wbox648/L1   node   592.0 [588.0-594.8]  flash  2632.0 [2629.5-2637.2]  x4.45
+ B) CUDA-graph replay (20 calls/graph, 30 replays; results/nodetp8_bwd/time_graph.json; fwd=B v1):
+   key          N    E      node_bwd  node_fwd(B)  node_f+b  | flash_fwd flash_f+b (flash_bwd=fb-f) | build_csr(int64 keys)
+   aspirin/L0     21    302     41.0        6.2      46.8  |     22.9      53.4 (   30.5) |   66.2
+   aspirin/L1     21    302     36.2       72.7     110.1  |     30.3      84.9 (   54.6) |   66.2
+   org192/L0     196   3670     78.1       64.4     162.6  |     58.3     175.4 (  117.1) |   81.0
+   org192/L1     196   3670     96.9      413.3     507.7  |    153.6     450.2 (  296.6) |   81.0
+   water192/L0   192   6634    162.4       98.4     259.8  |     89.7     279.4 (  189.7) |  160.6
+   water192/L1   192   6634    167.5      709.1     873.5  |    250.8     746.2 (  495.4) |  160.4
+   org648/L0     650  14856    137.7       42.8     179.2  |    196.2     583.6 (  387.4) |  171.2
+   org648/L1     650  14856    249.6       96.4     346.1  |    524.3    1614.0 ( 1089.7) |  171.3
+   water648/L0   648  26550    214.8       65.2     279.7  |    332.3     998.0 (  665.7) |  152.7
+   water648/L1   648  26550    406.4      150.4     556.9  |    917.9    2829.2 ( 1911.3) |  152.8
+   wbox648/L0    648  35698    237.0       85.7     324.4  |    435.1    1314.5 (  879.4) |  155.2
+   wbox648/L1    648  35698    573.1      189.5     763.7  |   1216.2    3767.7 ( 2551.5) |  155.3
+   (p10-p90 spread < 1% everywhere; full triples in the json.) Backward speedup vs FlashTP-gc bwd (graph): L1 wbox648 573 vs
+   2552 us (4.5x), L1 water648 406 vs 1911 (4.7x), L0 wbox648 237 vs 879 (3.7x); small systems: aspirin 41/36 vs 31/55 us
+   (N=21 CTAs -> latency bound: per-edge serial chain incl. gy reduction + __syncthreads).
+ build_csr cost (graph replay): int64 keys 66 us (E=302) / 155-171 us (E=15k-36k); switched to int32 keys: 52 / ~102 us
+   (bench_csr.py, identical outputs). This is ~2 sorts of CUB launches + temp allocs; it is now a visible fraction of
+   the node-conv cost (once per model call, shared by 2 layers + backward). Suggested follow-up (D/coordinator): custom
+   one-pass CSR kernel, or emit dst-CSR from the neighbour-list builder (padded self-edges break src-sortedness, so
+   perm_src cannot be assumed identity).
+KNOWN LIMITS: mul must be uniform (128) and a multiple of 32; fp64 only; double backward unsupported (once_differentiable;
+ fine for inference forces/stress); small-N systems under-occupy the GPU (one CTA per node).
+FILES: scripts/nodetp8_bwd/{csr.py,layer_cfg.py,nodetp_bwd.py,nodeconv.py,test_local.py,test_model.py,time_graph.py,
+ bench_csr.py,check_cfg.py,job.sh}; logs/nodetp8_bwd/*.log; results/nodetp8_bwd/*.json

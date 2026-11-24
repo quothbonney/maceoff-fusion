@@ -1,0 +1,118 @@
+job=1053 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-edefc586-3f13-ab62-907d-ba075a79f443, 345 MHz, 1980 MHz
+aspirin 0 flash {"rel": 8.139747396351662e-16, "ef": 0.0988, "efb": 0.4273, "gf": 0.0304, "gfb": 0.0604, "gpu_fb_us": 50.4, "nk": 26.0, "peak": 2}
+  json.dump(res, open(out_path, "w"), indent=1)
+aspirin 0 e3nn {"rel": 2.7132491321172204e-16, "ef": 0.1823, "efb": 1.1038, "gf": 0.0362, "gfb": 0.1866, "gpu_fb_us": 166.9, "nk": 72.0, "peak": 11}
+Traceback (most recent call last):
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/prof8/conv8.py", line 70, in <module>
+    o = f(*xs, ei); gs = torch.autograd.grad(o, xs, g)
+        ^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_bwd/nodeconv.py", line 144, in forward
+    return NodeConvFunction.apply(node_feats.contiguous(), edge_attrs.contiguous(), tp_weights.contiguous(),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/autograd/function.py", line 596, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_bwd/nodeconv.py", line 63, in forward
+    out = fwd_fn(cfg, x, y, w, edge_index, csr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_fwd/nodetp_fwd.py", line 254, in fwd
+    cfg = _as_cfg(layer_cfg)
+          ^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_fwd/nodetp_fwd.py", line 85, in _as_cfg
+    raise TypeError(f"cannot derive NodeCfg from {type(layer_cfg)}")
+TypeError: cannot derive NodeCfg from <class 'layer_cfg.LayerCfg'>
+
+aspirin 1 flash {"rel": 1.2950029427755742e-15, "ef": 0.1166, "efb": 0.4674, "gf": 0.0397, "gfb": 0.0951, "gpu_fb_us": 82.6, "nk": 26.0, "peak": 6}
+aspirin 1 e3nn {"rel": 2.955450374877269e-16, "ef": 0.5506, "efb": 2.9547, "gf": 0.1673, "gfb": 0.5964, "gpu_fb_us": 529.5, "nk": 175.0, "peak": 39}
+Traceback (most recent call last):
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/prof8/conv8.py", line 70, in <module>
+    o = f(*xs, ei); gs = torch.autograd.grad(o, xs, g)
+        ^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_bwd/nodeconv.py", line 144, in forward
+    return NodeConvFunction.apply(node_feats.contiguous(), edge_attrs.contiguous(), tp_weights.contiguous(),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/autograd/function.py", line 596, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_bwd/nodeconv.py", line 63, in forward
+    out = fwd_fn(cfg, x, y, w, edge_index, csr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_fwd/nodetp_fwd.py", line 254, in fwd
+    cfg = _as_cfg(layer_cfg)
+          ^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_fwd/nodetp_fwd.py", line 85, in _as_cfg
+    raise TypeError(f"cannot derive NodeCfg from {type(layer_cfg)}")
+TypeError: cannot derive NodeCfg from <class 'layer_cfg.LayerCfg'>
+
+water648 0 flash {"rel": 8.708557243560731e-16, "ef": 0.4136, "efb": 1.1436, "gf": 0.3477, "gfb": 1.0183, "gpu_fb_us": 1008.5, "nk": 26.0, "peak": 141}
+water648 0 e3nn {"rel": 2.581085024961544e-16, "ef": 0.9595, "efb": 3.4638, "gf": 0.915, "gfb": 3.264, "gpu_fb_us": 3249.7, "nk": 79.0, "peak": 962}
+Traceback (most recent call last):
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/prof8/conv8.py", line 70, in <module>
+    o = f(*xs, ei); gs = torch.autograd.grad(o, xs, g)
+        ^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_bwd/nodeconv.py", line 144, in forward
+    return NodeConvFunction.apply(node_feats.contiguous(), edge_attrs.contiguous(), tp_weights.contiguous(),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/autograd/function.py", line 596, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_bwd/nodeconv.py", line 63, in forward
+    out = fwd_fn(cfg, x, y, w, edge_index, csr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_fwd/nodetp_fwd.py", line 254, in fwd
+    cfg = _as_cfg(layer_cfg)
+          ^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_fwd/nodetp_fwd.py", line 85, in _as_cfg
+    raise TypeError(f"cannot derive NodeCfg from {type(layer_cfg)}")
+TypeError: cannot derive NodeCfg from <class 'layer_cfg.LayerCfg'>
+
+water648 1 flash {"rel": 1.4226003610520683e-15, "ef": 0.9969, "efb": 2.9916, "gf": 0.9289, "gfb": 2.8583, "gpu_fb_us": 2852.4, "nk": 26.0, "peak": 344}
+water648 1 e3nn {"rel": 3.879819166505641e-16, "ef": 4.8975, "efb": 16.7114, "gf": 4.8109, "gfb": 16.3966, "gpu_fb_us": 16461.9, "nk": 192.0, "peak": 3281}
+Traceback (most recent call last):
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/prof8/conv8.py", line 70, in <module>
+    o = f(*xs, ei); gs = torch.autograd.grad(o, xs, g)
+        ^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_bwd/nodeconv.py", line 144, in forward
+    return NodeConvFunction.apply(node_feats.contiguous(), edge_attrs.contiguous(), tp_weights.contiguous(),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/autograd/function.py", line 596, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_bwd/nodeconv.py", line 63, in forward
+    out = fwd_fn(cfg, x, y, w, edge_index, csr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_fwd/nodetp_fwd.py", line 254, in fwd
+    cfg = _as_cfg(layer_cfg)
+          ^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_fwd/nodetp_fwd.py", line 85, in _as_cfg
+    raise TypeError(f"cannot derive NodeCfg from {type(layer_cfg)}")
+TypeError: cannot derive NodeCfg from <class 'layer_cfg.LayerCfg'>
+
+  json.dump(res, open(out_path, "w"), indent=1)
+DONE
+0, GPU-edefc586-3f13-ab62-907d-ba075a79f443, 1980 MHz

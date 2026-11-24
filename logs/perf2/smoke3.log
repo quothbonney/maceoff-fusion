@@ -1,0 +1,401 @@
+srun: job 991 queued and waiting for resources
+srun: job 991 has been allocated resources
+SLURM_JOB_ID=991 host=slurm-h100-206-077 date=2026-11-09T00:53:07Z CUDA_VISIBLE_DEVICES=0 SLURM_STEP_GPUS=7 SLURM_JOB_GPUS=
+index, name, uuid, clocks.current.sm [MHz], clocks.max.sm [MHz]
+0, NVIDIA H100 80GB HBM3, GPU-bf049c40-5fb8-8d2a-16c8-ba9e2bdf11fa, 1980 MHz, 1980 MHz
+pid, gpu_uuid, used_gpu_memory [MiB]
+992 jordan+123 bash gres/gpu:1 
+991 jordan+123 bash gres/gpu:1 slurm-h100-206-077
+990 jordan+123 bash gres/gpu:1 slurm-h100-206-077
+983 jordan+123 bash gres/gpu:1 slurm-h100-206-077
+984 jordan+123 bash gres/gpu:1 slurm-h100-206-077
+985 jordan+123 bash gres/gpu:1 slurm-h100-206-077
+986 jordan+123 bash gres/gpu:1 slurm-h100-206-077
+987 jordan+123 bash gres/gpu:1 slurm-h100-206-077
+988 jordan+123 bash gres/gpu:1 slurm-h100-206-077
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/modules/models.py:87: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+SETUP {"e3nn": {"construct_ms": 95.79062648117542, "first_ase_call_water648_ms": 479.09375093877316, "second_ase_call_water648_ms": 238.90123143792152, "third_ase_call_water648_ms": 591.6264038532972}, "flash64": {"construct_ms": 65.64776785671711, "FA_install_ms": 157.51061588525772, "first_ase_call_water648_ms": 47.34788462519646, "second_ase_call_water648_ms": 55.24797737598419, "third_ase_call_water648_ms": 39.7421233355999}, "cueq": {"construct_ms": 2738.344544544816, "first_ase_call_water648_ms": 11056.717932224274, "second_ase_call_water648_ms": 31.53049945831299, "third_ase_call_water648_ms": 29.77144531905651}}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+PARITY H2O {"e3nn": {"abs_dE_per_atom_eV": 0.0, "max_abs_dF_eVA": 0.0, "valid": true}, "flash64": {"abs_dE_per_atom_eV": 0.0, "max_abs_dF_eVA": 4.996003610813204e-16, "valid": true}, "cueq": {"abs_dE_per_atom_eV": 0.0, "max_abs_dF_eVA": 5.551115123125783e-16, "valid": true}}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+RESULT H2O 3 6 {"e3nn": {"graph_cpu": 0.45, "graph_total": 2.657, "fwd": 5.285, "bwd": 6.44, "fwd_bwd": 11.631, "ase_total": 14.848}, "flash64": {"graph_cpu": 0.444, "graph_total": 2.646, "fwd": 5.074, "bwd": 4.718, "fwd_bwd": 9.798, "ase_total": 12.981}, "cueq": {"graph_cpu": 0.453, "graph_total": 2.636, "fwd": 10.246, "bwd": 8.787, "fwd_bwd": 18.961, "ase_total": 22.78}} mem {"e3nn": 18.3, "flash64": 18.1, "cueq": 3.1}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/perf2/bench4.py:173: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/perf2/bench4_smoke3.json' mode='w' encoding='UTF-8'>
+  json.dump(out, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+PARITY water648 {"e3nn": {"abs_dE_per_atom_eV": 0.0, "max_abs_dF_eVA": 0.0, "valid": true}, "flash64": {"abs_dE_per_atom_eV": 0.0, "max_abs_dF_eVA": 3.552713678800501e-15, "valid": true}, "cueq": {"abs_dE_per_atom_eV": 0.0, "max_abs_dF_eVA": 4.6629367034256575e-15, "valid": true}}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+RESULT water648 648 26550 {"e3nn": {"graph_cpu": 5.688, "graph_total": 8.258, "fwd": 13.927, "bwd": 23.124, "fwd_bwd": 36.559, "ase_total": 45.935}, "flash64": {"graph_cpu": 5.728, "graph_total": 8.32, "fwd": 9.6, "bwd": 11.756, "fwd_bwd": 20.692, "ase_total": 29.907}, "cueq": {"graph_cpu": 5.711, "graph_total": 8.296, "fwd": 10.961, "bwd": 8.908, "fwd_bwd": 19.87, "ase_total": 29.305}} mem {"e3nn": 4303.4, "flash64": 2162.2, "cueq": 1020.2}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/perf2/bench4.py:175: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/perf2/bench4_smoke3.json' mode='w' encoding='UTF-8'>
+  json.dump(out, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+DONE /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/perf2/bench4_smoke3.json
+rc=0
+index, name, uuid, clocks.current.sm [MHz], clocks.max.sm [MHz]
+0, NVIDIA H100 80GB HBM3, GPU-bf049c40-5fb8-8d2a-16c8-ba9e2bdf11fa, 1980 MHz, 1980 MHz
+END 2026-11-09T00:53:44Z

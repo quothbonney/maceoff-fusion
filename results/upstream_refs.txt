@@ -1,0 +1,4 @@
+mace-torch PyPI version: Version: 0.3.17
+7215fadd3b591444ab2c07634e84419685a48e87	HEAD
+e37c8583a8b1b586e5888fa6dca86e8f591e2606	refs/tags/v0.3.17
+mace-off 91a78c5a9c300d1104700d9352c8bfe449227737	HEAD

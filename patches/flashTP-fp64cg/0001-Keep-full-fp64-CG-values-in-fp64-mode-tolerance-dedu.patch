@@ -1,0 +1,168 @@
+From 02de84c9a8f283fa7fbb723dd7dd5a18ffc40dae Mon Sep 17 00:00:00 2001
+From: maceoff-study precision agent <noreply@anthropic.com>
+Date: Sun, 8 Nov 2026 21:49:27 +0000
+Subject: [PATCH] Keep full fp64 CG values in fp64 mode (tolerance dedupe
+ instead of fp32 rounding)
+
+Kernels already store the CG table as __constant__ double; only the Python
+table construction rounded values to fp32. fp32 behaviour unchanged; uint8
+CG index limit (<=256 unique values) unchanged.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+---
+ flashTP_e3nn/cg_table.py                      | 39 +++++++++++++++++++
+ flashTP_e3nn/flashTP.py                       | 12 +++---
+ .../fused_e3nn_exp_opt_extcg.py               |  3 +-
+ .../fused_e3nn_exp_opt_large.py               |  3 +-
+ .../fused_e3nn_exp_opt_large_lammps.py        |  3 +-
+ 5 files changed, 51 insertions(+), 9 deletions(-)
+ create mode 100644 flashTP_e3nn/cg_table.py
+
+diff --git a/flashTP_e3nn/cg_table.py b/flashTP_e3nn/cg_table.py
+new file mode 100644
+index 0000000..5fe41e1
+--- /dev/null
++++ b/flashTP_e3nn/cg_table.py
+@@ -0,0 +1,39 @@
++"""CG value table helpers (exp/fp64-cg).
++
++Upstream rounds every CG value to fp32 before deduplication, so in fp64 mode the
++kernel's (double) constant-memory CG table only holds fp32-accurate values.
++Here values are kept in the target dtype and deduplicated with a tolerance.
++For fp32 the upstream behaviour (round to fp32, exact dedupe) is unchanged.
++"""
++import torch
++
++# wigner_3j fp64 values that are mathematically equal differ by a few ulp
++CG_DEDUP_ATOL = {torch.float64: 1e-12}
++
++
++def build_unique_cg(values, dtype):
++    """values: iterable of python floats / 0-d tensors in fp64. Returns sorted list of representatives."""
++    if dtype != torch.float64:
++        return list(set(float(torch.tensor(v, dtype=torch.float64).to(torch.float32).to(dtype)) for v in values))
++    tol = CG_DEDUP_ATOL[dtype]
++    vals = sorted(float(v) for v in values)
++    reps = []
++    for v in vals:
++        if reps and abs(v - reps[-1][0]) <= tol:
++            reps[-1][1].append(v)
++        else:
++            reps.append([v, [v]])
++    # representative: first member (all members agree within tol)
++    return [r[0] for r in reps]
++
++
++def cg_index(unique_cg_val, value, dtype):
++    """index of the table entry representing `value` (fp64 tensor/float)."""
++    v = float(value)
++    if dtype != torch.float64:
++        return unique_cg_val.index(float(torch.tensor(v, dtype=torch.float64).to(torch.float32).to(dtype)))
++    tol = CG_DEDUP_ATOL[dtype]
++    best = min(range(len(unique_cg_val)), key=lambda i: abs(unique_cg_val[i] - v))
++    if abs(unique_cg_val[best] - v) > tol:
++        raise ValueError(f"CG value {v!r} not in table")
++    return best
+diff --git a/flashTP_e3nn/flashTP.py b/flashTP_e3nn/flashTP.py
+index 285413d..dc7762e 100644
+--- a/flashTP_e3nn/flashTP.py
++++ b/flashTP_e3nn/flashTP.py
+@@ -2,6 +2,8 @@ import torch
+ import e3nn
+ import logging
+ 
++from .cg_table import build_unique_cg
++
+ from .sptp_exp_opt_large.fused_e3nn_exp_opt_large import fused_uvu_TP_exp_opt_large
+ from .sptp_exp_opt_large.fused_e3nn_exp_opt_large_lammps import fused_uvu_TP_exp_opt_large_lammps
+ from .sptp_exp_opt_extcg.fused_e3nn_exp_opt_extcg import fused_uvu_TP_exp_opt_extcg
+@@ -71,7 +73,7 @@ def uvu_TP(
+         irreps_in2,
+         irreps_out, tp.instructions, dtype
+     )
+-    unique_cg_val = list(set(unique_cg))
++    unique_cg_val = build_unique_cg(unique_cg, dtype)
+ 
+     # if number of unique cg values is greater than 256,
+     # its index can't be stored in uint8 and handled by fused_uvu_TP_exp_opt_extcg
+@@ -134,11 +136,9 @@ def extract_cg_info(i_in1, i_in2, uvuv_i_out, instructions, dtype):
+ 
+         cg = e3nn.o3.wigner_3j(ir_in1.l, ir_in2.l, ir_out.l)
+ 
+-        # For fp64 there are small difference between same values due to floating point problem.
+-        # This increase the number of unique values unnecessarily.
+-        # We remove it by converting it to fp32 then back to target datatype
+-        cg_fp32 = cg.to(torch.float32)
+-        unique_cg += cg_fp32.unique().to(dtype).tolist()
++        # exp/fp64-cg: keep full-precision values; near-duplicates (fp64 ulp noise)
++        # are merged with a tolerance in build_unique_cg instead of rounding to fp32.
++        unique_cg += cg.to(torch.float64).unique().tolist()
+ 
+         unique_cg_mat[f"{ir_in1.l}_{ir_in2.l}_{ir_out.l}"] = cg
+ 
+diff --git a/flashTP_e3nn/sptp_exp_opt_extcg/fused_e3nn_exp_opt_extcg.py b/flashTP_e3nn/sptp_exp_opt_extcg/fused_e3nn_exp_opt_extcg.py
+index 909976e..2495007 100644
+--- a/flashTP_e3nn/sptp_exp_opt_extcg/fused_e3nn_exp_opt_extcg.py
++++ b/flashTP_e3nn/sptp_exp_opt_extcg/fused_e3nn_exp_opt_extcg.py
+@@ -4,6 +4,7 @@ from typing import List
+ 
+ import e3nn
+ import torch
++from flashTP_e3nn.cg_table import cg_index
+ from torch.utils.cpp_extension import load
+ 
+ import flashTP_e3nn.flashtp_extcg_kernel  as flashtp_extcg_kernel
+@@ -868,7 +869,7 @@ class fused_uvu_TP_exp_opt_extcg(torch.nn.Module):
+                 f"{self.i_in1[inst.i_in1][1].l}_{self.i_in2[inst.i_in2][1].l}_{self.i_out[inst.i_out][1].l}"
+             ]
+             for i, j, k in path_cg.nonzero():
+-                cg_idx = self.unique_cg_val.index(path_cg[i, j, k].to(torch.float32))
++                cg_idx = cg_index(self.unique_cg_val, path_cg[i, j, k], self.dtype)
+                 per_path_fiber_array.append([i.item(), j.item(), k.item(), cg_idx])
+             per_path_fiber_start.append(len(per_path_fiber_array))
+ 
+diff --git a/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py b/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py
+index 97926db..fad8075 100644
+--- a/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py
++++ b/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py
+@@ -2,6 +2,7 @@ import itertools
+ from typing import List, Tuple
+ 
+ import torch
++from flashTP_e3nn.cg_table import cg_index
+ from torch.utils.cpp_extension import load
+ 
+ import flashTP_e3nn.flashtp_large_kernel  as flashtp_large_kernel
+@@ -797,7 +798,7 @@ class fused_uvu_TP_exp_opt_large(torch.nn.Module):
+                 f"{self.i_in1[inst.i_in1][1].l}_{self.i_in2[inst.i_in2][1].l}_{self.i_out[inst.i_out][1].l}"
+             ]
+             for i, j, k in path_cg.nonzero():
+-                cg_idx = self.unique_cg_val.index(path_cg[i, j, k].to(torch.float32))
++                cg_idx = cg_index(self.unique_cg_val, path_cg[i, j, k], self.dtype)
+                 per_path_fiber_array.append([i.item(), j.item(), k.item(), cg_idx])
+             per_path_fiber_start.append(len(per_path_fiber_array))
+ 
+diff --git a/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large_lammps.py b/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large_lammps.py
+index 4708ef4..7bb8833 100644
+--- a/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large_lammps.py
++++ b/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large_lammps.py
+@@ -4,6 +4,7 @@ from typing import List, Tuple
+ 
+ import e3nn
+ import torch
++from flashTP_e3nn.cg_table import cg_index
+ from torch.utils.cpp_extension import load
+ 
+ import flashTP_e3nn.flashtp_large_kernel_lammps as flashtp_large_kernel_lammps
+@@ -326,7 +327,7 @@ class fused_uvu_TP_exp_opt_large_lammps(torch.nn.Module):
+                 f"{self.i_in1[inst.i_in1][1].l}_{self.i_in2[inst.i_in2][1].l}_{self.i_out[inst.i_out][1].l}"
+             ]
+             for i, j, k in path_cg.nonzero():
+-                cg_idx = self.unique_cg_val.index(path_cg[i, j, k].to(torch.float32))
++                cg_idx = cg_index(self.unique_cg_val, path_cg[i, j, k], self.dtype)
+                 per_path_fiber_array.append([i.item(), j.item(), k.item(), cg_idx])
+             per_path_fiber_start.append(len(per_path_fiber_array))
+ 
+-- 
+2.34.1
+

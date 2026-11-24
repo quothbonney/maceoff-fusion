@@ -1,0 +1,17 @@
+{
+ "src": "wbox5184: water_cluster(n_side,3.1,seed0) / water_box(n_side,1.0,seed1)",
+ "fmax_before": 4.563132197670346,
+ "fmax_after": 1.2492672117487231,
+ "fire_s": 14.498312711715698,
+ "fire_steps": 30,
+ "mb_seed": 20261109,
+ "name": "wbox5184",
+ "n_atoms": 5184,
+ "pbc": [
+  true,
+  true,
+  true
+ ],
+ "T_start_K": 301.42634229591636,
+ "slurm_job": "1068"
+}

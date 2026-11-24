@@ -1,0 +1,115 @@
+job=1022 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+== stock feas e3nn
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/feas_stock.py:17: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  G.step(bd); torch.cuda.synchronize(); r["capture"] = "no exception"; r["E_graphed"] = float(G.out_E)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/feas_stock.py:26: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/feas_stock_e3nn.json' mode='w' encoding='UTF-8'>
+  print("FEAS", json.dumps(r)); json.dump(r, open(f"{R}/results/cudagraph6/feas_stock_{bk}.json", "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+FEAS {"backend": "e3nn", "flashTP": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/flashTP-cgpatch/flashTP_e3nn/__init__.py", "capture": "no exception", "E_graphed": -17663.67762117525, "E_eager": -17663.67762117525, "max_dF_graphed_vs_eager": 1.3322676295501878e-15, "graphed_matches_eager": true}
+== stock feas flash
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  G.step(bd); torch.cuda.synchronize(); r["capture"] = "no exception"; r["E_graphed"] = float(G.out_E)
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/feas_stock.py:26: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/feas_stock_flash.json' mode='w' encoding='UTF-8'>
+  print("FEAS", json.dumps(r)); json.dump(r, open(f"{R}/results/cudagraph6/feas_stock_{bk}.json", "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+FEAS {"backend": "flash", "flashTP": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/flashTP-cgpatch/flashTP_e3nn/__init__.py", "capture": "no exception", "E_graphed": -17559.414973910443, "E_eager": -17663.67762117525, "max_dF_graphed_vs_eager": 0.30315353340741713, "graphed_matches_eager": false}
+== stock feas hybrid
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  G.step(bd); torch.cuda.synchronize(); r["capture"] = "no exception"; r["E_graphed"] = float(G.out_E)
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/feas_stock.py:26: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/feas_stock_hybrid.json' mode='w' encoding='UTF-8'>
+  print("FEAS", json.dumps(r)); json.dump(r, open(f"{R}/results/cudagraph6/feas_stock_{bk}.json", "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+FEAS {"backend": "hybrid", "flashTP": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/flashTP-cgpatch/flashTP_e3nn/__init__.py", "capture": "no exception", "E_graphed": -17559.414973910443, "E_eager": -17663.67762117525, "max_dF_graphed_vs_eager": 576.2942201526387, "graphed_matches_eager": false}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+flashTP from /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/flashTP-graphcap/flashTP_e3nn/__init__.py
+SUMMARY medium_L0_E4096_fp64_x1 all_upstream_pass= True
+SUMMARY medium_L1_E4096_fp64_x1 all_upstream_pass= True
+SUMMARY medium_L1_E32768_fp64_x1 all_upstream_pass= True
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:89: DeprecationWarning: `torch.jit.save` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/modules/models.py:87: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+Traceback (most recent call last):
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py", line 103, in <module>
+    atoms0 = load(sname)
+             ^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py", line 30, in load
+    return ase.io.read(f"{R}/results/workloads/systems/{name}.extxyz")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/io/formats.py", line 814, in read
+    format = format or filetype(filename, read=isinstance(filename, str))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/io/formats.py", line 989, in filetype
+    fd = open_with_compression(filename, 'rb')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/io/formats.py", line 618, in open_with_compression
+    return open(filename, mode)
+           ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/workloads/systems/32768.extxyz'
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz

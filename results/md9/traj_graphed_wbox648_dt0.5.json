@@ -1,0 +1,63 @@
+{
+ "slurm_job": "1077",
+ "host": "slurm-h100-206-077",
+ "torch": "2.11.0+cu128",
+ "gpu": "0, NVIDIA H100 80GB HBM3, GPU-a6a957a6-a4b5-edc7-17c3-2343ebb01051, 1980 MHz, 1980 MHz",
+ "date": "2026-11-10T05:26:59",
+ "provider": "graphed_nodehybrid+embed+node_proto",
+ "system": "wbox648",
+ "dt_fs": 0.5,
+ "nsteps": 4000,
+ "save_every": 20,
+ "wall_s": 20.859412042424083,
+ "ms_per_step": 5.214853010606021,
+ "provider_syncs": {
+  "d2h_positions": 4001
+ },
+ "check_failures": [],
+ "runner_stats": {
+  "captures": 1,
+  "recaptures": 0,
+  "evictions": 0,
+  "last_capture_s": 14.523866636678576,
+  "key": {
+   "n_atoms": 648,
+   "numbers_sha1": "1f532494b7d0",
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "cell_is_none": false,
+   "head": "Default",
+   "dtype": "torch.float64",
+   "stress": false
+  },
+  "n_graphs": 1,
+  "E_caps": [
+   42880
+  ]
+ },
+ "energy": {
+  "dt_fs": 0.5,
+  "n_steps": 4000,
+  "t_ps": 2.0,
+  "drift_eV_atom_ps": -1.1567317286779535e-05,
+  "block_slopes_eV_atom_ps": [
+   -1.2923124116362995e-05,
+   -7.691636470487274e-06,
+   -8.814968705872537e-06,
+   -1.8121085327754267e-05
+  ],
+  "block_slope_std": 4.724962874442219e-06,
+  "rms_fluct_eV_atom": 1.4223966307093813e-05,
+  "rms_fluct_first1ps_eV_atom": 1.7126315745761146e-05,
+  "max_minus_min_eV_atom": 0.00028799794188216765,
+  "Etot0_eV_atom": -693.7604980404184,
+  "Etot_end_minus_0": 0.00013289072899169696,
+  "T_start_K": 295.5325953613855,
+  "T_end_K": 409.7403322709771,
+  "T_mean_K": 423.1961790974469
+ },
+ "note": "wall includes snapshot clones every save_every steps and a sync every 500 steps (progress print)"
+}

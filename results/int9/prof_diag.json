@@ -1,0 +1,235 @@
+{
+ "job": "1117",
+ "node": "slurm-h100-206-077",
+ "gpu": "0, NVIDIA H100 80GB HBM3, GPU-edefc586-3f13-ab62-907d-ba075a79f443, 345 MHz, 1980 MHz, 26",
+ "runs": {
+  "gpustep:cell/water648": {
+   "N": 648,
+   "check": {
+    "ok": true,
+    "overflow": 0,
+    "max_E": 26550,
+    "last_E": 26550,
+    "E_cap": 31872,
+    "recaptured": false
+   },
+   "E": 26550,
+   "E_cap": 31872,
+   "nl": "cell",
+   "stage_ms": {
+    "nl_graph": {
+     "median": 0.04258379340171814,
+     "p10": 0.04245378077030182,
+     "p90": 0.0432286411523819,
+     "n": 20
+    },
+    "step": {
+     "median": 3.0504241585731506,
+     "p10": 3.0392270535230637,
+     "p90": 3.060649149119854,
+     "n": 20
+    }
+   },
+   "nl_graph_kernels": 6,
+   "profile": {
+    "n_steps": 3,
+    "wall_us": 3410.611000000001,
+    "gpu_busy_us": 2915.724000000001,
+    "cats_us_per_step": {
+     "conv_bwd(node)": 727.9333333333338,
+     "gemm(radialMLP+linears)": 662.0256666666686,
+     "elementwise": 602.555666666663,
+     "fused_node": 313.51266666666726,
+     "conv_fwd(node)": 261.21466666666646,
+     "scatter/gather/index": 121.85466666666662,
+     "cueq_SC": 78.15399999999924,
+     "csr_sort/search": 44.70399999999972,
+     "fused_embed": 31.807999999999993,
+     "NL_build": 30.91166666666739,
+     "memcpy/memset": 17.299999999999727,
+     "reduce": 13.503666666666808,
+     "other": 8.309333333333143,
+     "scan/compact": 2.581333333333532
+    },
+    "top_kernels": [
+     [
+      "conv_bwd(node)",
+      "kern",
+      727.9333333333338
+     ],
+     [
+      "fused_node",
+      "_seg_linear_kernel",
+      313.51266666666726
+     ],
+     [
+      "gemm(radialMLP+linears)",
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize128x64x16_stage3_warpsize2x2x1_tensor16x8x8_",
+      250.89000000000092
+     ],
+     [
+      "elementwise",
+      "void at::native::vectorized_elementwise_kernel<2, at::native::AUnaryFunctor<double, double",
+      202.98666666666517
+     ],
+     [
+      "conv_fwd(node)",
+      "void k_24bb6332bfcfp1<long, long, 1>(double const*, double const*, double const*, long con",
+      179.01766666666677
+     ],
+     [
+      "elementwise",
+      "void at::native::vectorized_elementwise_kernel<2, at::native::(anonymous namespace)::silu_",
+      143.0820000000002
+     ],
+     [
+      "gemm(radialMLP+linears)",
+      "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize64x64x32_stage3_warpsize2x2x1_tensor16x8x16_",
+      126.997
+     ],
+     [
+      "gemm(radialMLP+linears)",
+      "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize64x64x16_stage4_warpsize2x2x1_tensor16x8x8_e",
+      119.88266666666732
+     ],
+     [
+      "elementwise",
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native:",
+      94.66466666666399
+     ],
+     [
+      "conv_fwd(node)",
+      "void k_e3e329789a5bp1<long, long, 2>(double const*, double const*, double const*, long con",
+      82.19699999999966
+     ],
+     [
+      "gemm(radialMLP+linears)",
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x128x16_stage3_warpsize2x2x1_tensor16x8x8_",
+      79.68000000000029
+     ],
+     [
+      "scatter/gather/index",
+      "void at::native::index_elementwise_kernel<128, 4, at::native::gpu_index_kernel<at::native:",
+      48.61733333333359
+     ],
+     [
+      "scatter/gather/index",
+      "void (anonymous namespace)::indexing_backward_kernel_small_stride<double>(long const*, lon",
+      41.72766666666636
+     ],
+     [
+      "cueq_SC",
+      "segmented_polynomial_bwd_algo1_4",
+      41.33300000000023
+     ],
+     [
+      "elementwise",
+      "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunctor_add<double>, std",
+      33.53599999999975
+     ],
+     [
+      "csr_sort/search",
+      "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_cuda_detail::cub::DeviceRadixSo",
+      30.133333333333212
+     ],
+     [
+      "elementwise",
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BUnaryFunctor<long, long, lo",
+      27.76533333333312
+     ],
+     [
+      "elementwise",
+      "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::ar",
+      22.377666666666148
+     ],
+     [
+      "scatter/gather/index",
+      "void at::native::_scatter_gather_elementwise_kernel<128, 8, at::native::_cuda_scatter_gath",
+      21.05566666666603
+     ],
+     [
+      "gemm(radialMLP+linears)",
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_",
+      19.935999999999694
+     ],
+     [
+      "gemm(radialMLP+linears)",
+      "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize64x32x32_stage3_warpsize2x2x1_tensor16x8x16_",
+      16.064000000000306
+     ],
+     [
+      "cueq_SC",
+      "segmented_polynomial_algo1_4",
+      15.882666666666259
+     ],
+     [
+      "cueq_SC",
+      "segmented_polynomial_bwd_algo6_4",
+      14.90133333333309
+     ],
+     [
+      "gemm(radialMLP+linears)",
+      "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_",
+      13.120333333333292
+     ],
+     [
+      "elementwise",
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BUnaryFunctor<double, double",
+      12.60833333333479
+     ],
+     [
+      "fused_embed",
+      "fe_sh_fwd(double const*, double*, long, double, double const*)",
+      11.40266666666624
+     ],
+     [
+      "NL_build",
+      "void k_wscan<1>(double const*, int, double const*, double const*, int const*, int const*, ",
+      11.0933333333334
+     ],
+     [
+      "gemm(radialMLP+linears)",
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x64x32_stage3_warpsize2x2x1_tensor16x8x16_",
+      9.739000000000638
+     ],
+     [
+      "elementwise",
+      "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized<at::native::(anonym",
+      9.610999999999725
+     ],
+     [
+      "elementwise",
+      "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunctor_add<long>, std::",
+      9.610333333332923
+     ]
+    ],
+    "kernels_per_step": 308.3333333333333,
+    "nl_kernels_per_step": 6.0,
+    "sync_api_calls_per_step": {
+     "cudaMemcpyAsync": 1.0,
+     "cudaDeviceSynchronize": 1.3333333333333333
+    },
+    "gpu_idle_us": 494.8869999999997,
+    "gpu_idle_frac": 0.14510215325054648
+   },
+   "stats": {
+    "path": "graph",
+    "nl": "cell",
+    "captures": 1,
+    "recaptures": 0,
+    "proactive_recaptures": 0,
+    "overflows": 0,
+    "checks": 1,
+    "host_syncs": 1,
+    "steps": 30,
+    "evictions": 0,
+    "last_capture_s": 14.368618031963706,
+    "E_cap": 31872,
+    "n_edges_last": 26550,
+    "n_graphs": 1,
+    "ext_csr_layer_calls": 8,
+    "sort_fallback_layer_calls": 0
+   }
+  }
+ }
+}

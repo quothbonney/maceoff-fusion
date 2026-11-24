@@ -1,0 +1,297 @@
+{
+ "job": "1144",
+ "node": "slurm-h100-206-077",
+ "gpu": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz, 29",
+ "nl": "auto",
+ "tol": {
+  "dE": 1e-11,
+  "dF": 1e-11,
+  "dS": 1e-14
+ },
+ "tests": {
+  "systems_walk_vs_stock": {
+   "rows": [
+    {
+     "N": 2187,
+     "dE_atom": 0.0,
+     "max_dF": 4.440892098500626e-15,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "step": 0,
+     "stress": false,
+     "path": "graph",
+     "nl": "cell",
+     "edges_bitwise": true,
+     "check": {
+      "ok": true,
+      "overflow": 0,
+      "max_E": 99438,
+      "last_E": 99438,
+      "E_cap": 119360,
+      "recaptured": false
+     }
+    },
+    {
+     "N": 2187,
+     "dE_atom": 0.0,
+     "max_dF": 5.329070518200751e-15,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "step": 1,
+     "stress": false,
+     "path": "graph",
+     "nl": "cell",
+     "edges_bitwise": true,
+     "check": {
+      "ok": true,
+      "overflow": 0,
+      "max_E": 99508,
+      "last_E": 99508,
+      "E_cap": 119360,
+      "recaptured": false
+     }
+    },
+    {
+     "N": 2187,
+     "dE_atom": 0.0,
+     "max_dF": 5.329070518200751e-15,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "step": 2,
+     "stress": false,
+     "path": "graph",
+     "nl": "cell",
+     "edges_bitwise": true,
+     "check": {
+      "ok": true,
+      "overflow": 0,
+      "max_E": 99474,
+      "last_E": 99474,
+      "E_cap": 119360,
+      "recaptured": false
+     }
+    },
+    {
+     "N": 2187,
+     "dE_atom": 1.0646119965883385e-13,
+     "max_dF": 1.5987211554602254e-14,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "step": 3,
+     "stress": false,
+     "path": "graph",
+     "nl": "cell",
+     "edges_bitwise": true,
+     "check": {
+      "ok": true,
+      "overflow": 0,
+      "max_E": 99448,
+      "last_E": 99448,
+      "E_cap": 119360,
+      "recaptured": false
+     }
+    },
+    {
+     "N": 2187,
+     "dE_atom": 0.0,
+     "max_dF": 9.769962616701378e-15,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "step": 4,
+     "stress": false,
+     "path": "graph",
+     "nl": "cell",
+     "edges_bitwise": true,
+     "check": {
+      "ok": true,
+      "overflow": 0,
+      "max_E": 99432,
+      "last_E": 99432,
+      "E_cap": 119360,
+      "recaptured": false
+     }
+    },
+    {
+     "N": 2187,
+     "dE_atom": 0.0,
+     "max_dF": 1.0658141036401503e-14,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "step": 5,
+     "stress": false,
+     "path": "graph",
+     "nl": "cell",
+     "edges_bitwise": true,
+     "check": {
+      "ok": true,
+      "overflow": 0,
+      "max_E": 99334,
+      "last_E": 99334,
+      "E_cap": 119360,
+      "recaptured": false
+     }
+    },
+    {
+     "N": 2187,
+     "dE_atom": 0.0,
+     "max_dF": 1.0658141036401503e-14,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "step": 6,
+     "stress": false,
+     "path": "graph",
+     "nl": "cell",
+     "edges_bitwise": true,
+     "check": {
+      "ok": true,
+      "overflow": 0,
+      "max_E": 99298,
+      "last_E": 99298,
+      "E_cap": 119360,
+      "recaptured": false
+     }
+    }
+   ],
+   "ok": true
+  },
+  "systems_walk_vs_nodehybrid_proto": {
+   "rows": [
+    {
+     "N": 2187,
+     "dE_atom": 0.0,
+     "max_dF": 0.0,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "step": 0,
+     "stress": false
+    },
+    {
+     "N": 2187,
+     "dE_atom": 0.0,
+     "max_dF": 0.0,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "step": 1,
+     "stress": false
+    },
+    {
+     "N": 2187,
+     "dE_atom": 0.0,
+     "max_dF": 0.0,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "step": 2,
+     "stress": false
+    },
+    {
+     "N": 2187,
+     "dE_atom": 0.0,
+     "max_dF": 0.0,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "step": 3,
+     "stress": false
+    },
+    {
+     "N": 2187,
+     "dE_atom": 0.0,
+     "max_dF": 0.0,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "step": 4,
+     "stress": false
+    },
+    {
+     "N": 2187,
+     "dE_atom": 0.0,
+     "max_dF": 0.0,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "step": 5,
+     "stress": false
+    },
+    {
+     "N": 2187,
+     "dE_atom": 0.0,
+     "max_dF": 0.0,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "step": 6,
+     "stress": false
+    }
+   ],
+   "ok": true
+  },
+  "repeat_same_coords": {
+   "rows": [
+    {
+     "sys": "water2187",
+     "stress": false,
+     "bitwise_same": true,
+     "dE": 0.0,
+     "dF": 0.0
+    }
+   ],
+   "ok": true
+  },
+  "repeat_same_coords_tol": {
+   "rows": [
+    {
+     "N": 2187,
+     "dE_atom": 0.0,
+     "max_dF": 0.0,
+     "dS": null,
+     "ok": true,
+     "sys": "water2187",
+     "stress": false
+    }
+   ],
+   "ok": true
+  },
+  "stats": {
+   "rows": [
+    {
+     "sys": "water2187",
+     "stress": false,
+     "path": "graph",
+     "nl": "cell",
+     "captures": 1,
+     "recaptures": 0,
+     "proactive_recaptures": 0,
+     "overflows": 0,
+     "checks": 7,
+     "host_syncs": 7,
+     "steps": 8,
+     "evictions": 0,
+     "last_capture_s": 15.49084048718214,
+     "E_cap": 119360,
+     "n_edges_last": 99298,
+     "n_graphs": 1,
+     "ext_csr_layer_calls": 8,
+     "sort_fallback_layer_calls": 0
+    }
+   ],
+   "ok": true
+  }
+ },
+ "failures": [],
+ "ok": true,
+ "ext_counters_end": {
+  "n_ext": 8,
+  "n_sort": 0
+ }
+}

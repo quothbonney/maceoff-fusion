@@ -1,0 +1,227 @@
+job=972 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+H2O {
+ "n_atoms": 3,
+ "E_ref": -2081.11639716893,
+ "E_flash": -2081.1163971592873,
+ "fixed_geometry": {
+  "max_abs_dE_per_atom_eV": 3.2141542760655284e-09,
+  "max_abs_dF_eV_A": 3.32000604785776e-08,
+  "max_rms_dF_eV_A": 1.6013077784570535e-08,
+  "max_abs_F_ref": 0.6474868257116837,
+  "rms_F_ref": 0.3100552570090786
+ },
+ "perturbed_sequence": {
+  "max_abs_dE_per_atom_eV": 3.361795582653334e-09,
+  "max_abs_dF_eV_A": 3.81718172626222e-08,
+  "max_rms_dF_eV_A": 1.8146376627639942e-08,
+  "max_abs_F_ref": 1.6110355495092397,
+  "rms_F_ref": 0.36766834867373893
+ },
+ "ref_repeat": {
+  "max_abs_dE": 0.0,
+  "max_abs_dF": 2.220446049250313e-16,
+  "bitwise_identical": false
+ },
+ "flash_repeat": {
+  "max_abs_dE": 0.0,
+  "max_abs_dF": 0.0,
+  "bitwise_identical": true
+ },
+ "reverted_bitwise_equal_ref": false,
+ "all_finite": true
+}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+water192 {
+ "n_atoms": 192,
+ "E_ref": -133194.08439848514,
+ "E_flash": -133194.08439800894,
+ "fixed_geometry": {
+  "max_abs_dE_per_atom_eV": 2.4803436341850707e-09,
+  "max_abs_dF_eV_A": 5.7642657536050024e-08,
+  "max_rms_dF_eV_A": 1.809022010671712e-08,
+  "max_abs_F_ref": 2.888338902279209,
+  "rms_F_ref": 0.47644598013973244
+ },
+ "perturbed_sequence": {
+  "max_abs_dE_per_atom_eV": 2.491257570606346e-09,
+  "max_abs_dF_eV_A": 6.686610243278324e-08,
+  "max_rms_dF_eV_A": 1.9874550785190926e-08,
+  "max_abs_F_ref": 5.2634564064568625,
+  "rms_F_ref": 0.9225191409688287
+ },
+ "ref_repeat": {
+  "max_abs_dE": 2.9103830456733704e-11,
+  "max_abs_dF": 2.7478019859472624e-15,
+  "bitwise_identical": false
+ },
+ "flash_repeat": {
+  "max_abs_dE": 0.0,
+  "max_abs_dF": 2.6645352591003757e-15,
+  "bitwise_identical": false
+ },
+ "reverted_bitwise_equal_ref": false,
+ "all_finite": true
+}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+water648 {
+ "n_atoms": 648,
+ "E_ref": -449526.0097505144,
+ "E_flash": -449526.0097490688,
+ "fixed_geometry": {
+  "max_abs_dE_per_atom_eV": 2.2308445351635234e-09,
+  "max_abs_dF_eV_A": 6.38271659969547e-08,
+  "max_rms_dF_eV_A": 1.891567954731102e-08,
+  "max_abs_F_ref": 2.182091817118298,
+  "rms_F_ref": 0.4692834561194458
+ },
+ "perturbed_sequence": {
+  "max_abs_dE_per_atom_eV": 2.1228729172345296e-09,
+  "max_abs_dF_eV_A": 7.793636402908533e-08,
+  "max_rms_dF_eV_A": 2.036815851782705e-08,
+  "max_abs_F_ref": 5.247280666631903,
+  "rms_F_ref": 1.054699284723122
+ },
+ "ref_repeat": {
+  "max_abs_dE": 0.0,
+  "max_abs_dF": 3.747002708109903e-15,
+  "bitwise_identical": false
+ },
+ "flash_repeat": {
+  "max_abs_dE": 0.0,
+  "max_abs_dF": 2.886579864025407e-15,
+  "bitwise_identical": false
+ },
+ "reverted_bitwise_equal_ref": false,
+ "all_finite": true
+}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+water1536 {
+ "n_atoms": 1536,
+ "E_ref": -1065538.247786699,
+ "E_flash": -1065538.2477833652,
+ "fixed_geometry": {
+  "max_abs_dE_per_atom_eV": 2.1705091057810932e-09,
+  "max_abs_dF_eV_A": 6.489842307999538e-08,
+  "max_rms_dF_eV_A": 1.919185351482597e-08,
+  "max_abs_F_ref": 2.678697937473963,
+  "rms_F_ref": 0.48344631342363587
+ },
+ "perturbed_sequence": {
+  "max_abs_dE_per_atom_eV": 2.0560643558079996e-09,
+  "max_abs_dF_eV_A": 9.764950892332536e-08,
+  "max_rms_dF_eV_A": 2.0484607286786812e-08,
+  "max_abs_F_ref": 6.595055625999747,
+  "rms_F_ref": 1.0643376908230293
+ },
+ "ref_repeat": {
+  "max_abs_dE": 0.0,
+  "max_abs_dF": 3.337607967779377e-15,
+  "bitwise_identical": false
+ },
+ "flash_repeat": {
+  "max_abs_dE": 2.3283064365386963e-10,
+  "max_abs_dF": 2.9976021664879227e-15,
+  "bitwise_identical": false
+ },
+ "reverted_bitwise_equal_ref": false,
+ "all_finite": true
+}

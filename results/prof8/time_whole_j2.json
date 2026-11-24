@@ -1,0 +1,505 @@
+{
+ "job": "1067",
+ "node": "slurm-h100-206-077",
+ "gpu_start": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz, 29",
+ "warm": 10,
+ "reps": 60,
+ "configs": {
+  "hybrid+embed+node": {
+   "build_install_s": 5.437508473172784
+  },
+  "nodehybrid+embed+node": {
+   "build_install_s": 0.47924851067364216
+  }
+ },
+ "systems": {
+  "H2O": {
+   "N": 3,
+   "order": [
+    "hybrid+embed+node",
+    "nodehybrid+embed+node"
+   ],
+   "hybrid+embed+node": {
+    "first_step_s": 13.39902113005519,
+    "capture_s": 13.386552132666111,
+    "E": 6,
+    "E_cap": 64,
+    "t_replay": {
+     "median": 0.6046416237950325,
+     "p10": 0.6043089553713799,
+     "p90": 0.6050216034054756,
+     "n": 60
+    },
+    "t_step": {
+     "median": 1.1484241113066673,
+     "p10": 1.1348111554980278,
+     "p90": 1.1609356850385666,
+     "n": 60
+    },
+    "n_gpu_ops": 300,
+    "kernel_sum_us": 616.4529999999986,
+    "fused_kernels_us": {
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double con": 24.640000000000327,
+     "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<at": 8.960000000000036,
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double con": 42.721000000000004
+    },
+    "fused_us": 76.32100000000037,
+    "fused_frac_of_replay": 0.1262251836401399,
+    "peak_MiB": 131.4677734375
+   },
+   "nodehybrid+embed+node": {
+    "first_step_s": 0.664269108325243,
+    "capture_s": 0.6598074864596128,
+    "E": 6,
+    "E_cap": 64,
+    "t_replay": {
+     "median": 0.6762156262993813,
+     "p10": 0.6755927577614784,
+     "p90": 0.677073746919632,
+     "n": 60
+    },
+    "t_step": {
+     "median": 1.2807948514819145,
+     "p10": 1.2642135843634605,
+     "p90": 1.2963885441422462,
+     "n": 60
+    },
+    "n_gpu_ops": 267,
+    "kernel_sum_us": 622.6600000000008,
+    "fused_kernels_us": {
+     "void at::native::radixSortKVInPlace<-2, -1, 32, 4, int, long": 9.440000000000055,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_ke": 3.968000000000302,
+     "void k_e3e329789a5bp1<long, long, 4>(double const*, double c": 6.208000000000084,
+     "void k_24bb6332bfcfp1<long, long, 2>(double const*, double c": 13.248000000000047,
+     "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<at": 9.02599999999984,
+     "kern": 80.89599999999973
+    },
+    "fused_us": 122.78600000000006,
+    "fused_frac_of_replay": 0.18157817599092121,
+    "peak_MiB": 67.2890625
+   }
+  },
+  "aspirin": {
+   "N": 21,
+   "order": [
+    "nodehybrid+embed+node",
+    "hybrid+embed+node"
+   ],
+   "nodehybrid+embed+node": {
+    "first_step_s": 0.05957520380616188,
+    "capture_s": 0.055109668523073196,
+    "E": 302,
+    "E_cap": 384,
+    "t_replay": {
+     "median": 0.7910151034593582,
+     "p10": 0.7894940674304962,
+     "p90": 0.792403519153595,
+     "n": 60
+    },
+    "t_step": {
+     "median": 1.414562575519085,
+     "p10": 1.4031609520316124,
+     "p90": 1.4275943860411644,
+     "n": 60
+    },
+    "n_gpu_ops": 255,
+    "kernel_sum_us": 719.6719999999995,
+    "fused_kernels_us": {
+     "void at::native::radixSortKVInPlace<-2, -1, 32, 32, int, lon": 40.639000000000124,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_ke": 4.73599999999999,
+     "void k_e3e329789a5bp1<long, long, 4>(double const*, double c": 6.848999999999933,
+     "void k_24bb6332bfcfp1<long, long, 2>(double const*, double c": 13.504000000000019,
+     "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<at": 9.121000000000095,
+     "kern": 94.27200000000016
+    },
+    "fused_us": 169.12100000000032,
+    "fused_frac_of_replay": 0.21380249158376485,
+    "peak_MiB": 77.318359375
+   },
+   "hybrid+embed+node": {
+    "first_step_s": 0.06281677447259426,
+    "capture_s": 0.0576922744512558,
+    "E": 302,
+    "E_cap": 384,
+    "t_replay": {
+     "median": 0.7544532418251038,
+     "p10": 0.7530465722084045,
+     "p90": 0.755813904106617,
+     "n": 60
+    },
+    "t_step": {
+     "median": 1.3813544064760208,
+     "p10": 1.3693585991859436,
+     "p90": 1.3977134600281715,
+     "n": 60
+    },
+    "n_gpu_ops": 288,
+    "kernel_sum_us": 690.0130000000003,
+    "fused_kernels_us": {
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double con": 33.024000000000115,
+     "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<at": 9.12099999999964,
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double con": 55.008000000000266
+    },
+    "fused_us": 97.15300000000002,
+    "fused_frac_of_replay": 0.12877272521883057,
+    "peak_MiB": 78.5146484375
+   }
+  },
+  "water192": {
+   "N": 192,
+   "order": [
+    "hybrid+embed+node",
+    "nodehybrid+embed+node"
+   ],
+   "hybrid+embed+node": {
+    "first_step_s": 0.08849812112748623,
+    "capture_s": 0.0813002847135067,
+    "E": 6634,
+    "E_cap": 8000,
+    "t_replay": {
+     "median": 2.204940654337406,
+     "p10": 2.201627567410469,
+     "p90": 2.2077370434999466,
+     "n": 60
+    },
+    "t_step": {
+     "median": 2.8556929901242256,
+     "p10": 2.8455473482608795,
+     "p90": 2.872617170214653,
+     "n": 60
+    },
+    "n_gpu_ops": 297,
+    "kernel_sum_us": 2092.619000000001,
+    "fused_kernels_us": {
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double con": 371.74299999999994,
+     "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<at": 6.878999999999905,
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double con": 782.1109999999994,
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_": 3.9359999999996944,
+     "void at_cuda_detail::cub::DeviceRadixSortExclusiveSumKernel<": 2.8799999999991996,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_c": 13.631999999999607
+    },
+    "fused_us": 1181.1809999999978,
+    "fused_frac_of_replay": 0.535697411028483,
+    "peak_MiB": 311.724609375
+   },
+   "nodehybrid+embed+node": {
+    "first_step_s": 0.06507751531898975,
+    "capture_s": 0.058741845190525055,
+    "E": 6634,
+    "E_cap": 8000,
+    "t_replay": {
+     "median": 1.5283040702342987,
+     "p10": 1.5239372849464417,
+     "p90": 1.5335861593484879,
+     "n": 60
+    },
+    "t_step": {
+     "median": 2.1625468507409096,
+     "p10": 2.1524054929614067,
+     "p90": 2.178819291293621,
+     "n": 60
+    },
+    "n_gpu_ops": 282,
+    "kernel_sum_us": 1403.0470000000018,
+    "fused_kernels_us": {
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_": 9.537000000000262,
+     "void at_cuda_detail::cub::DeviceRadixSortExclusiveSumKernel<": 6.112999999999829,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_c": 64.92800000000034,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_ke": 6.208000000000084,
+     "void k_e3e329789a5bp1<long, long, 2>(double const*, double c": 27.648999999999887,
+     "void k_24bb6332bfcfp1<long, long, 2>(double const*, double c": 62.14400000000023,
+     "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<at": 6.880000000000109,
+     "kern": 367.55300000000034
+    },
+    "fused_us": 551.0120000000011,
+    "fused_frac_of_replay": 0.36053820095861383,
+    "peak_MiB": 296.40625
+   }
+  },
+  "org192": {
+   "N": 196,
+   "order": [
+    "nodehybrid+embed+node",
+    "hybrid+embed+node"
+   ],
+   "nodehybrid+embed+node": {
+    "first_step_s": 0.07746211998164654,
+    "capture_s": 0.07158919982612133,
+    "E": 3670,
+    "E_cap": 4416,
+    "t_replay": {
+     "median": 1.348753459751606,
+     "p10": 1.3464346528053284,
+     "p90": 1.3518556952476501,
+     "n": 60
+    },
+    "t_step": {
+     "median": 1.9880691543221474,
+     "p10": 1.9736435264348984,
+     "p90": 2.0058084279298782,
+     "n": 60
+    },
+    "n_gpu_ops": 283,
+    "kernel_sum_us": 1227.5170000000003,
+    "fused_kernels_us": {
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_": 9.248000000000275,
+     "void at_cuda_detail::cub::DeviceRadixSortExclusiveSumKernel<": 6.080000000000155,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_c": 64.51299999999969,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_ke": 6.1759999999997035,
+     "void k_e3e329789a5bp1<long, long, 2>(double const*, double c": 15.039999999999964,
+     "void k_24bb6332bfcfp1<long, long, 2>(double const*, double c": 42.23900000000003,
+     "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<at": 6.912000000000262,
+     "kern": 213.5659999999998
+    },
+    "fused_us": 363.7739999999999,
+    "fused_frac_of_replay": 0.26971126366340853,
+    "peak_MiB": 202.02001953125
+   },
+   "hybrid+embed+node": {
+    "first_step_s": 0.064215287566185,
+    "capture_s": 0.058017490431666374,
+    "E": 3670,
+    "E_cap": 4416,
+    "t_replay": {
+     "median": 1.6909288242459297,
+     "p10": 1.6888752579689026,
+     "p90": 1.694553717970848,
+     "n": 60
+    },
+    "t_step": {
+     "median": 2.3409882560372353,
+     "p10": 2.3281142115592957,
+     "p90": 2.3507753387093544,
+     "n": 60
+    },
+    "n_gpu_ops": 298,
+    "kernel_sum_us": 1575.9390000000017,
+    "fused_kernels_us": {
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double con": 208.2560000000003,
+     "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<at": 6.879999999999654,
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double con": 427.2629999999999,
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_": 3.77599999999984,
+     "void at_cuda_detail::cub::DeviceRadixSortExclusiveSumKernel<": 2.9440000000004147,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_c": 12.768000000000029
+    },
+    "fused_us": 661.8870000000002,
+    "fused_frac_of_replay": 0.3914339802535266,
+    "peak_MiB": 214.11181640625
+   }
+  },
+  "water648": {
+   "N": 648,
+   "order": [
+    "hybrid+embed+node",
+    "nodehybrid+embed+node"
+   ],
+   "hybrid+embed+node": {
+    "first_step_s": 0.07823644392192364,
+    "capture_s": 0.06257858127355576,
+    "E": 26550,
+    "E_cap": 31872,
+    "t_replay": {
+     "median": 6.498309783637524,
+     "p10": 6.492889486253262,
+     "p90": 6.508831866085529,
+     "n": 60
+    },
+    "t_step": {
+     "median": 7.192264311015606,
+     "p10": 7.176534086465836,
+     "p90": 7.219133898615837,
+     "n": 60
+    },
+    "n_gpu_ops": 301,
+    "kernel_sum_us": 6415.844000000002,
+    "fused_kernels_us": {
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double con": 1458.431,
+     "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<at": 7.231000000000222,
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double con": 3040.991000000001,
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_": 4.76799999999912,
+     "void at_cuda_detail::cub::DeviceRadixSortExclusiveSumKernel<": 2.4960000000000946,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_c": 30.592000000000553
+    },
+    "fused_us": 4544.509000000001,
+    "fused_frac_of_replay": 0.6993370816889781,
+    "peak_MiB": 1039.02783203125
+   },
+   "nodehybrid+embed+node": {
+    "first_step_s": 0.07294820435345173,
+    "capture_s": 0.060676783323287964,
+    "E": 26550,
+    "E_cap": 31872,
+    "t_replay": {
+     "median": 3.0014635995030403,
+     "p10": 2.98905149102211,
+     "p90": 3.008688800036907,
+     "n": 60
+    },
+    "t_step": {
+     "median": 3.6689797416329384,
+     "p10": 3.6531230434775352,
+     "p90": 3.6871440708637238,
+     "n": 60
+    },
+    "n_gpu_ops": 286,
+    "kernel_sum_us": 2883.451,
+    "fused_kernels_us": {
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_": 10.560000000000286,
+     "void at_cuda_detail::cub::DeviceRadixSortExclusiveSumKernel<": 5.312000000000467,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_c": 90.17599999999982,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_ke": 8.895999999999958,
+     "void k_e3e329789a5bp1<long, long, 2>(double const*, double c": 80.63999999999999,
+     "void k_24bb6332bfcfp1<long, long, 1>(double const*, double c": 182.14300000000003,
+     "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<at": 7.167999999999893,
+     "kern": 712.4149999999995
+    },
+    "fused_us": 1097.31,
+    "fused_frac_of_replay": 0.3655916400857516,
+    "peak_MiB": 980.96435546875
+   }
+  },
+  "org648": {
+   "N": 650,
+   "order": [
+    "nodehybrid+embed+node",
+    "hybrid+embed+node"
+   ],
+   "nodehybrid+embed+node": {
+    "first_step_s": 0.06821177713572979,
+    "capture_s": 0.058292362838983536,
+    "E": 14856,
+    "E_cap": 17856,
+    "t_replay": {
+     "median": 2.3359935730695724,
+     "p10": 2.3291004821658134,
+     "p90": 2.343347482383251,
+     "n": 60
+    },
+    "t_step": {
+     "median": 3.014068119227886,
+     "p10": 2.9911568388342857,
+     "p90": 3.041703626513481,
+     "n": 60
+    },
+    "n_gpu_ops": 286,
+    "kernel_sum_us": 2203.7769999999973,
+    "fused_kernels_us": {
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_": 10.207999999999743,
+     "void at_cuda_detail::cub::DeviceRadixSortExclusiveSumKernel<": 6.143999999999892,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_c": 83.23199999999974,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_ke": 8.704000000000065,
+     "void k_e3e329789a5bp1<long, long, 2>(double const*, double c": 51.903999999999996,
+     "void k_24bb6332bfcfp1<long, long, 1>(double const*, double c": 113.856,
+     "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<at": 7.167999999999893,
+     "kern": 444.8009999999997
+    },
+    "fused_us": 726.016999999999,
+    "fused_frac_of_replay": 0.31079580370847887,
+    "peak_MiB": 597.61376953125
+   },
+   "hybrid+embed+node": {
+    "first_step_s": 0.07204747945070267,
+    "capture_s": 0.059832362458109856,
+    "E": 14856,
+    "E_cap": 17856,
+    "t_replay": {
+     "median": 4.216048866510391,
+     "p10": 4.210942052304745,
+     "p90": 4.222060181200504,
+     "n": 60
+    },
+    "t_step": {
+     "median": 4.905136302113533,
+     "p10": 4.885846748948097,
+     "p90": 4.947484470903873,
+     "n": 60
+    },
+    "n_gpu_ops": 301,
+    "kernel_sum_us": 4102.918000000002,
+    "fused_kernels_us": {
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double con": 806.3310000000001,
+     "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<at": 7.232000000000426,
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double con": 1707.2529999999997,
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_": 4.576000000000022,
+     "void at_cuda_detail::cub::DeviceRadixSortExclusiveSumKernel<": 3.0399999999999636,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_c": 29.182000000001608
+    },
+    "fused_us": 2557.614000000002,
+    "fused_frac_of_replay": 0.606637655534797,
+    "peak_MiB": 641.56201171875
+   }
+  },
+  "wbox648": {
+   "N": 648,
+   "order": [
+    "hybrid+embed+node",
+    "nodehybrid+embed+node"
+   ],
+   "hybrid+embed+node": {
+    "first_step_s": 0.11947726830840111,
+    "capture_s": 0.06728680618107319,
+    "E": 35698,
+    "E_cap": 42880,
+    "t_replay": {
+     "median": 8.35916493088007,
+     "p10": 8.352985419332981,
+     "p90": 8.366545103490353,
+     "n": 60
+    },
+    "t_step": {
+     "median": 10.063770227134228,
+     "p10": 10.02102680504322,
+     "p90": 10.110204480588436,
+     "n": 60
+    },
+    "n_gpu_ops": 301,
+    "kernel_sum_us": 8286.293999999994,
+    "fused_kernels_us": {
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double con": 1931.4530000000004,
+     "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<at": 7.200000000000728,
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double con": 4052.1560000000018,
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_": 4.706000000000131,
+     "void at_cuda_detail::cub::DeviceRadixSortExclusiveSumKernel<": 2.4650000000001455,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_c": 30.30500000000211
+    },
+    "fused_us": 6028.285000000005,
+    "fused_frac_of_replay": 0.7211587580633292,
+    "peak_MiB": 1338.83544921875
+   },
+   "nodehybrid+embed+node": {
+    "first_step_s": 0.08340525440871716,
+    "capture_s": 0.06393487751483917,
+    "E": 35698,
+    "E_cap": 42880,
+    "t_replay": {
+     "median": 3.671746701002121,
+     "p10": 3.6644570529460907,
+     "p90": 3.6808114498853683,
+     "n": 60
+    },
+    "t_step": {
+     "median": 5.353907123208046,
+     "p10": 5.317903310060501,
+     "p90": 5.405065789818764,
+     "n": 60
+    },
+    "n_gpu_ops": 286,
+    "kernel_sum_us": 3562.4369999999985,
+    "fused_kernels_us": {
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_": 10.39999999999975,
+     "void at_cuda_detail::cub::DeviceRadixSortExclusiveSumKernel<": 5.344000000000051,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_c": 93.34399999999891,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_ke": 9.536000000000058,
+     "void k_e3e329789a5bp1<long, long, 2>(double const*, double c": 105.69599999999991,
+     "void k_24bb6332bfcfp1<long, long, 1>(double const*, double c": 236.8639999999998,
+     "void at_cuda_detail::cub::DeviceRadixSortSingleTileKernel<at": 7.231999999999971,
+     "kern": 925.9520000000002
+    },
+    "fused_us": 1394.3679999999986,
+    "fused_frac_of_replay": 0.37975604352539816,
+    "peak_MiB": 1270.56298828125
+   }
+  }
+ },
+ "gpu_end": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz, 1980 MHz, 41"
+}

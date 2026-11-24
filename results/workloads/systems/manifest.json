@@ -1,0 +1,218 @@
+{
+ "aspirin": {
+  "min_dist_built": 0.9699999999999998,
+  "relax": "e3nn fp64 FIRE fmax=0.05 steps<=30",
+  "relax_steps": 30,
+  "fmax_before": 3.616941284988992,
+  "fmax_after": 0.34210324991686836,
+  "formula": "C9H8O4",
+  "n_atoms": 21,
+  "pbc": false,
+  "cell": null,
+  "n_edges_rmax5": 302,
+  "min_dist": 0.9647289534052323,
+  "elements": [
+   "C",
+   "H",
+   "O"
+  ]
+ },
+ "AT_WC": {
+  "min_dist_built": 1.0033768080006782,
+  "relax": "none",
+  "formula": "C10H11N7O2",
+  "n_atoms": 30,
+  "pbc": false,
+  "cell": null,
+  "n_edges_rmax5": 470,
+  "min_dist": 1.0033768080006782,
+  "elements": [
+   "C",
+   "H",
+   "N",
+   "O"
+  ]
+ },
+ "org192": {
+  "min_dist_built": 0.9685650182625843,
+  "relax": "e3nn fp64 FIRE fmax=0.05 steps<=30",
+  "relax_steps": 30,
+  "fmax_before": 3.371062760269948,
+  "fmax_after": 0.5052204864194568,
+  "formula": "C51H99Cl3F6N10O21S6",
+  "n_atoms": 196,
+  "pbc": false,
+  "cell": null,
+  "n_edges_rmax5": 3670,
+  "min_dist": 0.9562617049145261,
+  "elements": [
+   "C",
+   "Cl",
+   "F",
+   "H",
+   "N",
+   "O",
+   "S"
+  ]
+ },
+ "org384": {
+  "min_dist_built": 0.968565018262584,
+  "relax": "e3nn fp64 FIRE fmax=0.05 steps<=30",
+  "relax_steps": 30,
+  "fmax_before": 5.416558018089017,
+  "fmax_after": 1.009333652940768,
+  "formula": "C120H187Cl4F6N15O41S12",
+  "n_atoms": 385,
+  "pbc": false,
+  "cell": null,
+  "n_edges_rmax5": 8284,
+  "min_dist": 0.9570193502157185,
+  "elements": [
+   "C",
+   "Cl",
+   "F",
+   "H",
+   "N",
+   "O",
+   "S"
+  ]
+ },
+ "org648": {
+  "min_dist_built": 0.9685650182625839,
+  "relax": "e3nn fp64 FIRE fmax=0.05 steps<=30",
+  "relax_steps": 30,
+  "fmax_before": 5.093946821503529,
+  "fmax_after": 1.241870025850959,
+  "formula": "C208H318Cl4F6N26O69S19",
+  "n_atoms": 650,
+  "pbc": false,
+  "cell": null,
+  "n_edges_rmax5": 14856,
+  "min_dist": 0.957227526589979,
+  "elements": [
+   "C",
+   "Cl",
+   "F",
+   "H",
+   "N",
+   "O",
+   "S"
+  ]
+ },
+ "water192": {
+  "min_dist_built": 0.9685650182625827,
+  "identical_to_flash_proto_systems": true,
+  "relax": "none",
+  "formula": "H128O64",
+  "n_atoms": 192,
+  "pbc": false,
+  "cell": null,
+  "n_edges_rmax5": 6634,
+  "min_dist": 0.9685650182625827,
+  "elements": [
+   "H",
+   "O"
+  ]
+ },
+ "water288": {
+  "min_dist_built": 0.9685650182625828,
+  "relax": "none",
+  "formula": "H192O96",
+  "n_atoms": 288,
+  "pbc": false,
+  "cell": null,
+  "n_edges_rmax5": 10824,
+  "min_dist": 0.9685650182625828,
+  "elements": [
+   "H",
+   "O"
+  ]
+ },
+ "water384": {
+  "min_dist_built": 0.9685650182625819,
+  "relax": "none",
+  "formula": "H256O128",
+  "n_atoms": 384,
+  "pbc": false,
+  "cell": null,
+  "n_edges_rmax5": 15040,
+  "min_dist": 0.9685650182625819,
+  "elements": [
+   "H",
+   "O"
+  ]
+ },
+ "water480": {
+  "min_dist_built": 0.9685650182625819,
+  "relax": "none",
+  "formula": "H320O160",
+  "n_atoms": 480,
+  "pbc": false,
+  "cell": null,
+  "n_edges_rmax5": 19360,
+  "min_dist": 0.9685650182625819,
+  "elements": [
+   "H",
+   "O"
+  ]
+ },
+ "water648": {
+  "min_dist_built": 0.9685650182625813,
+  "identical_to_flash_proto_systems": true,
+  "relax": "none",
+  "formula": "H432O216",
+  "n_atoms": 648,
+  "pbc": false,
+  "cell": null,
+  "n_edges_rmax5": 26550,
+  "min_dist": 0.9685650182625813,
+  "elements": [
+   "H",
+   "O"
+  ]
+ },
+ "wbox192": {
+  "min_dist_built": 0.9685650182625822,
+  "relax": "e3nn fp64 FIRE fmax=0.05 steps<=30",
+  "relax_steps": 30,
+  "fmax_before": 2.977714078331835,
+  "fmax_after": 0.33688558987567446,
+  "formula": "H128O64",
+  "n_atoms": 192,
+  "pbc": true,
+  "cell": [
+   12.417126704414091,
+   12.417126704414091,
+   12.417126704414091
+  ],
+  "n_edges_rmax5": 10552,
+  "min_dist": 0.9565410341019168,
+  "elements": [
+   "H",
+   "O"
+  ],
+  "density_g_cm3": 1.0000000000000007
+ },
+ "wbox648": {
+  "min_dist_built": 0.9685650182625806,
+  "relax": "e3nn fp64 FIRE fmax=0.05 steps<=30",
+  "relax_steps": 30,
+  "fmax_before": 2.8460151705157717,
+  "fmax_after": 0.8068968751203264,
+  "formula": "H432O216",
+  "n_atoms": 648,
+  "pbc": true,
+  "cell": [
+   18.625690056621135,
+   18.625690056621135,
+   18.625690056621135
+  ],
+  "n_edges_rmax5": 35698,
+  "min_dist": 0.9523861938656836,
+  "elements": [
+   "H",
+   "O"
+  ],
+  "density_g_cm3": 1.0000000000000009
+ }
+}

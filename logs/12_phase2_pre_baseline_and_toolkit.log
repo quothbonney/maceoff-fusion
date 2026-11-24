@@ -1,0 +1,44 @@
+== toolkits
+ls: cannot access '/opt/cuda*': No such file or directory
+/opt/nvidia
+/usr/local/cuda
+/usr/local/cuda-13
+/usr/local/cuda-13.0
+/usr/local/cuda-13.0/bin/nvcc
+Cuda compilation tools, release 13.0, V13.0.88
+Build cuda_13.0.r13.0/compiler.36424714_0
+/usr/local/cuda-13/bin/nvcc
+Cuda compilation tools, release 13.0, V13.0.88
+Build cuda_13.0.r13.0/compiler.36424714_0
+/usr/local/cuda/bin/nvcc
+Cuda compilation tools, release 13.0, V13.0.88
+Build cuda_13.0.r13.0/compiler.36424714_0
+module is a function
+ls: cannot access '/etc/modulefiles': No such file or directory
+ls: cannot access '/opt/modulefiles': No such file or directory
+/usr/share/modules:
+init
+modulefiles
+versions
+builtin_types.h
+cccl
+channel_descriptor.h
+gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0
+== baseline
+cuda_available True 1
+WARNING:root:No dtype selected, switching to float64 to match model dtype.
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+[run1] GPU=NVIDIA H100 80GB HBM3 dtype=torch.float64 E = -2081.1163971689 eV
+  O: Fx= 0.0000000000 Fy= 0.0000000000 Fz=-0.6474868257 eV/A
+  H: Fx= 0.0000000000 Fy=-0.3437656014 Fz= 0.3237434129 eV/A
+  H: Fx= 0.0000000000 Fy= 0.3437656014 Fz= 0.3237434129 eV/A
+  post-warmup median 14.47 ms (n=10), first call 0.67 s, within-run max|dE|=0.00e+00 max|dF|=2.22e-16
+WARNING:root:No dtype selected, switching to float64 to match model dtype.
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+[run2] GPU=NVIDIA H100 80GB HBM3 dtype=torch.float64 E = -2081.1163971689 eV
+  O: Fx= 0.0000000000 Fy= 0.0000000000 Fz=-0.6474868257 eV/A
+  H: Fx= 0.0000000000 Fy=-0.3437656014 Fz= 0.3237434129 eV/A
+  H: Fx= 0.0000000000 Fy= 0.3437656014 Fz= 0.3237434129 eV/A
+  post-warmup median 14.37 ms (n=10), first call 0.59 s, within-run max|dE|=0.00e+00 max|dF|=2.22e-16
+cross-run |dE|=0.000e+00 eV  max|dF|=0.000e+00 eV/A  bitwise_identical=True

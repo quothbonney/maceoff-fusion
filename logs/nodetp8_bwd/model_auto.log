@@ -1,0 +1,45 @@
+job=1055 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 345 MHz
+##### backend node
+fwd impl: nodetp8_fwd.fwd (/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_fwd/nodetp_fwd.py)
+--- node eager_walk_repeat_stress
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  out = dict(energy=float(o["energy"][0]), forces=o["forces"].detach().cpu().numpy(),
+    ok=True n=60 worst={'dE': 8.955024755918063e-13, 'dF': 5.329070518200751e-15, 'dS': 4.0766001685454967e-17} extra={}
+  json.dump(res, open(out_path, "w"), indent=1)
+--- node systems_walk_repeat
+    ok=True n=90 worst={'dE': 1.0746029707101676e-12, 'dF': 1.4210854715202004e-14, 'dS': 0} extra={'stats': {'captures': 10, 'recaptures': 0, 'evictions': 6, 'last_capture_s': 0.047452641651034355, 'key': {'n_atoms': 2, 'numbers_sha1': 'b2e15b1d5f7d', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 4, 'E_caps': [12672, 42880, 64, 64]}, 'edges': {'H2O': [6, 6, 6, 6, 6, 6, 6, 6, 6], 'aspirin': [302, 298, 298, 298, 298, 298, 302, 302, 302], 'water192': [6634, 6632, 6638, 6630, 6626, 6630, 6634, 6634, 6634], 'org192': [3670, 3662, 3656, 3670, 3672, 3668, 3670, 3670, 3670], 'water648': [26550, 26570, 26520, 26502, 26504, 26518, 26550, 26550, 26550], 'org648': [14856, 14856, 14866, 14872, 14868, 14848, 14856, 14856, 14856], 'wbox192': [10552, 10554, 10552, 10524, 10536, 10524, 10552, 10552, 10552], 'wbox648': [35698, 35680, 35696, 35704, 35666, 35690, 35698, 35698, 35698], 'single_C': [0, 0, 0, 0, 0, 0, 0, 0, 0], 'far_pair': [0, 0, 0, 0, 0, 0, 0, 0, 0]}}
+--- node stress_periodic_recapture
+    ok=True n=17 worst={'dE': 1.5158245029548803e-13, 'dF': 1.4210854715202004e-14, 'dS': 6.071532165918825e-17} extra={'stats': {'captures': 5, 'recaptures': 1, 'evictions': 0, 'last_capture_s': 0.10186713933944702, 'key': {'n_atoms': 1, 'numbers_sha1': '0f29b02f9eff', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': True}, 'n_graphs': 4, 'E_caps': [42880, 15936, 384, 64]}, 'recapture_flags': [True, False, False]}
+--- node forced_recapture
+    ok=True n=5 worst={'dE': 0.0, 'dF': 7.993605777301127e-15, 'dS': 0} extra={'stats': {'captures': 2, 'recaptures': 1, 'evictions': 0, 'last_capture_s': 0.047426315024495125, 'key': {'n_atoms': 192, 'numbers_sha1': 'c8aa538e33c6', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 1, 'E_caps': [10560]}, 'recapture_flags': [False, True, False, False, False]}
+--- node bug_a_species_order
+    ok=True n=6 worst={'dE': 0.0, 'dF': 6.821210263296962e-13, 'dS': 0} extra={'stats': {'captures': 3, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.04407544620335102, 'key': {'n_atoms': 21, 'numbers_sha1': '14a6d77bbf72', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 3, 'E_caps': [384, 384, 384]}}
+--- node bug_b_diffN_interleaved
+    ok=True n=13 worst={'dE': 1.5158245029548803e-13, 'dF': 7.105427357601002e-15, 'dS': 0} extra={'stats': {'captures': 3, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.041820377111434937, 'key': {'n_atoms': 21, 'numbers_sha1': '14a6d77bbf72', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 3, 'E_caps': [8000, 64, 384]}}
+--- node lru_eviction
+    ok=True n=5 worst={'dE': 1.4848893090170256e-13, 'dF': 3.164135620181696e-15, 'dS': 0} extra={'stats': {'captures': 5, 'recaptures': 0, 'evictions': 3, 'last_capture_s': 0.0441463403403759, 'key': {'n_atoms': 3, 'numbers_sha1': 'ccf114efd5cd', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 2, 'E_caps': [384, 64]}}
+--- node stock_builder
+    ok=True n=6 worst={'dE': 1.5158245029548803e-13, 'dF': 3.552713678800501e-15, 'dS': 4.0766001685454967e-17} extra={'stats': {'captures': 2, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.05123336240649223, 'key': {'n_atoms': 192, 'numbers_sha1': 'c8aa538e33c6', 'pbc': (True, True, True), 'cell_is_none': False, 'head': 'Default', 'dtype': 'torch.float64', 'stress': True}, 'n_graphs': 2, 'E_caps': [384, 12672]}}
+##### backend cueqsc_node
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+fwd impl: nodetp8_fwd.fwd (/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_fwd/nodetp_fwd.py)
+--- cueqsc_node eager_walk_repeat_stress
+    ok=True n=60 worst={'dE': 1.2537034658285287e-12, 'dF': 4.884981308350689e-15, 'dS': 2.0816681711721685e-17} extra={}
+  json.dump(res, open(out_path, "w"), indent=1)
+--- cueqsc_node systems_walk_repeat
+    ok=True n=90 worst={'dE': 1.0746029707101676e-12, 'dF': 2.4868995751603507e-14, 'dS': 0} extra={'stats': {'captures': 10, 'recaptures': 0, 'evictions': 6, 'last_capture_s': 0.06713582761585712, 'key': {'n_atoms': 2, 'numbers_sha1': 'b2e15b1d5f7d', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 4, 'E_caps': [12672, 42880, 64, 64]}, 'edges': {'H2O': [6, 6, 6, 6, 6, 6, 6, 6, 6], 'aspirin': [302, 298, 298, 298, 298, 298, 302, 302, 302], 'water192': [6634, 6632, 6638, 6630, 6626, 6630, 6634, 6634, 6634], 'org192': [3670, 3662, 3656, 3670, 3672, 3668, 3670, 3670, 3670], 'water648': [26550, 26570, 26520, 26502, 26504, 26518, 26550, 26550, 26550], 'org648': [14856, 14856, 14866, 14872, 14868, 14848, 14856, 14856, 14856], 'wbox192': [10552, 10554, 10552, 10524, 10536, 10524, 10552, 10552, 10552], 'wbox648': [35698, 35680, 35696, 35704, 35666, 35690, 35698, 35698, 35698], 'single_C': [0, 0, 0, 0, 0, 0, 0, 0, 0], 'far_pair': [0, 0, 0, 0, 0, 0, 0, 0, 0]}}
+--- cueqsc_node stress_periodic_recapture
+    ok=True n=17 worst={'dE': 1.5158245029548803e-13, 'dF': 1.0658141036401503e-14, 'dS': 6.938893903907228e-17} extra={'stats': {'captures': 5, 'recaptures': 1, 'evictions': 0, 'last_capture_s': 0.06594880856573582, 'key': {'n_atoms': 1, 'numbers_sha1': '0f29b02f9eff', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': True}, 'n_graphs': 4, 'E_caps': [42880, 15936, 384, 64]}, 'recapture_flags': [True, False, False]}
+--- cueqsc_node forced_recapture
+    ok=True n=5 worst={'dE': 1.5158245029548803e-13, 'dF': 6.8833827526759706e-15, 'dS': 0} extra={'stats': {'captures': 2, 'recaptures': 1, 'evictions': 0, 'last_capture_s': 0.11101505160331726, 'key': {'n_atoms': 192, 'numbers_sha1': 'c8aa538e33c6', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 1, 'E_caps': [10560]}, 'recapture_flags': [False, True, False, False, False]}
+--- cueqsc_node bug_a_species_order
+    ok=True n=6 worst={'dE': 0.0, 'dF': 6.821210263296962e-13, 'dS': 0} extra={'stats': {'captures': 3, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.07072478532791138, 'key': {'n_atoms': 21, 'numbers_sha1': '14a6d77bbf72', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 3, 'E_caps': [384, 384, 384]}}
+--- cueqsc_node bug_b_diffN_interleaved
+    ok=True n=13 worst={'dE': 1.5158245029548803e-13, 'dF': 4.440892098500626e-15, 'dS': 0} extra={'stats': {'captures': 3, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.06322323344647884, 'key': {'n_atoms': 21, 'numbers_sha1': '14a6d77bbf72', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 3, 'E_caps': [8000, 64, 384]}}
+--- cueqsc_node lru_eviction
+    ok=True n=5 worst={'dE': 0.0, 'dF': 3.941291737419306e-15, 'dS': 0} extra={'stats': {'captures': 5, 'recaptures': 0, 'evictions': 3, 'last_capture_s': 0.06481409445405006, 'key': {'n_atoms': 3, 'numbers_sha1': 'ccf114efd5cd', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 2, 'E_caps': [384, 64]}}
+--- cueqsc_node stock_builder
+    ok=True n=6 worst={'dE': 1.5158245029548803e-13, 'dF': 3.552713678800501e-15, 'dS': 2.0816681711721685e-17} extra={'stats': {'captures': 2, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.07390511594712734, 'key': {'n_atoms': 192, 'numbers_sha1': 'c8aa538e33c6', 'pbc': (True, True, True), 'cell_is_none': False, 'head': 'Default', 'dtype': 'torch.float64', 'stress': True}, 'n_graphs': 2, 'E_caps': [384, 12672]}}
+  json.dump(res, open(out_path, "w"), indent=1)
+DONE failures: []

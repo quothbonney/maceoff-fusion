@@ -1,0 +1,3460 @@
+{
+ "slurm_job": "1001",
+ "node": "slurm-h100-206-077",
+ "gpu": "NVIDIA H100 80GB HBM3",
+ "nvidia_smi_start": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz, 29, 69.47 W",
+ "torch": "2.11.0+cu128",
+ "backends": [
+  "e3nn",
+  "cueq",
+  "flash64",
+  "hybrid"
+ ],
+ "mode": "corr",
+ "warmup": 10,
+ "block": 10,
+ "nblocks": 7,
+ "gate": 1e-09,
+ "backend_set": "v1",
+ "setup": {
+  "e3nn": {
+   "construct_ms": 1889.490358531475,
+   "backend_set": "v1",
+   "param_dtype": "torch.float64",
+   "module_types": [],
+   "first_ase_call_aspirin_ms": 390.1315312832594,
+   "second_ase_call_aspirin_ms": 228.10599766671658,
+   "third_ase_call_aspirin_ms": 588.2529951632023,
+   "setup_total_ms": 2279.6218898147345
+  },
+  "cueq": {
+   "construct_ms": 2622.6016990840435,
+   "backend_set": "v1",
+   "param_dtype": "torch.float64",
+   "module_types": [
+    "cuequivariance_torch.operations.linear.Linear",
+    "cuequivariance_torch.operations.symmetric_contraction.SymmetricContraction",
+    "cuequivariance_torch.operations.tp_fully_connected.FullyConnectedTensorProduct",
+    "cuequivariance_torch.primitives.segmented_polynomial.SegmentedPolynomial",
+    "cuequivariance_torch.primitives.segmented_polynomial_naive.SegmentedPolynomialNaive",
+    "cuequivariance_torch.primitives.segmented_polynomial_naive.graph_inputs2",
+    "cuequivariance_torch.primitives.segmented_polynomial_naive.graph_inputs3",
+    "cuequivariance_torch.primitives.segmented_polynomial_uniform_1d.SegmentedPolynomialFromUniform1dJit",
+    "cuequivariance_torch.primitives.transpose.TransposeIrrepsLayout"
+   ],
+   "first_ase_call_aspirin_ms": 10779.091941192746,
+   "second_ase_call_aspirin_ms": 24.180637672543526,
+   "third_ase_call_aspirin_ms": 22.34640344977379,
+   "setup_total_ms": 13401.69364027679
+  },
+  "flash64": {
+   "construct_ms": 223.87239709496498,
+   "flashTP_e3nn": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/flashTP-fp64cg/flashTP_e3nn/__init__.py",
+   "backend_set": "v1",
+   "param_dtype": "torch.float64",
+   "module_types": [
+    "flashTP_e3nn.sptp_exp_opt_large.fused_e3nn_exp_opt_large.fused_uvu_TP_exp_opt_large",
+    "flashtp_adapter.FlashConv"
+   ],
+   "first_ase_call_aspirin_ms": 34.09489244222641,
+   "second_ase_call_aspirin_ms": 42.999906465411186,
+   "third_ase_call_aspirin_ms": 27.453670278191566,
+   "setup_total_ms": 257.9672895371914
+  },
+  "hybrid": {
+   "construct_ms": 543.0284105241299,
+   "hybrid_backend_file": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/hybrid/hybrid_backend.py",
+   "backend_set": "v1",
+   "param_dtype": "torch.float64",
+   "module_types": [
+    "cuequivariance_torch.operations.symmetric_contraction.SymmetricContraction",
+    "cuequivariance_torch.primitives.segmented_polynomial.SegmentedPolynomial",
+    "cuequivariance_torch.primitives.segmented_polynomial_uniform_1d.SegmentedPolynomialFromUniform1dJit",
+    "cuequivariance_torch.primitives.transpose.TransposeIrrepsLayout",
+    "cuequivariance_torch.primitives.transpose.TransposeSegments",
+    "cuequivariance_torch.primitives.transpose._transpose",
+    "flashTP_e3nn.sptp_exp_opt_large.fused_e3nn_exp_opt_large.fused_uvu_TP_exp_opt_large",
+    "flashtp_adapter.FlashConv",
+    "hybrid_backend.CueqSC"
+   ],
+   "first_ase_call_aspirin_ms": 11557.998776435852,
+   "second_ase_call_aspirin_ms": 50.97648873925209,
+   "third_ase_call_aspirin_ms": 33.72392803430557,
+   "setup_total_ms": 12101.027186959982
+  }
+ },
+ "systems": {
+  "aspirin": {
+   "formula": "C9H8O4",
+   "n_atoms": 21,
+   "n_edges": 302,
+   "pbc": false,
+   "correctness": {
+    "sequence": {
+     "seed": 1758,
+     "noise_A": 0.02,
+     "n_edges": [
+      302,
+      302,
+      304,
+      304,
+      304,
+      302
+     ],
+     "edges_added_vs_prev": [
+      null,
+      0,
+      2,
+      0,
+      0,
+      0
+     ],
+     "edges_removed_vs_prev": [
+      null,
+      0,
+      0,
+      0,
+      0,
+      2
+     ]
+    },
+    "backends": {
+     "e3nn": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 0.0,
+       "rms_dF_eVA": 0.0,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 0.30315353340741774
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 3.858116844416194
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 9.114277053548413
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 11.553509434462676
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 10.730996420909413
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 10.205933000023968
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 1.817990202823694e-15,
+       "max_abs_dF_vs_seq0": 3.011479954295737e-15
+      },
+      "E_fixed_eV": -17663.67762117525
+     },
+     "cueq": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 1.0658141036401503e-14,
+       "rms_dF_eVA": 2.630364561866801e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.524158825347513e-15,
+        "rms_dF_eVA": 1.1122934526427025e-15,
+        "max_abs_F_ref": 0.30315353340741774
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.3298697960381105e-15,
+        "rms_dF_eVA": 1.102321496218014e-15,
+        "max_abs_F_ref": 3.858116844416194
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.7466421009456398e-15,
+        "max_abs_F_ref": 9.114277053548413
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 8.881784197001252e-15,
+        "rms_dF_eVA": 1.7669502637636958e-15,
+        "max_abs_F_ref": 11.553509434462676
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.0658141036401503e-14,
+        "rms_dF_eVA": 2.630364561866801e-15,
+        "max_abs_F_ref": 10.730996420909413
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.664381772705644e-15,
+        "max_abs_F_ref": 10.205933000023968
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.3592239273284576e-15,
+       "max_abs_dF_vs_seq0": 1.9984014443252818e-15
+      },
+      "E_fixed_eV": -17663.67762117525
+     },
+     "flash64": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 7.105427357601002e-15,
+       "rms_dF_eVA": 1.3812034709236532e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.608224830031759e-15,
+        "rms_dF_eVA": 9.149352289317369e-16,
+        "max_abs_F_ref": 0.30315353340741774
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.0531133177191805e-15,
+        "rms_dF_eVA": 8.067532954095035e-16,
+        "max_abs_F_ref": 3.858116844416194
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.3660421526508906e-15,
+        "max_abs_F_ref": 9.114277053548413
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.552713678800501e-15,
+        "rms_dF_eVA": 1.0213940824297283e-15,
+        "max_abs_F_ref": 11.553509434462676
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.552713678800501e-15,
+        "rms_dF_eVA": 1.2466521518909714e-15,
+        "max_abs_F_ref": 10.730996420909413
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.3812034709236532e-15,
+        "max_abs_F_ref": 10.205933000023968
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.609024107869118e-15,
+       "max_abs_dF_vs_seq0": 2.1094237467877974e-15
+      },
+      "E_fixed_eV": -17663.67762117525
+     },
+     "hybrid": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 4.440892098500626e-15,
+       "rms_dF_eVA": 1.318853222771461e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.594347042223944e-15,
+        "rms_dF_eVA": 9.872606822805498e-16,
+        "max_abs_F_ref": 0.30315353340741774
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 2.3314683517128287e-15,
+        "rms_dF_eVA": 7.708506486515261e-16,
+        "max_abs_F_ref": 3.858116844416194
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.552713678800501e-15,
+        "rms_dF_eVA": 1.1411715727563797e-15,
+        "max_abs_F_ref": 9.114277053548413
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 2.6645352591003757e-15,
+        "rms_dF_eVA": 8.981449443736777e-16,
+        "max_abs_F_ref": 11.553509434462676
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.440892098500626e-15,
+        "rms_dF_eVA": 1.318853222771461e-15,
+        "max_abs_F_ref": 10.730996420909413
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.552713678800501e-15,
+        "rms_dF_eVA": 1.0779621423924742e-15,
+        "max_abs_F_ref": 10.205933000023968
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.7755575615628914e-15,
+       "max_abs_dF_vs_seq0": 3.497202527569243e-15
+      },
+      "E_fixed_eV": -17663.67762117525
+     }
+    }
+   }
+  },
+  "AT_WC": {
+   "formula": "C10H11N7O2",
+   "n_atoms": 30,
+   "n_edges": 470,
+   "pbc": false,
+   "correctness": {
+    "sequence": {
+     "seed": 1398,
+     "noise_A": 0.02,
+     "n_edges": [
+      470,
+      472,
+      472,
+      470,
+      474,
+      472
+     ],
+     "edges_added_vs_prev": [
+      null,
+      4,
+      2,
+      0,
+      4,
+      0
+     ],
+     "edges_removed_vs_prev": [
+      null,
+      2,
+      2,
+      2,
+      0,
+      2
+     ]
+    },
+    "backends": {
+     "e3nn": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 0.0,
+       "rms_dF_eVA": 0.0,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 1.018558939062606
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 3.5875399857803982
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 6.342102036545381
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 8.644368166724249
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 7.361653173688284
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 6.911789082256067
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.609024107869118e-15,
+       "max_abs_dF_vs_seq0": 2.220446049250313e-15
+      },
+      "E_fixed_eV": -25092.760574726988
+     },
+     "cueq": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 7.993605777301127e-15,
+       "rms_dF_eVA": 1.7655394245935891e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.885780586188048e-15,
+        "rms_dF_eVA": 1.3195460509020542e-15,
+        "max_abs_F_ref": 1.018558939062606
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.578870698741412e-15,
+        "rms_dF_eVA": 1.3334521209130679e-15,
+        "max_abs_F_ref": 3.5875399857803982
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.7655394245935891e-15,
+        "max_abs_F_ref": 6.342102036545381
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.993605777301127e-15,
+        "rms_dF_eVA": 1.7393069978143457e-15,
+        "max_abs_F_ref": 8.644368166724249
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.6629367034256575e-15,
+        "rms_dF_eVA": 1.3900348822689041e-15,
+        "max_abs_F_ref": 7.361653173688284
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.4947926523831522e-15,
+        "max_abs_F_ref": 6.911789082256067
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 3.3306690738754696e-15,
+       "max_abs_dF_vs_seq0": 3.885780586188048e-15
+      },
+      "E_fixed_eV": -25092.760574726988
+     },
+     "flash64": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 6.217248937900877e-15,
+       "rms_dF_eVA": 1.5930531537662891e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 2.886579864025407e-15,
+        "rms_dF_eVA": 8.600789754609598e-16,
+        "max_abs_F_ref": 1.018558939062606
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.9968028886505635e-15,
+        "rms_dF_eVA": 1.2392888504560682e-15,
+        "max_abs_F_ref": 3.5875399857803982
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.5566258864691785e-15,
+        "max_abs_F_ref": 6.342102036545381
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.5930531537662891e-15,
+        "max_abs_F_ref": 8.644368166724249
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.4521401428529485e-15,
+        "max_abs_F_ref": 7.361653173688284
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.884981308350689e-15,
+        "rms_dF_eVA": 1.4090911173847397e-15,
+        "max_abs_F_ref": 6.911789082256067
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 3.885780586188048e-15,
+       "max_abs_dF_vs_seq0": 5.162537064506978e-15
+      },
+      "E_fixed_eV": -25092.760574726988
+     },
+     "hybrid": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 7.993605777301127e-15,
+       "rms_dF_eVA": 2.1548338752322703e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.232725281383409e-15,
+        "rms_dF_eVA": 1.1600458035822088e-15,
+        "max_abs_F_ref": 1.018558939062606
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.4913971398053747e-15,
+        "max_abs_F_ref": 3.5875399857803982
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.993605777301127e-15,
+        "rms_dF_eVA": 2.0790061501690136e-15,
+        "max_abs_F_ref": 6.342102036545381
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 2.1548338752322703e-15,
+        "max_abs_F_ref": 8.644368166724249
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.7734174619008702e-15,
+        "max_abs_F_ref": 7.361653173688284
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.549516567451064e-15,
+        "rms_dF_eVA": 1.6423477852748884e-15,
+        "max_abs_F_ref": 6.911789082256067
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.3314683517128287e-15,
+       "max_abs_dF_vs_seq0": 3.1086244689504383e-15
+      },
+      "E_fixed_eV": -25092.760574726988
+     }
+    }
+   }
+  },
+  "org192": {
+   "formula": "C51H99Cl3F6N10O21S6",
+   "n_atoms": 196,
+   "n_edges": 3670,
+   "pbc": false,
+   "correctness": {
+    "sequence": {
+     "seed": 1484,
+     "noise_A": 0.02,
+     "n_edges": [
+      3670,
+      3676,
+      3680,
+      3682,
+      3688,
+      3688
+     ],
+     "edges_added_vs_prev": [
+      null,
+      30,
+      30,
+      22,
+      22,
+      20
+     ],
+     "edges_removed_vs_prev": [
+      null,
+      24,
+      26,
+      20,
+      16,
+      20
+     ]
+    },
+    "backends": {
+     "e3nn": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 0.0,
+       "rms_dF_eVA": 0.0,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 0.3967422431589075
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 4.796096480027739
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 6.021335188957832
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 7.147565328233847
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 9.227535380456967
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 8.29238097548956
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 2.9103830456733704e-11,
+       "max_abs_dF_vs_call0": 3.0808688933348094e-15,
+       "max_abs_dF_vs_seq0": 3.885780586188048e-15
+      },
+      "E_fixed_eV": -231361.8920629921
+     },
+     "cueq": {
+      "worst": {
+       "dE_per_atom_eV": 1.4848893090170256e-13,
+       "max_abs_dF_eVA": 8.881784197001252e-15,
+       "rms_dF_eVA": 1.5852424474927942e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.773159728050814e-15,
+        "rms_dF_eVA": 9.771859895926174e-16,
+        "max_abs_F_ref": 0.3967422431589075
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 1.4848893090170256e-13,
+        "max_abs_dF_eVA": 4.884981308350689e-15,
+        "rms_dF_eVA": 1.068112033517454e-15,
+        "max_abs_F_ref": 4.796096480027739
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.773159728050814e-15,
+        "rms_dF_eVA": 1.1686967158713336e-15,
+        "max_abs_F_ref": 6.021335188957832
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.993605777301127e-15,
+        "rms_dF_eVA": 1.4903609713720412e-15,
+        "max_abs_F_ref": 7.147565328233847
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.381342717177953e-15,
+        "max_abs_F_ref": 9.227535380456967
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 8.881784197001252e-15,
+        "rms_dF_eVA": 1.5852424474927942e-15,
+        "max_abs_F_ref": 8.29238097548956
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 2.9103830456733704e-11,
+       "max_abs_dF_vs_call0": 3.4416913763379853e-15,
+       "max_abs_dF_vs_seq0": 3.552713678800501e-15
+      },
+      "E_fixed_eV": -231361.8920629921
+     },
+     "flash64": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 7.105427357601002e-15,
+       "rms_dF_eVA": 1.1547174802924223e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.774758283725532e-15,
+        "rms_dF_eVA": 7.200224984324276e-16,
+        "max_abs_F_ref": 0.3967422431589075
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.552713678800501e-15,
+        "rms_dF_eVA": 7.713724389837332e-16,
+        "max_abs_F_ref": 4.796096480027739
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.552713678800501e-15,
+        "rms_dF_eVA": 7.95406311710365e-16,
+        "max_abs_F_ref": 6.021335188957832
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.1547174802924223e-15,
+        "max_abs_F_ref": 7.147565328233847
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.1474667687155844e-15,
+        "max_abs_F_ref": 9.227535380456967
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.1186245309459917e-15,
+        "max_abs_F_ref": 8.29238097548956
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.886579864025407e-15,
+       "max_abs_dF_vs_seq0": 3.8719027983802334e-15
+      },
+      "E_fixed_eV": -231361.8920629921
+     },
+     "hybrid": {
+      "worst": {
+       "dE_per_atom_eV": 1.4848893090170256e-13,
+       "max_abs_dF_eVA": 7.105427357601002e-15,
+       "rms_dF_eVA": 1.2274573729436417e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.551115123125783e-15,
+        "rms_dF_eVA": 8.969537046056173e-16,
+        "max_abs_F_ref": 0.3967422431589075
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.106226635438361e-15,
+        "rms_dF_eVA": 9.774005802699395e-16,
+        "max_abs_F_ref": 4.796096480027739
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 1.4848893090170256e-13,
+        "max_abs_dF_eVA": 4.218847493575595e-15,
+        "rms_dF_eVA": 9.25610809607745e-16,
+        "max_abs_F_ref": 6.021335188957832
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.1979664551804861e-15,
+        "max_abs_F_ref": 7.147565328233847
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.2274573729436417e-15,
+        "max_abs_F_ref": 9.227535380456967
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.1640338343497723e-15,
+        "max_abs_F_ref": 8.29238097548956
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 2.9103830456733704e-11,
+       "max_abs_dF_vs_call0": 3.9968028886505635e-15,
+       "max_abs_dF_vs_seq0": 2.581268532253489e-15
+      },
+      "E_fixed_eV": -231361.8920629921
+     }
+    }
+   }
+  },
+  "org384": {
+   "formula": "C120H187Cl4F6N15O41S12",
+   "n_atoms": 385,
+   "n_edges": 8284,
+   "pbc": false,
+   "correctness": {
+    "sequence": {
+     "seed": 1487,
+     "noise_A": 0.02,
+     "n_edges": [
+      8284,
+      8296,
+      8300,
+      8294,
+      8312,
+      8308
+     ],
+     "edges_added_vs_prev": [
+      null,
+      50,
+      46,
+      38,
+      58,
+      36
+     ],
+     "edges_removed_vs_prev": [
+      null,
+      38,
+      42,
+      44,
+      40,
+      40
+     ]
+    },
+    "backends": {
+     "e3nn": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 0.0,
+       "rms_dF_eVA": 0.0,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 0.7339005871207707
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 6.306148835447951
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 9.761468346254578
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 11.077928730209512
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 14.261212070987797
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 20.701387460356052
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 5.820766091346741e-11,
+       "max_abs_dF_vs_call0": 3.70536934468646e-15,
+       "max_abs_dF_vs_seq0": 5.051514762044462e-15
+      },
+      "E_fixed_eV": -430367.7980135521
+     },
+     "cueq": {
+      "worst": {
+       "dE_per_atom_eV": 1.511887296453699e-13,
+       "max_abs_dF_eVA": 2.1316282072803006e-14,
+       "rms_dF_eVA": 2.0462778967848264e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 1.511887296453699e-13,
+        "max_abs_dF_eVA": 8.493206138382448e-15,
+        "rms_dF_eVA": 1.0387882890992545e-15,
+        "max_abs_F_ref": 0.7339005871207707
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.551115123125783e-15,
+        "rms_dF_eVA": 1.207060657900994e-15,
+        "max_abs_F_ref": 6.306148835447951
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.0658141036401503e-14,
+        "rms_dF_eVA": 1.4721073434271994e-15,
+        "max_abs_F_ref": 9.761468346254578
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.993605777301127e-15,
+        "rms_dF_eVA": 1.6039532777602497e-15,
+        "max_abs_F_ref": 11.077928730209512
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.0658141036401503e-14,
+        "rms_dF_eVA": 1.7048202900154819e-15,
+        "max_abs_F_ref": 14.261212070987797
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 2.1316282072803006e-14,
+        "rms_dF_eVA": 2.0462778967848264e-15,
+        "max_abs_F_ref": 20.701387460356052
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 5.820766091346741e-11,
+       "max_abs_dF_vs_call0": 3.885780586188048e-15,
+       "max_abs_dF_vs_seq0": 4.218847493575595e-15
+      },
+      "E_fixed_eV": -430367.79801355215
+     },
+     "flash64": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 1.4210854715202004e-14,
+       "rms_dF_eVA": 1.5513330197011785e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.995204332975845e-15,
+        "rms_dF_eVA": 8.454502249272122e-16,
+        "max_abs_F_ref": 0.7339005871207707
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.440892098500626e-15,
+        "rms_dF_eVA": 9.56082421354861e-16,
+        "max_abs_F_ref": 6.306148835447951
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.0749009964105866e-15,
+        "max_abs_F_ref": 9.761468346254578
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 8.881784197001252e-15,
+        "rms_dF_eVA": 1.2117858577238194e-15,
+        "max_abs_F_ref": 11.077928730209512
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.2721411997020228e-15,
+        "max_abs_F_ref": 14.261212070987797
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.4210854715202004e-14,
+        "rms_dF_eVA": 1.5513330197011785e-15,
+        "max_abs_F_ref": 20.701387460356052
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 5.820766091346741e-11,
+       "max_abs_dF_vs_call0": 3.497202527569243e-15,
+       "max_abs_dF_vs_seq0": 3.1086244689504383e-15
+      },
+      "E_fixed_eV": -430367.7980135521
+     },
+     "hybrid": {
+      "worst": {
+       "dE_per_atom_eV": 1.511887296453699e-13,
+       "max_abs_dF_eVA": 1.4210854715202004e-14,
+       "rms_dF_eVA": 1.542970730498638e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 1.511887296453699e-13,
+        "max_abs_dF_eVA": 6.439293542825908e-15,
+        "rms_dF_eVA": 9.508947230795013e-16,
+        "max_abs_F_ref": 0.7339005871207707
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.884981308350689e-15,
+        "rms_dF_eVA": 1.0353289725657955e-15,
+        "max_abs_F_ref": 6.306148835447951
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.549516567451064e-15,
+        "rms_dF_eVA": 1.1997047965927653e-15,
+        "max_abs_F_ref": 9.761468346254578
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.3096299343228587e-15,
+        "max_abs_F_ref": 11.077928730209512
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 9.769962616701378e-15,
+        "rms_dF_eVA": 1.4781535144393393e-15,
+        "max_abs_F_ref": 14.261212070987797
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.4210854715202004e-14,
+        "rms_dF_eVA": 1.542970730498638e-15,
+        "max_abs_F_ref": 20.701387460356052
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 1.7462298274040222e-10,
+       "max_abs_dF_vs_call0": 3.774758283725532e-15,
+       "max_abs_dF_vs_seq0": 3.9968028886505635e-15
+      },
+      "E_fixed_eV": -430367.79801355215
+     }
+    }
+   }
+  },
+  "org648": {
+   "formula": "C208H318Cl4F6N26O69S19",
+   "n_atoms": 650,
+   "n_edges": 14856,
+   "pbc": false,
+   "correctness": {
+    "sequence": {
+     "seed": 1490,
+     "noise_A": 0.02,
+     "n_edges": [
+      14856,
+      14842,
+      14848,
+      14852,
+      14838,
+      14860
+     ],
+     "edges_added_vs_prev": [
+      null,
+      88,
+      88,
+      84,
+      70,
+      98
+     ],
+     "edges_removed_vs_prev": [
+      null,
+      102,
+      82,
+      80,
+      84,
+      76
+     ]
+    },
+    "backends": {
+     "e3nn": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 0.0,
+       "rms_dF_eVA": 0.0,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 1.1726322184305331
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 5.832826566865759
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 7.883296877701996
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 11.89846993613277
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 14.191452376454903
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 15.293515404055128
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 3.9968028886505635e-15,
+       "max_abs_dF_vs_seq0": 6.217248937900877e-15
+      },
+      "E_fixed_eV": -673435.8213701955
+     },
+     "cueq": {
+      "worst": {
+       "dE_per_atom_eV": 1.7910049511836125e-13,
+       "max_abs_dF_eVA": 2.1316282072803006e-14,
+       "rms_dF_eVA": 2.120688797965375e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.8833827526759706e-15,
+        "rms_dF_eVA": 1.0720293906518152e-15,
+        "max_abs_F_ref": 1.1726322184305331
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.2302399731384774e-15,
+        "max_abs_F_ref": 5.832826566865759
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 1.7910049511836125e-13,
+        "max_abs_dF_eVA": 8.659739592076221e-15,
+        "rms_dF_eVA": 1.3211448621451796e-15,
+        "max_abs_F_ref": 7.883296877701996
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.3322676295501878e-14,
+        "rms_dF_eVA": 1.5733459608673375e-15,
+        "max_abs_F_ref": 11.89846993613277
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 1.7910049511836125e-13,
+        "max_abs_dF_eVA": 1.4210854715202004e-14,
+        "rms_dF_eVA": 1.8254036964421905e-15,
+        "max_abs_F_ref": 14.191452376454903
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 2.1316282072803006e-14,
+        "rms_dF_eVA": 2.120688797965375e-15,
+        "max_abs_F_ref": 15.293515404055128
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 1.1641532182693481e-10,
+       "max_abs_dF_vs_call0": 4.884981308350689e-15,
+       "max_abs_dF_vs_seq0": 4.038436252074007e-15
+      },
+      "E_fixed_eV": -673435.8213701955
+     },
+     "flash64": {
+      "worst": {
+       "dE_per_atom_eV": 1.7910049511836125e-13,
+       "max_abs_dF_eVA": 1.4210854715202004e-14,
+       "rms_dF_eVA": 1.4588119142506612e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.163336342344337e-15,
+        "rms_dF_eVA": 7.968731126988969e-16,
+        "max_abs_F_ref": 1.1726322184305331
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 1.7910049511836125e-13,
+        "max_abs_dF_eVA": 4.6629367034256575e-15,
+        "rms_dF_eVA": 8.484203711760163e-16,
+        "max_abs_F_ref": 5.832826566865759
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 1.7910049511836125e-13,
+        "max_abs_dF_eVA": 5.218048215738236e-15,
+        "rms_dF_eVA": 9.528151640479238e-16,
+        "max_abs_F_ref": 7.883296877701996
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.1134384391251208e-15,
+        "max_abs_F_ref": 11.89846993613277
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 1.7910049511836125e-13,
+        "max_abs_dF_eVA": 8.881784197001252e-15,
+        "rms_dF_eVA": 1.343057608777933e-15,
+        "max_abs_F_ref": 14.191452376454903
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.4210854715202004e-14,
+        "rms_dF_eVA": 1.4588119142506612e-15,
+        "max_abs_F_ref": 15.293515404055128
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 1.1641532182693481e-10,
+       "max_abs_dF_vs_call0": 4.440892098500626e-15,
+       "max_abs_dF_vs_seq0": 4.274358644806853e-15
+      },
+      "E_fixed_eV": -673435.8213701955
+     },
+     "hybrid": {
+      "worst": {
+       "dE_per_atom_eV": 1.7910049511836125e-13,
+       "max_abs_dF_eVA": 1.5987211554602254e-14,
+       "rms_dF_eVA": 1.632524047621455e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.884981308350689e-15,
+        "rms_dF_eVA": 9.309324416516545e-16,
+        "max_abs_F_ref": 1.1726322184305331
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.884981308350689e-15,
+        "rms_dF_eVA": 9.707465752503169e-16,
+        "max_abs_F_ref": 5.832826566865759
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 1.7910049511836125e-13,
+        "max_abs_dF_eVA": 6.106226635438361e-15,
+        "rms_dF_eVA": 1.0919101170523134e-15,
+        "max_abs_F_ref": 7.883296877701996
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.2947425113003013e-15,
+        "max_abs_F_ref": 11.89846993613277
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 8.881784197001252e-15,
+        "rms_dF_eVA": 1.3670554555247503e-15,
+        "max_abs_F_ref": 14.191452376454903
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.5987211554602254e-14,
+        "rms_dF_eVA": 1.632524047621455e-15,
+        "max_abs_F_ref": 15.293515404055128
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 1.1641532182693481e-10,
+       "max_abs_dF_vs_call0": 3.802513859341161e-15,
+       "max_abs_dF_vs_seq0": 4.218847493575595e-15
+      },
+      "E_fixed_eV": -673435.8213701955
+     }
+    }
+   }
+  },
+  "water192": {
+   "formula": "H128O64",
+   "n_atoms": 192,
+   "n_edges": 6634,
+   "pbc": false,
+   "correctness": {
+    "sequence": {
+     "seed": 1703,
+     "noise_A": 0.02,
+     "n_edges": [
+      6634,
+      6618,
+      6640,
+      6640,
+      6654,
+      6640
+     ],
+     "edges_added_vs_prev": [
+      null,
+      28,
+      42,
+      20,
+      42,
+      24
+     ],
+     "edges_removed_vs_prev": [
+      null,
+      44,
+      20,
+      20,
+      28,
+      38
+     ]
+    },
+    "backends": {
+     "e3nn": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 0.0,
+       "rms_dF_eVA": 0.0,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 2.888338565464082
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 6.293784706898954
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 5.6179102276806905
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 7.161165482122959
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 10.270700020130224
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 9.476182248985445
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 2.9103830456733704e-11,
+       "max_abs_dF_vs_call0": 2.6645352591003757e-15,
+       "max_abs_dF_vs_seq0": 2.6645352591003757e-15
+      },
+      "E_fixed_eV": -133194.08439850478
+     },
+     "cueq": {
+      "worst": {
+       "dE_per_atom_eV": 1.5158245029548803e-13,
+       "max_abs_dF_eVA": 1.2434497875801753e-14,
+       "rms_dF_eVA": 1.6756562669723477e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 1.5158245029548803e-13,
+        "max_abs_dF_eVA": 2.3869795029440866e-15,
+        "rms_dF_eVA": 8.156651880519396e-16,
+        "max_abs_F_ref": 2.888338565464082
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.0960512376510384e-15,
+        "max_abs_F_ref": 6.293784706898954
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 1.5158245029548803e-13,
+        "max_abs_dF_eVA": 7.993605777301127e-15,
+        "rms_dF_eVA": 1.3513141141459144e-15,
+        "max_abs_F_ref": 5.6179102276806905
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.3564542076097193e-15,
+        "max_abs_F_ref": 7.161165482122959
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.4319851175029286e-15,
+        "max_abs_F_ref": 10.270700020130224
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 1.5158245029548803e-13,
+        "max_abs_dF_eVA": 1.2434497875801753e-14,
+        "rms_dF_eVA": 1.6756562669723477e-15,
+        "max_abs_F_ref": 9.476182248985445
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 2.9103830456733704e-11,
+       "max_abs_dF_vs_call0": 2.609024107869118e-15,
+       "max_abs_dF_vs_seq0": 2.6645352591003757e-15
+      },
+      "E_fixed_eV": -133194.08439850475
+     },
+     "flash64": {
+      "worst": {
+       "dE_per_atom_eV": 1.5158245029548803e-13,
+       "max_abs_dF_eVA": 1.0658141036401503e-14,
+       "rms_dF_eVA": 1.191096085164043e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 2.6645352591003757e-15,
+        "rms_dF_eVA": 7.366849166821896e-16,
+        "max_abs_F_ref": 2.888338565464082
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.552713678800501e-15,
+        "rms_dF_eVA": 8.063012792835647e-16,
+        "max_abs_F_ref": 6.293784706898954
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 9.717052503332709e-16,
+        "max_abs_F_ref": 5.6179102276806905
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 1.5158245029548803e-13,
+        "max_abs_dF_eVA": 3.552713678800501e-15,
+        "rms_dF_eVA": 9.360295304860245e-16,
+        "max_abs_F_ref": 7.161165482122959
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 1.5158245029548803e-13,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.1543929273574048e-15,
+        "max_abs_F_ref": 10.270700020130224
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 1.5158245029548803e-13,
+        "max_abs_dF_eVA": 1.0658141036401503e-14,
+        "rms_dF_eVA": 1.191096085164043e-15,
+        "max_abs_F_ref": 9.476182248985445
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 2.9103830456733704e-11,
+       "max_abs_dF_vs_call0": 2.609024107869118e-15,
+       "max_abs_dF_vs_seq0": 2.4424906541753444e-15
+      },
+      "E_fixed_eV": -133194.08439850478
+     },
+     "hybrid": {
+      "worst": {
+       "dE_per_atom_eV": 1.5158245029548803e-13,
+       "max_abs_dF_eVA": 8.881784197001252e-15,
+       "rms_dF_eVA": 1.315808062331716e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 1.5158245029548803e-13,
+        "max_abs_dF_eVA": 2.942091015256665e-15,
+        "rms_dF_eVA": 8.933875754558505e-16,
+        "max_abs_F_ref": 2.888338565464082
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.552713678800501e-15,
+        "rms_dF_eVA": 9.161640998449128e-16,
+        "max_abs_F_ref": 6.293784706898954
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.0589250630939126e-15,
+        "max_abs_F_ref": 5.6179102276806905
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.440892098500626e-15,
+        "rms_dF_eVA": 1.1075199883529187e-15,
+        "max_abs_F_ref": 7.161165482122959
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.2084922154291982e-15,
+        "max_abs_F_ref": 10.270700020130224
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 8.881784197001252e-15,
+        "rms_dF_eVA": 1.315808062331716e-15,
+        "max_abs_F_ref": 9.476182248985445
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 2.9103830456733704e-11,
+       "max_abs_dF_vs_call0": 2.220446049250313e-15,
+       "max_abs_dF_vs_seq0": 2.4424906541753444e-15
+      },
+      "E_fixed_eV": -133194.08439850475
+     }
+    }
+   }
+  },
+  "water288": {
+   "formula": "H192O96",
+   "n_atoms": 288,
+   "n_edges": 10824,
+   "pbc": false,
+   "correctness": {
+    "sequence": {
+     "seed": 1709,
+     "noise_A": 0.02,
+     "n_edges": [
+      10824,
+      10802,
+      10820,
+      10804,
+      10804,
+      10814
+     ],
+     "edges_added_vs_prev": [
+      null,
+      36,
+      70,
+      60,
+      50,
+      60
+     ],
+     "edges_removed_vs_prev": [
+      null,
+      58,
+      52,
+      76,
+      50,
+      50
+     ]
+    },
+    "backends": {
+     "e3nn": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 0.0,
+       "rms_dF_eVA": 0.0,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 1.8202555014367041
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 4.884243114827379
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 5.425585400593691
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 7.545988841376639
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 12.634343278354565
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 10.449925959079305
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.3314683517128287e-15,
+       "max_abs_dF_vs_seq0": 2.886579864025407e-15
+      },
+      "E_fixed_eV": -199789.13923162458
+     },
+     "cueq": {
+      "worst": {
+       "dE_per_atom_eV": 1.0105496686365869e-13,
+       "max_abs_dF_eVA": 1.0658141036401503e-14,
+       "rms_dF_eVA": 1.5632067869448058e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 1.0105496686365869e-13,
+        "max_abs_dF_eVA": 3.219646771412954e-15,
+        "rms_dF_eVA": 9.075677717680855e-16,
+        "max_abs_F_ref": 1.8202555014367041
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 1.0105496686365869e-13,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.1174675042264217e-15,
+        "max_abs_F_ref": 4.884243114827379
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.2676236851748382e-15,
+        "max_abs_F_ref": 5.425585400593691
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.2649067474592763e-15,
+        "max_abs_F_ref": 7.545988841376639
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.4576712188678606e-15,
+        "max_abs_F_ref": 12.634343278354565
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.0658141036401503e-14,
+        "rms_dF_eVA": 1.5632067869448058e-15,
+        "max_abs_F_ref": 10.449925959079305
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.6645352591003757e-15,
+       "max_abs_dF_vs_seq0": 3.1225022567582528e-15
+      },
+      "E_fixed_eV": -199789.13923162455
+     },
+     "flash64": {
+      "worst": {
+       "dE_per_atom_eV": 1.0105496686365869e-13,
+       "max_abs_dF_eVA": 5.329070518200751e-15,
+       "rms_dF_eVA": 1.1151895141962931e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 2.942091015256665e-15,
+        "rms_dF_eVA": 8.332496791431451e-16,
+        "max_abs_F_ref": 1.8202555014367041
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.552713678800501e-15,
+        "rms_dF_eVA": 8.447587622581208e-16,
+        "max_abs_F_ref": 4.884243114827379
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 1.0105496686365869e-13,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 9.965013989494614e-16,
+        "max_abs_F_ref": 5.425585400593691
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 9.912052497217655e-16,
+        "max_abs_F_ref": 7.545988841376639
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.884981308350689e-15,
+        "rms_dF_eVA": 1.1151895141962931e-15,
+        "max_abs_F_ref": 12.634343278354565
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.1035197377788232e-15,
+        "max_abs_F_ref": 10.449925959079305
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 2.9103830456733704e-11,
+       "max_abs_dF_vs_call0": 2.886579864025407e-15,
+       "max_abs_dF_vs_seq0": 2.7755575615628914e-15
+      },
+      "E_fixed_eV": -199789.13923162458
+     },
+     "hybrid": {
+      "worst": {
+       "dE_per_atom_eV": 1.0105496686365869e-13,
+       "max_abs_dF_eVA": 5.329070518200751e-15,
+       "rms_dF_eVA": 1.2272734109377177e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 1.0105496686365869e-13,
+        "max_abs_dF_eVA": 3.1086244689504383e-15,
+        "rms_dF_eVA": 9.26286146656163e-16,
+        "max_abs_F_ref": 1.8202555014367041
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 1.0105496686365869e-13,
+        "max_abs_dF_eVA": 3.1086244689504383e-15,
+        "rms_dF_eVA": 9.503219374162956e-16,
+        "max_abs_F_ref": 4.884243114827379
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.115971268027826e-15,
+        "max_abs_F_ref": 5.425585400593691
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.774758283725532e-15,
+        "rms_dF_eVA": 1.1052962037451348e-15,
+        "max_abs_F_ref": 7.545988841376639
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 1.0105496686365869e-13,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.1747466811589235e-15,
+        "max_abs_F_ref": 12.634343278354565
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.2272734109377177e-15,
+        "max_abs_F_ref": 10.449925959079305
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.4980018054066022e-15,
+       "max_abs_dF_vs_seq0": 2.275957200481571e-15
+      },
+      "E_fixed_eV": -199789.13923162455
+     }
+    }
+   }
+  },
+  "water384": {
+   "formula": "H256O128",
+   "n_atoms": 384,
+   "n_edges": 15040,
+   "pbc": false,
+   "correctness": {
+    "sequence": {
+     "seed": 1706,
+     "noise_A": 0.02,
+     "n_edges": [
+      15040,
+      15014,
+      14996,
+      15012,
+      15014,
+      15028
+     ],
+     "edges_added_vs_prev": [
+      null,
+      88,
+      76,
+      100,
+      66,
+      74
+     ],
+     "edges_removed_vs_prev": [
+      null,
+      114,
+      94,
+      84,
+      64,
+      60
+     ]
+    },
+    "backends": {
+     "e3nn": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 0.0,
+       "rms_dF_eVA": 0.0,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 2.205232786302652
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 4.228807167012735
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 5.596642900152936
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 9.040347988688755
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 12.019287659379929
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 11.252045634990257
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 3.552713678800501e-15,
+       "max_abs_dF_vs_seq0": 3.552713678800501e-15
+      },
+      "E_fixed_eV": -266385.0214491587
+     },
+     "cueq": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 1.4210854715202004e-14,
+       "rms_dF_eVA": 2.017484775843173e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.10702591327572e-15,
+        "rms_dF_eVA": 9.88788748800139e-16,
+        "max_abs_F_ref": 2.205232786302652
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.1171284365510764e-15,
+        "max_abs_F_ref": 4.228807167012735
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.2423844645008856e-15,
+        "max_abs_F_ref": 5.596642900152936
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.549516567451064e-15,
+        "rms_dF_eVA": 1.4028162998409519e-15,
+        "max_abs_F_ref": 9.040347988688755
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 8.881784197001252e-15,
+        "rms_dF_eVA": 1.6198281540771531e-15,
+        "max_abs_F_ref": 12.019287659379929
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.4210854715202004e-14,
+        "rms_dF_eVA": 2.017484775843173e-15,
+        "max_abs_F_ref": 11.252045634990257
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.6645352591003757e-15,
+       "max_abs_dF_vs_seq0": 3.1086244689504383e-15
+      },
+      "E_fixed_eV": -266385.0214491587
+     },
+     "flash64": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 1.2434497875801753e-14,
+       "rms_dF_eVA": 1.4337238754443863e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.3306690738754696e-15,
+        "rms_dF_eVA": 8.467411533203588e-16,
+        "max_abs_F_ref": 2.205232786302652
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.552713678800501e-15,
+        "rms_dF_eVA": 9.108182476082457e-16,
+        "max_abs_F_ref": 4.228807167012735
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.440892098500626e-15,
+        "rms_dF_eVA": 9.914786689052756e-16,
+        "max_abs_F_ref": 5.596642900152936
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.0695581186461685e-15,
+        "max_abs_F_ref": 9.040347988688755
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 8.881784197001252e-15,
+        "rms_dF_eVA": 1.1543665969017146e-15,
+        "max_abs_F_ref": 12.019287659379929
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.2434497875801753e-14,
+        "rms_dF_eVA": 1.4337238754443863e-15,
+        "max_abs_F_ref": 11.252045634990257
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.4424906541753444e-15,
+       "max_abs_dF_vs_seq0": 3.4416913763379853e-15
+      },
+      "E_fixed_eV": -266385.0214491587
+     },
+     "hybrid": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 1.0658141036401503e-14,
+       "rms_dF_eVA": 1.4152653254537856e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.2751579226442118e-15,
+        "rms_dF_eVA": 9.597893933116666e-16,
+        "max_abs_F_ref": 2.205232786302652
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.552713678800501e-15,
+        "rms_dF_eVA": 1.0109646695640048e-15,
+        "max_abs_F_ref": 4.228807167012735
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.0963065073089555e-15,
+        "max_abs_F_ref": 5.596642900152936
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.0658141036401503e-14,
+        "rms_dF_eVA": 1.2290783075804827e-15,
+        "max_abs_F_ref": 9.040347988688755
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.3551542915327535e-15,
+        "max_abs_F_ref": 12.019287659379929
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 8.881784197001252e-15,
+        "rms_dF_eVA": 1.4152653254537856e-15,
+        "max_abs_F_ref": 11.252045634990257
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.7755575615628914e-15,
+       "max_abs_dF_vs_seq0": 2.6645352591003757e-15
+      },
+      "E_fixed_eV": -266385.0214491587
+     }
+    }
+   }
+  },
+  "water480": {
+   "formula": "H320O160",
+   "n_atoms": 480,
+   "n_edges": 19360,
+   "pbc": false,
+   "correctness": {
+    "sequence": {
+     "seed": 1703,
+     "noise_A": 0.02,
+     "n_edges": [
+      19360,
+      19368,
+      19338,
+      19296,
+      19324,
+      19304
+     ],
+     "edges_added_vs_prev": [
+      null,
+      114,
+      74,
+      102,
+      118,
+      100
+     ],
+     "edges_removed_vs_prev": [
+      null,
+      106,
+      104,
+      144,
+      90,
+      120
+     ]
+    },
+    "backends": {
+     "e3nn": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 0.0,
+       "rms_dF_eVA": 0.0,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 2.1772146124709275
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 5.60445451942256
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 6.090954987714731
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 9.512976426775593
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 9.959005231843046
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 8.551515426068597
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 4.218847493575595e-15,
+       "max_abs_dF_vs_seq0": 4.6629367034256575e-15
+      },
+      "E_fixed_eV": -332983.2008126382
+     },
+     "cueq": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 8.881784197001252e-15,
+       "rms_dF_eVA": 1.5678082476293634e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.551115123125783e-15,
+        "rms_dF_eVA": 9.35243854084347e-16,
+        "max_abs_F_ref": 2.1772146124709275
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.773159728050814e-15,
+        "rms_dF_eVA": 1.1342174064940878e-15,
+        "max_abs_F_ref": 5.60445451942256
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.661338147750939e-15,
+        "rms_dF_eVA": 1.2382516652918364e-15,
+        "max_abs_F_ref": 6.090954987714731
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 8.881784197001252e-15,
+        "rms_dF_eVA": 1.365611967515151e-15,
+        "max_abs_F_ref": 9.512976426775593
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.458260873238981e-15,
+        "max_abs_F_ref": 9.959005231843046
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.5678082476293634e-15,
+        "max_abs_F_ref": 8.551515426068597
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 3.4416913763379853e-15,
+       "max_abs_dF_vs_seq0": 4.440892098500626e-15
+      },
+      "E_fixed_eV": -332983.2008126382
+     },
+     "flash64": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 6.217248937900877e-15,
+       "rms_dF_eVA": 1.19813712040326e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.1086244689504383e-15,
+        "rms_dF_eVA": 8.096621486530213e-16,
+        "max_abs_F_ref": 2.1772146124709275
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.9968028886505635e-15,
+        "rms_dF_eVA": 9.034722178504265e-16,
+        "max_abs_F_ref": 5.60445451942256
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.3306690738754696e-15,
+        "rms_dF_eVA": 9.51932755378244e-16,
+        "max_abs_F_ref": 6.090954987714731
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.0204307838451285e-15,
+        "max_abs_F_ref": 9.512976426775593
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.440892098500626e-15,
+        "rms_dF_eVA": 1.0929186620975516e-15,
+        "max_abs_F_ref": 9.959005231843046
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.19813712040326e-15,
+        "max_abs_F_ref": 8.551515426068597
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.9004576518332215e-15,
+       "max_abs_dF_vs_seq0": 3.6637359812630166e-15
+      },
+      "E_fixed_eV": -332983.2008126382
+     },
+     "hybrid": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 7.105427357601002e-15,
+       "rms_dF_eVA": 1.2755086440284505e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.6629367034256575e-15,
+        "rms_dF_eVA": 9.517825989232565e-16,
+        "max_abs_F_ref": 2.1772146124709275
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.440892098500626e-15,
+        "rms_dF_eVA": 1.04516399664802e-15,
+        "max_abs_F_ref": 5.60445451942256
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.884981308350689e-15,
+        "rms_dF_eVA": 1.055382177618801e-15,
+        "max_abs_F_ref": 6.090954987714731
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.1547536238071867e-15,
+        "max_abs_F_ref": 9.512976426775593
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.2513353599750747e-15,
+        "max_abs_F_ref": 9.959005231843046
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.2755086440284505e-15,
+        "max_abs_F_ref": 8.551515426068597
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.886579864025407e-15,
+       "max_abs_dF_vs_seq0": 3.3306690738754696e-15
+      },
+      "E_fixed_eV": -332983.2008126382
+     }
+    }
+   }
+  },
+  "water648": {
+   "formula": "H432O216",
+   "n_atoms": 648,
+   "n_edges": 26550,
+   "pbc": false,
+   "correctness": {
+    "sequence": {
+     "seed": 1709,
+     "noise_A": 0.02,
+     "n_edges": [
+      26550,
+      26542,
+      26542,
+      26522,
+      26516,
+      26520
+     ],
+     "edges_added_vs_prev": [
+      null,
+      144,
+      122,
+      156,
+      174,
+      146
+     ],
+     "edges_removed_vs_prev": [
+      null,
+      152,
+      122,
+      176,
+      180,
+      142
+     ]
+    },
+    "backends": {
+     "e3nn": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 0.0,
+       "rms_dF_eVA": 0.0,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 2.1820918383650714
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 4.1568700046563345
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 7.508718348042605
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 10.633141716818638
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 16.878934168322836
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 21.726877696020544
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 3.3306690738754696e-15,
+       "max_abs_dF_vs_seq0": 4.218847493575595e-15
+      },
+      "E_fixed_eV": -449526.0097505329
+     },
+     "cueq": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 1.7763568394002505e-14,
+       "rms_dF_eVA": 2.010364509438246e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.218847493575595e-15,
+        "rms_dF_eVA": 9.35735298163697e-16,
+        "max_abs_F_ref": 2.1820918383650714
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.1247184554902366e-15,
+        "max_abs_F_ref": 4.1568700046563345
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.2343011510486846e-15,
+        "max_abs_F_ref": 7.508718348042605
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.993605777301127e-15,
+        "rms_dF_eVA": 1.4519471875978499e-15,
+        "max_abs_F_ref": 10.633141716818638
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.4210854715202004e-14,
+        "rms_dF_eVA": 1.7261308689539096e-15,
+        "max_abs_F_ref": 16.878934168322836
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.7763568394002505e-14,
+        "rms_dF_eVA": 2.010364509438246e-15,
+        "max_abs_F_ref": 21.726877696020544
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 3.7192471324942744e-15,
+       "max_abs_dF_vs_seq0": 3.3306690738754696e-15
+      },
+      "E_fixed_eV": -449526.0097505329
+     },
+     "flash64": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 3.197442310920451e-14,
+       "rms_dF_eVA": 1.679575624812767e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.552713678800501e-15,
+        "rms_dF_eVA": 8.352591859099709e-16,
+        "max_abs_F_ref": 2.1820918383650714
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.774758283725532e-15,
+        "rms_dF_eVA": 8.908645461028037e-16,
+        "max_abs_F_ref": 4.1568700046563345
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.0114291275871564e-15,
+        "max_abs_F_ref": 7.508718348042605
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 8.881784197001252e-15,
+        "rms_dF_eVA": 1.1325265352436751e-15,
+        "max_abs_F_ref": 10.633141716818638
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.4210854715202004e-14,
+        "rms_dF_eVA": 1.2881440725192286e-15,
+        "max_abs_F_ref": 16.878934168322836
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.197442310920451e-14,
+        "rms_dF_eVA": 1.679575624812767e-15,
+        "max_abs_F_ref": 21.726877696020544
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 3.885780586188048e-15,
+       "max_abs_dF_vs_seq0": 3.9968028886505635e-15
+      },
+      "E_fixed_eV": -449526.0097505329
+     },
+     "hybrid": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 3.552713678800501e-14,
+       "rms_dF_eVA": 1.8461642612498937e-15,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.6629367034256575e-15,
+        "rms_dF_eVA": 9.299555161222866e-16,
+        "max_abs_F_ref": 2.1820918383650714
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.6629367034256575e-15,
+        "rms_dF_eVA": 9.88286047263187e-16,
+        "max_abs_F_ref": 4.1568700046563345
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.0705656637125602e-15,
+        "max_abs_F_ref": 7.508718348042605
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.0658141036401503e-14,
+        "rms_dF_eVA": 1.2315098560251023e-15,
+        "max_abs_F_ref": 10.633141716818638
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 2.1316282072803006e-14,
+        "rms_dF_eVA": 1.536443344166012e-15,
+        "max_abs_F_ref": 16.878934168322836
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.552713678800501e-14,
+        "rms_dF_eVA": 1.8461642612498937e-15,
+        "max_abs_F_ref": 21.726877696020544
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 3.264749581788351e-15,
+       "max_abs_dF_vs_seq0": 3.3306690738754696e-15
+      },
+      "E_fixed_eV": -449526.0097505329
+     }
+    }
+   }
+  },
+  "wbox192": {
+   "formula": "H128O64",
+   "n_atoms": 192,
+   "n_edges": 10552,
+   "pbc": true,
+   "correctness": {
+    "sequence": {
+     "seed": 1604,
+     "noise_A": 0.02,
+     "n_edges": [
+      10552,
+      10548,
+      10538,
+      10546,
+      10540,
+      10528
+     ],
+     "edges_added_vs_prev": [
+      null,
+      64,
+      58,
+      56,
+      46,
+      60
+     ],
+     "edges_removed_vs_prev": [
+      null,
+      68,
+      68,
+      48,
+      52,
+      72
+     ]
+    },
+    "backends": {
+     "e3nn": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 0.0,
+       "rms_dF_eVA": 0.0,
+       "max_abs_dstress_eVA3": null,
+       "stress_ok": false,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 0.2823279714277277,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 4.389150542347355,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 6.1353290870614074,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 6.642470379559331,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 8.839086002563745,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 13.75113014123373,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.525757381022231e-15,
+       "max_abs_dF_vs_seq0": 3.788636071533347e-15
+      },
+      "E_fixed_eV": -133215.41217585548
+     },
+     "cueq": {
+      "worst": {
+       "dE_per_atom_eV": 1.5158245029548803e-13,
+       "max_abs_dF_eVA": 1.0658141036401503e-14,
+       "rms_dF_eVA": 1.6928788441092483e-15,
+       "max_abs_dstress_eVA3": null,
+       "stress_ok": false,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.6914915568786455e-15,
+        "rms_dF_eVA": 8.703622284178626e-16,
+        "max_abs_F_ref": 0.2823279714277277,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.0365643001982006e-15,
+        "max_abs_F_ref": 4.389150542347355,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.1728440810952292e-15,
+        "max_abs_F_ref": 6.1353290870614074,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.3974366195041194e-15,
+        "max_abs_F_ref": 6.642470379559331,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.3835950887651275e-15,
+        "max_abs_F_ref": 8.839086002563745,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 1.5158245029548803e-13,
+        "max_abs_dF_eVA": 1.0658141036401503e-14,
+        "rms_dF_eVA": 1.6928788441092483e-15,
+        "max_abs_F_ref": 13.75113014123373,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.8033131371785203e-15,
+       "max_abs_dF_vs_seq0": 2.886579864025407e-15
+      },
+      "E_fixed_eV": -133215.41217585548
+     },
+     "flash64": {
+      "worst": {
+       "dE_per_atom_eV": 1.5158245029548803e-13,
+       "max_abs_dF_eVA": 8.881784197001252e-15,
+       "rms_dF_eVA": 1.1783713458331564e-15,
+       "max_abs_dstress_eVA3": null,
+       "stress_ok": false,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 2.42861286636753e-15,
+        "rms_dF_eVA": 7.1790821592245e-16,
+        "max_abs_F_ref": 0.2823279714277277,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.1086244689504383e-15,
+        "rms_dF_eVA": 9.235060884695325e-16,
+        "max_abs_F_ref": 4.389150542347355,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.9968028886505635e-15,
+        "rms_dF_eVA": 9.266656905210238e-16,
+        "max_abs_F_ref": 6.1353290870614074,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.1207438546684308e-15,
+        "max_abs_F_ref": 6.642470379559331,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.0998393089057336e-15,
+        "max_abs_F_ref": 8.839086002563745,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 1.5158245029548803e-13,
+        "max_abs_dF_eVA": 8.881784197001252e-15,
+        "rms_dF_eVA": 1.1783713458331564e-15,
+        "max_abs_F_ref": 13.75113014123373,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.706168622523819e-15,
+       "max_abs_dF_vs_seq0": 2.4147350785597155e-15
+      },
+      "E_fixed_eV": -133215.41217585548
+     },
+     "hybrid": {
+      "worst": {
+       "dE_per_atom_eV": 1.5158245029548803e-13,
+       "max_abs_dF_eVA": 7.105427357601002e-15,
+       "rms_dF_eVA": 1.3733183845655931e-15,
+       "max_abs_dstress_eVA3": null,
+       "stress_ok": false,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.247402347028583e-15,
+        "rms_dF_eVA": 8.438091936739794e-16,
+        "max_abs_F_ref": 0.2823279714277277,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.1086244689504383e-15,
+        "rms_dF_eVA": 9.647594653291404e-16,
+        "max_abs_F_ref": 4.389150542347355,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.773159728050814e-15,
+        "rms_dF_eVA": 1.056781734476549e-15,
+        "max_abs_F_ref": 6.1353290870614074,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.329070518200751e-15,
+        "rms_dF_eVA": 1.1502952019589056e-15,
+        "max_abs_F_ref": 6.642470379559331,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.9968028886505635e-15,
+        "rms_dF_eVA": 1.1549093622691562e-15,
+        "max_abs_F_ref": 8.839086002563745,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 1.5158245029548803e-13,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.3733183845655931e-15,
+        "max_abs_F_ref": 13.75113014123373,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 3.0253577421035516e-15,
+       "max_abs_dF_vs_seq0": 2.7408630920433552e-15
+      },
+      "E_fixed_eV": -133215.41217585548
+     }
+    }
+   }
+  },
+  "wbox648": {
+   "formula": "H432O216",
+   "n_atoms": 648,
+   "n_edges": 35698,
+   "pbc": true,
+   "correctness": {
+    "sequence": {
+     "seed": 1610,
+     "noise_A": 0.02,
+     "n_edges": [
+      35698,
+      35732,
+      35730,
+      35658,
+      35688,
+      35672
+     ],
+     "edges_added_vs_prev": [
+      null,
+      266,
+      182,
+      180,
+      244,
+      226
+     ],
+     "edges_removed_vs_prev": [
+      null,
+      232,
+      184,
+      252,
+      214,
+      242
+     ]
+    },
+    "backends": {
+     "e3nn": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 0.0,
+       "rms_dF_eVA": 0.0,
+       "max_abs_dstress_eVA3": null,
+       "stress_ok": false,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 0.7082773859590761,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 6.769917374522513,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 8.67987705738221,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 11.46376276708973,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 13.565135777756034,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 0.0,
+        "rms_dF_eVA": 0.0,
+        "max_abs_F_ref": 16.599414276847533,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 3.0531133177191805e-15,
+       "max_abs_dF_vs_seq0": 2.8727020762175925e-15
+      },
+      "E_fixed_eV": -449581.55667362764
+     },
+     "cueq": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 1.4210854715202004e-14,
+       "rms_dF_eVA": 1.8108068473369504e-15,
+       "max_abs_dstress_eVA3": null,
+       "stress_ok": false,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.4416913763379853e-15,
+        "rms_dF_eVA": 9.359747025286426e-16,
+        "max_abs_F_ref": 0.7082773859590761,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 6.217248937900877e-15,
+        "rms_dF_eVA": 1.1487573110485062e-15,
+        "max_abs_F_ref": 6.769917374522513,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 8.881784197001252e-15,
+        "rms_dF_eVA": 1.3039444864742223e-15,
+        "max_abs_F_ref": 8.67987705738221,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.4210854715202004e-14,
+        "rms_dF_eVA": 1.5799579051060723e-15,
+        "max_abs_F_ref": 11.46376276708973,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.0658141036401503e-14,
+        "rms_dF_eVA": 1.6075987076021247e-15,
+        "max_abs_F_ref": 13.565135777756034,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.4210854715202004e-14,
+        "rms_dF_eVA": 1.8108068473369504e-15,
+        "max_abs_F_ref": 16.599414276847533,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 3.58046925441613e-15,
+       "max_abs_dF_vs_seq0": 3.635980405647388e-15
+      },
+      "E_fixed_eV": -449581.55667362764
+     },
+     "flash64": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 1.4210854715202004e-14,
+       "rms_dF_eVA": 1.3038622868892898e-15,
+       "max_abs_dstress_eVA3": null,
+       "stress_ok": false,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.1363800445660672e-15,
+        "rms_dF_eVA": 7.857921916605809e-16,
+        "max_abs_F_ref": 0.7082773859590761,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.552713678800501e-15,
+        "rms_dF_eVA": 8.667736790917085e-16,
+        "max_abs_F_ref": 6.769917374522513,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.884981308350689e-15,
+        "rms_dF_eVA": 1.0157385732538348e-15,
+        "max_abs_F_ref": 8.67987705738221,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 5.773159728050814e-15,
+        "rms_dF_eVA": 1.1694630786351288e-15,
+        "max_abs_F_ref": 11.46376276708973,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.0658141036401503e-14,
+        "rms_dF_eVA": 1.2047497110006996e-15,
+        "max_abs_F_ref": 13.565135777756034,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.4210854715202004e-14,
+        "rms_dF_eVA": 1.3038622868892898e-15,
+        "max_abs_F_ref": 16.599414276847533,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 2.67841304690819e-15,
+       "max_abs_dF_vs_seq0": 2.9282132274488504e-15
+      },
+      "E_fixed_eV": -449581.55667362764
+     },
+     "hybrid": {
+      "worst": {
+       "dE_per_atom_eV": 0.0,
+       "max_abs_dF_eVA": 2.1316282072803006e-14,
+       "rms_dF_eVA": 1.4825833450497185e-15,
+       "max_abs_dstress_eVA3": null,
+       "stress_ok": false,
+       "valid": true,
+       "pass_1e12": true
+      },
+      "steps": [
+       {
+        "step": 0,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 3.039235529911366e-15,
+        "rms_dF_eVA": 8.803330291913318e-16,
+        "max_abs_F_ref": 0.7082773859590761,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 1,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 4.440892098500626e-15,
+        "rms_dF_eVA": 1.0082951473055932e-15,
+        "max_abs_F_ref": 6.769917374522513,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 2,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.1192998211853419e-15,
+        "max_abs_F_ref": 8.67987705738221,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 3,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 7.105427357601002e-15,
+        "rms_dF_eVA": 1.1905589965635223e-15,
+        "max_abs_F_ref": 11.46376276708973,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 4,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 1.4210854715202004e-14,
+        "rms_dF_eVA": 1.2727320751558068e-15,
+        "max_abs_F_ref": 13.565135777756034,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       },
+       {
+        "step": 5,
+        "dE_per_atom_eV": 0.0,
+        "max_abs_dF_eVA": 2.1316282072803006e-14,
+        "rms_dF_eVA": 1.4825833450497185e-15,
+        "max_abs_F_ref": 16.599414276847533,
+        "stress_error": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py\", line 78, in evaluate\n    r[\"S\"] = a2.get_stress(voigt=False).copy(); r[\"E_s\"] = float(a2.get_potential_energy()); r[\"F_s\"] = a2.get_forces().copy()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/atoms.py\", line 2050, in get_stress\n    stress = self._calc.get_stress(self)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/abc.py\", line 34, in get_stress\n    return self.get_property('stress', atoms)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/ase/calculators/calculator.py\", line 496, in get_property\n    raise PropertyNotImplementedError(\nase.calculators.calculator.PropertyNotImplementedError: stress property not implemented\n"
+       }
+      ],
+      "repeat": {
+       "E_range_eV": 0.0,
+       "max_abs_dF_vs_call0": 3.247402347028583e-15,
+       "max_abs_dF_vs_seq0": 3.1502578323738817e-15
+      },
+      "E_fixed_eV": -449581.55667362764
+     }
+    }
+   }
+  }
+ },
+ "argv": [
+  "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py",
+  "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/workloads/wl_dry_v1_corr.json",
+  "e3nn,cueq,flash64,hybrid",
+  "aspirin",
+  "AT_WC",
+  "org192",
+  "org384",
+  "org648",
+  "water192",
+  "water288",
+  "water384",
+  "water480",
+  "water648",
+  "wbox192",
+  "wbox648"
+ ],
+ "mace": "0.3.17",
+ "cuequivariance": "0.10.0",
+ "nvidia_smi_end": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz, 1980 MHz, 34, 260.25 W"
+}

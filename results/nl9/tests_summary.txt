@@ -1,0 +1,91 @@
+tests: job 1122 GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845  187 tests, 0 failures
+  PASS d2_sum_order_matches_torch                 1/1 mismatches=0
+  PASS edges/H2O                                  4/4 E=6 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=3
+  PASS determinism/H2O                            1/1
+  PASS edges/aspirin                              4/4 E=300..304 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=11
+  PASS determinism/aspirin                        1/1
+  PASS edges/org192                               4/4 E=3658..3670 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=11
+  PASS determinism/org192                         1/1
+  PASS edges/org648                               4/4 E=14856..14918 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=14
+  PASS determinism/org648                         1/1
+  PASS edges/water192                             4/4 E=6622..6674 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS determinism/water192                       1/1
+  PASS edges/water648                             4/4 E=26482..26550 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS determinism/water648                       1/1
+  PASS edges/wbox648                              4/4 E=35686..35760 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS determinism/wbox648                        1/1
+  PASS edges/wbox648_outside                      4/4 E=35686..35760 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS determinism/wbox648_outside                1/1
+  PASS edges/wbox648_tric                         4/4 E=32852..32932 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS determinism/wbox648_tric                   1/1
+  PASS edges/wbox648_tric_outside                 4/4 E=32852..32932 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS determinism/wbox648_tric_outside           1/1
+  PASS edges/wclus2187                            4/4 E=99198..99438 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS determinism/wclus2187                      1/1
+  PASS edges/wclus5184                            4/4 E=247088..247652 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS determinism/wclus5184                      1/1
+  PASS edges/wbox2187                             4/4 E=120314..120556 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS determinism/wbox2187                       1/1
+  PASS edges/wbox2187_tric                        4/4 E=118718..118960 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS determinism/wbox2187_tric                  1/1
+  PASS edges/wbox5184                             4/4 E=285020..285464 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS determinism/wbox5184                       1/1
+  PASS edges/single_C                             4/4 E=0 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=1
+  PASS determinism/single_C                       1/1
+  PASS edges/far_pair                             4/4 E=0 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=1
+  PASS determinism/far_pair                       1/1
+  PASS unsupported_raises/wbox192                 1/1 msg=periodic cell too small for cell list (bins per dim [2, 2, 2], need >= 3)
+  PASS unsupported_raises/mixed_pbc               1/1 msg=mixed pbc not supported (use proto_graph)
+  PASS boundary/open                              4/4 E=10..22 eq_proto=Y eq_stock_set=n eq_stock_shifts=n stock_symdiff=4 (max|d-r|=0.0e+00) csr=Y max_bin=2
+  PASS boundary/pbc                               4/4 E=68..82 eq_proto=Y eq_stock_set=n eq_stock_shifts=n stock_symdiff=22 (max|d-r|=1.8e-15) csr=Y max_bin=3
+  PASS boundary/wbox648_300pairs                  1/1 E=34272 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=31
+  PASS boundary/wbox648_320pairs_ulp              3/3 E=34042..34212 eq_proto=Y eq_stock_set=n eq_stock_shifts=n stock_symdiff=94 (max|d-r|=8.9e-16) csr=Y max_bin=31
+  PASS boundary/wbox648_320pairs_ulp2             3/3 E=34020..34192 eq_proto=Y eq_stock_set=n eq_stock_shifts=n stock_symdiff=184 (max|d-r|=1.8e-15) csr=Y max_bin=31
+  PASS boundary/water648_320pairs_ulp             3/3 E=20854..21332 eq_proto=Y eq_stock_set=n eq_stock_shifts=n stock_symdiff=390 (max|d-r|=2.7e-15) csr=Y max_bin=20
+  PASS boundary/water648_320pairs_ulp2            3/3 E=20846..21300 eq_proto=Y eq_stock_set=n eq_stock_shifts=n stock_symdiff=656 (max|d-r|=2.7e-15) csr=Y max_bin=20
+  PASS overflow/E_cap=26549                       1/1 E=26550 flags=1
+  PASS overflow/E_cap=64                          1/1 E=26550 flags=1
+  PASS overflow/E_cap=E_exact_no_flag             1/1 E=26550
+  PASS overflow/bin_cap=4                         1/1 flags=6 max_bin=24
+  PASS overflow/pbc_bin_cap=8                     1/1 flags=6 max_bin=24
+  PASS overflow/open_expanded_x1.6_bins4_exact    1/1 E=5750 max_bin=19
+  PASS overflow/open_bins2_cap64_flagged          1/1 flags=6 max_bin=81
+  PASS cudagraph/aspirin                          7/7 E=260..308 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=11
+  PASS cudagraph/aspirin/replay_eq_eager          1/1 
+  PASS cudagraph/water648                         7/7 E=18020..26550 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS cudagraph/water648/replay_eq_eager         1/1 
+  PASS cudagraph/wbox648                          6/6 E=35356..35698 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS cudagraph/wbox648/replay_eq_eager          1/1 
+  PASS cudagraph/wbox648_tric                     6/6 E=32778..32864 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS cudagraph/wbox648_tric/replay_eq_eager     1/1 
+  PASS cudagraph/wclus2187                        7/7 E=65964..99438 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS cudagraph/wclus2187/replay_eq_eager        1/1 
+  PASS cudagraph/wbox2187                         6/6 E=119512..120506 eq_proto=Y eq_stock_set=Y eq_stock_shifts=Y csr=Y max_bin=24
+  PASS cudagraph/wbox2187/replay_eq_eager         1/1 
+  PASS model/H2O                                  2/2 E=6 padded-vs-stock dE/at 0.0e+00 dF 4.4e-16 dS 0.0e+00; trim-vs-proto dE/at 0.0e+00 dF 2.2e-16 dS 0.0e+00; floor dF 3.3e-16 dS 0.0e+00 strict_tol=Y
+  PASS model/aspirin                              2/2 E=300..302 padded-vs-stock dE/at 0.0e+00 dF 3.6e-15 dS 0.0e+00; trim-vs-proto dE/at 0.0e+00 dF 2.7e-15 dS 0.0e+00; floor dF 7.1e-15 dS 0.0e+00 strict_tol=Y
+  PASS model/org192                               2/2 E=3668..3670 padded-vs-stock dE/at 0.0e+00 dF 5.3e-15 dS 0.0e+00; trim-vs-proto dE/at 1.5e-13 dF 4.0e-15 dS 0.0e+00; floor dF 1.4e-14 dS 0.0e+00 strict_tol=Y
+  PASS model/water192                             2/2 E=6614..6634 padded-vs-stock dE/at 0.0e+00 dF 3.6e-15 dS 0.0e+00; trim-vs-proto dE/at 1.5e-13 dF 5.3e-15 dS 0.0e+00; floor dF 7.1e-15 dS 0.0e+00 strict_tol=Y
+  PASS model/org648                               2/2 E=14856..14872 padded-vs-stock dE/at 9.0e-13 dF 7.1e-15 dS 0.0e+00; trim-vs-proto dE/at 1.8e-13 dF 7.1e-15 dS 0.0e+00; floor dF 7.1e-15 dS 0.0e+00 strict_tol=Y
+  PASS model/water648                             2/2 E=26506..26550 padded-vs-stock dE/at 0.0e+00 dF 7.1e-15 dS 0.0e+00; trim-vs-proto dE/at 0.0e+00 dF 5.3e-15 dS 0.0e+00; floor dF 1.2e-14 dS 0.0e+00 strict_tol=Y
+  PASS model/wbox648                              2/2 E=35656..35698 padded-vs-stock dE/at 0.0e+00 dF 3.2e-14 dS 3.9e-17; trim-vs-proto dE/at 0.0e+00 dF 2.1e-14 dS 2.6e-17; floor dF 3.9e-14 dS 2.9e-17 strict_tol=Y
+  PASS model/wbox648_tric                         2/2 E=32862..32864 padded-vs-stock dE/at 0.0e+00 dF 4.3e-14 dS 6.2e-17; trim-vs-proto dE/at 0.0e+00 dF 8.5e-14 dS 5.6e-17; floor dF 9.9e-14 dS 9.7e-17 strict_tol=Y
+  PASS model/wbox648_outside                      2/2 E=35656..35698 padded-vs-stock dE/at 0.0e+00 dF 1.4e-14 dS 8.2e-15; trim-vs-proto dE/at 0.0e+00 dF 1.8e-14 dS 7.9e-15; floor dF 2.8e-14 dS 9.6e-15 strict_tol=Y
+  PASS model/wclus2187                            2/2 E=99282..99438 padded-vs-stock dE/at 1.1e-13 dF 8.9e-15 dS 0.0e+00; trim-vs-proto dE/at 0.0e+00 dF 7.1e-15 dS 0.0e+00; floor dF 1.1e-14 dS 0.0e+00 strict_tol=Y
+  PASS model/wbox2187                             2/2 E=120394..120506 padded-vs-stock dE/at 1.1e-13 dF 3.2e-14 dS 3.4e-17; trim-vs-proto dE/at 0.0e+00 dF 1.4e-14 dS 4.7e-17; floor dF 2.5e-14 dS 4.6e-17 strict_tol=Y
+  PASS model/single_C                             2/2 E=0 padded-vs-stock dE/at 0.0e+00 dF 0.0e+00 dS 0.0e+00; trim-vs-proto dE/at 0.0e+00 dF 0.0e+00 dS 0.0e+00; floor dF 0.0e+00 dS 0.0e+00 strict_tol=Y
+  PASS model/far_pair                             2/2 E=0 padded-vs-stock dE/at 0.0e+00 dF 0.0e+00 dS 0.0e+00; trim-vs-proto dE/at 0.0e+00 dF 0.0e+00 dS 0.0e+00; floor dF 0.0e+00 dS 0.0e+00 strict_tol=Y
+
+timing: job 1125 0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz  warmup 10 reps 100 (proto/matscipy 30 reps for N>3000)
+  squeue at start: 1125 nl9time RUNNING; 1124 md9dbg RUNNING; 1123 int9test RUNNING; 1098 md9dr_gs RUNNING
+  system             N       E           cell eager ms          cell graph ms graph dev           proto_graph ms          matscipy CPU ms  nl MiB  proto MiB
+  aspirin           21     302     0.039 [0.039-0.040]    0.024 [0.023-0.024]     0.021      0.432 [0.419-0.449]      0.091 [0.089-0.095]    0.09      32.1
+  water192         192    6634     0.051 [0.049-0.051]    0.034 [0.034-0.034]     0.031      0.452 [0.442-0.465]      0.893 [0.882-0.934]    0.83       2.0
+  org648           650   14856     0.051 [0.050-0.052]    0.035 [0.035-0.035]     0.032      0.480 [0.467-0.496]      2.517 [2.413-2.555]    2.02      23.4
+  water648         648   26550     0.059 [0.058-0.060]    0.042 [0.042-0.042]     0.039      0.479 [0.466-0.496]      3.996 [3.951-4.185]    3.14      23.4
+  wbox648          648   35698     0.072 [0.071-0.073]    0.052 [0.052-0.052]     0.049      1.460 [1.443-1.479]      8.115 [8.091-8.160]    3.48     606.7
+  wbox648_tric     648   32864     0.070 [0.069-0.072]    0.051 [0.051-0.052]     0.048      1.466 [1.450-1.489]      7.977 [7.954-8.005]    3.21     606.6
+  wclus2187       2187   99438     0.064 [0.064-0.065]    0.050 [0.050-0.051]     0.047      0.698 [0.687-0.712]   14.594 [14.552-14.667]   11.14     257.0
+  wbox2187        2187  120506     0.085 [0.085-0.086]    0.060 [0.059-0.060]     0.057      8.036 [8.022-8.069]   21.547 [21.481-21.646]   11.75    3559.5
+  wclus5184       5184  247652     0.092 [0.092-0.093]    0.075 [0.074-0.075]     0.072      1.712 [1.692-1.737]   42.883 [42.724-43.159]   27.14    1439.2
+  wbox5184        5184  285464     0.107 [0.106-0.107]    0.081 [0.080-0.082]     0.078   42.916 [42.748-43.134]   57.837 [57.200-58.256]   27.85    3546.9

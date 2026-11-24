@@ -1,0 +1,540 @@
+{
+ "job": "1035",
+ "node": "slurm-h100-206-077",
+ "gpu_start": "0, NVIDIA H100 80GB HBM3, GPU-3ef4e875-4571-3cea-d408-241db662acb5, 345 MHz, 1980 MHz",
+ "warm": 15,
+ "reps": 80,
+ "rows": {
+  "hybrid/aspirin": {
+   "N": 21,
+   "E": 302,
+   "E_cap": 384,
+   "stress": false,
+   "model_copyin_replay": {
+    "n": 80,
+    "median": 1.4088703319430351,
+    "p10": 1.4058401808142662,
+    "p90": 1.4128314331173897
+   },
+   "step_tensors_gpubuild": {
+    "n": 80,
+    "median": 1.8639881163835526,
+    "p10": 1.8501901999115944,
+    "p90": 1.880115084350109
+   },
+   "step_full_numpy": {
+    "n": 80,
+    "median": 1.9186949357390404,
+    "p10": 1.90855972468853,
+    "p90": 1.9348494708538055
+   },
+   "gpubuild_only": {
+    "n": 80,
+    "median": 0.4068836569786072,
+    "p10": 0.3937363624572754,
+    "p90": 0.4192417487502098
+   },
+   "stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 13.523594645783305,
+    "key": {
+     "n_atoms": 21,
+     "numbers_sha1": "14a6d77bbf72",
+     "pbc": [
+      false,
+      false,
+      false
+     ],
+     "cell_is_none": true,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     384
+    ]
+   }
+  },
+  "hybrid/water192": {
+   "N": 192,
+   "E": 6634,
+   "E_cap": 8000,
+   "stress": false,
+   "model_copyin_replay": {
+    "n": 80,
+    "median": 2.9727863147854805,
+    "p10": 2.966075576841831,
+    "p90": 2.982938103377819
+   },
+   "step_tensors_gpubuild": {
+    "n": 80,
+    "median": 3.4573329612612724,
+    "p10": 3.437647223472595,
+    "p90": 3.4720147028565407
+   },
+   "step_full_numpy": {
+    "n": 80,
+    "median": 3.511957824230194,
+    "p10": 3.4961486235260963,
+    "p90": 3.5232195630669594
+   },
+   "gpubuild_only": {
+    "n": 80,
+    "median": 0.4249308258295059,
+    "p10": 0.4115598276257515,
+    "p90": 0.4357753321528435
+   },
+   "stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.585458368062973,
+    "key": {
+     "n_atoms": 192,
+     "numbers_sha1": "c8aa538e33c6",
+     "pbc": [
+      false,
+      false,
+      false
+     ],
+     "cell_is_none": true,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     8000
+    ]
+   }
+  },
+  "hybrid/water648": {
+   "N": 648,
+   "E": 26550,
+   "E_cap": 31872,
+   "stress": false,
+   "model_copyin_replay": {
+    "n": 80,
+    "median": 7.705242373049259,
+    "p10": 7.696205377578735,
+    "p90": 7.712249830365181
+   },
+   "step_tensors_gpubuild": {
+    "n": 80,
+    "median": 8.23458656668663,
+    "p10": 8.211360312998295,
+    "p90": 8.285333961248398
+   },
+   "step_full_numpy": {
+    "n": 80,
+    "median": 8.29115230590105,
+    "p10": 8.272265829145908,
+    "p90": 8.31558033823967
+   },
+   "gpubuild_only": {
+    "n": 80,
+    "median": 0.445416197180748,
+    "p10": 0.43401867151260376,
+    "p90": 0.4586104303598404
+   },
+   "stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.7310829292982817,
+    "key": {
+     "n_atoms": 648,
+     "numbers_sha1": "1f532494b7d0",
+     "pbc": [
+      false,
+      false,
+      false
+     ],
+     "cell_is_none": true,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     31872
+    ]
+   }
+  },
+  "hybrid/wbox648": {
+   "N": 648,
+   "E": 35698,
+   "E_cap": 42880,
+   "stress": false,
+   "model_copyin_replay": {
+    "n": 80,
+    "median": 9.630030952394009,
+    "p10": 9.624182619154453,
+    "p90": 9.638201631605625
+   },
+   "step_tensors_gpubuild": {
+    "n": 80,
+    "median": 11.08244527131319,
+    "p10": 11.059338599443436,
+    "p90": 11.13866176456213
+   },
+   "step_full_numpy": {
+    "n": 80,
+    "median": 11.173062957823277,
+    "p10": 11.136663891375065,
+    "p90": 11.245331913232803
+   },
+   "gpubuild_only": {
+    "n": 80,
+    "median": 1.3799332082271576,
+    "p10": 1.3635294511914253,
+    "p90": 1.40397809445858
+   },
+   "stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.08286735974252224,
+    "key": {
+     "n_atoms": 648,
+     "numbers_sha1": "1f532494b7d0",
+     "pbc": [
+      true,
+      true,
+      true
+     ],
+     "cell_is_none": false,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     42880
+    ]
+   }
+  },
+  "hybrid/wbox648/stress": {
+   "N": 648,
+   "E": 35698,
+   "E_cap": 42880,
+   "stress": true,
+   "model_copyin_replay": {
+    "n": 80,
+    "median": 9.963675402104855,
+    "p10": 9.956130012869835,
+    "p90": 9.972487203776836
+   },
+   "step_tensors_gpubuild": {
+    "n": 80,
+    "median": 11.408164165914059,
+    "p10": 11.388244479894638,
+    "p90": 11.443612910807133
+   },
+   "step_full_numpy": {
+    "n": 80,
+    "median": 11.478303000330925,
+    "p10": 11.45937480032444,
+    "p90": 11.495157890021801
+   },
+   "gpubuild_only": {
+    "n": 80,
+    "median": 1.3584792613983154,
+    "p10": 1.342448778450489,
+    "p90": 1.3858001679182053
+   },
+   "stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.13675540313124657,
+    "key": {
+     "n_atoms": 648,
+     "numbers_sha1": "1f532494b7d0",
+     "pbc": [
+      true,
+      true,
+      true
+     ],
+     "cell_is_none": false,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": true
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     42880
+    ]
+   }
+  },
+  "flash/aspirin": {
+   "N": 21,
+   "E": 302,
+   "E_cap": 384,
+   "stress": false,
+   "model_copyin_replay": {
+    "n": 80,
+    "median": 1.9685104489326477,
+    "p10": 1.965835690498352,
+    "p90": 1.9731581211090088
+   },
+   "step_tensors_gpubuild": {
+    "n": 80,
+    "median": 2.4212608113884926,
+    "p10": 2.4087872356176376,
+    "p90": 2.437474951148033
+   },
+   "step_full_numpy": {
+    "n": 80,
+    "median": 2.475900575518608,
+    "p10": 2.463809959590435,
+    "p90": 2.4884358048439026
+   },
+   "gpubuild_only": {
+    "n": 80,
+    "median": 0.3957794979214668,
+    "p10": 0.3813251852989197,
+    "p90": 0.4093751311302185
+   },
+   "stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.11840896867215633,
+    "key": {
+     "n_atoms": 21,
+     "numbers_sha1": "14a6d77bbf72",
+     "pbc": [
+      false,
+      false,
+      false
+     ],
+     "cell_is_none": true,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     384
+    ]
+   }
+  },
+  "flash/water192": {
+   "N": 192,
+   "E": 6634,
+   "E_cap": 8000,
+   "stress": false,
+   "model_copyin_replay": {
+    "n": 80,
+    "median": 6.639866158366203,
+    "p10": 6.632160395383835,
+    "p90": 6.64611142128706
+   },
+   "step_tensors_gpubuild": {
+    "n": 80,
+    "median": 7.107828743755817,
+    "p10": 7.0967623963952065,
+    "p90": 7.126758433878422
+   },
+   "step_full_numpy": {
+    "n": 80,
+    "median": 7.1772318333387375,
+    "p10": 7.158869691193104,
+    "p90": 7.199894264340401
+   },
+   "gpubuild_only": {
+    "n": 80,
+    "median": 0.4154648631811142,
+    "p10": 0.40309783071279526,
+    "p90": 0.42946990579366684
+   },
+   "stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.05321209318935871,
+    "key": {
+     "n_atoms": 192,
+     "numbers_sha1": "c8aa538e33c6",
+     "pbc": [
+      false,
+      false,
+      false
+     ],
+     "cell_is_none": true,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     8000
+    ]
+   }
+  },
+  "flash/water648": {
+   "N": 648,
+   "E": 26550,
+   "E_cap": 31872,
+   "stress": false,
+   "model_copyin_replay": {
+    "n": 80,
+    "median": 19.721082411706448,
+    "p10": 19.70675904303789,
+    "p90": 19.794767908751965
+   },
+   "step_tensors_gpubuild": {
+    "n": 80,
+    "median": 20.217057317495346,
+    "p10": 20.19977755844593,
+    "p90": 20.27007732540369
+   },
+   "step_full_numpy": {
+    "n": 80,
+    "median": 20.281578414142132,
+    "p10": 20.259062573313713,
+    "p90": 20.33747099339962
+   },
+   "gpubuild_only": {
+    "n": 80,
+    "median": 0.4374757409095764,
+    "p10": 0.4219911992549896,
+    "p90": 0.44795218855142593
+   },
+   "stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.08644521050155163,
+    "key": {
+     "n_atoms": 648,
+     "numbers_sha1": "1f532494b7d0",
+     "pbc": [
+      false,
+      false,
+      false
+     ],
+     "cell_is_none": true,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     31872
+    ]
+   }
+  },
+  "flash/wbox648": {
+   "N": 648,
+   "E": 35698,
+   "E_cap": 42880,
+   "stress": false,
+   "model_copyin_replay": {
+    "n": 80,
+    "median": 21.6249767690897,
+    "p10": 21.61545716226101,
+    "p90": 21.63458727300167
+   },
+   "step_tensors_gpubuild": {
+    "n": 80,
+    "median": 23.03976658731699,
+    "p10": 23.019145615398884,
+    "p90": 23.089309595525265
+   },
+   "step_full_numpy": {
+    "n": 80,
+    "median": 23.089785128831863,
+    "p10": 23.071994818747044,
+    "p90": 23.115016147494316
+   },
+   "gpubuild_only": {
+    "n": 80,
+    "median": 1.3638483360409737,
+    "p10": 1.348535530269146,
+    "p90": 1.3825735077261925
+   },
+   "stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.09304844029247761,
+    "key": {
+     "n_atoms": 648,
+     "numbers_sha1": "1f532494b7d0",
+     "pbc": [
+      true,
+      true,
+      true
+     ],
+     "cell_is_none": false,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     42880
+    ]
+   }
+  },
+  "flash/wbox648/stress": {
+   "N": 648,
+   "E": 35698,
+   "E_cap": 42880,
+   "stress": true,
+   "model_copyin_replay": {
+    "n": 80,
+    "median": 21.967045962810516,
+    "p10": 21.95668425410986,
+    "p90": 21.9837736338377
+   },
+   "step_tensors_gpubuild": {
+    "n": 80,
+    "median": 23.400831036269665,
+    "p10": 23.383532650768757,
+    "p90": 23.423165641725063
+   },
+   "step_full_numpy": {
+    "n": 80,
+    "median": 23.481865413486958,
+    "p10": 23.463401570916176,
+    "p90": 23.504449613392353
+   },
+   "gpubuild_only": {
+    "n": 80,
+    "median": 1.362786628305912,
+    "p10": 1.3473233208060265,
+    "p90": 1.3814331963658333
+   },
+   "stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.09550170227885246,
+    "key": {
+     "n_atoms": 648,
+     "numbers_sha1": "1f532494b7d0",
+     "pbc": [
+      true,
+      true,
+      true
+     ],
+     "cell_is_none": false,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": true
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     42880
+    ]
+   }
+  }
+ },
+ "gpu_end": "0, NVIDIA H100 80GB HBM3, GPU-3ef4e875-4571-3cea-d408-241db662acb5, 1980 MHz, 1980 MHz"
+}

@@ -1,0 +1,63 @@
+graphed7 READY  (agent A; tests job 1029, node slurm-h100-206-077, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 1980 MHz)
+
+RECIPE
+  source $R/env.sh; SP=$R/venv-cueq/lib/python3.11/site-packages
+  export LD_LIBRARY_PATH=$SP/nvidia/cuda_nvrtc/lib:$SP/nvidia/cublas/lib:$SP/nvidia/cuda_runtime/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+  export TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1
+  # python -I; FIRST import (it imports scripts/cudagraph6/hybrid_gc -> pins flashTP to src/flashTP-graphcap):
+  sys.path.insert(0, f"{R}/scripts/graphed7"); import graphed_runner as GR
+  calc, model = GR.build_backend("hybrid"|"flash"|"e3nn", transforms=(install_fn, ...))  # transforms: model->handle,
+        # applied after hybrid/flash adapters, before any capture; handles in calc.graphed7_transform_handles
+  rn = GR.GraphedRunner(calc, model, edge_margin=0.20, mult=64, stress=False, builder="proto"|"stock", max_graphs=4)
+  out = rn.step(atoms)   # dict(energy float, forces np[N,3], stress np[6] Voigt eV/A^3 or None, recaptured, E, E_cap)
+  rn.step_tensors(atoms) # same, torch views into graph outputs (no D2H; overwritten by next replay)
+  rn.stats()             # captures, recaptures, evictions, last_capture_s, key, n_graphs, E_caps
+
+KEY POLICY (documented choice: transparent separate graph, never raise, never cross-replay)
+  key = (n_atoms, atoms.numbers.tobytes(), pbc tuple, cell-all-zero, calc.head, model dtype, stress flag)
+  Per key one graph in an LRU OrderedDict (max_graphs=4; least-recently-used graph freed). A new key -> capture at
+  round_cap(E, 0.20, 64). E > E_cap -> brand-new graph object at round_cap(E, 0.25) (all bookkeeping rebuilt: N, E_cap,
+  pad indices, statics, node_attrs, batch/ptr, outputs); old one freed. Before replay: host np.array_equal(numbers)
+  check; per-node statics refreshed by copy_ if the batch passes tensors other than those captured from (shape-checked).
+STRESS: supported (stress=True). MACE builds displacement internally (captured); grads wrt (positions, displacement)
+  captured. Padded edges get unit_shift (m,0,0), m=max(1,ceil(2 r_max/|cell[0]|)) computed on GPU per load, because
+  MACE recomputes shifts = unit_shifts @ displaced cell. Non-periodic systems return stress 0 exactly like eager.
+
+TESTS (scripts/graphed7/test_graphed.py -> results/graphed7/tests.json; log logs/graphed7/test_run1.log)
+  reference = eager stock e3nn fp64 on stock MACECalculator batch (compute_stress=True). Pass: |dE|/atom<=1e-11,
+  max|dF|<=1e-11, |dstress|<=1e-11, edge count == stock, plus per-test capture/recapture-count assertions.
+  Systems: H2O, aspirin, water192, org192, water648, org648, wbox192(P), wbox648(P), single_C (0 edges), O2 20 A apart
+  (0 edges); each 6 configs of a cumulative 0.02 A walk (edges change, e.g. water648 26502-26570) + 3 repeated calls.
+  worst over rows: |dE|/atom  max|dF|  RMS dF  |dstress|  (eV, eV/A, eV/A^3)        all PASS (0 failures)
+  test (rows)                         e3nn-graphed               hybrid                    flash
+  systems walk+repeat (90)            5.4e-13 1.8e-14 1.7e-15 -  1.3e-12 2.5e-14 3.1e-15 -  3.6e-13 2.8e-14 2.8e-15 -
+  stress wbox192/648 walk + cell
+    x0.93 recapture & back,
+    aspirin/single_C stress=0 (17)    1.5e-13 8.9e-15 1.8e-15 7.7e-17  1.5e-13 1.8e-14 2.7e-15 5.6e-17  1.5e-13 1.4e-14 2.3e-15 1.1e-16
+  forced recapture water192 x0.88,
+    back, again, walk (5)             0       7.1e-15 2.8e-15 -  1.5e-13 8.9e-15 4.2e-15 -  0       8.9e-15 3.9e-15 -
+  bug(a) aspirin, reversed species,
+    aspirin, permuted, reversed (6)   0       4.1e-13 1.9e-13 -  1.7e-13 2.4e-12 1.0e-12 -  1.7e-13 1.4e-12 6.9e-13 -
+    (|F|max 308 eV/A for reversed -> relative 8e-15; 3 captures, 0 recaptures: never reused)
+  bug(b) aspirin,water192,aspirin then
+    A/B interleaved walk, H2O, A (13)  0       4.4e-15 1.3e-15 -  0       1.1e-14 3.2e-15 -  1.5e-13 8.0e-15 2.7e-15 -
+  LRU max_graphs=2 A,B,C,A,B (5)      0       3.6e-15 1.0e-15 -  1.5e-13 6.0e-15 1.8e-15 -  0       6.4e-15 1.5e-15 -
+  builder="stock" + stress (6)        1.5e-13 3.1e-15 1.4e-15 1.9e-17  1.5e-13 4.0e-15 2.1e-15 3.9e-17  1.5e-13 5.8e-15 2.1e-15 2.9e-17
+  Recapture flags as expected: stress [True,False,False], water192 [F,T,F,F,F] (exactly 1 recapture).
+
+TIMING (scripts/graphed7/time_graphed.py -> results/graphed7/timing.json; job 1035, GPU-3ef4e875-4571-3cea-d408-241db662acb5, end clock 1980 MHz)
+ms median [p10-p90], 15 warm, 80 reps, cuda-synced. model = copy-in+replay of a prebuilt batch; +build = step_tensors(atoms)
+incl. GPU graph build (validate6 'incl graph build' equivalent); full = step(atoms) incl. D2H to float/numpy.
+validate6 graphed hybrid: 1.40/2.97/7.69 model, 1.84/3.43/8.18 +build; flash 1.97/6.65/19.64, 2.41/7.11/20.14
+  hybrid/aspirin         E=   302/   384  model 1.409 [1.406-1.413]  +build 1.864 [1.850-1.880]  full 1.919 [1.909-1.935]  build-only 0.407
+  hybrid/water192        E=  6634/  8000  model 2.973 [2.966-2.983]  +build 3.457 [3.438-3.472]  full 3.512 [3.496-3.523]  build-only 0.425
+  hybrid/water648        E= 26550/ 31872  model 7.705 [7.696-7.712]  +build 8.235 [8.211-8.285]  full 8.291 [8.272-8.316]  build-only 0.445
+  hybrid/wbox648         E= 35698/ 42880  model 9.630 [9.624-9.638]  +build 11.082 [11.059-11.139]  full 11.173 [11.137-11.245]  build-only 1.380
+  hybrid/wbox648/stress  E= 35698/ 42880  model 9.964 [9.956-9.972]  +build 11.408 [11.388-11.444]  full 11.478 [11.459-11.495]  build-only 1.358
+  flash/aspirin          E=   302/   384  model 1.969 [1.966-1.973]  +build 2.421 [2.409-2.437]  full 2.476 [2.464-2.488]  build-only 0.396
+  flash/water192         E=  6634/  8000  model 6.640 [6.632-6.646]  +build 7.108 [7.097-7.127]  full 7.177 [7.159-7.200]  build-only 0.415
+  flash/water648         E= 26550/ 31872  model 19.721 [19.707-19.795]  +build 20.217 [20.200-20.270]  full 20.282 [20.259-20.337]  build-only 0.437
+  flash/wbox648          E= 35698/ 42880  model 21.625 [21.615-21.635]  +build 23.040 [23.019-23.089]  full 23.090 [23.072-23.115]  build-only 1.364
+  flash/wbox648/stress   E= 35698/ 42880  model 21.967 [21.957-21.984]  +build 23.401 [23.384-23.423]  full 23.482 [23.463-23.504]  build-only 1.363
+Verdict: fix costs nothing measurable (model-only within 0.2%, +build within 0.7%, i.e. inside the 1.5% run-to-run spread).
+wbox648 (periodic) GPU build is 1.36-1.38 ms (image search); stress adds 0.33-0.34 ms to the replay.

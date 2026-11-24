@@ -1,0 +1,41 @@
+fuse7_embed READY  (agent B, 2026-11-10; local test job 1031, slurm-h100-206-077, GPU-3ef4e875-4571-3cea-d408-241db662acb5)
+
+RECIPE
+  export PATH=$R/venv-cueq/bin:$PATH        # ninja for load_inline (venv-cueq/bin/ninja); first build ~45 s, then cached in $TORCH_EXTENSIONS_DIR/fuse7_embed_v1
+  sys.path.insert(0, f"{R}/scripts/fuse7_embed"); import fused_embed as FE
+  FE.ext()                                  # optional: build/load outside any capture (install() also does this)
+  h = FE.install(model)                     # model on CUDA, fp64; after hybrid/flash adapters; before graph capture
+  ...; FE.uninstall(model, h)               # restores the original module objects (identity); idempotent
+  FE.describe()
+
+WHAT IS FUSED (in-memory module swap; no MACE/e3nn source edits)
+  model.spherical_harmonics (e3nn SphericalHarmonics lmax=3, normalize=True, 'component') -> FusedSphericalHarmonics
+      fwd kernel fe_sh_fwd   : vectors[E,3] -> edge_attrs[E,16] (F.normalize eps=1e-12 semantics, e3nn order/sign, sqrt(2l+1))
+      bwd kernel fe_sh_bwd   : analytic d/dvectors incl. (I-uu^T)/|v| projection
+  model.radial_embedding (RadialEmbeddingBlock: BesselBasis(8, r_max 5) x PolynomialCutoff(p=5), no distance transform)
+      -> FusedRadialEmbedding, returns (edge_feats[E,8], None) exactly like stock (cutoff=None)
+      fwd kernel fe_radial_fwd: lengths[E,1] -> prefactor*sin(w r)/r * envelope(r)*(r<r_max)
+      bwd kernel fe_radial_bwd: d/dlengths
+  Launches: SH+radial was 54 kernels fwd / 168 fwd+bwd (incl. norm) -> 2 fwd + 2 bwd own kernels (3 fwd / 10 fwd+bwd incl.
+  the stock norm + autograd accumulation). Two independent modules: no cache/handoff between them -> nothing can go stale
+  across calls or graph replays. Not fused: get_edge_vectors_and_lengths (gather/sub/norm in prepare_graph, a plain
+  function, not a module) stays stock; grads flow to positions/displacement through it, so stress works.
+  install() raises NotImplementedError on any other SH/radial config (lmax, normalization, basis type, distance transform,
+  apply_cutoff=False, trainable Bessel weights).
+  Double backward: once_differentiable (create_graph -> grads have no grad_fn; second backward raises RuntimeError).
+  Graph safety: current stream, no host syncs (host scalars read at install), output shapes depend only on E, E==0 skips launch.
+  Compiled with --fmad=false, sm_90.
+
+LOCAL TEST RESULTS (scripts/fuse7_embed/test_embed.py -> results/fuse7_embed/test_2.json, log logs/fuse7_embed/test_2.log)
+  op vs e3nn+MACE (max abs): sh out <=2.7e-15, radial out <=1.6e-16, grad wrt vectors <=2.1e-14 (rel-norm <=3.4e-16)
+    systems: H2O, aspirin, water648, wbox648, random r in [0.5,5], r = 5 - [1e-14..1e-1], r = 5 exactly and >5, axes, E=0
+  gradcheck fp64 (12 edges): sh PASS, radial PASS
+  standalone CUDA graph capture of fwd+bwd, 3 replays with new inputs: max err 1.1e-14 vs eager e3nn
+  whole model (stock e3nn eager vs fused installed, fp64): |dE|/atom = 0.0 on all;
+    max|dF|: H2O 1.7e-16, aspirin 1.9e-15, water648 3.0e-15, water648 perturbed 8.9e-15, wbox648 3.5e-15 (stress max 1.0e-17),
+    single C / O2 20 A (E=0): 0.0.  uninstall restores bitwise-identical stock outputs.
+  op microbench (fwd+bwd incl. stock norm; median ms):    eager-wall   graph-replay   kernels
+    aspirin  E=302    e3nn 1.656 / 0.292 / 168   fused 0.209 / 0.036 / 10
+    water648 E=26550  e3nn 1.794 / 0.389 / 168   fused 0.211 / 0.046 / 10
+    wbox648  E=35698  e3nn 1.785 / 0.406 / 168   fused 0.209 / 0.052 / 10
+  fwd-only (no_grad): water648 e3nn 0.488 / 0.117 ms (54 kernels) -> fused 0.052 / 0.025 ms (3 kernels)

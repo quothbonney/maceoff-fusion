@@ -1,0 +1,170 @@
+## Dynamic correctness
+
+| provider | system | N | pbc | steps (dt fs) | samples | worst dE/atom eV | worst max|dF| eV/A | worst RMS dF | worst dstress eV/A^3 | max|F| | edges == stock (prov / proto) | E range (directed) | edges in / out | syncs/step | rollbacks | fails |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| gpustep_nodeext+embed+node_brute_graph | aspirin | 21 | F | 1000 (0.5) | 201 | 0.0e+00 | 6.1e-15 | 2.6e-15 | n/a | 4.9 | True / True | 296-352 | 130 / 106 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_cell_graph | aspirin | 21 | F | 1000 (0.5) | 201 | 0.0e+00 | 5.8e-15 | 2.5e-15 | n/a | 4.9 | True / True | 296-352 | 130 / 106 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_brute_graph | org192 | 196 | F | 1000 (0.5) | 201 | 3.0e-13 | 6.7e-15 | 1.9e-15 | n/a | 5.4 | True / True | 3648-4298 | 5450 / 4906 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_cell_graph | org192 | 196 | F | 1000 (0.5) | 201 | 8.9e-13 | 8.4e-15 | 1.9e-15 | n/a | 5.4 | True / True | 3648-4298 | 5450 / 4906 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_brute_graph | org192_rev | 196 | F | 1000 (0.5) | 201 | 1.3e-12 | 8.4e-15 | 2.0e-15 | n/a | 5.4 | True / True | 3648-4298 | 5450 / 4906 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_cell_graph | org192_rev | 196 | F | 1000 (0.5) | 201 | 7.4e-13 | 8.0e-15 | 1.9e-15 | n/a | 5.4 | True / True | 3648-4298 | 5450 / 4906 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_brute_graph | water192 | 192 | F | 1000 (0.5) | 201 | 1.5e-13 | 5.0e-15 | 1.5e-15 | n/a | 4.6 | True / True | 6582-7004 | 10468 / 10288 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_cell_graph | water192 | 192 | F | 1000 (0.5) | 201 | 1.5e-13 | 5.3e-15 | 1.5e-15 | n/a | 4.6 | True / True | 6582-7004 | 10468 / 10288 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_brute_graph | water192_iso | 193 | F | 1000 (0.5) | 201 | 1.5e-13 | 4.9e-15 | 1.5e-15 | n/a | 4.6 | True / True | 6582-7004 | 10468 / 10288 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_cell_graph | water192_iso | 193 | F | 1000 (0.5) | 201 | 1.5e-13 | 5.3e-15 | 1.5e-15 | n/a | 4.6 | True / True | 6582-7004 | 10468 / 10288 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_brute_graph | water2187 | 2187 | F | 500 (0.5) | 51 | 1.1e-13 | 5.8e-15 | 1.4e-15 | n/a | 5.4 | True / True | 91836-99334 | 100726 / 108224 | {'check': 0.102} | 0 | 0 |
+| gpustep_nodeext+embed+node_cell_graph | water2187 | 2187 | F | 500 (0.5) | 51 | 1.1e-13 | 5.1e-15 | 1.4e-15 | n/a | 5.4 | True / True | 91836-99334 | 100726 / 108224 | {'check': 0.102} | 0 | 0 |
+| gpustep_nodeext+embed+node_brute_graph | water648 | 648 | F | 1000 (0.5) | 201 | 9.0e-14 | 5.1e-15 | 1.4e-15 | n/a | 4.3 | True / True | 24330-26512 | 48706 / 50888 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_cell_graph | water648 | 648 | F | 1000 (0.5) | 201 | 9.0e-14 | 5.8e-15 | 1.5e-15 | n/a | 4.3 | True / True | 24330-26512 | 48706 / 50888 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_brute_graph | wbox192 | 192 | T | 1000 (0.5) | 201 | 1.5e-13 | 4.9e-15 | 1.6e-15 | 4.7e-17 | 4.2 | True / True | 9860-10632 | 18554 / 19138 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_proto_proto | wbox192 | 192 | T | 1000 (0.5) | 201 | 1.5e-13 | 5.1e-15 | 1.6e-15 | 4.5e-17 | 4.2 | None / True | 9860-10632 | 18554 / 19138 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_brute_graph | wbox2187 | 2187 | T | 500 (0.5) | 51 | 1.1e-13 | 5.3e-15 | 1.5e-15 | 4.3e-17 | 4.8 | True / True | 113368-120698 | 137984 / 145194 | {'check': 0.102} | 0 | 0 |
+| gpustep_nodeext+embed+node_cell_graph | wbox2187 | 2187 | T | 500 (0.5) | 51 | 1.1e-13 | 5.0e-15 | 1.5e-15 | 4.2e-17 | 4.8 | True / True | 113368-120698 | 137984 / 145194 | {'check': 0.102} | 0 | 0 |
+| gpustep_nodeext+embed+node_brute_graph | wbox648 | 648 | T | 1000 (0.5) | 201 | 9.0e-14 | 5.9e-15 | 1.5e-15 | 4.3e-17 | 4.1 | True / True | 33324-35746 | 74890 / 77084 | {'check': 0.101} | 0 | 0 |
+| gpustep_nodeext+embed+node_cell_graph | wbox648 | 648 | T | 1000 (0.5) | 201 | 9.0e-14 | 5.3e-15 | 1.5e-15 | 4.3e-17 | 4.1 | True / True | 33324-35746 | 74890 / 77084 | {'check': 0.101} | 0 | 0 |
+| graphed_nodehybrid+embed+node_proto | aspirin | 21 | F | 1000 (0.5) | 201 | 0.0e+00 | 6.9e-15 | 2.7e-15 | n/a | 4.9 | True / True | 296-352 | 130 / 106 | {'d2h_positions': 1.001} | None | 0 |
+| graphed_nodehybrid+embed+node_proto | org192 | 196 | F | 1000 (0.5) | 201 | 3.0e-13 | 7.7e-15 | 1.9e-15 | n/a | 5.4 | True / True | 3648-4298 | 5450 / 4906 | {'d2h_positions': 1.001} | None | 0 |
+| graphed_nodehybrid+embed+node_proto | org192_rev | 196 | F | 1000 (0.5) | 201 | 5.9e-13 | 8.0e-15 | 1.9e-15 | n/a | 5.4 | True / True | 3648-4298 | 5450 / 4906 | {'d2h_positions': 1.001} | None | 0 |
+| graphed_nodehybrid+embed+node_proto | water192 | 192 | F | 1000 (0.5) | 201 | 1.5e-13 | 5.1e-15 | 1.5e-15 | n/a | 4.6 | True / True | 6582-7004 | 10468 / 10288 | {'d2h_positions': 1.001} | None | 0 |
+| graphed_nodehybrid+embed+node_proto | water192_iso | 193 | F | 1000 (0.5) | 201 | 1.5e-13 | 4.7e-15 | 1.5e-15 | n/a | 4.6 | True / True | 6582-7004 | 10468 / 10288 | {'d2h_positions': 1.001} | None | 0 |
+| graphed_nodehybrid+embed+node_proto **NEG-CTRL drop_edge** | water192 | 192 | F | 20 (0.5) | 5 | 8.8e-04 | 4.2e-01 | 5.5e-02 | n/a | 3.7 | False / True | 6602-6634 | 180 / 212 | {'d2h_positions': 1.05} | 0 | 5 |
+| graphed_nodehybrid+embed+node_proto | water2187 | 2187 | F | 500 (0.5) | 51 | 1.1e-13 | 6.0e-15 | 1.4e-15 | n/a | 5.4 | True / True | 91836-99334 | 100726 / 108224 | {'d2h_positions': 1.002} | None | 0 |
+| graphed_nodehybrid+embed+node_proto | water648 | 648 | F | 1000 (0.5) | 201 | 9.0e-14 | 6.0e-15 | 1.5e-15 | n/a | 4.3 | True / True | 24330-26512 | 48706 / 50888 | {'d2h_positions': 1.001} | None | 0 |
+| graphed_nodehybrid+embed+node_proto | wbox192 | 192 | T | 1000 (0.5) | 201 | 1.5e-13 | 5.0e-15 | 1.6e-15 | 4.2e-17 | 4.2 | True / True | 9860-10632 | 18554 / 19138 | {'d2h_positions': 1.001} | None | 0 |
+| graphed_nodehybrid+embed+node_proto | wbox2187 | 2187 | T | 500 (0.5) | 51 | 1.1e-13 | 5.1e-15 | 1.5e-15 | 4.2e-17 | 4.8 | True / True | 113368-120698 | 137984 / 145194 | {'d2h_positions': 1.002} | None | 0 |
+| graphed_nodehybrid+embed+node_proto | wbox648 | 648 | T | 1000 (0.5) | 201 | 9.0e-14 | 6.7e-15 | 1.5e-15 | 3.5e-17 | 4.1 | True / True | 33324-35746 | 74890 / 77084 | {'d2h_positions': 1.001} | None | 0 |
+| stock_eager | water192 | 192 | F | 100 (0.5) | 21 | 1.5e-13 | 3.1e-15 | 1.0e-15 | n/a | 3.9 | True / True | 6582-6656 | 950 / 928 | {'d2h_positions': 1.01} | None | 0 |
+| stock_eager | wbox192 | 192 | T | 100 (0.5) | 21 | 1.5e-13 | 3.7e-15 | 1.1e-15 | 2.4e-17 | 3.1 | True / True | 10468-10632 | 1894 / 1958 | {'d2h_positions': 1.01} | None | 0 |
+
+isolated atom (gpustep_nodeext+embed+node_brute_graph): {'index': 192, 'max_abs_F_last': 0.0, 'ref_max_abs_F_last': 0.0, 'edges_touching': 0}
+
+isolated atom (gpustep_nodeext+embed+node_cell_graph): {'index': 192, 'max_abs_F_last': 0.0, 'ref_max_abs_F_last': 0.0, 'edges_touching': 0}
+
+isolated atom (graphed_nodehybrid+embed+node_proto): {'index': 192, 'max_abs_F_last': 0.0, 'ref_max_abs_F_last': 0.0, 'edges_touching': 0}
+
+## NVE drift (per atom)
+
+| run | provider | system | dt fs | steps | t ps | drift eV/atom/ps | block std | RMS fluct eV/atom | max-min | T start/end/mean K | ms/step (incl. snapshots) | job |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| gpustep_brute_water192_dt0.5 | gpustep_nodeext+embed+node_brute_graph | water192 | 0.5 | 4000 | 2.00 | -5.95e-06 | 1.9e-06 | 2.30e-05 | 3.9e-04 | 322/302/334 | 8.67 | 1098 |
+| gpustep_brute_wbox648_dt0.5 | gpustep_nodeext+embed+node_brute_graph | wbox648 | 0.5 | 4000 | 2.00 | -8.56e-06 | 3.3e-06 | 1.40e-05 | 2.9e-04 | 296/434/421 | 79.63 | 1098 |
+| gpustep_cell_water192_dt0.5 | gpustep_nodeext+embed+node_cell_graph | water192 | 0.5 | 4000 | 2.00 | -5.95e-06 | 1.9e-06 | 2.30e-05 | 3.9e-04 | 322/302/334 | 8.75 | 1107 |
+| gpustep_cell_wbox648_dt0.25 | gpustep_nodeext+embed+node_cell_graph | wbox648 | 0.25 | 8000 | 2.00 | -2.86e-06 | 1.1e-06 | 3.29e-06 | 7.0e-05 | 296/418/422 | 3.67 | 1107 |
+| gpustep_cell_wbox648_dt0.5 | gpustep_nodeext+embed+node_cell_graph | wbox648 | 0.5 | 4000 | 2.00 | -1.16e-05 | 4.7e-06 | 1.42e-05 | 2.9e-04 | 296/410/423 | 58.54 | 1107 |
+| graphed_water192_dt0.5 | graphed_nodehybrid+embed+node_proto | water192 | 0.5 | 4000 | 2.00 | -5.95e-06 | 1.9e-06 | 2.30e-05 | 3.9e-04 | 322/302/334 | 2.13 | 1077 |
+| graphed_wbox648_dt0.25 | graphed_nodehybrid+embed+node_proto | wbox648 | 0.25 | 8000 | 2.00 | -2.86e-06 | 1.1e-06 | 3.29e-06 | 7.0e-05 | 296/418/422 | 5.18 | 1077 |
+| graphed_wbox648_dt0.5 | graphed_nodehybrid+embed+node_proto | wbox648 | 0.5 | 4000 | 2.00 | -1.16e-05 | 4.7e-06 | 1.42e-05 | 2.9e-04 | 296/410/423 | 5.21 | 1077 |
+| rerun_gpustep_cell_water192_dt0.5 | gpustep_nodeext+embed+node_cell_graph | water192 | 0.5 | 4000 | 2.00 | -5.95e-06 | 1.9e-06 | 2.30e-05 | 3.9e-04 | 322/302/334 | 1.60 | 1127 |
+| rerun_gpustep_cell_wbox648_dt0.5 | gpustep_nodeext+embed+node_cell_graph | wbox648 | 0.5 | 4000 | 2.00 | -1.16e-05 | 4.7e-06 | 1.42e-05 | 2.9e-04 | 296/410/423 | 3.77 | 1127 |
+| stock_water192_dt0.5 | stock_eager | water192 | 0.5 | 4000 | 2.00 | -5.78e-06 | 1.8e-06 | 2.32e-05 | 3.9e-04 | 322/329/334 | 18.10 | 1076 |
+| stock_wbox648_dt0.25 | stock_eager | wbox648 | 0.25 | 8000 | 2.00 | -2.53e-06 | 1.2e-06 | 3.27e-06 | 7.0e-05 | 296/415/422 | 54.68 | 1076 |
+| stock_wbox648_dt0.5 | stock_eager | wbox648 | 0.5 | 4000 | 2.00 | -8.54e-06 | 4.2e-06 | 1.40e-05 | 2.9e-04 | 296/429/421 | 55.41 | 1076 |
+| Phase4 e3nn_dt0.5 (ASE) | | | 0.5 | 4000 | 2.00 | -5.99e-06 | 1.7e-06 | 2.35e-05 | 3.9e-04 | 322/350/- | | |
+| Phase4 e3nn_dt0.5_rerun (ASE) | | | 0.5 | 4000 | 2.00 | -6.02e-06 | 1.8e-06 | 2.35e-05 | 3.9e-04 | 322/354/- | | |
+| Phase4 flash_dt0.5 (ASE) | | | 0.5 | 4000 | 2.00 | -5.92e-06 | 1.7e-06 | 2.33e-05 | 3.9e-04 | 322/334/- | | |
+| Phase4 e3nn_dt0.25 (ASE) | | | 0.25 | 8000 | 2.00 | -1.33e-06 | 1.3e-06 | 5.97e-06 | 9.4e-05 | 322/333/- | | |
+| Phase4 w648_e3nn_dt0.5 (ASE) | | | 0.5 | 3000 | 1.50 | -9.02e-06 | 1.5e-06 | 1.59e-05 | 3.0e-04 | 296/398/- | | |
+
+## Neighbour-list changes along drift runs (pairs d < 5 A incl. periodic image; saved frames)
+
+- gpustep_brute_water192_dt0.5: directed edges 6380-7004, flips between consecutive saved frames (every 10 steps) = 79514
+- gpustep_brute_wbox648_dt0.5: directed edges 33202-35708, flips between consecutive saved frames (every 20 steps) = 523764
+- gpustep_cell_water192_dt0.5: directed edges 6380-7004, flips between consecutive saved frames (every 10 steps) = 79514
+- gpustep_cell_wbox648_dt0.25: directed edges 33152-35714, flips between consecutive saved frames (every 40 steps) = 516994
+- gpustep_cell_wbox648_dt0.5: directed edges 33112-35708, flips between consecutive saved frames (every 20 steps) = 525122
+- graphed_water192_dt0.5: directed edges 6380-7004, flips between consecutive saved frames (every 10 steps) = 79514
+- graphed_wbox648_dt0.25: directed edges 33152-35714, flips between consecutive saved frames (every 40 steps) = 516994
+- graphed_wbox648_dt0.5: directed edges 33112-35708, flips between consecutive saved frames (every 20 steps) = 525122
+- rerun_gpustep_cell_water192_dt0.5: directed edges 6380-7004, flips between consecutive saved frames (every 10 steps) = 79514
+- rerun_gpustep_cell_wbox648_dt0.5: directed edges 33112-35708, flips between consecutive saved frames (every 20 steps) = 525122
+- stock_water192_dt0.5: directed edges 6404-7004, flips between consecutive saved frames (every 10 steps) = 79498
+- stock_wbox648_dt0.25: directed edges 33186-35714, flips between consecutive saved frames (every 40 steps) = 517738
+- stock_wbox648_dt0.5: directed edges 33268-35708, flips between consecutive saved frames (every 20 steps) = 524514
+
+## GPU VV (stock provider) vs Phase-4 ASE VelocityVerlet (water192, dt 0.5, same start)
+
+{
+ "rmsd_A_at_ps": {
+  "0.005": 1.8200473016448653e-16,
+  "0.05": 3.555099463159806e-15,
+  "0.1": 8.948749410307197e-15,
+  "0.25": 1.2312350383724172e-13,
+  "0.5": 2.234284545799847e-11,
+  "1.0": 6.240096125774217e-07,
+  "1.5": 0.002674562705730277,
+  "2.0": 0.6278951114608472
+ },
+ "first_frame_rmsd": 1.8200473016448653e-16,
+ "step0_dEpot_per_atom": 1.5158245029548803e-13,
+ "dEpot_per_atom_first10": [
+  1.5158245029548803e-13,
+  1.5158245029548803e-13,
+  1.5158245029548803e-13,
+  0.0,
+  1.5158245029548803e-13,
+  0.0,
+  0.0,
+  1.5158245029548803e-13,
+  0.0,
+  0.0
+ ],
+ "lyapunov_per_ps": 19.910430572530032,
+ "phase4_e3nn_rerun_rmsd_at_ps": {
+  "0.005": 1.605625968213289e-16,
+  "0.05": 3.574902244500276e-15,
+  "0.1": 7.962106089382665e-15,
+  "0.25": 5.686913027892731e-14,
+  "0.5": 8.636604747811445e-12,
+  "1.0": 1.7278400000034407e-08,
+  "1.5": 0.0001268256112928839,
+  "2.0": 0.2795864247182223
+ },
+ "phase4_rerun_lambda": 17.001992293740617
+}
+
+## B3 sustained MD throughput (dt 0.5 fs; median of 4 blocks [min-max], ms/step)
+
+| system | N | pbc | provider | ms/step | atom-steps/s | ns/day | sync-audit syncs/step | explicit | peak MiB | setup s | job |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| water192 | 192 | F | stock | 17.219 [17.186-17.270] | 1.115e+04 | 2.51 | 38.2 | {'d2h_positions': 1.0} | 1238 | 0.63 | 1084 |
+| water192 | 192 | F | ase | 18.220 [18.189-18.296] | 1.054e+04 | 2.37 | 43.0 | {} | 1237 | 0.13 | 1084 |
+| water192 | 192 | F | graphed | 2.117 [2.116-2.143] | 9.068e+04 | 20.40 | 2.0 | {'d2h_positions': 1.0} | 838 | 18.30 | 1084 |
+| water648 | 648 | F | stock | 44.360 [44.267-44.494] | 1.461e+04 | 0.97 | 38.0 | {'d2h_positions': 1.0} | 4539 | 0.05 | 1084 |
+| water648 | 648 | F | ase | 45.863 [45.688-53.844] | 1.413e+04 | 0.94 | 43.0 | {} | 4542 | 0.05 | 1084 |
+| water648 | 648 | F | graphed | 3.633 [3.630-3.636] | 1.784e+05 | 11.89 | 2.0 | {'d2h_positions': 1.0} | 1258 | 0.60 | 1084 |
+| wbox648 | 648 | T | stock | 54.993 [54.960-55.172] | 1.178e+04 | 0.79 | 38.0 | {'d2h_positions': 1.0} | 5781 | 0.06 | 1084 |
+| wbox648 | 648 | T | ase | 56.331 [55.973-57.114] | 1.150e+04 | 0.77 | 43.0 | {} | 5784 | 0.06 | 1084 |
+| wbox648 | 648 | T | graphed | 5.171 [5.115-5.209] | 1.253e+05 | 8.35 | 4.0 | {'d2h_positions': 1.0} | 1578 | 0.88 | 1084 |
+| water2187 | 2187 | F | stock | 140.582 [139.696-145.719] | 1.556e+04 | 0.31 | 38.0 | {'d2h_positions': 1.0} | 16064 | 0.15 | 1084 |
+| water2187 | 2187 | F | ase | 143.919 [141.996-154.185] | 1.520e+04 | 0.30 | 43.0 | {} | 16073 | 0.16 | 1084 |
+| water2187 | 2187 | F | graphed | 10.185 [10.173-10.203] | 2.147e+05 | 4.24 | 2.0 | {'d2h_positions': 1.0} | 3852 | 0.65 | 1084 |
+| wbox2187 | 2187 | T | stock | 204.632 [204.133-207.612] | 1.069e+04 | 0.21 | 38.0 | {'d2h_positions': 1.0} | 18803 | 0.22 | 1084 |
+| wbox2187 | 2187 | T | ase | 207.021 [206.138-207.512] | 1.056e+04 | 0.21 | 43.0 | {} | 18814 | 0.21 | 1084 |
+| wbox2187 | 2187 | T | graphed | 18.828 [18.822-18.833] | 1.162e+05 | 2.29 | 8.0 | {'d2h_positions': 1.0} | 4645 | 0.69 | 1084 |
+| water5184 | 5184 | F | stock | 392.601 [391.395-395.047] | 1.320e+04 | 0.11 | 38.0 | {'d2h_positions': 1.0} | 39275 | 0.43 | 1084 |
+| water5184 | 5184 | F | ase | 397.596 [389.437-398.343] | 1.304e+04 | 0.11 | 43.0 | {} | 39295 | 0.44 | 1084 |
+| water5184 | 5184 | F | graphed | 23.097 [23.080-23.150] | 2.244e+05 | 1.87 | 2.0 | {'d2h_positions': 1.0} | 9085 | 0.71 | 1084 |
+| wbox5184 | 5184 | T | stock | 432.127 [426.190-436.003] | 1.200e+04 | 0.10 | 38.0 | {'d2h_positions': 1.0} | 44074 | 0.45 | 1084 |
+| wbox5184 | 5184 | T | ase | 437.770 [430.606-440.873] | 1.184e+04 | 0.10 | 43.0 | {} | 44099 | 0.44 | 1084 |
+| wbox5184 | 5184 | T | graphed | 66.669 [66.652-66.681] | 7.776e+04 | 0.65 | 30.0 | {'d2h_positions': 1.0} | 10412 | 0.80 | 1084 |
+| water192 | 192 | F | graphed | 2.124 [2.121-2.131] | 9.039e+04 | 20.34 | 2.1 | {'d2h_positions': 1.0} | 788 | 18.97 | 1113 |
+| water192 | 192 | F | gpustep | 1.594 [1.589-1.603] | 1.205e+05 | 27.11 | 0.0 | {'check': 0.1} | 950 | 0.78 | 1113 |
+| water192 | 192 | F | gpustep_cg | 1.585 [1.580-1.593] | 1.211e+05 | 27.26 | 0.0 | {'check': 0.1} | 980 | 0.81 | 1113 |
+| water648 | 648 | F | graphed | 3.614 [3.613-3.617] | 1.793e+05 | 11.95 | 2.0 | {'d2h_positions': 1.0} | 1337 | 0.64 | 1113 |
+| water648 | 648 | F | gpustep | 3.085 [3.075-3.096] | 2.100e+05 | 14.00 | 0.0 | {'check': 0.1} | 1434 | 0.60 | 1113 |
+| water648 | 648 | F | gpustep_cg | 3.080 [3.073-3.085] | 2.104e+05 | 14.03 | 0.0 | {'check': 0.1} | 1531 | 0.59 | 1113 |
+| wbox648 | 648 | T | graphed | 5.194 [5.186-5.215] | 1.248e+05 | 8.32 | 4.0 | {'d2h_positions': 1.0} | 1920 | 0.60 | 1113 |
+| wbox648 | 648 | T | gpustep | 3.755 [3.743-3.764] | 1.726e+05 | 11.50 | 0.0 | {'check': 0.1} | 1846 | 0.86 | 1113 |
+| wbox648 | 648 | T | gpustep_cg | 3.747 [3.736-3.756] | 1.729e+05 | 11.53 | 0.0 | {'check': 0.1} | 1944 | 0.69 | 1113 |
+| water2187 | 2187 | F | graphed | 10.075 [10.066-10.084] | 2.171e+05 | 4.29 | 2.0 | {'d2h_positions': 1.0} | 4220 | 0.62 | 1113 |
+| water2187 | 2187 | F | gpustep | 9.293 [9.284-9.303] | 2.353e+05 | 4.65 | 0.0 | {'check': 0.1} | 4314 | 0.66 | 1113 |
+| water2187 | 2187 | F | gpustep_cg | 9.293 [9.288-9.309] | 2.354e+05 | 4.65 | 0.0 | {'check': 0.1} | 4426 | 0.68 | 1113 |
+| wbox2187 | 2187 | T | graphed | 18.838 [18.833-18.855] | 1.161e+05 | 2.29 | 8.0 | {'d2h_positions': 1.0} | 5222 | 0.69 | 1113 |
+| wbox2187 | 2187 | T | gpustep | 10.830 [10.818-10.834] | 2.019e+05 | 3.99 | 0.0 | {'check': 0.1} | 5092 | 1.14 | 1113 |
+| wbox2187 | 2187 | T | gpustep_cg | 10.819 [10.812-10.824] | 2.021e+05 | 3.99 | 0.0 | {'check': 0.1} | 5192 | 0.85 | 1113 |
+| water5184 | 5184 | F | graphed | 23.334 [23.287-23.386] | 2.222e+05 | 1.85 | 2.0 | {'d2h_positions': 1.0} | 9638 | 0.70 | 1113 |
+| water5184 | 5184 | F | gpustep | 21.516 [21.481-21.532] | 2.409e+05 | 2.01 | 0.0 | {'check': 0.1} | 9728 | 0.85 | 1113 |
+| water5184 | 5184 | F | gpustep_cg | 21.514 [21.473-21.521] | 2.410e+05 | 2.01 | 0.0 | {'check': 0.1} | 9826 | 0.99 | 1113 |
+| wbox5184 | 5184 | T | graphed | 66.784 [66.715-67.156] | 7.762e+04 | 0.65 | 30.0 | {'d2h_positions': 1.0} | 11162 | 0.77 | 1113 |
+| wbox5184 | 5184 | T | gpustep | 24.126 [24.116-24.157] | 2.149e+05 | 1.79 | 0.0 | {'check': 0.1} | 11029 | 1.44 | 1113 |
+| wbox5184 | 5184 | T | gpustep_cg | 24.126 [24.104-24.168] | 2.149e+05 | 1.79 | 0.0 | {'check': 0.1} | 11128 | 0.90 | 1113 |

@@ -1,0 +1,74 @@
+SLURM_JOB_ID=1031 host=slurm-h100-206-077 date=2026-11-10T03:43:49+00:00
+index, name, uuid, clocks.current.sm [MHz]
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 585 MHz
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+{
+ "job": "1031",
+ "host": "slurm-h100-206-077",
+ "torch": "2.11.0+cu128",
+ "gpu": "NVIDIA H100 80GB HBM3",
+ "build_s": 43.170286417007446,
+ "sh": "SphericalHarmonics()",
+ "radial": "RadialEmbeddingBlock(\n  (bessel_fn): BesselBasis(r_max=5.0, num_basis=8, trainable=False)\n  (cutoff_fn): PolynomialCutoff(p=5.0, r_max=5.0)\n)",
+ "radial_cfg": {
+  "w": [
+   0.6283185307179586,
+   1.2566370614359172,
+   1.8849555921538759,
+   2.5132741228718345,
+   3.141592653589793,
+   3.7699111843077517,
+   4.39822971502571,
+   5.026548245743669
+  ],
+  "pref": 0.6324555320336759,
+  "rmax": 5.0,
+  "p": 5,
+  "has_dt": false,
+  "apply_cutoff": null
+ }
+}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/fuse7_embed/test_embed.py:68: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  r["sh_max_abs"] = float((a1 - a2).abs().max()) if E else 0.0
+OP H2O {"E": 6, "sh_max_abs": 0.0, "rad_max_abs": 0.0, "grad_max_abs": 2.7755575615628914e-15, "grad_max_rel": 3.375901304119518e-15, "grad_rel_norm": 1.859470864116633e-16, "grad_sh_max_abs": 3.1086244689504383e-15, "grad_rad_max_abs": 1.5543122344752192e-15, "grad_rad_max_rel_norm": 3.924711466883349e-16, "ok": true}
+OP aspirin {"E": 302, "sh_max_abs": 0.0, "rad_max_abs": 0.0, "grad_max_abs": 4.773959005888173e-15, "grad_max_rel": 1.788579778061438e-12, "grad_rel_norm": 2.3218736185543745e-16, "grad_sh_max_abs": 3.1086244689504383e-15, "grad_rad_max_abs": 5.218048215738236e-15, "grad_rad_max_rel_norm": 4.848822434450191e-16, "ok": true}
+OP water648 {"E": 26550, "sh_max_abs": 2.6645352591003757e-15, "rad_max_abs": 0.0, "grad_max_abs": 1.0658141036401503e-14, "grad_max_rel": 8.390155827319e-12, "grad_rel_norm": 3.2535730935322997e-16, "grad_sh_max_abs": 1.509903313490213e-14, "grad_rad_max_abs": 5.0411064211886014e-15, "grad_rad_max_rel_norm": 6.768688302027628e-16, "ok": true}
+OP wbox648 {"E": 35698, "sh_max_abs": 2.6645352591003757e-15, "rad_max_abs": 1.5959455978986625e-16, "grad_max_abs": 1.0658141036401503e-14, "grad_max_rel": 2.0658782415448265e-11, "grad_rel_norm": 3.419255766893998e-16, "grad_sh_max_abs": 1.0658141036401503e-14, "grad_rad_max_abs": 5.7870375158586285e-15, "grad_rad_max_rel_norm": 7.732841480242267e-16, "ok": true}
+OP random_0.5_5 {"E": 20000, "sh_max_abs": 2.4424906541753444e-15, "rad_max_abs": 0.0, "grad_max_abs": 2.1316282072803006e-14, "grad_max_rel": 1.736686013240128e-11, "grad_rel_norm": 3.051794211850891e-16, "grad_sh_max_abs": 2.1316282072803006e-14, "grad_rad_max_abs": 7.105427357601002e-15, "grad_rad_max_rel_norm": 2.6126769549550323e-16, "ok": true}
+OP near_rmax {"E": 2000, "sh_max_abs": 2.220446049250313e-15, "rad_max_abs": 0.0, "grad_max_abs": 2.6645352591003757e-15, "grad_max_rel": 3.1848120361622313e-12, "grad_rel_norm": 3.176500107387748e-16, "grad_sh_max_abs": 2.6645352591003757e-15, "grad_rad_max_abs": 6.946483319114627e-16, "grad_rad_max_rel_norm": 6.892993547660251e-13, "ok": true}
+OP at_and_beyond_rmax {"E": 4, "sh_max_abs": 2.220446049250313e-16, "rad_max_abs": 0.0, "grad_max_abs": 8.881784197001252e-16, "grad_max_rel": 1.0129119958508755e-14, "grad_rel_norm": 4.0482995616129907e-16, "grad_sh_max_abs": 8.881784197001252e-16, "grad_rad_max_abs": 0.0, "grad_rad_max_rel_norm": 0.0, "ok": true}
+OP axes {"E": 6, "sh_max_abs": 0.0, "rad_max_abs": 0.0, "grad_max_abs": 1.7763568394002505e-15, "grad_max_rel": 1.6230143654023947e-15, "grad_rel_norm": 1.3585523818562423e-16, "grad_sh_max_abs": 1.7763568394002505e-15, "grad_rad_max_abs": 8.881784197001252e-16, "grad_rad_max_rel_norm": 2.3181451523965973e-16, "ok": true}
+OP E0 {"E": 0, "sh_max_abs": 0.0, "rad_max_abs": 0.0, "shapes": [[0, 16], [0, 8], [0, 3]], "ok": true}
+GRADCHECK {'sh': True, 'radial': True, 'double_backward': 'raises: element 0 of tensors does not require grad and does not have a grad_fn'}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/profiler/profiler.py:224: UserWarning: Warning: Profiler clears events at the end of each cycle.Only events from the current cycle will be reported.To keep events across cycles, set acc_events=True.
+  _warn_once(
+BENCH aspirin {"E": 302, "eager_e3nn_fwd_eager_ms": 0.34966878592967987, "eager_e3nn_fwd_graph_ms": 0.09270399808883667, "eager_e3nn_fwd_kernels": 54, "eager_e3nn_fwd_kernel_ms": 0.08745699999999942, "eager_e3nn_fwdbwd_eager_ms": 1.6555096954107285, "eager_e3nn_fwdbwd_graph_ms": 0.2921920120716095, "eager_e3nn_fwdbwd_kernels": 168, "eager_e3nn_fwdbwd_kernel_ms": 0.2706369999999987, "fused_fwd_eager_ms": 0.052976422011852264, "fused_fwd_graph_ms": 0.017472000792622566, "fused_fwd_kernels": 3, "fused_fwd_kernel_ms": 0.010686999999999969, "fused_fwdbwd_eager_ms": 0.20919833332300186, "fused_fwdbwd_graph_ms": 0.035999998450279236, "fused_fwdbwd_kernels": 10, "fused_fwdbwd_kernel_ms": 0.029215000000000428}
+BENCH water648 {"E": 26550, "eager_e3nn_fwd_eager_ms": 0.48753153532743454, "eager_e3nn_fwd_graph_ms": 0.11711999773979187, "eager_e3nn_fwd_kernels": 54, "eager_e3nn_fwd_kernel_ms": 0.1042869999999997, "eager_e3nn_fwdbwd_eager_ms": 1.7938120290637016, "eager_e3nn_fwdbwd_graph_ms": 0.38895998895168304, "eager_e3nn_fwdbwd_kernels": 168, "eager_e3nn_fwdbwd_kernel_ms": 0.33170900000000425, "fused_fwd_eager_ms": 0.05201157182455063, "fused_fwd_graph_ms": 0.025456000119447708, "fused_fwd_kernels": 3, "fused_fwd_kernel_ms": 0.018143999999999893, "fused_fwdbwd_eager_ms": 0.21079927682876587, "fused_fwdbwd_graph_ms": 0.04593599960207939, "fused_fwdbwd_kernels": 10, "fused_fwdbwd_kernel_ms": 0.03862400000000048}
+BENCH wbox648 {"E": 35698, "eager_e3nn_fwd_eager_ms": 0.48885494470596313, "eager_e3nn_fwd_graph_ms": 0.12257600203156471, "eager_e3nn_fwd_kernels": 54, "eager_e3nn_fwd_kernel_ms": 0.11052899999999993, "eager_e3nn_fwdbwd_eager_ms": 1.7847996205091476, "eager_e3nn_fwdbwd_graph_ms": 0.40593600273132324, "eager_e3nn_fwdbwd_kernels": 168, "eager_e3nn_fwdbwd_kernel_ms": 0.35227699999999956, "fused_fwd_eager_ms": 0.051734037697315216, "fused_fwd_graph_ms": 0.02956799976527691, "fused_fwd_kernels": 3, "fused_fwd_kernel_ms": 0.02297599999999994, "fused_fwdbwd_eager_ms": 0.208941288292408, "fused_fwdbwd_graph_ms": 0.05196800082921982, "fused_fwdbwd_kernels": 10, "fused_fwdbwd_kernel_ms": 0.04492800000000005}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+GRAPH {'water648': {'replay_max_abs_err': [1.0658141036401503e-14, 1.0658141036401503e-14, 1.0658141036401503e-14], 'ok': True}}
+MODEL H2O {"N": 3, "E_ref": -2081.11639716893, "dE_per_atom": 0.0, "max_dF": 1.6653345369377348e-16, "rms_dF": 9.064933036736789e-17, "ok": true}
+MODEL aspirin {"N": 21, "E_ref": -17663.67762117525, "dE_per_atom": 0.0, "max_dF": 1.942890293094024e-15, "rms_dF": 5.581040762848166e-16, "ok": true}
+MODEL water648 {"N": 648, "E_ref": -449526.0097505329, "dE_per_atom": 0.0, "max_dF": 3.0253577421035516e-15, "rms_dF": 6.726357619024029e-16, "ok": true}
+MODEL wbox648 {"N": 648, "E_ref": -449581.55667362764, "dE_per_atom": 0.0, "max_dF": 3.4555691641457997e-15, "rms_dF": 6.748677872851371e-16, "max_dstress": 9.974659986866641e-18, "ok": true}
+MODEL single_C {"N": 1, "E_ref": -1030.5671648271828, "dE_per_atom": 0.0, "max_dF": 0.0, "rms_dF": 0.0, "ok": true}
+MODEL O2_20A {"N": 2, "E_ref": -4087.867386142312, "dE_per_atom": 0.0, "max_dF": 0.0, "rms_dF": 0.0, "ok": true}
+MODEL water648_perturbed {"N": 648, "E_ref": -449467.6024514892, "dE_per_atom": 0.0, "max_dF": 8.881784197001252e-15, "rms_dF": 9.732139734822446e-16, "ok": true}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/fuse7_embed/test_embed.py:250: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/fuse7_embed/test_2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ALL_OK
+rc=0

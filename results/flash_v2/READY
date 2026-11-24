@@ -1,0 +1,44 @@
+FlashTP v2 READY. All tests (core + extra) passed under global default float32 AND float64.
+SLURM job 1006, H100 GPU-3ef4e875-4571-3cea-d408-241db662acb5. Results: results/flash_v2/test_{core,extra}_default_{float32,float64}.json
+Log: logs/flash_v2/run_all_1.log. Limitations/design choices: scripts/flash_v2/LIMITATIONS.md
+
+Modules:
+  $R/scripts/flash_v2/flashtp_adapter_v2.py   FlashConv, install/uninstall/is_installed, AdapterError
+  $R/scripts/flash_v2/hybrid_v2.py            build_calc(model_path, device="cuda", conv="flashtp"|"e3nn", sc="cueq"|"e3nn",
+                                              dtype=torch.float64, check_indices=True) -> (calc, info); describe(model)
+FlashTP source: $R/src/flashTP-cgpatch (0e4d820). CG precision follows dtype. The .so files are untracked symlinks into $R/venv.
+
+Shell recipe (inside an srun job; see scripts/flash_v2/run_v2.sh):
+  source /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/env.sh
+  SP=$R/venv-cueq/lib/python3.11/site-packages
+  export LD_LIBRARY_PATH=$SP/nvidia/cuda_nvrtc/lib:$SP/nvidia/cublas/lib:$SP/nvidia/cuda_runtime/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+  export TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1
+  $R/venv-cueq/bin/python -I your_script.py   # -I leaves the script dir off sys.path, so insert paths explicitly
+
+Python (import hybrid_v2 BEFORE anything else imports flashTP_e3nn; it raises ImportError if another copy is already loaded):
+  import os, sys, torch; R = os.environ["R"]
+  sys.path.insert(0, f"{R}/scripts/flash_v2")
+  import hybrid_v2 as HB      # puts $R/src/flashTP-cgpatch at sys.path[0] and asserts flashTP_e3nn.__file__ is there
+  M = f"{R}/models/MACE-OFF23_medium.model"
+  # 1. e3nn reference (fp64)
+  calc, info = HB.build_calc(M, conv="e3nn", sc="e3nn")
+  # 2. FlashTP-FP64CG (FlashTP conv_tp+scatter, e3nn SymmetricContraction)
+  calc, info = HB.build_calc(M, conv="flashtp", sc="e3nn")
+  # 3. cueq (stock MACE)
+  from mace.calculators import MACECalculator
+  calc = MACECalculator(model_paths=M, device="cuda", default_dtype="float64", compute_stress=False, enable_cueq=True)
+  # 4. hybrid (FlashTP conv + cuEquivariance SymmetricContraction)
+  calc, info = HB.build_calc(M, conv="flashtp", sc="cueq")
+  model = calc.models[0]   # info["backend_map"], info["flash_cg"], info["cueq_sc"]
+
+Notes:
+- build_calc never changes torch's global default dtype and works under either default. The dtype argument sets the model and FlashTP dtype.
+- At build time it asserts that the FlashTP CG table is fp64, contains values not representable in fp32, and matches e3nn's fp64 wigner_3j to within 1e-14 (measured 7e-16).
+- Zero-edge graphs (single atom, all atoms > r_max apart, batches with E=0) return zeros without launching the kernel. Forces are 0 and energies equal e3nn's.
+- check_indices=True adds one aminmax and one host sync per layer per call. Pass build_calc(..., check_indices=False) for timing runs; for those runs, report which setting you used.
+- Use one calc/model per thread and stream. TorchScript, torch.compile and LAMMPS are not supported.
+- While FlashTP is installed, torch.save(model) and deepcopy(model) raise AdapterError. model.state_dict() is safe and returns the stock keys.
+- FA = HB.FA; FA.uninstall(model) is idempotent.
+- Parity vs e3nn, worst case over 3 geometries x {H2O, water192, water648} x both defaults, for both flash and hybrid:
+  |dE|/atom <= 1.5e-13 eV; max|dF| <= 7.1e-15 eV/A; RMS|dF| <= 1.2e-15 eV/A.
+  Repeat variation on the same geometry was 0 for all backends in these runs. That is not guaranteed: the kernels use atomics.

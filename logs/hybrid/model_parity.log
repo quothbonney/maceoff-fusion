@@ -1,0 +1,502 @@
+srun: job 992 queued and waiting for resources
+srun: job 992 has been allocated resources
+SLURM_JOB_ID=992 host=slurm-h100-206-077 date=2026-11-09T00:53:09+00:00
+index, name, uuid
+0, NVIDIA H100 80GB HBM3, GPU-edefc586-3f13-ab62-907d-ba075a79f443
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:89: DeprecationWarning: `torch.jit.save` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/modules/models.py:87: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/modules/models.py:87: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+H2O {
+ "e3nn": {
+  "fixed": {
+   "dE_per_atom": 0.0,
+   "max_dF": 2.220446049250313e-16,
+   "rms_dF": 9.435081445006127e-17
+  },
+  "repeat": {
+   "max_dE": 0.0,
+   "max_dF": 2.220446049250313e-16,
+   "bitwise": false
+  },
+  "seq": {
+   "dE_per_atom": 0.0,
+   "max_dF": 0.0,
+   "rms_dF": 0.0
+  }
+ },
+ "hybrid": {
+  "fixed": {
+   "dE_per_atom": 0.0,
+   "max_dF": 1.3322676295501878e-15,
+   "rms_dF": 6.153703157528312e-16
+  },
+  "repeat": {
+   "max_dE": 0.0,
+   "max_dF": 0.0,
+   "bitwise": true
+  },
+  "seq": {
+   "dE_per_atom": 0.0,
+   "max_dF": 3.552713678800501e-15,
+   "rms_dF": 1.5198924486865216e-15
+  }
+ },
+ "flashtp_fp64cg_only": {
+  "fixed": {
+   "dE_per_atom": 0.0,
+   "max_dF": 4.440892098500626e-16,
+   "rms_dF": 2.496287910312615e-16
+  },
+  "repeat": {
+   "max_dE": 0.0,
+   "max_dF": 0.0,
+   "bitwise": true
+  },
+  "seq": {
+   "dE_per_atom": 0.0,
+   "max_dF": 2.6645352591003757e-15,
+   "rms_dF": 1.2272758231967587e-15
+  }
+ },
+ "cueq_only": {
+  "fixed": {
+   "dE_per_atom": 0.0,
+   "max_dF": 6.106226635438361e-16,
+   "rms_dF": 3.257915578362045e-16
+  },
+  "repeat": {
+   "max_dE": 0.0,
+   "max_dF": 0.0,
+   "bitwise": true
+  },
+  "seq": {
+   "dE_per_atom": 0.0,
+   "max_dF": 2.6645352591003757e-15,
+   "rms_dF": 1.4749557125532158e-15
+  }
+ }
+} {'n_edges': [6, 6, 6, 6, 6, 6], 'edges_changed_vs_prev': [0, 0, 0, 0, 0]}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+water192 {
+ "e3nn": {
+  "fixed": {
+   "dE_per_atom": 1.5158245029548803e-13,
+   "max_dF": 2.4424906541753444e-15,
+   "rms_dF": 5.658457635886298e-16
+  },
+  "repeat": {
+   "max_dE": 2.9103830456733704e-11,
+   "max_dF": 2.4424906541753444e-15,
+   "bitwise": false
+  },
+  "seq": {
+   "dE_per_atom": 0.0,
+   "max_dF": 0.0,
+   "rms_dF": 0.0
+  }
+ },
+ "hybrid": {
+  "fixed": {
+   "dE_per_atom": 1.5158245029548803e-13,
+   "max_dF": 4.107825191113079e-15,
+   "rms_dF": 9.396426111819477e-16
+  },
+  "repeat": {
+   "max_dE": 0.0,
+   "max_dF": 2.4424906541753444e-15,
+   "bitwise": false
+  },
+  "seq": {
+   "dE_per_atom": 1.5158245029548803e-13,
+   "max_dF": 1.4210854715202004e-14,
+   "rms_dF": 1.659189125048187e-15
+  }
+ },
+ "flashtp_fp64cg_only": {
+  "fixed": {
+   "dE_per_atom": 1.5158245029548803e-13,
+   "max_dF": 3.4416913763379853e-15,
+   "rms_dF": 7.996737498205749e-16
+  },
+  "repeat": {
+   "max_dE": 2.9103830456733704e-11,
+   "max_dF": 2.4424906541753444e-15,
+   "bitwise": false
+  },
+  "seq": {
+   "dE_per_atom": 1.5158245029548803e-13,
+   "max_dF": 1.2434497875801753e-14,
+   "rms_dF": 1.6830641377236892e-15
+  }
+ },
+ "cueq_only": {
+  "fixed": {
+   "dE_per_atom": 1.5158245029548803e-13,
+   "max_dF": 5.329070518200751e-15,
+   "rms_dF": 9.411137021712994e-16
+  },
+  "repeat": {
+   "max_dE": 0.0,
+   "max_dF": 2.4980018054066022e-15,
+   "bitwise": false
+  },
+  "seq": {
+   "dE_per_atom": 0.0,
+   "max_dF": 3.197442310920451e-14,
+   "rms_dF": 2.603855163340006e-15
+  }
+ }
+} {'n_edges': [6634, 6632, 6618, 6602, 6612, 6622], 'edges_changed_vs_prev': [58, 62, 64, 54, 74]}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+water648 {
+ "e3nn": {
+  "fixed": {
+   "dE_per_atom": 0.0,
+   "max_dF": 3.4416913763379853e-15,
+   "rms_dF": 6.19726904136905e-16
+  },
+  "repeat": {
+   "max_dE": 0.0,
+   "max_dF": 3.4416913763379853e-15,
+   "bitwise": false
+  },
+  "seq": {
+   "dE_per_atom": 0.0,
+   "max_dF": 0.0,
+   "rms_dF": 0.0
+  }
+ },
+ "hybrid": {
+  "fixed": {
+   "dE_per_atom": 0.0,
+   "max_dF": 4.440892098500626e-15,
+   "rms_dF": 9.853646338279198e-16
+  },
+  "repeat": {
+   "max_dE": 0.0,
+   "max_dF": 2.831068712794149e-15,
+   "bitwise": false
+  },
+  "seq": {
+   "dE_per_atom": 8.982663721214106e-14,
+   "max_dF": 2.1316282072803006e-14,
+   "rms_dF": 1.5994744980893336e-15
+  }
+ },
+ "flashtp_fp64cg_only": {
+  "fixed": {
+   "dE_per_atom": 0.0,
+   "max_dF": 3.941291737419306e-15,
+   "rms_dF": 8.612752999861135e-16
+  },
+  "repeat": {
+   "max_dE": 0.0,
+   "max_dF": 3.3861802251067274e-15,
+   "bitwise": false
+  },
+  "seq": {
+   "dE_per_atom": 8.982663721214106e-14,
+   "max_dF": 2.4868995751603507e-14,
+   "rms_dF": 1.4982517117101936e-15
+  }
+ },
+ "cueq_only": {
+  "fixed": {
+   "dE_per_atom": 0.0,
+   "max_dF": 4.9960036108132044e-15,
+   "rms_dF": 9.865832584047075e-16
+  },
+  "repeat": {
+   "max_dE": 0.0,
+   "max_dF": 4.107825191113079e-15,
+   "bitwise": false
+  },
+  "seq": {
+   "dE_per_atom": 8.982663721214106e-14,
+   "max_dF": 4.263256414560601e-14,
+   "rms_dF": 2.2637351979216628e-15
+  }
+ }
+} {'n_edges': [26550, 26566, 26552, 26540, 26554, 26596], 'edges_changed_vs_prev': [304, 330, 308, 274, 302]}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+water1536 {
+ "e3nn": {
+  "fixed": {
+   "dE_per_atom": 0.0,
+   "max_dF": 3.1086244689504383e-15,
+   "rms_dF": 5.990539360824766e-16
+  },
+  "repeat": {
+   "max_dE": 0.0,
+   "max_dF": 3.1086244689504383e-15,
+   "bitwise": false
+  },
+  "seq": {
+   "dE_per_atom": 0.0,
+   "max_dF": 0.0,
+   "rms_dF": 0.0
+  }
+ },
+ "hybrid": {
+  "fixed": {
+   "dE_per_atom": 0.0,
+   "max_dF": 5.329070518200751e-15,
+   "rms_dF": 9.527610639840169e-16
+  },
+  "repeat": {
+   "max_dE": 0.0,
+   "max_dF": 3.774758283725532e-15,
+   "bitwise": false
+  },
+  "seq": {
+   "dE_per_atom": 0.0,
+   "max_dF": 1.2434497875801753e-14,
+   "rms_dF": 1.3559634300157595e-15
+  }
+ },
+ "flashtp_fp64cg_only": {
+  "fixed": {
+   "dE_per_atom": 0.0,
+   "max_dF": 5.10702591327572e-15,
+   "rms_dF": 8.451408004040816e-16
+  },
+  "repeat": {
+   "max_dE": 0.0,
+   "max_dF": 3.608224830031759e-15,
+   "bitwise": false
+  },
+  "seq": {
+   "dE_per_atom": 0.0,
+   "max_dF": 1.2434497875801753e-14,
+   "rms_dF": 1.2765475931877136e-15
+  }
+ },
+ "cueq_only": {
+  "fixed": {
+   "dE_per_atom": 0.0,
+   "max_dF": 4.440892098500626e-15,
+   "rms_dF": 9.532717359974015e-16
+  },
+  "repeat": {
+   "max_dE": 0.0,
+   "max_dF": 2.6645352591003757e-15,
+   "bitwise": false
+  },
+  "seq": {
+   "dE_per_atom": 1.5158245029548803e-13,
+   "max_dF": 3.552713678800501e-14,
+   "rms_dF": 1.8450877638637395e-15
+  }
+ }
+} {'n_edges': [67960, 67970, 67920, 67930, 67912, 67888], 'edges_changed_vs_prev': [742, 822, 782, 750, 824]}
+rc=0

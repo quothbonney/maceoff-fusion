@@ -1,0 +1,17 @@
+job=1097 host=slurm-h100-206-077 date=2026-11-10T05:36:12+00:00 args=dyncheck.py gpustep water2187,wbox2187 --steps 500 --every 10 --tag brute
+0, NVIDIA H100 80GB HBM3, GPU-061de6be-fae9-91f4-5990-bfea9ed265ca, 345 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+water2187 gpustep_nodeext+embed+node_brute_graph step 0 E=99334 dE/at=0.00e+00 maxdF=4.61e-15 dS=0.00e+00 eq=True ok=True
+water2187 gpustep_nodeext+embed+node_brute_graph step 200 E=96628 dE/at=0.00e+00 maxdF=4.22e-15 dS=0.00e+00 eq=True ok=True
+water2187 gpustep_nodeext+embed+node_brute_graph step 400 E=93420 dE/at=0.00e+00 maxdF=4.22e-15 dS=0.00e+00 eq=True ok=True
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE water2187 gpustep_nodeext+embed+node_brute_graph samples=51 fails=0 worst={'dE_per_atom': 1.0646119965883385e-13, 'max_dF': 5.828670879282072e-15, 'rms_dF': 1.4351398518553185e-15, 'dstress': 0.0, 'maxF': 5.42235787917568} edges_eq=True +100726/-108224 wall=93.3s
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+wbox2187 gpustep_nodeext+embed+node_brute_graph step 0 E=120698 dE/at=0.00e+00 maxdF=4.94e-15 dS=9.11e-18 eq=True ok=True
+wbox2187 gpustep_nodeext+embed+node_brute_graph step 200 E=117274 dE/at=0.00e+00 maxdF=4.88e-15 dS=1.30e-17 eq=True ok=True
+wbox2187 gpustep_nodeext+embed+node_brute_graph step 400 E=113960 dE/at=0.00e+00 maxdF=3.55e-15 dS=1.08e-17 eq=True ok=True
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE wbox2187 gpustep_nodeext+embed+node_brute_graph samples=51 fails=0 worst={'dE_per_atom': 1.0646119965883385e-13, 'max_dF': 5.329070518200751e-15, 'rms_dF': 1.4927123666794461e-15, 'dstress': 4.2934406030425976e-17, 'maxF': 4.829800487213282} edges_eq=True +137984/-145194 wall=219.1s
+0, GPU-061de6be-fae9-91f4-5990-bfea9ed265ca, 1980 MHz
+exit=0 date=2026-11-10T05:41:57+00:00

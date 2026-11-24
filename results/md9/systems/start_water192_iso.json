@@ -1,0 +1,12 @@
+{
+ "src": "water192 start + isolated O 30 A beyond +x extent, v=0",
+ "name": "water192_iso",
+ "n_atoms": 193,
+ "pbc": [
+  false,
+  false,
+  false
+ ],
+ "T_start_K": 320.3894419787196,
+ "slurm_job": "1068"
+}

@@ -1,0 +1,146 @@
+From 0e4d820cc292161051b8e95f1e9a32bcb8c8bc6b Mon Sep 17 00:00:00 2001
+From: maceoff-study review <review@localhost>
+Date: Mon, 9 Nov 2026 01:00:29 +0000
+Subject: [PATCH] Keep exact fp64 CG values in fp64 mode; CG precision follows
+ `dtype`
+
+Problem: with dtype=torch.float64 the fused kernels hold the CG table as
+`__constant__ double unique_cg_val[]`, but extract_cg_info() rounds every
+wigner_3j value to fp32 before building that table (to merge fp64 values that
+are equal up to rounding noise), and cgmat2fiber() looks values up through the
+same fp32 rounding. fp64 FlashTP is therefore only fp32-accurate in its CG
+coefficients (max |CG err| 1.0e-8..1.5e-8) and its outputs/derivatives agree
+with e3nn fp64 only to ~2e-8..2e-7 relative. In addition, wigner_3j() was
+called without a dtype, so the CG precision depended on
+torch.get_default_dtype() rather than on the `dtype` argument.
+
+Fix (fp64 only; the fp32 path is unchanged):
+- extract_cg_info(): for dtype=float64 take wigner_3j(..., dtype=float64),
+  merge values that agree within 1e-12 (_dedup_cg_fp64) and snap every CG
+  matrix entry to its table representative.
+- cgmat2fiber() (large, large_lammps, extcg): look the value up in
+  `self.dtype` instead of fp32 (identical for fp32).
+
+Tolerance: for all l1,l2,l3 <= 6, mathematically equal e3nn fp64 values
+differ by <= 8.9e-16 while the smallest gap between distinct values is
+5.5e-6 (1.3e-4 for l <= 5). Unique-value counts, and hence the
+large/extcg (256-entry uint8) path selection, are unchanged for every
+ir_config (e.g. 340 for nequip 4_32_5 L1).
+
+Evidence (H100, 4096 random edges, unsorted dst, ref = e3nn fp64; worst
+max-abs-err / max|ref| over out, 1st and 2nd derivatives):
+  mace/medium L0       1.9e-8 -> 1.4e-15  (out 1.7e-8 -> 1.3e-15)
+  mace/medium L1       1.6e-7 -> 5.4e-15  (out 2.6e-8 -> 2.0e-15)
+  sevennet-l3i5 L1     1.6e-7 -> 2.3e-14  (out 1.7e-8 -> 2.3e-15)
+  nequip 4_32_5 L1     2.0e-7 -> 2.5e-8   (extcg; remaining error is a
+                       separate `float reg_w_path_norm` in
+                       sptp_exp_opt_extcg/fwd_sptp_linear_v2_shared_exp_double.cu)
+Results are identical with torch default dtype float32 or float64.
+fp32: CG table, fiber arrays and all module metadata are bitwise identical
+to upstream; example/flashTP_test.py passes in fp32 and fp64.
+---
+ flashTP_e3nn/flashTP.py                       | 43 ++++++++++++++++---
+ .../fused_e3nn_exp_opt_extcg.py               |  2 +-
+ .../fused_e3nn_exp_opt_large.py               |  2 +-
+ .../fused_e3nn_exp_opt_large_lammps.py        |  2 +-
+ 4 files changed, 40 insertions(+), 9 deletions(-)
+
+diff --git a/flashTP_e3nn/flashTP.py b/flashTP_e3nn/flashTP.py
+index 285413d..3efd859 100644
+--- a/flashTP_e3nn/flashTP.py
++++ b/flashTP_e3nn/flashTP.py
+@@ -132,15 +132,46 @@ def extract_cg_info(i_in1, i_in2, uvuv_i_out, instructions, dtype):
+         mul_in2, ir_in2 = i_in2[j]
+         mul_out, ir_out = uvuv_i_out[k]
+ 
+-        cg = e3nn.o3.wigner_3j(ir_in1.l, ir_in2.l, ir_out.l)
++        if dtype == torch.float64:
++            # The fp64 kernels hold the CG table as `__constant__ double`, so keep the CG values in
++            # fp64 (independent of torch's default dtype) instead of rounding them to fp32.
++            # Mathematically equal values are merged by _dedup_cg_fp64 below.
++            cg = e3nn.o3.wigner_3j(ir_in1.l, ir_in2.l, ir_out.l, dtype=torch.float64)
++            unique_cg += cg.unique().tolist()
++        else:
++            cg = e3nn.o3.wigner_3j(ir_in1.l, ir_in2.l, ir_out.l)
+ 
+-        # For fp64 there are small difference between same values due to floating point problem.
+-        # This increase the number of unique values unnecessarily.
+-        # We remove it by converting it to fp32 then back to target datatype
+-        cg_fp32 = cg.to(torch.float32)
+-        unique_cg += cg_fp32.unique().to(dtype).tolist()
++            # For fp64 there are small difference between same values due to floating point problem.
++            # This increase the number of unique values unnecessarily.
++            # We remove it by converting it to fp32 then back to target datatype
++            cg_fp32 = cg.to(torch.float32)
++            unique_cg += cg_fp32.unique().to(dtype).tolist()
+ 
+         unique_cg_mat[f"{ir_in1.l}_{ir_in2.l}_{ir_out.l}"] = cg
+ 
++    if dtype == torch.float64:
++        unique_cg, unique_cg_mat = _dedup_cg_fp64(unique_cg, unique_cg_mat)
+ 
+     return unique_cg, unique_cg_mat
++
++
++# Mathematically equal fp64 wigner_3j values differ by <= 9e-16, while the smallest gap between
++# distinct values is 1.3e-4 for l <= 5 (5.5e-6 for l <= 6), so 1e-12 merges only rounding noise.
++_CG_FP64_DEDUP_TOL = 1e-12
++
++
++def _dedup_cg_fp64(values, cg_mats, tol=_CG_FP64_DEDUP_TOL):
++    """Merge fp64 CG values equal up to `tol` and snap every CG matrix entry to its representative,
++    so the exact table lookup in cgmat2fiber finds it."""
++    reps = []
++    for v in sorted(set(values)):
++        if not reps or v - reps[-1] > tol:
++            reps.append(v)
++    t_reps = torch.tensor(reps, dtype=torch.float64)
++    snapped = {}
++    for key, cg in cg_mats.items():
++        dist = (cg.unsqueeze(-1) - t_reps).abs()
++        idx = dist.argmin(dim=-1)
++        assert bool((dist.gather(-1, idx.unsqueeze(-1)) <= tol).all())
++        snapped[key] = torch.where(cg == 0, cg, t_reps[idx])
++    return reps, snapped
+diff --git a/flashTP_e3nn/sptp_exp_opt_extcg/fused_e3nn_exp_opt_extcg.py b/flashTP_e3nn/sptp_exp_opt_extcg/fused_e3nn_exp_opt_extcg.py
+index 909976e..b3995f4 100644
+--- a/flashTP_e3nn/sptp_exp_opt_extcg/fused_e3nn_exp_opt_extcg.py
++++ b/flashTP_e3nn/sptp_exp_opt_extcg/fused_e3nn_exp_opt_extcg.py
+@@ -868,7 +868,7 @@ class fused_uvu_TP_exp_opt_extcg(torch.nn.Module):
+                 f"{self.i_in1[inst.i_in1][1].l}_{self.i_in2[inst.i_in2][1].l}_{self.i_out[inst.i_out][1].l}"
+             ]
+             for i, j, k in path_cg.nonzero():
+-                cg_idx = self.unique_cg_val.index(path_cg[i, j, k].to(torch.float32))
++                cg_idx = self.unique_cg_val.index(path_cg[i, j, k].to(self.dtype))
+                 per_path_fiber_array.append([i.item(), j.item(), k.item(), cg_idx])
+             per_path_fiber_start.append(len(per_path_fiber_array))
+ 
+diff --git a/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py b/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py
+index 97926db..e467a63 100644
+--- a/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py
++++ b/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large.py
+@@ -797,7 +797,7 @@ class fused_uvu_TP_exp_opt_large(torch.nn.Module):
+                 f"{self.i_in1[inst.i_in1][1].l}_{self.i_in2[inst.i_in2][1].l}_{self.i_out[inst.i_out][1].l}"
+             ]
+             for i, j, k in path_cg.nonzero():
+-                cg_idx = self.unique_cg_val.index(path_cg[i, j, k].to(torch.float32))
++                cg_idx = self.unique_cg_val.index(path_cg[i, j, k].to(self.dtype))
+                 per_path_fiber_array.append([i.item(), j.item(), k.item(), cg_idx])
+             per_path_fiber_start.append(len(per_path_fiber_array))
+ 
+diff --git a/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large_lammps.py b/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large_lammps.py
+index 4708ef4..d0ba1a6 100644
+--- a/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large_lammps.py
++++ b/flashTP_e3nn/sptp_exp_opt_large/fused_e3nn_exp_opt_large_lammps.py
+@@ -326,7 +326,7 @@ class fused_uvu_TP_exp_opt_large_lammps(torch.nn.Module):
+                 f"{self.i_in1[inst.i_in1][1].l}_{self.i_in2[inst.i_in2][1].l}_{self.i_out[inst.i_out][1].l}"
+             ]
+             for i, j, k in path_cg.nonzero():
+-                cg_idx = self.unique_cg_val.index(path_cg[i, j, k].to(torch.float32))
++                cg_idx = self.unique_cg_val.index(path_cg[i, j, k].to(self.dtype))
+                 per_path_fiber_array.append([i.item(), j.item(), k.item(), cg_idx])
+             per_path_fiber_start.append(len(per_path_fiber_array))
+ 
+-- 
+2.34.1
+

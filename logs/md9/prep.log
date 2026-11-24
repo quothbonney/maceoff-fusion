@@ -1,0 +1,23 @@
+job=1068 host=slurm-h100-206-077 date=2026-11-10T05:22:21+00:00 args=prep9.py water192,water648,aspirin,org192,org648,wbox192,wbox648,water192_iso,org192_rev,water2187,wbox2187,water5184,wbox5184
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+{'src': 'results/md/start_water192.npz (Phase 4 start: 30 FIRE e3nn + MB300 seed 20261109)', 'name': 'water192', 'n_atoms': 192, 'pbc': [False, False, False], 'T_start_K': np.float64(322.05813698902546), 'slurm_job': '1068'}
+{'src': 'results/md/start_water648.npz (Phase 4 start: 30 FIRE e3nn + MB300 seed 20261109)', 'name': 'water648', 'n_atoms': 648, 'pbc': [False, False, False], 'T_start_K': np.float64(295.5325953613855), 'slurm_job': '1068'}
+  MaxwellBoltzmannDistribution(a, temperature_K=300, rng=np.random.RandomState(SEED))
+{'src': 'results/workloads/systems/aspirin.extxyz (already 30 FIRE e3nn fp64)', 'mb_seed': 20261109, 'name': 'aspirin', 'n_atoms': 21, 'pbc': [False, False, False], 'T_start_K': np.float64(265.57780606757746), 'slurm_job': '1068'}
+{'src': 'results/workloads/systems/org192.extxyz (already 30 FIRE e3nn fp64)', 'mb_seed': 20261109, 'name': 'org192', 'n_atoms': 196, 'pbc': [False, False, False], 'T_start_K': np.float64(322.0510844344244), 'slurm_job': '1068'}
+{'src': 'results/workloads/systems/org648.extxyz (already 30 FIRE e3nn fp64)', 'mb_seed': 20261109, 'name': 'org648', 'n_atoms': 650, 'pbc': [False, False, False], 'T_start_K': np.float64(295.542865267185), 'slurm_job': '1068'}
+{'src': 'results/workloads/systems/wbox192.extxyz (already 30 FIRE e3nn fp64)', 'mb_seed': 20261109, 'name': 'wbox192', 'n_atoms': 192, 'pbc': [True, True, True], 'T_start_K': np.float64(322.0581369890255), 'slurm_job': '1068'}
+{'src': 'results/workloads/systems/wbox648.extxyz (already 30 FIRE e3nn fp64)', 'mb_seed': 20261109, 'name': 'wbox648', 'n_atoms': 648, 'pbc': [True, True, True], 'T_start_K': np.float64(295.53259536138546), 'slurm_job': '1068'}
+{'src': 'water192 start + isolated O 30 A beyond +x extent, v=0', 'name': 'water192_iso', 'n_atoms': 193, 'pbc': [False, False, False], 'T_start_K': np.float64(320.3894419787196), 'slurm_job': '1068'}
+{'src': 'org192 start, atom order reversed', 'name': 'org192_rev', 'n_atoms': 196, 'pbc': [False, False, False], 'T_start_K': np.float64(322.0510844344246), 'slurm_job': '1068'}
+  MaxwellBoltzmannDistribution(a, temperature_K=300, rng=np.random.RandomState(SEED))
+  json.dump(info, open(f"{OUT}/start_{name}.json", "w"), indent=1, default=float); print(info, flush=True)
+{'src': 'water2187: water_cluster(n_side,3.1,seed0) / water_box(n_side,1.0,seed1)', 'fmax_before': 2.5662950381580107, 'fmax_after': 1.3313857228798747, 'fire_s': 6.828052997589111, 'fire_steps': 30, 'mb_seed': 20261109, 'name': 'water2187', 'n_atoms': 2187, 'pbc': [False, False, False], 'T_start_K': np.float64(302.26890567237473), 'slurm_job': '1068'}
+  json.dump(info, open(f"{OUT}/start_{name}.json", "w"), indent=1, default=float); print(info, flush=True)
+{'src': 'wbox2187: water_cluster(n_side,3.1,seed0) / water_box(n_side,1.0,seed1)', 'fmax_before': 2.522280573727913, 'fmax_after': 0.8547687773513759, 'fire_s': 6.49983024597168, 'fire_steps': 30, 'mb_seed': 20261109, 'name': 'wbox2187', 'n_atoms': 2187, 'pbc': [True, True, True], 'T_start_K': np.float64(302.26890567237484), 'slurm_job': '1068'}
+  json.dump(info, open(f"{OUT}/start_{name}.json", "w"), indent=1, default=float); print(info, flush=True)
+{'src': 'water5184: water_cluster(n_side,3.1,seed0) / water_box(n_side,1.0,seed1)', 'fmax_before': 4.0178694640985935, 'fmax_after': 1.426581527668282, 'fire_s': 13.16568922996521, 'fire_steps': 30, 'mb_seed': 20261109, 'name': 'water5184', 'n_atoms': 5184, 'pbc': [False, False, False], 'T_start_K': np.float64(301.42634229591636), 'slurm_job': '1068'}
+  json.dump(info, open(f"{OUT}/start_{name}.json", "w"), indent=1, default=float); print(info, flush=True)
+{'src': 'wbox5184: water_cluster(n_side,3.1,seed0) / water_box(n_side,1.0,seed1)', 'fmax_before': 4.563132197670346, 'fmax_after': 1.2492672117487231, 'fire_s': 14.498312711715698, 'fire_steps': 30, 'mb_seed': 20261109, 'name': 'wbox5184', 'n_atoms': 5184, 'pbc': [True, True, True], 'T_start_K': np.float64(301.42634229591636), 'slurm_job': '1068'}
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz
+exit=0 date=2026-11-10T05:23:13+00:00

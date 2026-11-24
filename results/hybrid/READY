@@ -1,0 +1,18 @@
+Hybrid backend READY (per-layer parity passed: SLURM job 982, results/hybrid/layer_parity.json; whole-model parity: results/hybrid/model_parity.json)
+Module: $R/scripts/hybrid/hybrid_backend.py  -> build_calc(model_path, device="cuda", conv="flashtp"|"e3nn", sc="cueq"|"e3nn") -> (calc, info); describe(model)
+Defaults (conv="flashtp", sc="cueq") = hybrid. conv="e3nn",sc="e3nn" = plain e3nn reference. cueq-only = MACECalculator(..., enable_cueq=True).
+
+Recipe (inside an srun job):
+  source /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/env.sh
+  SP=$R/venv-cueq/lib/python3.11/site-packages
+  export LD_LIBRARY_PATH=$SP/nvidia/cuda_nvrtc/lib:$SP/nvidia/cublas/lib:$SP/nvidia/cuda_runtime/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+  export TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1
+  $R/venv-cueq/bin/python -I your_script.py
+In Python (BEFORE importing flashTP_e3nn or flashtp_adapter anywhere):
+  import os, sys; R = os.environ["R"]
+  sys.path.insert(0, f"{R}/scripts/hybrid")
+  import hybrid_backend as HB      # inserts $R/src/flashTP-fp64cg at sys.path[0] and asserts flashTP_e3nn comes from it
+  calc, info = HB.build_calc(f"{R}/models/MACE-OFF23_medium.model")
+  model = calc.models[0]           # fp64 hybrid; info["backend_map"], info["flash_cg_dtypes"]
+Notes: build_calc asserts the FlashTP CG table is genuinely fp64 (values not fp32-representable present).
+Edge indices are cast int64->int32 every call (no caching). Do not import $R/venv's flashTP_e3nn in the same process.

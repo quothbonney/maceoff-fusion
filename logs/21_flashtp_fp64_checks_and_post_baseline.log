@@ -1,0 +1,46 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/flashTP_e3nn/__init__.py", line 2, in <module>
+    from .utils import load_config_e3nn_cueq, fixed_generate_edgepair
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/flashTP_e3nn/utils.py", line 2, in <module>
+    import e3nn.o3
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/e3nn/o3/__init__.py", line 31, in <module>
+    from ._wigner import wigner_D, wigner_3j
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/e3nn/o3/_wigner.py", line 10, in <module>
+    _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/serialization.py", line 1578, in load
+    raise pickle.UnpicklingError(_get_wo_message(str(e))) from None
+_pickle.UnpicklingError: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL slice was not an allowed global by default. Please use `torch.serialization.add_safe_globals([slice])` or the `torch.serialization.safe_globals([slice])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+===== medium.json layer=0 edges=4096 fp64
+scripts/run_flashtp_checks.sh: line 8: /usr/bin/time: No such file or directory
+===== medium.json layer=1 edges=4096 fp64
+scripts/run_flashtp_checks.sh: line 8: /usr/bin/time: No such file or directory
+===== medium.json layer=0 edges=32768 fp64
+scripts/run_flashtp_checks.sh: line 8: /usr/bin/time: No such file or directory
+===== medium.json layer=1 edges=32768 fp64
+scripts/run_flashtp_checks.sh: line 8: /usr/bin/time: No such file or directory
+===== medium.json layer=1 edges=131072 fp64
+scripts/run_flashtp_checks.sh: line 8: /usr/bin/time: No such file or directory
+===== post-build MACE baseline
+cuda_available True 1
+WARNING:root:No dtype selected, switching to float64 to match model dtype.
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+[run1] GPU=NVIDIA H100 80GB HBM3 dtype=torch.float64 E = -2081.1163971689 eV
+  O: Fx= 0.0000000000 Fy= 0.0000000000 Fz=-0.6474868257 eV/A
+  H: Fx= 0.0000000000 Fy=-0.3437656014 Fz= 0.3237434129 eV/A
+  H: Fx= 0.0000000000 Fy= 0.3437656014 Fz= 0.3237434129 eV/A
+  post-warmup median 14.55 ms (n=10), first call 0.43 s, within-run max|dE|=0.00e+00 max|dF|=2.22e-16
+WARNING:root:No dtype selected, switching to float64 to match model dtype.
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+[run2] GPU=NVIDIA H100 80GB HBM3 dtype=torch.float64 E = -2081.1163971689 eV
+  O: Fx= 0.0000000000 Fy= 0.0000000000 Fz=-0.6474868257 eV/A
+  H: Fx= 0.0000000000 Fy=-0.3437656014 Fz= 0.3237434129 eV/A
+  H: Fx= 0.0000000000 Fy= 0.3437656014 Fz= 0.3237434129 eV/A
+  post-warmup median 14.23 ms (n=10), first call 0.43 s, within-run max|dE|=0.00e+00 max|dF|=2.22e-16
+cross-run |dE|=0.000e+00 eV  max|dF|=0.000e+00 eV/A  bitwise_identical=True

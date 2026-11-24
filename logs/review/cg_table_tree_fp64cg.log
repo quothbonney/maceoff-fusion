@@ -1,0 +1,41 @@
+W1109 00:53:24.651000 398630 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1'
+  return visitor(node)
+fp64cg mace/medium.json:L0|default=float32|dtype=float32 {'n_table': 5, 'n_fibers': 16, 'max_abs_cg_err': 1.036241636942492e-08, 'table_dtype': 'torch.float32', 'fingerprint': '3697c0b909c65284'}
+  return visitor(node)
+fp64cg mace/medium.json:L0|default=float32|dtype=float64 {'n_table': 5, 'n_fibers': 16, 'max_abs_cg_err': 1.036241636942492e-08, 'table_dtype': 'torch.float64', 'fingerprint': 'b8971e9b1a46e156'}
+  return visitor(node)
+fp64cg mace/medium.json:L0|default=float64|dtype=float32 {'n_table': 5, 'n_fibers': 16, 'max_abs_cg_err': 1.036241636942492e-08, 'table_dtype': 'torch.float32', 'fingerprint': '3697c0b909c65284'}
+  return visitor(node)
+fp64cg mace/medium.json:L0|default=float64|dtype=float64 {'n_table': 5, 'n_fibers': 16, 'max_abs_cg_err': 6.106226635438361e-16, 'table_dtype': 'torch.float64', 'fingerprint': '0137c7e2b86c3156'}
+  return visitor(node)
+fp64cg mace/medium.json:L1|default=float32|dtype=float32 {'n_table': 19, 'n_fibers': 86, 'max_abs_cg_err': 1.036241636942492e-08, 'table_dtype': 'torch.float32', 'fingerprint': '0481d5deb8d349d0'}
+  return visitor(node)
+fp64cg mace/medium.json:L1|default=float32|dtype=float64 {'n_table': 19, 'n_fibers': 86, 'max_abs_cg_err': 1.036241636942492e-08, 'table_dtype': 'torch.float64', 'fingerprint': '89bf2215185f1a4c'}
+  return visitor(node)
+fp64cg mace/medium.json:L1|default=float64|dtype=float32 {'n_table': 19, 'n_fibers': 86, 'max_abs_cg_err': 1.036241636942492e-08, 'table_dtype': 'torch.float32', 'fingerprint': '0481d5deb8d349d0'}
+  return visitor(node)
+fp64cg mace/medium.json:L1|default=float64|dtype=float64 {'n_table': 19, 'n_fibers': 86, 'max_abs_cg_err': 7.216449660063518e-16, 'table_dtype': 'torch.float64', 'fingerprint': '4518fce808663a6c'}
+  return visitor(node)
+fp64cg sevennet/sevennet-l3i5.json:L1|default=float32|dtype=float32 {'n_table': 45, 'n_fibers': 611, 'max_abs_cg_err': 1.4856876839886013e-08, 'table_dtype': 'torch.float32', 'fingerprint': 'a5fdc044b85f573b'}
+  return visitor(node)
+fp64cg sevennet/sevennet-l3i5.json:L1|default=float32|dtype=float64 {'n_table': 45, 'n_fibers': 611, 'max_abs_cg_err': 1.4856876839886013e-08, 'table_dtype': 'torch.float64', 'fingerprint': '32a77bbafa717f47'}
+  return visitor(node)
+fp64cg sevennet/sevennet-l3i5.json:L1|default=float64|dtype=float32 {'n_table': 45, 'n_fibers': 611, 'max_abs_cg_err': 1.4856876839886013e-08, 'table_dtype': 'torch.float32', 'fingerprint': 'a5fdc044b85f573b'}
+  return visitor(node)
+fp64cg sevennet/sevennet-l3i5.json:L1|default=float64|dtype=float64 {'n_table': 45, 'n_fibers': 611, 'max_abs_cg_err': 8.881784197001252e-16, 'table_dtype': 'torch.float64', 'fingerprint': 'ca46157a415b405e'}
+  return visitor(node)
+fp64cg nequip/4_32_4_p_sc.txt:L1|default=float32|dtype=float32 {'n_table': 155, 'n_fibers': 2052, 'max_abs_cg_err': 1.4856876839886013e-08, 'table_dtype': 'torch.float32', 'fingerprint': '824b547a2e4801f2'}
+  return visitor(node)
+fp64cg nequip/4_32_4_p_sc.txt:L1|default=float32|dtype=float64 {'n_table': 155, 'n_fibers': 2052, 'max_abs_cg_err': 1.4856876839886013e-08, 'table_dtype': 'torch.float64', 'fingerprint': '0221329490d2a13b'}
+  return visitor(node)
+fp64cg nequip/4_32_4_p_sc.txt:L1|default=float64|dtype=float32 {'n_table': 155, 'n_fibers': 2052, 'max_abs_cg_err': 1.4856876839886013e-08, 'table_dtype': 'torch.float32', 'fingerprint': '824b547a2e4801f2'}
+  return visitor(node)
+fp64cg nequip/4_32_4_p_sc.txt:L1|default=float64|dtype=float64 {'n_table': 155, 'n_fibers': 2052, 'max_abs_cg_err': 8.881784197001252e-16, 'table_dtype': 'torch.float64', 'fingerprint': '5b9d04ed611a2cf9'}
+  return visitor(node)
+fp64cg nequip/4_32_5_p_sc.txt:L1|default=float32|dtype=float32 {'n_table': 340, 'n_fibers': 5265, 'max_abs_cg_err': 1.4856876839886013e-08, 'table_dtype': 'torch.float32', 'fingerprint': 'a8c5f404b6ba565d'}
+  return visitor(node)
+fp64cg nequip/4_32_5_p_sc.txt:L1|default=float32|dtype=float64 {'n_table': 340, 'n_fibers': 5265, 'max_abs_cg_err': 1.4856876839886013e-08, 'table_dtype': 'torch.float64', 'fingerprint': 'd4853d8561791fcb'}
+  return visitor(node)
+fp64cg nequip/4_32_5_p_sc.txt:L1|default=float64|dtype=float32 {'n_table': 340, 'n_fibers': 5265, 'max_abs_cg_err': 1.4856876839886013e-08, 'table_dtype': 'torch.float32', 'fingerprint': 'a8c5f404b6ba565d'}
+  return visitor(node)
+fp64cg nequip/4_32_5_p_sc.txt:L1|default=float64|dtype=float64 {'n_table': 340, 'n_fibers': 5265, 'max_abs_cg_err': 8.881784197001252e-16, 'table_dtype': 'torch.float64', 'fingerprint': '0a230fa5e9054415'}

@@ -1,0 +1,58 @@
+acquired TIMING_LOCK 2026-11-10T05:29:27+00:00
+1084 md9b3a jordan+123 gres/gpu:1 RUNNING
+1083 int9smoke jordan+123 gres/gpu:1 RUNNING
+1076 md9dr_stock jordan+123 gres/gpu:1 RUNNING
+job=1084 host=slurm-h100-206-077 date=2026-11-10T05:29:27+00:00 args=b3bench.py stock,ase,graphed water192,water648,wbox648,water2187,wbox2187,water5184,wbox5184
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+stock       water192   N=  192    17.219 ms/step [17.186-17.270] 1.115e+04 atom-steps/s syncs/step(audit)=38.2 peak=1238MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+ase         water192   N=  192    18.220 ms/step [18.189-18.296] 1.054e+04 atom-steps/s syncs/step(audit)=43.0 peak=1237MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+graphed     water192   N=  192     2.117 ms/step [2.116-2.143] 9.068e+04 atom-steps/s syncs/step(audit)=2.0 peak=838MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+stock       water648   N=  648    44.360 ms/step [44.267-44.494] 1.461e+04 atom-steps/s syncs/step(audit)=38.0 peak=4539MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+ase         water648   N=  648    45.863 ms/step [45.688-53.844] 1.413e+04 atom-steps/s syncs/step(audit)=43.0 peak=4542MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+graphed     water648   N=  648     3.633 ms/step [3.630-3.636] 1.784e+05 atom-steps/s syncs/step(audit)=2.0 peak=1258MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+stock       wbox648    N=  648    54.993 ms/step [54.960-55.172] 1.178e+04 atom-steps/s syncs/step(audit)=38.0 peak=5781MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+ase         wbox648    N=  648    56.331 ms/step [55.973-57.114] 1.150e+04 atom-steps/s syncs/step(audit)=43.0 peak=5784MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+graphed     wbox648    N=  648     5.171 ms/step [5.115-5.209] 1.253e+05 atom-steps/s syncs/step(audit)=4.0 peak=1578MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+stock       water2187  N= 2187   140.582 ms/step [139.696-145.719] 1.556e+04 atom-steps/s syncs/step(audit)=38.0 peak=16064MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+ase         water2187  N= 2187   143.919 ms/step [141.996-154.185] 1.520e+04 atom-steps/s syncs/step(audit)=43.0 peak=16073MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+graphed     water2187  N= 2187    10.185 ms/step [10.173-10.203] 2.147e+05 atom-steps/s syncs/step(audit)=2.0 peak=3852MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+stock       wbox2187   N= 2187   204.632 ms/step [204.133-207.612] 1.069e+04 atom-steps/s syncs/step(audit)=38.0 peak=18803MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+ase         wbox2187   N= 2187   207.021 ms/step [206.138-207.512] 1.056e+04 atom-steps/s syncs/step(audit)=43.0 peak=18814MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+graphed     wbox2187   N= 2187    18.828 ms/step [18.822-18.833] 1.162e+05 atom-steps/s syncs/step(audit)=8.0 peak=4645MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+stock       water5184  N= 5184   392.601 ms/step [391.395-395.047] 1.320e+04 atom-steps/s syncs/step(audit)=38.0 peak=39275MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+ase         water5184  N= 5184   397.596 ms/step [389.437-398.343] 1.304e+04 atom-steps/s syncs/step(audit)=43.0 peak=39295MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+graphed     water5184  N= 5184    23.097 ms/step [23.080-23.150] 2.244e+05 atom-steps/s syncs/step(audit)=2.0 peak=9085MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+stock       wbox5184   N= 5184   432.127 ms/step [426.190-436.003] 1.200e+04 atom-steps/s syncs/step(audit)=38.0 peak=44074MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+ase         wbox5184   N= 5184   437.770 ms/step [430.606-440.873] 1.184e+04 atom-steps/s syncs/step(audit)=43.0 peak=44099MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+graphed     wbox5184   N= 5184    66.669 ms/step [66.652-66.681] 7.776e+04 atom-steps/s syncs/step(audit)=30.0 peak=10412MiB
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+  json.dump(res, open(OUT, "w"), indent=1, default=float)
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz
+exit=0 date=2026-11-10T05:39:51+00:00

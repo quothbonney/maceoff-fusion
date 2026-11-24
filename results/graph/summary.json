@@ -1,0 +1,122 @@
+{
+ "runs": [
+  "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/graph/graph_run1.json",
+  "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/graph/graph_run2.json"
+ ],
+ "hybrid_denominators_from": "results/perf2/bench4_run1.json systems.*.stats.hybrid.ase_total.median",
+ "summary": {
+  "H2O": {
+   "n_atoms": 3,
+   "n_edges": 6,
+   "graph_total_runs": [
+    2.580982632935047,
+    2.6011597365140915
+   ],
+   "proto_runs": [
+    0.3813924267888069,
+    0.3643222153186798
+   ],
+   "nl_ms": 0.1400308683514595,
+   "nl_frac": 0.054043620714474806,
+   "per_tensor_overhead_ms": 2.3611001670360565,
+   "tensor_frac": 0.9112448090796245,
+   "hybrid_ase_total_ms": 18.557915464043617,
+   "ceiling_saving_ms": 2.5910711847245693,
+   "ceiling_frac": 0.13962080976954705,
+   "ceiling_speedup": 1.1622782272687808,
+   "proto_saving_ms": 2.218213863670826,
+   "proto_frac": 0.11952925790445945,
+   "proto_speedup": 1.1357560815933272,
+   "est_new_call_ms": 16.33970160037279
+  },
+  "water192": {
+   "n_atoms": 192,
+   "n_edges": 6634,
+   "graph_total_runs": [
+    3.89166921377182,
+    3.814605064690113
+   ],
+   "proto_runs": [
+    0.4181200638413429,
+    0.4041725769639015
+   ],
+   "nl_ms": 1.0343557223677635,
+   "nl_frac": 0.2684450838347806,
+   "per_tensor_overhead_ms": 2.739069052040577,
+   "tensor_frac": 0.7108672629771121,
+   "hybrid_ase_total_ms": 19.989296793937683,
+   "ceiling_saving_ms": 3.8531371392309666,
+   "ceiling_frac": 0.19276001446932034,
+   "ceiling_speedup": 1.238788982117381,
+   "proto_saving_ms": 3.4419908188283443,
+   "proto_frac": 0.1721916910990198,
+   "proto_speedup": 1.2080091359890142,
+   "est_new_call_ms": 16.54730597510934
+  },
+  "water648": {
+   "n_atoms": 648,
+   "n_edges": 26550,
+   "graph_total_runs": [
+    8.283291943371296,
+    8.185547776520252
+   ],
+   "proto_runs": [
+    0.5090860649943352,
+    0.4331003874540329
+   ],
+   "nl_ms": 4.509066231548786,
+   "nl_frac": 0.5475876027990731,
+   "per_tensor_overhead_ms": 3.5306159406900406,
+   "tensor_frac": 0.4287631673803539,
+   "hybrid_ase_total_ms": 24.306551553308964,
+   "ceiling_saving_ms": 8.234419859945774,
+   "ceiling_frac": 0.338773677618814,
+   "ceiling_speedup": 1.512341487554267,
+   "proto_saving_ms": 7.76332663372159,
+   "proto_frac": 0.3193923505230725,
+   "proto_speedup": 1.4692752877058282,
+   "est_new_call_ms": 16.543224919587374
+  },
+  "water1536": {
+   "n_atoms": 1536,
+   "n_edges": 67960,
+   "graph_total_runs": [
+    16.086947172880173,
+    16.029732301831245
+   ],
+   "proto_runs": [
+    0.5339868366718292,
+    0.6079291924834251
+   ],
+   "nl_ms": 11.663062497973442,
+   "nl_frac": 0.7262931715688046,
+   "per_tensor_overhead_ms": 4.070748575031757,
+   "tensor_frac": 0.2534974749327404,
+   "hybrid_ase_total_ms": 36.09443549066782,
+   "ceiling_saving_ms": 16.05833973735571,
+   "ceiling_frac": 0.4448979328547077,
+   "ceiling_speedup": 1.8014705027900033,
+   "proto_saving_ms": 15.487381722778082,
+   "proto_frac": 0.4290794830904705,
+   "proto_speedup": 1.7515573015542272,
+   "est_new_call_ms": 20.607053767889738
+  },
+  "waterbox648_pbc": {
+   "n_atoms": 648,
+   "n_edges": 35724,
+   "graph_total_runs": [
+    12.182410806417465,
+    12.20234390348196
+   ],
+   "proto_runs": [
+    1.3992134481668472,
+    1.357770524919033
+   ],
+   "nl_ms": 8.296783082187176,
+   "nl_frac": 0.6804893615615456,
+   "per_tensor_overhead_ms": 3.6734556779265404,
+   "tensor_frac": 0.3012911732456538,
+   "hybrid_ase_total_ms": null
+  }
+ }
+}

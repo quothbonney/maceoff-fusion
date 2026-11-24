@@ -1,0 +1,134 @@
+{
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "slurm_job": "978",
+  "gpu_uuid": "GPU-884d19b4-3b1e-5246-0d07-a1a68b778800",
+  "torch": "2.11.0+cu128",
+  "model_dtype": "torch.float64",
+  "nrep": 5,
+  "systems": {
+    "H2O": {
+      "n_atoms": 3,
+      "E_ref": -2081.11639716893,
+      "E_flash": -2081.11639716893,
+      "fixed_geometry": {
+        "max_abs_dE_per_atom_eV": 0.0,
+        "max_abs_dF_eV_A": 4.996003610813204e-16,
+        "max_rms_dF_eV_A": 2.7693827873701494e-16,
+        "max_abs_F_ref": 0.6474868257116837,
+        "rms_F_ref": 0.3100552570090786
+      },
+      "perturbed_sequence": {
+        "max_abs_dE_per_atom_eV": 0.0,
+        "max_abs_dF_eV_A": 1.6653345369377348e-15,
+        "max_rms_dF_eV_A": 7.762100913339952e-16,
+        "max_abs_F_ref": 1.6110355495092397,
+        "rms_F_ref": 0.36766834867373893
+      },
+      "ref_repeat": {
+        "max_abs_dE": 0.0,
+        "max_abs_dF": 2.220446049250313e-16,
+        "bitwise_identical": false
+      },
+      "flash_repeat": {
+        "max_abs_dE": 0.0,
+        "max_abs_dF": 0.0,
+        "bitwise_identical": true
+      },
+      "reverted_bitwise_equal_ref": false,
+      "all_finite": true
+    },
+    "water192": {
+      "n_atoms": 192,
+      "E_ref": -133194.08439848514,
+      "E_flash": -133194.08439848514,
+      "fixed_geometry": {
+        "max_abs_dE_per_atom_eV": 3.0316490059097606e-13,
+        "max_abs_dF_eV_A": 3.9968028886505635e-15,
+        "max_rms_dF_eV_A": 8.503630912560132e-16,
+        "max_abs_F_ref": 2.8883389022792096,
+        "rms_F_ref": 0.4764459801397325
+      },
+      "perturbed_sequence": {
+        "max_abs_dE_per_atom_eV": 1.5158245029548803e-13,
+        "max_abs_dF_eV_A": 3.552713678800501e-15,
+        "max_rms_dF_eV_A": 8.716932485156415e-16,
+        "max_abs_F_ref": 5.263456406456864,
+        "rms_F_ref": 0.9225191409688287
+      },
+      "ref_repeat": {
+        "max_abs_dE": 2.9103830456733704e-11,
+        "max_abs_dF": 2.6367796834847468e-15,
+        "bitwise_identical": false
+      },
+      "flash_repeat": {
+        "max_abs_dE": 2.9103830456733704e-11,
+        "max_abs_dF": 2.886579864025407e-15,
+        "bitwise_identical": false
+      },
+      "reverted_bitwise_equal_ref": false,
+      "all_finite": true
+    },
+    "water648": {
+      "n_atoms": 648,
+      "E_ref": -449526.0097505144,
+      "E_flash": -449526.0097505144,
+      "fixed_geometry": {
+        "max_abs_dE_per_atom_eV": 0.0,
+        "max_abs_dF_eV_A": 4.6629367034256575e-15,
+        "max_rms_dF_eV_A": 8.613012151900933e-16,
+        "max_abs_F_ref": 2.182091817118298,
+        "rms_F_ref": 0.46928345611944566
+      },
+      "perturbed_sequence": {
+        "max_abs_dE_per_atom_eV": 0.0,
+        "max_abs_dF_eV_A": 5.329070518200751e-15,
+        "max_rms_dF_eV_A": 9.415551257345005e-16,
+        "max_abs_F_ref": 5.247280666631903,
+        "rms_F_ref": 1.054699284723122
+      },
+      "ref_repeat": {
+        "max_abs_dE": 0.0,
+        "max_abs_dF": 3.4416913763379853e-15,
+        "bitwise_identical": false
+      },
+      "flash_repeat": {
+        "max_abs_dE": 0.0,
+        "max_abs_dF": 2.886579864025407e-15,
+        "bitwise_identical": false
+      },
+      "reverted_bitwise_equal_ref": false,
+      "all_finite": true
+    },
+    "water1536": {
+      "n_atoms": 1536,
+      "E_ref": -1065538.247786699,
+      "E_flash": -1065538.247786699,
+      "fixed_geometry": {
+        "max_abs_dE_per_atom_eV": 0.0,
+        "max_abs_dF_eV_A": 4.440892098500626e-15,
+        "max_rms_dF_eV_A": 8.621406718523625e-16,
+        "max_abs_F_ref": 2.678697937473963,
+        "rms_F_ref": 0.4834463134236359
+      },
+      "perturbed_sequence": {
+        "max_abs_dE_per_atom_eV": 1.5158245029548803e-13,
+        "max_abs_dF_eV_A": 5.329070518200751e-15,
+        "max_rms_dF_eV_A": 9.454600387432842e-16,
+        "max_abs_F_ref": 6.595055625999747,
+        "rms_F_ref": 1.0643376908230293
+      },
+      "ref_repeat": {
+        "max_abs_dE": 0.0,
+        "max_abs_dF": 2.9976021664879227e-15,
+        "bitwise_identical": false
+      },
+      "flash_repeat": {
+        "max_abs_dE": 0.0,
+        "max_abs_dF": 3.1086244689504383e-15,
+        "bitwise_identical": false
+      },
+      "reverted_bitwise_equal_ref": false,
+      "all_finite": true
+    }
+  }
+}

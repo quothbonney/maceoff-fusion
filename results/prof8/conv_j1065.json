@@ -1,0 +1,2578 @@
+{
+ "job": "1065",
+ "gpu_start": "0, NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 1980 MHz, 1980 MHz",
+ "warm": 10,
+ "reps": 60,
+ "node_fwd": "nodetp8_fwd.fwd (/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_fwd/nodetp_fwd.py)",
+ "data": {
+  "aspirin/L0": {
+   "N": 21,
+   "E": 302,
+   "csr_build": {
+    "median": 0.09201653301715851,
+    "p10": 0.09084586054086685,
+    "p90": 0.09501855820417404,
+    "n": 60
+   },
+   "flash": {
+    "err": {
+     "out": {
+      "max_abs": 2.220446049250313e-15,
+      "rel": 6.783122830293051e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 1.7763568394002505e-14,
+      "rel": 5.64769309526652e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 2.220446049250313e-15,
+      "rel": 6.619409581916262e-16,
+      "near_zero_max_abs": 2.541098841762901e-21
+     },
+     "gw": {
+      "max_abs": 1.7763568394002505e-15,
+      "rel": 6.956726171597937e-16,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.09964313358068466,
+     "p10": 0.09766221046447754,
+     "p90": 0.12235529720783235,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.42615924030542374,
+     "p10": 0.41228272020816803,
+     "p90": 0.4551425576210022,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.1454344019293785,
+     "p10": 0.14370698481798172,
+     "p90": 0.15106052160263062,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 2.0439453125,
+    "graph_fwd": {
+     "median": 0.030596740543842316,
+     "p10": 0.030506029725074768,
+     "p90": 0.031100399792194366,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.0609569251537323,
+     "p10": 0.06081666797399521,
+     "p90": 0.0612037256360054,
+     "n": 60
+    },
+    "graph_bwd_est": 0.030360184609889984,
+    "gpu_us_fwd": 21.964799999999787,
+    "n_gpu_ops_fwd": 13.0,
+    "gpu_us_fwdbwd": 50.656600000000026,
+    "n_gpu_ops_fwdbwd": 26.0,
+    "top_kernels_fwdbwd": {
+     "memcpy32_post": 17.882000000000232,
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, doubl": 14.950199999999949,
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, doubl": 9.190399999999954,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 3.353999999999997,
+     "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at": 3.2511999999999714,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 2.0287999999999102
+    }
+   },
+   "node": {
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "rel": 5.426498264234441e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "rel": 9.036308952426433e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 2.4424906541753444e-15,
+      "rel": 7.281350540107889e-16,
+      "near_zero_max_abs": 4.235164736271502e-21
+     },
+     "gw": {
+      "max_abs": 1.5543122344752192e-15,
+      "rel": 6.087135400148196e-16,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.18975790590047836,
+     "p10": 0.17416905611753464,
+     "p90": 0.3002787008881569,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.31244754791259766,
+     "p10": 0.30662938952445984,
+     "p90": 0.3405332565307617,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.10125432163476944,
+     "p10": 0.09995698928833008,
+     "p90": 0.10514557361602783,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 1.5712890625,
+    "graph_fwd": {
+     "median": 0.06804801523685455,
+     "p10": 0.06789006292819977,
+     "p90": 0.06829891353845596,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.10864995419979095,
+     "p10": 0.10848343372344971,
+     "p90": 0.10910201817750931,
+     "n": 60
+    },
+    "graph_bwd_est": 0.0406019389629364,
+    "gpu_us_fwd": 56.65279999999998,
+    "n_gpu_ops_fwd": 16.0,
+    "gpu_us_fwdbwd": 96.94040000000041,
+    "n_gpu_ops_fwdbwd": 17.0,
+    "top_kernels_fwdbwd": {
+     "kern": 40.66540000000005,
+     "void at::native::radixSortKVInPlace<-2, -1, 32, 32, int, long, unsigne": 34.27200000000003,
+     "void k_e3e329789a5bp1<long, long, 4>(double const*, double const*, dou": 6.003200000000106,
+     "Memcpy DtoD (Device -> Device)": 5.606199999999719,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_kernel<int, ": 4.819200000000092,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 2.8478000000000976
+    }
+   },
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-16,
+      "rel": 2.7132491321172204e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.17681531608104706,
+     "p10": 0.1750817522406578,
+     "p90": 0.18182527273893356,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 1.1153798550367355,
+     "p10": 1.0880306363105774,
+     "p90": 1.1361313983798027,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.794239342212677,
+     "p10": 0.7693838328123093,
+     "p90": 0.8142335340380669,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 10.9619140625,
+    "graph_fwd": {
+     "median": 0.03643147647380829,
+     "p10": 0.036168284714221954,
+     "p90": 0.03698468208312988,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.18662400543689728,
+     "p10": 0.1861903816461563,
+     "p90": 0.18712319433689117,
+     "n": 60
+    },
+    "graph_bwd_est": 0.150192528963089,
+    "gpu_us_fwd": 26.11800000000003,
+    "n_gpu_ops_fwd": 12.0,
+    "gpu_us_fwdbwd": 166.30380000000022,
+    "n_gpu_ops_fwdbwd": 72.0,
+    "top_kernels_fwdbwd": {
+     "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_imp": 50.54860000000053,
+     "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<double, at": 47.489400000000025,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunc": 13.94619999999959,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 13.75539999999983,
+     "void (anonymous namespace)::indexing_backward_kernel<double, 4>(long c": 10.669400000000042,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::BinaryFu": 6.144199999999818
+    }
+   }
+  },
+  "aspirin/L1": {
+   "N": 21,
+   "E": 302,
+   "csr_build": {
+    "median": 0.11426955461502075,
+    "p10": 0.11345874518156052,
+    "p90": 0.12057330459356308,
+    "n": 60
+   },
+   "flash": {
+    "err": {
+     "out": {
+      "max_abs": 5.329070518200751e-15,
+      "rel": 7.093080899705445e-16,
+      "near_zero_max_abs": 6.661338147750939e-16
+     },
+     "gx": {
+      "max_abs": 2.4868995751603507e-14,
+      "rel": 8.845810318730399e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 2.398081733190338e-14,
+      "rel": 1.2950029427755742e-15,
+      "near_zero_max_abs": 5.624828165360588e-23
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-15,
+      "rel": 7.617633613111516e-16,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.11506862938404083,
+     "p10": 0.11319536715745926,
+     "p90": 0.12160968035459518,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.46626199036836624,
+     "p10": 0.4571950063109398,
+     "p90": 0.4908759146928787,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.17155520617961884,
+     "p10": 0.16920138150453568,
+     "p90": 0.179363414645195,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 5.6474609375,
+    "graph_fwd": {
+     "median": 0.04006829112768173,
+     "p10": 0.03995765000581741,
+     "p90": 0.0403333455324173,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.09538885205984116,
+     "p10": 0.09516570717096329,
+     "p90": 0.09577050805091858,
+     "n": 60
+    },
+    "graph_bwd_est": 0.055320560932159424,
+    "gpu_us_fwd": 29.414000000000122,
+    "n_gpu_ops_fwd": 13.0,
+    "gpu_us_fwdbwd": 82.4207999999996,
+    "n_gpu_ops_fwdbwd": 26.0,
+    "top_kernels_fwdbwd": {
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, doubl": 38.9829999999999,
+     "Memcpy DtoD (Device -> Device)": 18.44500000000003,
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, doubl": 16.03839999999991,
+     "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at": 3.4945999999998545,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 3.251199999999972,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 2.2085999999999326
+    }
+   },
+   "node": {
+    "err": {
+     "out": {
+      "max_abs": 5.329070518200751e-15,
+      "rel": 7.093080899705445e-16,
+      "near_zero_max_abs": 4.440892098500626e-16
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "rel": 1.0109497507120456e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 1.0658141036401503e-14,
+      "rel": 5.755568634558107e-16,
+      "near_zero_max_abs": 3.556876633978019e-23
+     },
+     "gw": {
+      "max_abs": 7.105427357601002e-15,
+      "rel": 6.094106890489212e-16,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.22629275918006897,
+     "p10": 0.22111032158136368,
+     "p90": 0.23659951984882355,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.36539509892463684,
+     "p10": 0.35551898181438446,
+     "p90": 0.38168467581272125,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.10005384683609009,
+     "p10": 0.09838137775659561,
+     "p90": 0.10467544198036194,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 3.89453125,
+    "graph_fwd": {
+     "median": 0.07420964539051056,
+     "p10": 0.07402319461107254,
+     "p90": 0.0746212899684906,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.11039804667234421,
+     "p10": 0.11020991951227188,
+     "p90": 0.11057816445827484,
+     "n": 60
+    },
+    "graph_bwd_est": 0.03618840128183365,
+    "gpu_us_fwd": 62.643799999999786,
+    "n_gpu_ops_fwd": 16.0,
+    "gpu_us_fwdbwd": 98.5096000000004,
+    "n_gpu_ops_fwdbwd": 17.0,
+    "top_kernels_fwdbwd": {
+     "kern": 35.6866,
+     "void at::native::radixSortKVInPlace<-2, -1, 32, 32, int, long, unsigne": 34.28460000000009,
+     "void k_24bb6332bfcfp1<long, long, 2>(double const*, double const*, dou": 12.070600000000013,
+     "Memcpy DtoD (Device -> Device)": 5.837400000000252,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_kernel<int, ": 4.800200000000041,
+     "void (anonymous namespace)::elementwise_kernel_with_index<int, at::nat": 2.917999999999847
+    }
+   },
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "rel": 2.3643602999018147e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.540529377758503,
+     "p10": 0.5315437912940979,
+     "p90": 0.549076497554779,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 2.9453542083501816,
+     "p10": 2.899368107318878,
+     "p90": 2.972332201898098,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 1.999344676733017,
+     "p10": 1.9681721925735474,
+     "p90": 2.0265448838472366,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 37.28564453125,
+    "graph_fwd": {
+     "median": 0.16805250197649002,
+     "p10": 0.1673741266131401,
+     "p90": 0.16905926167964935,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.5962727591395378,
+     "p10": 0.5946129560470581,
+     "p90": 0.5985608324408531,
+     "n": 60
+    },
+    "graph_bwd_est": 0.4282202571630478,
+    "gpu_us_fwd": 145.92139999999912,
+    "n_gpu_ops_fwd": 39.0,
+    "gpu_us_fwdbwd": 527.1309999999992,
+    "n_gpu_ops_fwdbwd": 175.0,
+    "top_kernels_fwdbwd": {
+     "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_imp": 171.35439999999883,
+     "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<double, at": 65.11280000000006,
+     "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize64x64x32_stage3_warpsize": 55.891600000000025,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunc": 51.46839999999983,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 30.98279999999995,
+     "sm90_xmma_gemm_f64f64_f64f64_f64_tt_n_tilesize64x64x32_stage3_warpsize": 22.13139999999994
+    }
+   }
+  },
+  "water192/L0": {
+   "N": 192,
+   "E": 6634,
+   "csr_build": {
+    "median": 0.15280302613973618,
+    "p10": 0.15147551894187927,
+    "p90": 0.15549752861261368,
+    "n": 60
+   },
+   "flash": {
+    "err": {
+     "out": {
+      "max_abs": 1.5543122344752192e-15,
+      "rel": 7.012374357290647e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "rel": 9.295041219923645e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "rel": 5.516284908812593e-16,
+      "near_zero_max_abs": 1.0164395367051604e-20
+     },
+     "gw": {
+      "max_abs": 3.1086244689504383e-15,
+      "rel": 9.360857876460033e-16,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.16895774751901627,
+     "p10": 0.16736220568418503,
+     "p90": 0.17208270728588104,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.5601001903414726,
+     "p10": 0.5526706576347351,
+     "p90": 0.5782853811979294,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.27735624462366104,
+     "p10": 0.27573034167289734,
+     "p90": 0.28359703719615936,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 36.28759765625,
+    "graph_fwd": {
+     "median": 0.09584799408912659,
+     "p10": 0.09546801447868347,
+     "p90": 0.09639374911785126,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.29288046061992645,
+     "p10": 0.2922374755144119,
+     "p90": 0.2935977652668953,
+     "n": 60
+    },
+    "graph_bwd_est": 0.19703246653079987,
+    "gpu_us_fwd": 89.40880000000008,
+    "n_gpu_ops_fwd": 13.0,
+    "gpu_us_fwdbwd": 274.43739999999997,
+    "n_gpu_ops_fwdbwd": 26.0,
+    "top_kernels_fwdbwd": {
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, doubl": 160.67159999999996,
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, doubl": 82.17580000000005,
+     "Memcpy DtoD (Device -> Device)": 19.129399999999862,
+     "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at": 5.2608000000000406,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 4.345200000000022,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 2.854600000000028
+    }
+   },
+   "node": {
+    "err": {
+     "out": {
+      "max_abs": 2.220446049250313e-15,
+      "rel": 1.0017677653272352e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 4.973799150320701e-14,
+      "rel": 1.6266322134866382e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "rel": 5.516284908812593e-16,
+      "near_zero_max_abs": 9.317362419797304e-21
+     },
+     "gw": {
+      "max_abs": 2.886579864025407e-15,
+      "rel": 8.692225170998602e-16,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.2112891525030136,
+     "p10": 0.20920652896165848,
+     "p90": 0.21566729992628098,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.44894032180309296,
+     "p10": 0.4438929259777069,
+     "p90": 0.4766805097460747,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.22647622972726822,
+     "p10": 0.2246202901005745,
+     "p90": 0.2304907888174057,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 30.10107421875,
+    "graph_fwd": {
+     "median": 0.13424642384052277,
+     "p10": 0.1337127760052681,
+     "p90": 0.13500340282917023,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.3053797408938408,
+     "p10": 0.30393805354833603,
+     "p90": 0.3064090386033058,
+     "n": 60
+    },
+    "graph_bwd_est": 0.17113331705331802,
+    "gpu_us_fwd": 107.81620000000014,
+    "n_gpu_ops_fwd": 34.0,
+    "gpu_us_fwdbwd": 269.77959999999973,
+    "n_gpu_ops_fwdbwd": 35.0,
+    "top_kernels_fwdbwd": {
+     "kern": 157.85600000000002,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_cuda_detail": 50.06059999999989,
+     "void k_e3e329789a5bp1<long, long, 2>(double const*, double const*, dou": 24.204999999999906,
+     "Memset (Device)": 12.972999999999985,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_kernel<int, ": 6.323599999999965,
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_cuda_detai": 5.433600000000025
+    }
+   },
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 6.661338147750939e-16,
+      "rel": 3.005303295981706e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.3104163333773613,
+     "p10": 0.3086943179368973,
+     "p90": 0.31598489731550217,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 1.1546360328793526,
+     "p10": 1.1484697461128235,
+     "p90": 1.168697513639927,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.8503245189785957,
+     "p10": 0.8464695885777473,
+     "p90": 0.8554726839065552,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 242.0,
+    "graph_fwd": {
+     "median": 0.2420581877231598,
+     "p10": 0.24110376834869385,
+     "p90": 0.24288911372423172,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.9523378685116768,
+     "p10": 0.9506069123744965,
+     "p90": 0.9539410471916199,
+     "n": 60
+    },
+    "graph_bwd_est": 0.710279680788517,
+    "gpu_us_fwd": 229.15360000000015,
+    "n_gpu_ops_fwd": 12.0,
+    "gpu_us_fwdbwd": 917.5109999999988,
+    "n_gpu_ops_fwdbwd": 77.0,
+    "top_kernels_fwdbwd": {
+     "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_imp": 318.1429999999991,
+     "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<double, at": 159.44260000000023,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunc": 93.33019999999969,
+     "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized": 76.97259999999993,
+     "void at::native::_scatter_gather_elementwise_kernel<128, 8, at::native": 63.398199999999946,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 51.237799999999524
+    }
+   }
+  },
+  "water192/L1": {
+   "N": 192,
+   "E": 6634,
+   "csr_build": {
+    "median": 0.15293899923563004,
+    "p10": 0.15197526663541794,
+    "p90": 0.15647970139980316,
+    "n": 60
+   },
+   "flash": {
+    "err": {
+     "out": {
+      "max_abs": 1.2434497875801753e-14,
+      "rel": 2.0801311695323206e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 3.375077994860476e-14,
+      "rel": 1.0954835177719982e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 2.4868995751603507e-14,
+      "rel": 8.237019147572117e-16,
+      "near_zero_max_abs": 9.529120656610879e-22
+     },
+     "gw": {
+      "max_abs": 1.0658141036401503e-14,
+      "rel": 8.541971054325436e-16,
+      "near_zero_max_abs": 4.3365688075643774e-19
+     }
+    },
+    "eager_fwd": {
+     "median": 0.32767094671726227,
+     "p10": 0.3262687474489212,
+     "p90": 0.3325618803501129,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.8796025067567825,
+     "p10": 0.8744001388549805,
+     "p90": 0.9020999073982239,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.5943253636360168,
+     "p10": 0.5911147221922874,
+     "p90": 0.6121622398495674,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 87.87451171875,
+    "graph_fwd": {
+     "median": 0.2637626603245735,
+     "p10": 0.2631139010190964,
+     "p90": 0.26453956961631775,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.7629664614796638,
+     "p10": 0.7589379325509071,
+     "p90": 0.7644273340702057,
+     "n": 60
+    },
+    "graph_bwd_est": 0.49920380115509033,
+    "gpu_us_fwd": 248.9898,
+    "n_gpu_ops_fwd": 13.0,
+    "gpu_us_fwdbwd": 743.0598000000001,
+    "n_gpu_ops_fwdbwd": 26.0,
+    "top_kernels_fwdbwd": {
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, doubl": 472.8777999999999,
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, doubl": 232.69780000000003,
+     "Memcpy DtoD (Device -> Device)": 22.65580000000025,
+     "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at": 6.361399999999958,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 4.236599999999931,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 4.230400000000032
+    }
+   },
+   "node": {
+    "err": {
+     "out": {
+      "max_abs": 5.329070518200751e-15,
+      "rel": 8.914847869424232e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 5.684341886080802e-14,
+      "rel": 1.8450248720370495e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 1.5987211554602254e-14,
+      "rel": 5.295226594867789e-16,
+      "near_zero_max_abs": 2.2234614865425384e-21
+     },
+     "gw": {
+      "max_abs": 1.0658141036401503e-14,
+      "rel": 8.541971054325436e-16,
+      "near_zero_max_abs": 2.408940195295304e-19
+     }
+    },
+    "eager_fwd": {
+     "median": 0.2870000898838043,
+     "p10": 0.28295256197452545,
+     "p90": 0.29368139803409576,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.5071563646197319,
+     "p10": 0.4965823143720627,
+     "p90": 0.5186101421713829,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.23010838776826859,
+     "p10": 0.22803395986557007,
+     "p90": 0.23369118571281433,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 73.94873046875,
+    "graph_fwd": {
+     "median": 0.17273984849452972,
+     "p10": 0.17180759459733963,
+     "p90": 0.17388351261615753,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.33736228942871094,
+     "p10": 0.3344893455505371,
+     "p90": 0.3416655585169792,
+     "n": 60
+    },
+    "graph_bwd_est": 0.1646224409341812,
+    "gpu_us_fwd": 138.34180000000015,
+    "n_gpu_ops_fwd": 34.0,
+    "gpu_us_fwdbwd": 301.1128,
+    "n_gpu_ops_fwdbwd": 35.0,
+    "top_kernels_fwdbwd": {
+     "kern": 161.36400000000012,
+     "void k_24bb6332bfcfp1<long, long, 2>(double const*, double const*, dou": 51.584200000000145,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_cuda_detail": 50.68140000000004,
+     "Memset (Device)": 12.831000000000046,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_kernel<int, ": 6.329400000000077,
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_cuda_detai": 5.4080000000001744
+    }
+   },
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "rel": 2.971615956474744e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 1.375896856188774,
+     "p10": 1.3728506863117218,
+     "p90": 1.3862285763025284,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 4.817217588424683,
+     "p10": 4.806315340101719,
+     "p90": 4.83069010078907,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 3.4664850682020187,
+     "p10": 3.4596214070916176,
+     "p90": 3.473440930247307,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 823.04248046875,
+    "graph_fwd": {
+     "median": 1.2488458305597305,
+     "p10": 1.2473637238144875,
+     "p90": 1.2506833299994469,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 4.393542185425758,
+     "p10": 4.3898386880755424,
+     "p90": 4.397101514041424,
+     "n": 60
+    },
+    "graph_bwd_est": 3.144696354866028,
+    "gpu_us_fwd": 1241.0386000000012,
+    "n_gpu_ops_fwd": 38.0,
+    "gpu_us_fwdbwd": 4353.736399999998,
+    "n_gpu_ops_fwdbwd": 178.0,
+    "top_kernels_fwdbwd": {
+     "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_imp": 1290.1735999999976,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunc": 815.7501999999984,
+     "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<double, at": 314.88739999999973,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 266.0554000000016,
+     "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x32x32_stage3_warpsize": 207.95540000000085,
+     "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized": 187.3539999999997
+    }
+   }
+  },
+  "org192/L0": {
+   "N": 196,
+   "E": 3670,
+   "csr_build": {
+    "median": 0.11828169226646423,
+    "p10": 0.11748727411031723,
+    "p90": 0.12193378061056137,
+    "n": 60
+   },
+   "flash": {
+    "err": {
+     "out": {
+      "max_abs": 3.1086244689504383e-15,
+      "rel": 7.363204578982086e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 2.1316282072803006e-14,
+      "rel": 7.055528122128234e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "rel": 6.384911066774376e-16,
+      "near_zero_max_abs": 3.970466940254533e-22
+     },
+     "gw": {
+      "max_abs": 4.440892098500626e-15,
+      "rel": 8.395668876991472e-16,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.13914983719587326,
+     "p10": 0.1381848007440567,
+     "p90": 0.14328472316265106,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.48829521983861923,
+     "p10": 0.48358216881752014,
+     "p90": 0.49595627933740616,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.2055242657661438,
+     "p10": 0.20376704633235931,
+     "p90": 0.2084389328956604,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 23.73046875,
+    "graph_fwd": {
+     "median": 0.06711296737194061,
+     "p10": 0.06685443222522736,
+     "p90": 0.06750114262104034,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.1838328316807747,
+     "p10": 0.18293466418981552,
+     "p90": 0.184645876288414,
+     "n": 60
+    },
+    "graph_bwd_est": 0.11671986430883408,
+    "gpu_us_fwd": 58.86139999999996,
+    "n_gpu_ops_fwd": 13.0,
+    "gpu_us_fwdbwd": 167.20259999999996,
+    "n_gpu_ops_fwdbwd": 26.0,
+    "top_kernels_fwdbwd": {
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, doubl": 90.79080000000003,
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, doubl": 46.62460000000004,
+     "Memcpy DtoD (Device -> Device)": 18.804799999999883,
+     "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at": 4.070399999999972,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 4.031999999999994,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 2.8800000000000407
+    }
+   },
+   "node": {
+    "err": {
+     "out": {
+      "max_abs": 2.6645352591003757e-15,
+      "rel": 6.311318210556074e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 3.552713678800501e-14,
+      "rel": 1.175921353688039e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 3.9968028886505635e-15,
+      "rel": 7.183024950121173e-16,
+      "near_zero_max_abs": 3.441071348220595e-22
+     },
+     "gw": {
+      "max_abs": 4.385380947269368e-15,
+      "rel": 8.290723016029078e-16,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.1771366223692894,
+     "p10": 0.1748446375131607,
+     "p90": 0.18286798149347305,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.3466065973043442,
+     "p10": 0.3424346446990967,
+     "p90": 0.357917882502079,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.14432333409786224,
+     "p10": 0.14268532395362854,
+     "p90": 0.1461755484342575,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 18.0966796875,
+    "graph_fwd": {
+     "median": 0.08146557956933975,
+     "p10": 0.08115097880363464,
+     "p90": 0.08173733949661255,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.1810537651181221,
+     "p10": 0.1803528517484665,
+     "p90": 0.18201638013124466,
+     "n": 60
+    },
+    "graph_bwd_est": 0.09958818554878235,
+    "gpu_us_fwd": 72.06939999999994,
+    "n_gpu_ops_fwd": 16.0,
+    "gpu_us_fwdbwd": 165.8412000000001,
+    "n_gpu_ops_fwdbwd": 17.0,
+    "top_kernels_fwdbwd": {
+     "kern": 88.97179999999993,
+     "void at::native::radixSortKVInPlace<-2, -1, 128, 32, int, long, unsign": 44.26240000000007,
+     "void k_e3e329789a5bp1<long, long, 2>(double const*, double const*, dou": 13.824,
+     "Memcpy DtoD (Device -> Device)": 6.36780000000002,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_kernel<int, ": 5.965000000000031,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 3.5323999999999733
+    }
+   },
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-16,
+      "rel": 2.1037727368520247e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.2348441630601883,
+     "p10": 0.23366305977106094,
+     "p90": 0.2400081604719162,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 1.1193985119462013,
+     "p10": 1.1034000664949417,
+     "p90": 1.1362215504050255,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.7819319143891335,
+     "p10": 0.7757600396871567,
+     "p90": 0.7899414747953415,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 137.462890625,
+    "graph_fwd": {
+     "median": 0.14353450387716293,
+     "p10": 0.142754428088665,
+     "p90": 0.1444794237613678,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.6009461358189583,
+     "p10": 0.5995841696858406,
+     "p90": 0.6025753915309906,
+     "n": 60
+    },
+    "graph_bwd_est": 0.45741163194179535,
+    "gpu_us_fwd": 130.88659999999982,
+    "n_gpu_ops_fwd": 12.0,
+    "gpu_us_fwdbwd": 560.8163999999992,
+    "n_gpu_ops_fwdbwd": 77.0,
+    "top_kernels_fwdbwd": {
+     "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_imp": 188.7491999999997,
+     "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<double, at": 112.67259999999997,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunc": 49.414799999999644,
+     "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized": 43.50700000000002,
+     "void at::native::_scatter_gather_elementwise_kernel<128, 8, at::native": 37.67059999999979,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 31.655999999999946
+    }
+   }
+  },
+  "org192/L1": {
+   "N": 196,
+   "E": 3670,
+   "csr_build": {
+    "median": 0.11763907968997955,
+    "p10": 0.11718384921550751,
+    "p90": 0.12099519371986389,
+    "n": 60
+   },
+   "flash": {
+    "err": {
+     "out": {
+      "max_abs": 7.549516567451064e-15,
+      "rel": 8.458829050086427e-16,
+      "near_zero_max_abs": 3.184843881676169e-17
+     },
+     "gx": {
+      "max_abs": 3.552713678800501e-14,
+      "rel": 9.657467407806257e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-14,
+      "rel": 1.2317452510232717e-15,
+      "near_zero_max_abs": 1.7470054537119944e-21
+     },
+     "gw": {
+      "max_abs": 1.2434497875801753e-14,
+      "rel": 8.075656862280019e-16,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.22872071713209152,
+     "p10": 0.22709257900714874,
+     "p90": 0.23242179304361343,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.6715971976518631,
+     "p10": 0.6635533645749092,
+     "p90": 0.6816122680902481,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.3900444135069847,
+     "p10": 0.3878863528370857,
+     "p90": 0.3933718428015709,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 56.001953125,
+    "graph_fwd": {
+     "median": 0.16396120190620422,
+     "p10": 0.16343016177415848,
+     "p90": 0.16476064920425415,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.4621753469109535,
+     "p10": 0.46139713376760483,
+     "p90": 0.4630306735634804,
+     "n": 60
+    },
+    "graph_bwd_est": 0.2982141450047493,
+    "gpu_us_fwd": 150.163,
+    "n_gpu_ops_fwd": 13.0,
+    "gpu_us_fwdbwd": 443.8979999999998,
+    "n_gpu_ops_fwdbwd": 26.0,
+    "top_kernels_fwdbwd": {
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, doubl": 275.0210000000001,
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, doubl": 133.49139999999997,
+     "Memcpy DtoD (Device -> Device)": 22.066799999999436,
+     "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at": 5.017600000000038,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 4.237000000000126,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 4.064200000000119
+    }
+   },
+   "node": {
+    "err": {
+     "out": {
+      "max_abs": 6.217248937900877e-15,
+      "rel": 6.966094511835881e-16,
+      "near_zero_max_abs": 8.307699146670178e-18
+     },
+     "gx": {
+      "max_abs": 4.263256414560601e-14,
+      "rel": 1.158896088936751e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 1.2434497875801753e-14,
+      "rel": 4.3111083785814513e-16,
+      "near_zero_max_abs": 4.764560328305439e-22
+     },
+     "gw": {
+      "max_abs": 1.1546319456101628e-14,
+      "rel": 7.498824229260018e-16,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.2446454018354416,
+     "p10": 0.241948664188385,
+     "p90": 0.2518773078918457,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.40103401988744736,
+     "p10": 0.3935817629098892,
+     "p90": 0.41074641048908234,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.15764683485031128,
+     "p10": 0.15661288052797318,
+     "p90": 0.15991739928722382,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 44.9287109375,
+    "graph_fwd": {
+     "median": 0.11728331446647644,
+     "p10": 0.11626686900854111,
+     "p90": 0.11803489178419113,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.21120719611644745,
+     "p10": 0.20965449512004852,
+     "p90": 0.2130681648850441,
+     "n": 60
+    },
+    "graph_bwd_est": 0.09392388164997101,
+    "gpu_us_fwd": 101.44660000000007,
+    "n_gpu_ops_fwd": 16.0,
+    "gpu_us_fwdbwd": 194.32319999999982,
+    "n_gpu_ops_fwdbwd": 17.0,
+    "top_kernels_fwdbwd": {
+     "kern": 93.23519999999989,
+     "void at::native::radixSortKVInPlace<-2, -1, 128, 32, int, long, unsign": 45.407999999999866,
+     "void k_24bb6332bfcfp1<long, long, 2>(double const*, double const*, dou": 36.83839999999996,
+     "Memcpy DtoD (Device -> Device)": 6.297800000000051,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_kernel<int, ": 5.971199999999953,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 3.680000000000019
+    }
+   },
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 2.220446049250313e-15,
+      "rel": 2.487890897084243e-16,
+      "near_zero_max_abs": 6.952446431063297e-18
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.8671097457408905,
+     "p10": 0.861763209104538,
+     "p90": 0.8744632825255394,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 3.091084770858288,
+     "p10": 3.0750811100006104,
+     "p90": 3.109412081539631,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 2.1998435258865356,
+     "p10": 2.1946629509329796,
+     "p90": 2.2077513858675957,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 456.18310546875,
+    "graph_fwd": {
+     "median": 0.7222369313240051,
+     "p10": 0.7206737995147705,
+     "p90": 0.7238488644361496,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 2.6305941864848137,
+     "p10": 2.627924457192421,
+     "p90": 2.6349371299147606,
+     "n": 60
+    },
+    "graph_bwd_est": 1.9083572551608086,
+    "gpu_us_fwd": 705.7543999999995,
+    "n_gpu_ops_fwd": 39.0,
+    "gpu_us_fwdbwd": 2580.363199999996,
+    "n_gpu_ops_fwdbwd": 180.0,
+    "top_kernels_fwdbwd": {
+     "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_imp": 749.6345999999977,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunc": 455.1646000000019,
+     "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<double, at": 207.8661999999993,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 153.56879999999802,
+     "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x32x32_stage3_warpsize": 120.44820000000017,
+     "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized": 103.43719999999976
+    }
+   }
+  },
+  "water648/L0": {
+   "N": 648,
+   "E": 26550,
+   "csr_build": {
+    "median": 0.16644224524497986,
+    "p10": 0.16553588211536407,
+    "p90": 0.16805455088615417,
+    "n": 60
+   },
+   "flash": {
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "rel": 6.882893399897451e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 3.552713678800501e-14,
+      "rel": 8.99917027124768e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 4.440892098500626e-15,
+      "rel": 6.895356136015742e-16,
+      "near_zero_max_abs": 1.1434944787933055e-20
+     },
+     "gw": {
+      "max_abs": 3.1086244689504383e-15,
+      "rel": 8.708557243560731e-16,
+      "near_zero_max_abs": 1.99419804001581e-20
+     }
+    },
+    "eager_fwd": {
+     "median": 0.4105977714061737,
+     "p10": 0.40723662823438644,
+     "p90": 0.41400380432605743,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 1.128530129790306,
+     "p10": 1.1240910738706589,
+     "p90": 1.1392518877983093,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.7588686421513557,
+     "p10": 0.7566710934042931,
+     "p90": 0.762278214097023,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 141.291015625,
+    "graph_fwd": {
+     "median": 0.34310854971408844,
+     "p10": 0.33823177218437195,
+     "p90": 0.3452492877840996,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 1.0089194402098656,
+     "p10": 1.006118394434452,
+     "p90": 1.013195887207985,
+     "n": 60
+    },
+    "graph_bwd_est": 0.6658108904957771,
+    "gpu_us_fwd": 333.1694000000002,
+    "n_gpu_ops_fwd": 13.0,
+    "gpu_us_fwdbwd": 995.0161999999995,
+    "n_gpu_ops_fwdbwd": 26.0,
+    "top_kernels_fwdbwd": {
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, doubl": 639.6106,
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, doubl": 312.3526,
+     "Memcpy DtoD (Device -> Device)": 20.780800000000056,
+     "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at": 12.88319999999976,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 4.915399999999885,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 4.473599999999874
+    }
+   },
+   "node": {
+    "err": {
+     "out": {
+      "max_abs": 2.6645352591003757e-15,
+      "rel": 1.0324340099846178e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 6.750155989720952e-14,
+      "rel": 1.7098423515370593e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 4.440892098500626e-15,
+      "rel": 6.895356136015742e-16,
+      "near_zero_max_abs": 9.105604182983729e-21
+     },
+     "gw": {
+      "max_abs": 3.1086244689504383e-15,
+      "rel": 8.708557243560731e-16,
+      "near_zero_max_abs": 1.1990758460780405e-20
+     }
+    },
+    "eager_fwd": {
+     "median": 0.2613728865981102,
+     "p10": 0.25895070284605026,
+     "p90": 0.26704780757427216,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.5123661831021309,
+     "p10": 0.5071716383099556,
+     "p90": 0.5225472152233124,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.2793865278363228,
+     "p10": 0.27705803513526917,
+     "p90": 0.28237681835889816,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 118.41015625,
+    "graph_fwd": {
+     "median": 0.18482748419046402,
+     "p10": 0.18368661403656006,
+     "p90": 0.18597673624753952,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.40094368159770966,
+     "p10": 0.3986021503806114,
+     "p90": 0.4036145284771919,
+     "n": 60
+    },
+    "graph_bwd_est": 0.21611619740724564,
+    "gpu_us_fwd": 160.72840000000002,
+    "n_gpu_ops_fwd": 34.0,
+    "gpu_us_fwdbwd": 373.3306000000001,
+    "n_gpu_ops_fwdbwd": 35.0,
+    "top_kernels_fwdbwd": {
+     "kern": 212.7942,
+     "void k_e3e329789a5bp1<long, long, 2>(double const*, double const*, dou": 65.90720000000005,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_cuda_detail": 56.67199999999993,
+     "Memset (Device)": 11.525399999999932,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_kernel<int, ": 8.076599999999983,
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_cuda_detai": 5.427200000000084
+    }
+   },
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 6.661338147750939e-16,
+      "rel": 2.5810850249615444e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.9589735418558121,
+     "p10": 0.9569551795721054,
+     "p90": 0.965096615254879,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 3.446352668106556,
+     "p10": 3.4407809376716614,
+     "p90": 3.4606289118528366,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 2.504671923816204,
+     "p10": 2.501097321510315,
+     "p90": 2.5095995515584946,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 962.275390625,
+    "graph_fwd": {
+     "median": 0.9130360558629036,
+     "p10": 0.9118290618062019,
+     "p90": 0.9150903671979904,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 3.2637324184179306,
+     "p10": 3.261244483292103,
+     "p90": 3.267773613333702,
+     "n": 60
+    },
+    "graph_bwd_est": 2.350696362555027,
+    "gpu_us_fwd": 904.1502,
+    "n_gpu_ops_fwd": 12.0,
+    "gpu_us_fwdbwd": 3250.948400000001,
+    "n_gpu_ops_fwdbwd": 79.0,
+    "top_kernels_fwdbwd": {
+     "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_imp": 1209.4626000000017,
+     "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<double, at": 462.2345999999995,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunc": 412.77020000000033,
+     "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized": 304.4361999999999,
+     "void at::native::_scatter_gather_elementwise_kernel<128, 8, at::native": 241.76040000000006,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 182.54259999999994
+    }
+   }
+  },
+  "water648/L1": {
+   "N": 648,
+   "E": 26550,
+   "csr_build": {
+    "median": 0.16668997704982758,
+    "p10": 0.16558878123760223,
+    "p90": 0.16885101795196533,
+    "n": 60
+   },
+   "flash": {
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-15,
+      "rel": 1.2932730555018803e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 4.263256414560601e-14,
+      "rel": 1.111551788823383e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-14,
+      "rel": 1.127979450352832e-15,
+      "near_zero_max_abs": 6.776263578034403e-21
+     },
+     "gw": {
+      "max_abs": 1.0658141036401503e-14,
+      "rel": 7.211738418133027e-16,
+      "near_zero_max_abs": 6.214914908836215e-17
+     }
+    },
+    "eager_fwd": {
+     "median": 0.9892545640468597,
+     "p10": 0.9870745241641998,
+     "p90": 0.9943298995494843,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 2.966351807117462,
+     "p10": 2.9556944966316223,
+     "p90": 2.979802154004574,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 2.006801776587963,
+     "p10": 2.004146948456764,
+     "p90": 2.010355331003666,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 343.3095703125,
+    "graph_fwd": {
+     "median": 0.9310413151979446,
+     "p10": 0.9295152500271797,
+     "p90": 0.9324228391051292,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 2.8390493243932724,
+     "p10": 2.837431989610195,
+     "p90": 2.84066554158926,
+     "n": 60
+    },
+    "graph_bwd_est": 1.9080080091953278,
+    "gpu_us_fwd": 921.784,
+    "n_gpu_ops_fwd": 13.0,
+    "gpu_us_fwdbwd": 2833.958199999999,
+    "n_gpu_ops_fwdbwd": 26.0,
+    "top_kernels_fwdbwd": {
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, doubl": 1881.6576,
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, doubl": 896.672,
+     "Memcpy DtoD (Device -> Device)": 22.130999999999524,
+     "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at": 19.53919999999953,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 9.363199999999733,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 4.5952000000003865
+    }
+   },
+   "node": {
+    "err": {
+     "out": {
+      "max_abs": 4.440892098500626e-15,
+      "rel": 6.466365277509401e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 8.881784197001252e-14,
+      "rel": 2.315732893382048e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 1.7763568394002505e-14,
+      "rel": 5.63989725176416e-16,
+      "near_zero_max_abs": 6.776263578034403e-21
+     },
+     "gw": {
+      "max_abs": 1.2434497875801753e-14,
+      "rel": 8.413694821155198e-16,
+      "near_zero_max_abs": 1.4227298086397713e-17
+     }
+    },
+    "eager_fwd": {
+     "median": 0.39176177233457565,
+     "p10": 0.38729701191186905,
+     "p90": 0.40393639355897903,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.8302303031086922,
+     "p10": 0.822235457599163,
+     "p90": 0.8518632501363754,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.4670349881052971,
+     "p10": 0.4620160907506943,
+     "p90": 0.4750102758407593,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 292.0458984375,
+    "graph_fwd": {
+     "median": 0.2705426886677742,
+     "p10": 0.2682734280824661,
+     "p90": 0.28275270015001297,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.6758645176887512,
+     "p10": 0.6706131622195244,
+     "p90": 0.6816068664193153,
+     "n": 60
+    },
+    "graph_bwd_est": 0.405321829020977,
+    "gpu_us_fwd": 244.25800000000004,
+    "n_gpu_ops_fwd": 34.0,
+    "gpu_us_fwdbwd": 648.0779999999999,
+    "n_gpu_ops_fwdbwd": 35.0,
+    "top_kernels_fwdbwd": {
+     "kern": 401.7606,
+     "void k_24bb6332bfcfp1<long, long, 1>(double const*, double const*, dou": 151.06579999999997,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_cuda_detail": 56.972399999999894,
+     "Memset (Device)": 11.629000000000042,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_kernel<int, ": 8.198600000000035,
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_cuda_detai": 5.472199999999975
+    }
+   },
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 2.220446049250313e-15,
+      "rel": 3.2331826387547007e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 4.90202009677887,
+     "p10": 4.891997389495373,
+     "p90": 4.914325475692749,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 16.732621006667614,
+     "p10": 16.72062799334526,
+     "p90": 16.75073653459549,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 11.875573545694351,
+     "p10": 11.86717413365841,
+     "p90": 11.886254139244556,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 3280.98974609375,
+    "graph_fwd": {
+     "median": 4.796748980879784,
+     "p10": 4.794460907578468,
+     "p90": 4.799509979784489,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 16.366765834391117,
+     "p10": 16.360484063625336,
+     "p90": 16.377543658018112,
+     "n": 60
+    },
+    "graph_bwd_est": 11.570016853511333,
+    "gpu_us_fwd": 4826.770599999999,
+    "n_gpu_ops_fwd": 44.0,
+    "gpu_us_fwdbwd": 16426.37680000001,
+    "n_gpu_ops_fwdbwd": 192.0,
+    "top_kernels_fwdbwd": {
+     "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_imp": 4796.985199999995,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunc": 3209.522999999998,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 1030.141400000008,
+     "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<double, at": 1009.9282000000154,
+     "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x32x32_stage3_warpsize": 827.1885999999911,
+     "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized": 756.6420000000006
+    }
+   }
+  },
+  "org648/L0": {
+   "N": 650,
+   "E": 14856,
+   "csr_build": {
+    "median": 0.16137398779392242,
+    "p10": 0.16041714698076248,
+    "p90": 0.16342885792255402,
+    "n": 60
+   },
+   "flash": {
+    "err": {
+     "out": {
+      "max_abs": 3.1086244689504383e-15,
+      "rel": 7.479317853807448e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "rel": 6.23463254507189e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "rel": 6.377756817521193e-16,
+      "near_zero_max_abs": 1.2705494208814505e-21
+     },
+     "gw": {
+      "max_abs": 5.329070518200751e-15,
+      "rel": 5.92353738567421e-16,
+      "near_zero_max_abs": 1.837581730786551e-21
+     }
+    },
+    "eager_fwd": {
+     "median": 0.273827463388443,
+     "p10": 0.27204230427742004,
+     "p90": 0.2805151045322418,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.7691457867622375,
+     "p10": 0.760531984269619,
+     "p90": 0.7778728380799294,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.48126187175512314,
+     "p10": 0.4785517230629921,
+     "p90": 0.486094132065773,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 88.703125,
+    "graph_fwd": {
+     "median": 0.20801741629838943,
+     "p10": 0.20710546523332596,
+     "p90": 0.20858701318502426,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.5950359627604485,
+     "p10": 0.5935449153184891,
+     "p90": 0.5963604897260666,
+     "n": 60
+    },
+    "graph_bwd_est": 0.387018546462059,
+    "gpu_us_fwd": 195.3811999999999,
+    "n_gpu_ops_fwd": 13.0,
+    "gpu_us_fwdbwd": 579.8924000000003,
+    "n_gpu_ops_fwdbwd": 26.0,
+    "top_kernels_fwdbwd": {
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, doubl": 363.1684,
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, doubl": 178.20199999999988,
+     "Memcpy DtoD (Device -> Device)": 20.697400000000254,
+     "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at": 8.358200000000034,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 4.896600000000035,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 4.569800000000077
+    }
+   },
+   "node": {
+    "err": {
+     "out": {
+      "max_abs": 3.552713678800501e-15,
+      "rel": 8.547791832922798e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 5.684341886080802e-14,
+      "rel": 1.246926509014378e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 4.440892098500626e-15,
+      "rel": 7.972196021901492e-16,
+      "near_zero_max_abs": 8.470329472543003e-22
+     },
+     "gw": {
+      "max_abs": 3.774758283725532e-15,
+      "rel": 4.1958389815192323e-16,
+      "near_zero_max_abs": 2.4204959084526696e-19
+     }
+    },
+    "eager_fwd": {
+     "median": 0.23603159934282303,
+     "p10": 0.23106113076210022,
+     "p90": 0.240987166762352,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.42775552719831467,
+     "p10": 0.4209328442811966,
+     "p90": 0.43898075819015503,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.20127277821302414,
+     "p10": 0.19866768270730972,
+     "p90": 0.20387545228004456,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 71.091796875,
+    "graph_fwd": {
+     "median": 0.1714574173092842,
+     "p10": 0.17055552452802658,
+     "p90": 0.172550231218338,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.30802376568317413,
+     "p10": 0.3057178109884262,
+     "p90": 0.3103503957390785,
+     "n": 60
+    },
+    "graph_bwd_est": 0.13656634837388992,
+    "gpu_us_fwd": 137.18100000000032,
+    "n_gpu_ops_fwd": 34.0,
+    "gpu_us_fwdbwd": 272.8906000000001,
+    "n_gpu_ops_fwdbwd": 35.0,
+    "top_kernels_fwdbwd": {
+     "kern": 135.82719999999995,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_cuda_detail": 53.77939999999987,
+     "void k_e3e329789a5bp1<long, long, 2>(double const*, double const*, dou": 43.078399999999974,
+     "Memset (Device)": 13.907800000000115,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_kernel<int, ": 7.50740000000003,
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_cuda_detai": 5.472000000000026
+    }
+   },
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-16,
+      "rel": 2.1369479582306996e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 0.5751959979534149,
+     "p10": 0.5739236250519753,
+     "p90": 0.5783276632428169,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 2.0929044112563133,
+     "p10": 2.087688446044922,
+     "p90": 2.09687277674675,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 1.5333369374275208,
+     "p10": 1.5259718522429466,
+     "p90": 1.5382103621959686,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 537.58251953125,
+    "graph_fwd": {
+     "median": 0.525561161339283,
+     "p10": 0.5246158689260483,
+     "p90": 0.5268242210149765,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 1.9085109233856201,
+     "p10": 1.9063763320446014,
+     "p90": 1.9115440547466278,
+     "n": 60
+    },
+    "graph_bwd_est": 1.3829497620463371,
+    "gpu_us_fwd": 514.9156,
+    "n_gpu_ops_fwd": 12.0,
+    "gpu_us_fwdbwd": 1883.1969999999997,
+    "n_gpu_ops_fwdbwd": 79.0,
+    "top_kernels_fwdbwd": {
+     "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_imp": 686.0509999999998,
+     "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<double, at": 282.0047999999987,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunc": 223.98220000000097,
+     "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized": 170.36299999999972,
+     "void at::native::_scatter_gather_elementwise_kernel<128, 8, at::native": 142.81720000000013,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 108.19320000000022
+    }
+   }
+  },
+  "org648/L1": {
+   "N": 650,
+   "E": 14856,
+   "csr_build": {
+    "median": 0.16169995069503784,
+    "p10": 0.1606794074177742,
+    "p90": 0.16457624733448029,
+    "n": 60
+   },
+   "flash": {
+    "err": {
+     "out": {
+      "max_abs": 7.993605777301127e-15,
+      "rel": 9.20529687724219e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 3.552713678800501e-14,
+      "rel": 7.365039474025814e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 3.108624468950438e-14,
+      "rel": 1.0508770030892489e-15,
+      "near_zero_max_abs": 1.1858461261560205e-20
+     },
+     "gw": {
+      "max_abs": 1.9539925233402755e-14,
+      "rel": 1.1940369118516849e-15,
+      "near_zero_max_abs": 4.129479157448536e-17
+     }
+    },
+    "eager_fwd": {
+     "median": 0.5966359749436378,
+     "p10": 0.5952779203653336,
+     "p90": 0.6000526249408722,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 1.736598089337349,
+     "p10": 1.7333652824163437,
+     "p90": 1.7408542335033417,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 1.1891238391399384,
+     "p10": 1.1852456256747246,
+     "p90": 1.1920994147658348,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 216.59375,
+    "graph_fwd": {
+     "median": 0.5365526303648949,
+     "p10": 0.5359137430787086,
+     "p90": 0.5371721461415291,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 1.6257083043456078,
+     "p10": 1.6244905069470406,
+     "p90": 1.6267986968159676,
+     "n": 60
+    },
+    "graph_bwd_est": 1.089155673980713,
+    "gpu_us_fwd": 524.9393999999998,
+    "n_gpu_ops_fwd": 13.0,
+    "gpu_us_fwdbwd": 1613.066800000001,
+    "n_gpu_ops_fwdbwd": 26.0,
+    "top_kernels_fwdbwd": {
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, doubl": 1064.7133999999999,
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, doubl": 501.81240000000014,
+     "Memcpy DtoD (Device -> Device)": 22.208200000000275,
+     "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at": 10.585599999999976,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 9.344200000000432,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 4.403000000000042
+    }
+   },
+   "node": {
+    "err": {
+     "out": {
+      "max_abs": 7.993605777301127e-15,
+      "rel": 9.20529687724219e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 6.750155989720952e-14,
+      "rel": 1.3993575000649047e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 1.4210854715202004e-14,
+      "rel": 4.804009156979423e-16,
+      "near_zero_max_abs": 6.776263578034403e-21
+     },
+     "gw": {
+      "max_abs": 1.0658141036401503e-14,
+      "rel": 6.512928610100099e-16,
+      "near_zero_max_abs": 3.0741332013114595e-17
+     }
+    },
+    "eager_fwd": {
+     "median": 0.33327750861644745,
+     "p10": 0.3299843519926071,
+     "p90": 0.3410693258047104,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.6140144541859627,
+     "p10": 0.606408528983593,
+     "p90": 0.6258858367800713,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.3133881837129593,
+     "p10": 0.3106251358985901,
+     "p90": 0.31814761459827423,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 175.9765625,
+    "graph_fwd": {
+     "median": 0.2267993986606598,
+     "p10": 0.2251502126455307,
+     "p90": 0.22834278643131256,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.47542620450258255,
+     "p10": 0.47218911349773407,
+     "p90": 0.4786346107721329,
+     "n": 60
+    },
+    "graph_bwd_est": 0.24862680584192276,
+    "gpu_us_fwd": 191.4818000000001,
+    "n_gpu_ops_fwd": 34.0,
+    "gpu_us_fwdbwd": 440.0460000000003,
+    "n_gpu_ops_fwdbwd": 35.0,
+    "top_kernels_fwdbwd": {
+     "kern": 248.9862,
+     "void k_24bb6332bfcfp1<long, long, 1>(double const*, double const*, dou": 96.91540000000009,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_cuda_detail": 53.84959999999999,
+     "Memset (Device)": 14.003400000000243,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_kernel<int, ": 7.520199999999931,
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_cuda_detai": 5.478399999999783
+    }
+   },
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 2.220446049250313e-15,
+      "rel": 2.557026910345053e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 2.858223393559456,
+     "p10": 2.8542952612042427,
+     "p90": 2.8631076216697693,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 9.784508496522903,
+     "p10": 9.777411445975304,
+     "p90": 9.792038425803185,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 6.957563571631908,
+     "p10": 6.951054744422436,
+     "p90": 6.964023225009441,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 1835.2265625,
+    "graph_fwd": {
+     "median": 2.746863290667534,
+     "p10": 2.7451951056718826,
+     "p90": 2.748814970254898,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 9.365320205688477,
+     "p10": 9.362376108765602,
+     "p90": 9.368918277323246,
+     "n": 60
+    },
+    "graph_bwd_est": 6.618456915020943,
+    "gpu_us_fwd": 2756.0635999999995,
+    "n_gpu_ops_fwd": 40.0,
+    "gpu_us_fwdbwd": 9365.931000000013,
+    "n_gpu_ops_fwdbwd": 184.0,
+    "top_kernels_fwdbwd": {
+     "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_imp": 2744.5198000000128,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunc": 1797.6332000000011,
+     "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<double, at": 600.6857999999979,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 585.4683999999934,
+     "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x32x32_stage3_warpsize": 458.70900000000097,
+     "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized": 421.0954000000005
+    }
+   }
+  },
+  "wbox648/L0": {
+   "N": 648,
+   "E": 35698,
+   "csr_build": {
+    "median": 0.16590207815170288,
+    "p10": 0.1649118959903717,
+    "p90": 0.16998350620269775,
+    "n": 60
+   },
+   "flash": {
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "rel": 7.631167801038453e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 3.907985046680551e-14,
+      "rel": 8.652918122192512e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 4.440892098500626e-15,
+      "rel": 6.893437180234025e-16,
+      "near_zero_max_abs": 5.082197683525802e-21
+     },
+     "gw": {
+      "max_abs": 3.1086244689504383e-15,
+      "rel": 8.191569570320974e-16,
+      "near_zero_max_abs": 1.2898310009600616e-19
+     }
+    },
+    "eager_fwd": {
+     "median": 0.5160672590136528,
+     "p10": 0.5114266648888588,
+     "p90": 0.5209002643823624,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 1.4464175328612328,
+     "p10": 1.4416173100471497,
+     "p90": 1.452040672302246,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.9806957095861435,
+     "p10": 0.9774364531040192,
+     "p90": 0.9829465299844742,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 183.51318359375,
+    "graph_fwd": {
+     "median": 0.4488090053200722,
+     "p10": 0.4450703039765358,
+     "p90": 0.4524989053606987,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 1.32781732827425,
+     "p10": 1.3251116499304771,
+     "p90": 1.3333829119801521,
+     "n": 60
+    },
+    "graph_bwd_est": 0.8790083229541779,
+    "gpu_us_fwd": 437.98380000000014,
+    "n_gpu_ops_fwd": 13.0,
+    "gpu_us_fwdbwd": 1319.3869999999993,
+    "n_gpu_ops_fwdbwd": 26.0,
+    "top_kernels_fwdbwd": {
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, doubl": 856.0803999999998,
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, doubl": 418.51380000000006,
+     "Memcpy DtoD (Device -> Device)": 20.74819999999971,
+     "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at": 14.43819999999987,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 4.883399999999869,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 4.723000000000161
+    }
+   },
+   "node": {
+    "err": {
+     "out": {
+      "max_abs": 2.886579864025407e-15,
+      "rel": 1.2400647676687486e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 8.171241461241152e-14,
+      "rel": 1.8092465164584344e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 4.440892098500626e-15,
+      "rel": 6.893437180234025e-16,
+      "near_zero_max_abs": 6.776263578034403e-21
+     },
+     "gw": {
+      "max_abs": 3.1086244689504383e-15,
+      "rel": 8.191569570320974e-16,
+      "near_zero_max_abs": 7.519311650484662e-19
+     }
+    },
+    "eager_fwd": {
+     "median": 0.28106849640607834,
+     "p10": 0.27860216796398163,
+     "p90": 0.28851423412561417,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 0.5463361740112305,
+     "p10": 0.5400709807872772,
+     "p90": 0.5645690485835075,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.30392594635486603,
+     "p10": 0.30063800513744354,
+     "p90": 0.30810050666332245,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 156.06005859375,
+    "graph_fwd": {
+     "median": 0.20412635058164597,
+     "p10": 0.20340178161859512,
+     "p90": 0.20524952560663223,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.4434660077095032,
+     "p10": 0.4416506737470627,
+     "p90": 0.446522980928421,
+     "n": 60
+    },
+    "graph_bwd_est": 0.2393396571278572,
+    "gpu_us_fwd": 179.79580000000038,
+    "n_gpu_ops_fwd": 34.0,
+    "gpu_us_fwdbwd": 419.7497999999995,
+    "n_gpu_ops_fwdbwd": 35.0,
+    "top_kernels_fwdbwd": {
+     "kern": 238.11320000000006,
+     "void k_e3e329789a5bp1<long, long, 2>(double const*, double const*, dou": 87.3094000000001,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_cuda_detail": 54.834799999999866,
+     "Memset (Device)": 11.85860000000007,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_kernel<int, ": 8.902199999999992,
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_cuda_detai": 5.484599999999864
+    }
+   },
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-16,
+      "rel": 3.8155839005192265e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 1.2570274993777275,
+     "p10": 1.2546896934509277,
+     "p90": 1.2600338086485863,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 4.492244683206081,
+     "p10": 4.488262347877026,
+     "p90": 4.498039186000824,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 3.270142711699009,
+     "p10": 3.26605923473835,
+     "p90": 3.273683600127697,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 1291.6650390625,
+    "graph_fwd": {
+     "median": 1.2148059904575348,
+     "p10": 1.2133819982409477,
+     "p90": 1.2166351079940796,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 4.312741570174694,
+     "p10": 4.309895634651184,
+     "p90": 4.31668646633625,
+     "n": 60
+    },
+    "graph_bwd_est": 3.0979355797171593,
+    "gpu_us_fwd": 1206.1781999999996,
+    "n_gpu_ops_fwd": 12.0,
+    "gpu_us_fwdbwd": 4303.697199999997,
+    "n_gpu_ops_fwdbwd": 79.0,
+    "top_kernels_fwdbwd": {
+     "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_imp": 1602.1471999999999,
+     "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<double, at": 605.8249999999989,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunc": 560.8975999999991,
+     "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized": 409.13380000000006,
+     "void at::native::_scatter_gather_elementwise_kernel<128, 8, at::native": 321.43439999999924,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 240.80660000000427
+    }
+   }
+  },
+  "wbox648/L1": {
+   "N": 648,
+   "E": 35698,
+   "csr_build": {
+    "median": 0.16492698341608047,
+    "p10": 0.16409419476985931,
+    "p90": 0.16779229044914246,
+    "n": 60
+   },
+   "flash": {
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "rel": 1.418114807631002e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 4.440892098500626e-14,
+      "rel": 1.0662125701511155e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 2.4868995751603507e-14,
+      "rel": 7.133868827766701e-16,
+      "near_zero_max_abs": 1.5246593050577406e-20
+     },
+     "gw": {
+      "max_abs": 1.1546319456101628e-14,
+      "rel": 7.852237339625949e-16,
+      "near_zero_max_abs": 8.034955199398783e-17
+     }
+    },
+    "eager_fwd": {
+     "median": 1.2879762798547745,
+     "p10": 1.286335289478302,
+     "p90": 1.293410174548626,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 3.8952091708779335,
+     "p10": 3.8914604112505913,
+     "p90": 3.901522047817707,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 2.6537030935287476,
+     "p10": 2.648937702178955,
+     "p90": 2.6651814579963684,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 441.396484375,
+    "graph_fwd": {
+     "median": 1.2349411845207214,
+     "p10": 1.230880618095398,
+     "p90": 1.2376746162772179,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 3.780025988817215,
+     "p10": 3.7775006145238876,
+     "p90": 3.7822693586349487,
+     "n": 60
+    },
+    "graph_bwd_est": 2.5450848042964935,
+    "gpu_us_fwd": 1229.7374,
+    "n_gpu_ops_fwd": 13.0,
+    "gpu_us_fwdbwd": 3778.1793999999986,
+    "n_gpu_ops_fwdbwd": 26.0,
+    "top_kernels_fwdbwd": {
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, doubl": 2521.1978000000004,
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, doubl": 1197.2704,
+     "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at": 23.001600000000142,
+     "Memcpy DtoD (Device -> Device)": 22.898199999998624,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 9.318799999999737,
+     "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k": 4.492599999999493
+    }
+   },
+   "node": {
+    "err": {
+     "out": {
+      "max_abs": 5.329070518200751e-15,
+      "rel": 7.735171677987283e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 9.592326932761353e-14,
+      "rel": 2.3030191515264094e-15,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 1.7763568394002505e-14,
+      "rel": 5.095620591261929e-16,
+      "near_zero_max_abs": 6.88214269644119e-22
+     },
+     "gw": {
+      "max_abs": 1.2434497875801753e-14,
+      "rel": 8.456255596520253e-16,
+      "near_zero_max_abs": 4.6012161455639805e-18
+     }
+    },
+    "eager_fwd": {
+     "median": 0.4442920908331871,
+     "p10": 0.4407249391078949,
+     "p90": 0.4504607990384102,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 1.0486841201782227,
+     "p10": 1.0412484407424927,
+     "p90": 1.0561902076005936,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 0.6410526111721992,
+     "p10": 0.6351124495267868,
+     "p90": 0.6468525156378746,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 381.638671875,
+    "graph_fwd": {
+     "median": 0.3170603886246681,
+     "p10": 0.31604375690221786,
+     "p90": 0.31874794512987137,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 0.8921809494495392,
+     "p10": 0.8883083239197731,
+     "p90": 0.8951094001531601,
+     "n": 60
+    },
+    "graph_bwd_est": 0.5751205608248711,
+    "gpu_us_fwd": 293.56759999999986,
+    "n_gpu_ops_fwd": 34.0,
+    "gpu_us_fwdbwd": 866.1220000000001,
+    "n_gpu_ops_fwdbwd": 35.0,
+    "top_kernels_fwdbwd": {
+     "kern": 572.1711999999999,
+     "void k_24bb6332bfcfp1<long, long, 1>(double const*, double const*, dou": 199.82080000000005,
+     "void at_cuda_detail::cub::DeviceRadixSortOnesweepKernel<at_cuda_detail": 54.89880000000007,
+     "Memset (Device)": 11.634200000000073,
+     "void at::native::(anonymous namespace)::searchsorted_cuda_kernel<int, ": 8.883399999999982,
+     "void at_cuda_detail::cub::DeviceRadixSortHistogramKernel<at_cuda_detai": 5.452800000000093
+    }
+   },
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 2.6645352591003757e-15,
+      "rel": 3.8675858389936416e-16,
+      "near_zero_max_abs": 0.0
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "rel": 0.0,
+      "near_zero_max_abs": 0.0
+     }
+    },
+    "eager_fwd": {
+     "median": 6.506690755486488,
+     "p10": 6.503433547914028,
+     "p90": 6.5130602568387985,
+     "n": 60
+    },
+    "eager_fwdbwd": {
+     "median": 22.192946635186672,
+     "p10": 22.182375006377697,
+     "p90": 22.21891935914755,
+     "n": 60
+    },
+    "eager_bwd": {
+     "median": 15.745103359222412,
+     "p10": 15.735496208071709,
+     "p90": 15.757183730602264,
+     "n": 60
+    },
+    "peak_MiB_fwdbwd": 4407.3046875,
+    "graph_fwd": {
+     "median": 6.419071927666664,
+     "p10": 6.416117399930954,
+     "p90": 6.42237663269043,
+     "n": 60
+    },
+    "graph_fwdbwd": {
+     "median": 21.850518882274628,
+     "p10": 21.843350678682327,
+     "p90": 21.86089511960745,
+     "n": 60
+    },
+    "graph_bwd_est": 15.431446954607964,
+    "gpu_us_fwd": 6463.881199999998,
+    "n_gpu_ops_fwd": 46.0,
+    "gpu_us_fwdbwd": 21953.777599999994,
+    "n_gpu_ops_fwdbwd": 196.0,
+    "top_kernels_fwdbwd": {
+     "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_imp": 6395.119400000006,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunc": 4308.718799999993,
+     "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunc": 1380.7864000000052,
+     "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<double, at": 1335.9925999999969,
+     "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x32x32_stage3_warpsize": 1106.4416000000092,
+     "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized": 1020.1956000000032
+    }
+   }
+  }
+ },
+ "gpu_end": "0, NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 1980 MHz, 1980 MHz"
+}

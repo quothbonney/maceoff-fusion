@@ -1,0 +1,19 @@
+SLURM_JOB_ID=998
+NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845
+Traceback (most recent call last):
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/review/mini_checks.py", line 21, in <module>
+    d[f"{fn}:{li}:{default}"] = [t.cpu() if torch.is_tensor(t) else t for t in m.metadata_list] + [m.uppath_cnt, m.per_block_batch, m.unique_cg_val]
+                                                                                                   ^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1968, in __getattr__
+    raise AttributeError(
+AttributeError: 'fused_uvu_TP_exp_opt_extcg' object has no attribute 'uppath_cnt'
+Traceback (most recent call last):
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/review/mini_checks.py", line 21, in <module>
+    d[f"{fn}:{li}:{default}"] = [t.cpu() if torch.is_tensor(t) else t for t in m.metadata_list] + [m.uppath_cnt, m.per_block_batch, m.unique_cg_val]
+                                                                                                   ^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1968, in __getattr__
+    raise AttributeError(
+AttributeError: 'fused_uvu_TP_exp_opt_extcg' object has no attribute 'uppath_cnt'
+{"fwd": {"ok": false, "error": "CUDA error: invalid configuration argument\nSearch for `cudaErrorInvalidConfiguration' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n"}}
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+{"H2O": {"bitwise_all": false, "max_dE": 0.0, "max_dF": 2.220446049250313e-16}, "water192": {"bitwise_all": false, "max_dE": 2.9103830456733704e-11, "max_dF": 2.7755575615628914e-15}}

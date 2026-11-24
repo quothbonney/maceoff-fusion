@@ -1,0 +1,163 @@
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+import ok /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/flashTP_e3nn/__init__.py NVIDIA H100 80GB HBM3
+===== medium.json layer=0 edges=4096 fp64
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+batch_size 4096
+cuEquivariance not installed, using e3nn Irreps directly for cueq config
+INFO:flashTP_e3nn.flashTP:Using fused_uvu_TP_exp_opt_large
+INFO:flashTP_e3nn.sptp_exp_opt_large.fused_e3nn_exp_opt_large:SMEM_SIZE set to 227 KB
+INFO:flashTP_e3nn.sptp_exp_opt_large.fused_e3nn_exp_opt_large:Using per_block_batch of [21, 17, 13]
+shared_memory_bytes 115816
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/flashtp_fp64_check.py:11: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  r = dict(name=name, shape=list(a.shape), dtype=str(a.dtype), max_abs=float(d.max()), max_ref=float(b.abs().max()),
+[out] {'name': 'out', 'shape': [64, 2048], 'dtype': 'torch.float64', 'max_abs': 2.537354397702529e-07, 'max_ref': 14.137072120049726, 'max_rel_where_ref_gt_1em6': 1.7948232757003947e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_in1] {'name': 'd_in1', 'shape': [64, 128], 'dtype': 'torch.float64', 'max_abs': 5.27882679079994e-06, 'max_ref': 366.77106961876245, 'max_rel_where_ref_gt_1em6': 1.4833212379627368e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_in2] {'name': 'd_in2', 'shape': [4096, 16], 'dtype': 'torch.float64', 'max_abs': 7.196992370950284e-07, 'max_ref': 41.51395981180593, 'max_rel_where_ref_gt_1em6': 1.794823227216245e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_weight] {'name': 'd_weight', 'shape': [4096, 512], 'dtype': 'torch.float64', 'max_abs': 9.646600673818284e-08, 'max_ref': 5.88170965662294, 'max_rel_where_ref_gt_1em6': 1.7948232388188983e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_in1] {'name': 'dd_in1', 'shape': [64, 128], 'dtype': 'torch.float64', 'max_abs': 2.2286314560915343e-05, 'max_ref': 1426.4195292942572, 'max_rel_where_ref_gt_1em6': 1.6870207993108548e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_in2] {'name': 'dd_in2', 'shape': [4096, 16], 'dtype': 'torch.float64', 'max_abs': 2.8292603531099303e-06, 'max_ref': 149.89667674278175, 'max_rel_where_ref_gt_1em6': 2.1050672663941587e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_weight] {'name': 'dd_weight', 'shape': [4096, 512], 'dtype': 'torch.float64', 'max_abs': 2.3352649947128157e-07, 'max_ref': 12.879467795329546, 'max_rel_where_ref_gt_1em6': 2.7446989027016768e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+SUMMARY medium_L0_E4096_fp64_x1 all_upstream_pass= True
+wall 5s
+===== medium.json layer=1 edges=4096 fp64
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+batch_size 4096
+cuEquivariance not installed, using e3nn Irreps directly for cueq config
+INFO:flashTP_e3nn.flashTP:Using fused_uvu_TP_exp_opt_large
+INFO:flashTP_e3nn.sptp_exp_opt_large.fused_e3nn_exp_opt_large:SMEM_SIZE set to 227 KB
+INFO:flashTP_e3nn.sptp_exp_opt_large.fused_e3nn_exp_opt_large:Using per_block_batch of [21, 17, 13]
+shared_memory_bytes 116096
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/flashtp_fp64_check.py:11: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  r = dict(name=name, shape=list(a.shape), dtype=str(a.dtype), max_abs=float(d.max()), max_ref=float(b.abs().max()),
+[out] {'name': 'out', 'shape': [64, 5120], 'dtype': 'torch.float64', 'max_abs': 5.394570168348878e-07, 'max_ref': 20.648441713069378, 'max_rel_where_ref_gt_1em6': 0.011678062407290673, 'n_not_isclose_default': 190, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_in1] {'name': 'd_in1', 'shape': [64, 512], 'dtype': 'torch.float64', 'max_abs': 5.393445064783009e-06, 'max_ref': 373.73045864496515, 'max_rel_where_ref_gt_1em6': 3.623749697084554e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_in2] {'name': 'd_in2', 'shape': [4096, 16], 'dtype': 'torch.float64', 'max_abs': 5.9737900954814904e-06, 'max_ref': 152.17854950760432, 'max_rel_where_ref_gt_1em6': 7.310514811018676e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_weight] {'name': 'd_weight', 'shape': [4096, 1280], 'dtype': 'torch.float64', 'max_abs': 2.6000935848813356e-07, 'max_ref': 5.864198579657078, 'max_rel_where_ref_gt_1em6': 0.0005164230911988313, 'n_not_isclose_default': 40, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_in1] {'name': 'dd_in1', 'shape': [64, 512], 'dtype': 'torch.float64', 'max_abs': 2.2534657887263165e-05, 'max_ref': 1438.9172526723962, 'max_rel_where_ref_gt_1em6': 6.27613355239671e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_in2] {'name': 'dd_in2', 'shape': [4096, 16], 'dtype': 'torch.float64', 'max_abs': 4.8008647013375594e-05, 'max_ref': 571.5764117235841, 'max_rel_where_ref_gt_1em6': 1.5075347337618691e-07, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_weight] {'name': 'dd_weight', 'shape': [4096, 1280], 'dtype': 'torch.float64', 'max_abs': 2.2352109088075167e-06, 'max_ref': 15.565841947772693, 'max_rel_where_ref_gt_1em6': 0.0006909770368246128, 'n_not_isclose_default': 32, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+SUMMARY medium_L1_E4096_fp64_x1 all_upstream_pass= True
+wall 5s
+===== medium.json layer=0 edges=32768 fp64
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+batch_size 32768
+cuEquivariance not installed, using e3nn Irreps directly for cueq config
+INFO:flashTP_e3nn.flashTP:Using fused_uvu_TP_exp_opt_large
+INFO:flashTP_e3nn.sptp_exp_opt_large.fused_e3nn_exp_opt_large:SMEM_SIZE set to 227 KB
+INFO:flashTP_e3nn.sptp_exp_opt_large.fused_e3nn_exp_opt_large:Using per_block_batch of [21, 17, 13]
+shared_memory_bytes 115816
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/flashtp_fp64_check.py:11: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  r = dict(name=name, shape=list(a.shape), dtype=str(a.dtype), max_abs=float(d.max()), max_ref=float(b.abs().max()),
+[out] {'name': 'out', 'shape': [512, 2048], 'dtype': 'torch.float64', 'max_abs': 2.615161172059288e-07, 'max_ref': 14.57057824822116, 'max_rel_where_ref_gt_1em6': 1.7948232984507342e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_in1] {'name': 'd_in1', 'shape': [512, 128], 'dtype': 'torch.float64', 'max_abs': 5.7373595723220205e-06, 'max_ref': 399.7985730674889, 'max_rel_where_ref_gt_1em6': 1.4891411339728128e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_in2] {'name': 'd_in2', 'shape': [32768, 16], 'dtype': 'torch.float64', 'max_abs': 7.583366894436949e-07, 'max_ref': 42.4895048282399, 'max_rel_where_ref_gt_1em6': 1.794823234506211e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_weight] {'name': 'd_weight', 'shape': [32768, 512], 'dtype': 'torch.float64', 'max_abs': 1.0098908909128568e-07, 'max_ref': 6.157490370709439, 'max_rel_where_ref_gt_1em6': 1.7948232479864756e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_in1] {'name': 'dd_in1', 'shape': [512, 128], 'dtype': 'torch.float64', 'max_abs': 2.3909356286822003e-05, 'max_ref': 1575.932917928431, 'max_rel_where_ref_gt_1em6': 1.6968840552531877e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_in2] {'name': 'dd_in2', 'shape': [32768, 16], 'dtype': 'torch.float64', 'max_abs': 2.8965009164494404e-06, 'max_ref': 152.64112783702961, 'max_rel_where_ref_gt_1em6': 2.108266195893025e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_weight] {'name': 'dd_weight', 'shape': [32768, 512], 'dtype': 'torch.float64', 'max_abs': 2.483326380087192e-07, 'max_ref': 13.156067706430592, 'max_rel_where_ref_gt_1em6': 2.588090068148775e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+SUMMARY medium_L0_E32768_fp64_x1 all_upstream_pass= True
+wall 4s
+===== medium.json layer=1 edges=32768 fp64
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+batch_size 32768
+cuEquivariance not installed, using e3nn Irreps directly for cueq config
+INFO:flashTP_e3nn.flashTP:Using fused_uvu_TP_exp_opt_large
+INFO:flashTP_e3nn.sptp_exp_opt_large.fused_e3nn_exp_opt_large:SMEM_SIZE set to 227 KB
+INFO:flashTP_e3nn.sptp_exp_opt_large.fused_e3nn_exp_opt_large:Using per_block_batch of [21, 17, 13]
+shared_memory_bytes 116096
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/flashtp_fp64_check.py:11: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  r = dict(name=name, shape=list(a.shape), dtype=str(a.dtype), max_abs=float(d.max()), max_ref=float(b.abs().max()),
+[out] {'name': 'out', 'shape': [512, 5120], 'dtype': 'torch.float64', 'max_abs': 5.46393690736835e-07, 'max_ref': 20.829996570499052, 'max_rel_where_ref_gt_1em6': 0.006906807952988903, 'n_not_isclose_default': 1521, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_in1] {'name': 'd_in1', 'shape': [512, 512], 'dtype': 'torch.float64', 'max_abs': 5.8966986102859664e-06, 'max_ref': 414.7260500682497, 'max_rel_where_ref_gt_1em6': 3.870032727327879e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_in2] {'name': 'd_in2', 'shape': [32768, 16], 'dtype': 'torch.float64', 'max_abs': 6.792854122750214e-06, 'max_ref': 153.4744217363947, 'max_rel_where_ref_gt_1em6': 7.870396859587743e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_weight] {'name': 'd_weight', 'shape': [32768, 1280], 'dtype': 'torch.float64', 'max_abs': 3.049434407209617e-07, 'max_ref': 6.15908826652986, 'max_rel_where_ref_gt_1em6': 0.005882234048235554, 'n_not_isclose_default': 397, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_in1] {'name': 'dd_in1', 'shape': [512, 512], 'dtype': 'torch.float64', 'max_abs': 2.430687595733616e-05, 'max_ref': 1606.831993197793, 'max_rel_where_ref_gt_1em6': 6.86068749353507e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_in2] {'name': 'dd_in2', 'shape': [32768, 16], 'dtype': 'torch.float64', 'max_abs': 5.62155489660654e-05, 'max_ref': 578.5990274316671, 'max_rel_where_ref_gt_1em6': 1.6320352181550825e-07, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_weight] {'name': 'dd_weight', 'shape': [32768, 1280], 'dtype': 'torch.float64', 'max_abs': 2.369626183273965e-06, 'max_ref': 17.28470934661263, 'max_rel_where_ref_gt_1em6': 0.007777538520178281, 'n_not_isclose_default': 246, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+SUMMARY medium_L1_E32768_fp64_x1 all_upstream_pass= True
+wall 5s
+===== medium.json layer=1 edges=131072 fp64
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+batch_size 131072
+cuEquivariance not installed, using e3nn Irreps directly for cueq config
+INFO:flashTP_e3nn.flashTP:Using fused_uvu_TP_exp_opt_large
+INFO:flashTP_e3nn.sptp_exp_opt_large.fused_e3nn_exp_opt_large:SMEM_SIZE set to 227 KB
+INFO:flashTP_e3nn.sptp_exp_opt_large.fused_e3nn_exp_opt_large:Using per_block_batch of [21, 17, 13]
+shared_memory_bytes 116096
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/flashtp_fp64_check.py:11: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  r = dict(name=name, shape=list(a.shape), dtype=str(a.dtype), max_abs=float(d.max()), max_ref=float(b.abs().max()),
+[out] {'name': 'out', 'shape': [2048, 5120], 'dtype': 'torch.float64', 'max_abs': 5.817559619591961e-07, 'max_ref': 21.139074799973237, 'max_rel_where_ref_gt_1em6': 0.05095709685613633, 'n_not_isclose_default': 5863, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_in1] {'name': 'd_in1', 'shape': [2048, 512], 'dtype': 'torch.float64', 'max_abs': 5.950340948857047e-06, 'max_ref': 412.7036469564748, 'max_rel_where_ref_gt_1em6': 4.129862084292766e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_in2] {'name': 'd_in2', 'shape': [131072, 16], 'dtype': 'torch.float64', 'max_abs': 7.2174529606172655e-06, 'max_ref': 156.30253281015908, 'max_rel_where_ref_gt_1em6': 7.620769801820844e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[d_weight] {'name': 'd_weight', 'shape': [131072, 1280], 'dtype': 'torch.float64', 'max_abs': 2.997548702587949e-07, 'max_ref': 6.327530802723424, 'max_rel_where_ref_gt_1em6': 0.00867404674028248, 'n_not_isclose_default': 1526, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_in1] {'name': 'dd_in1', 'shape': [2048, 512], 'dtype': 'torch.float64', 'max_abs': 2.5081797502934933e-05, 'max_ref': 1612.198728646087, 'max_rel_where_ref_gt_1em6': 6.447252785871989e-08, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_in2] {'name': 'dd_in2', 'shape': [131072, 16], 'dtype': 'torch.float64', 'max_abs': 5.634319882119598e-05, 'max_ref': 583.4404196294194, 'max_rel_where_ref_gt_1em6': 1.7804606803005062e-07, 'n_not_isclose_default': 0, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+[dd_weight] {'name': 'dd_weight', 'shape': [131072, 1280], 'dtype': 'torch.float64', 'max_abs': 2.704589112667577e-06, 'max_ref': 17.445992335603865, 'max_rel_where_ref_gt_1em6': 0.013826188073331695, 'n_not_isclose_default': 1086, 'upstream_pass': True, 'strict_pass_fp64': False}
+All Good
+SUMMARY medium_L1_E131072_fp64_x1 all_upstream_pass= True
+wall 6s

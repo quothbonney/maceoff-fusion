@@ -1,0 +1,48 @@
+job=1036 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+  torch.load(f=model_path, map_location=device)
+##### backend hybrid+embed
+  torch.load(f=model_path, map_location=device)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+--- hybrid+embed eager_fused_vs_stock
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  out = dict(energy=float(o["energy"][0]), forces=o["forces"].detach().cpu().numpy(), recaptured=False,
+    ok=True n=20 worst={'dE': 7.16401980473445e-13, 'dF': 2.3092638912203256e-14, 'dS': 3.729655473350135e-17} extra={}
+  json.dump(res, open(out_path, "w"), indent=1)
+--- hybrid+embed systems_walk_repeat
+    ok=True n=90 worst={'dE': 8.955024755918063e-13, 'dF': 3.552713678800501e-14, 'dS': 0} extra={'stats': {'captures': 10, 'recaptures': 0, 'evictions': 6, 'last_capture_s': 0.0643532071262598, 'key': {'n_atoms': 2, 'numbers_sha1': 'b2e15b1d5f7d', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 4, 'E_caps': [12672, 42880, 64, 64]}, 'edges': {'H2O': [6, 6, 6, 6, 6, 6, 6, 6, 6], 'aspirin': [302, 298, 298, 298, 298, 298, 302, 302, 302], 'water192': [6634, 6632, 6638, 6630, 6626, 6630, 6634, 6634, 6634], 'org192': [3670, 3662, 3656, 3670, 3672, 3668, 3670, 3670, 3670], 'water648': [26550, 26570, 26520, 26502, 26504, 26518, 26550, 26550, 26550], 'org648': [14856, 14856, 14866, 14872, 14868, 14848, 14856, 14856, 14856], 'wbox192': [10552, 10554, 10552, 10524, 10536, 10524, 10552, 10552, 10552], 'wbox648': [35698, 35680, 35696, 35704, 35666, 35690, 35698, 35698, 35698], 'single_C': [0, 0, 0, 0, 0, 0, 0, 0, 0], 'far_pair': [0, 0, 0, 0, 0, 0, 0, 0, 0]}}
+--- hybrid+embed stress_periodic_recapture
+    ok=True n=17 worst={'dE': 1.5158245029548803e-13, 'dF': 1.4210854715202004e-14, 'dS': 1.1102230246251565e-16} extra={'stats': {'captures': 5, 'recaptures': 1, 'evictions': 0, 'last_capture_s': 0.0617606732994318, 'key': {'n_atoms': 1, 'numbers_sha1': '0f29b02f9eff', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': True}, 'n_graphs': 4, 'E_caps': [42880, 15936, 384, 64]}, 'recapture_flags': [True, False, False]}
+--- hybrid+embed forced_recapture
+    ok=True n=5 worst={'dE': 1.5158245029548803e-13, 'dF': 8.881784197001252e-15, 'dS': 0} extra={'stats': {'captures': 2, 'recaptures': 1, 'evictions': 0, 'last_capture_s': 0.064328758046031, 'key': {'n_atoms': 192, 'numbers_sha1': 'c8aa538e33c6', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 1, 'E_caps': [10560]}, 'recapture_flags': [False, True, False, False, False]}
+--- hybrid+embed bug_a_species_order
+    ok=True n=6 worst={'dE': 1.7323708605198632e-13, 'dF': 2.2168933355715126e-12, 'dS': 0} extra={'stats': {'captures': 3, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.06114340014755726, 'key': {'n_atoms': 21, 'numbers_sha1': '14a6d77bbf72', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 3, 'E_caps': [384, 384, 384]}}
+--- hybrid+embed bug_b_diffN_interleaved
+    ok=True n=13 worst={'dE': 1.5158245029548803e-13, 'dF': 8.881784197001252e-15, 'dS': 0} extra={'stats': {'captures': 3, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.05972703732550144, 'key': {'n_atoms': 21, 'numbers_sha1': '14a6d77bbf72', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 3, 'E_caps': [8000, 64, 384]}}
+--- hybrid+embed lru_eviction
+    ok=True n=5 worst={'dE': 1.4848893090170256e-13, 'dF': 4.884981308350689e-15, 'dS': 0} extra={'stats': {'captures': 5, 'recaptures': 0, 'evictions': 3, 'last_capture_s': 0.06120092421770096, 'key': {'n_atoms': 3, 'numbers_sha1': 'ccf114efd5cd', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 2, 'E_caps': [384, 64]}}
+--- hybrid+embed stock_builder
+    ok=True n=6 worst={'dE': 1.5158245029548803e-13, 'dF': 5.329070518200751e-15, 'dS': 4.163336342344337e-17} extra={'stats': {'captures': 2, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.06751824356615543, 'key': {'n_atoms': 192, 'numbers_sha1': 'c8aa538e33c6', 'pbc': (True, True, True), 'cell_is_none': False, 'head': 'Default', 'dtype': 'torch.float64', 'stress': True}, 'n_graphs': 2, 'E_caps': [384, 12672]}}
+##### backend flash+embed
+  torch.load(f=model_path, map_location=device)
+--- flash+embed eager_fused_vs_stock
+    ok=True n=20 worst={'dE': 3.582009902367225e-13, 'dF': 2.1316282072803006e-14, 'dS': 3.469446951953614e-17} extra={}
+  json.dump(res, open(out_path, "w"), indent=1)
+--- flash+embed systems_walk_repeat
+    ok=True n=90 worst={'dE': 8.955024755918063e-13, 'dF': 2.4868995751603507e-14, 'dS': 0} extra={'stats': {'captures': 10, 'recaptures': 0, 'evictions': 6, 'last_capture_s': 0.043389471247792244, 'key': {'n_atoms': 2, 'numbers_sha1': 'b2e15b1d5f7d', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 4, 'E_caps': [12672, 42880, 64, 64]}, 'edges': {'H2O': [6, 6, 6, 6, 6, 6, 6, 6, 6], 'aspirin': [302, 298, 298, 298, 298, 298, 302, 302, 302], 'water192': [6634, 6632, 6638, 6630, 6626, 6630, 6634, 6634, 6634], 'org192': [3670, 3662, 3656, 3670, 3672, 3668, 3670, 3670, 3670], 'water648': [26550, 26570, 26520, 26502, 26504, 26518, 26550, 26550, 26550], 'org648': [14856, 14856, 14866, 14872, 14868, 14848, 14856, 14856, 14856], 'wbox192': [10552, 10554, 10552, 10524, 10536, 10524, 10552, 10552, 10552], 'wbox648': [35698, 35680, 35696, 35704, 35666, 35690, 35698, 35698, 35698], 'single_C': [0, 0, 0, 0, 0, 0, 0, 0, 0], 'far_pair': [0, 0, 0, 0, 0, 0, 0, 0, 0]}}
+--- flash+embed stress_periodic_recapture
+    ok=True n=17 worst={'dE': 1.5158245029548803e-13, 'dF': 1.4210854715202004e-14, 'dS': 1.1102230246251565e-16} extra={'stats': {'captures': 5, 'recaptures': 1, 'evictions': 0, 'last_capture_s': 0.03944023512303829, 'key': {'n_atoms': 1, 'numbers_sha1': '0f29b02f9eff', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': True}, 'n_graphs': 4, 'E_caps': [42880, 15936, 384, 64]}, 'recapture_flags': [True, False, False]}
+--- flash+embed forced_recapture
+    ok=True n=5 worst={'dE': 0.0, 'dF': 1.0658141036401503e-14, 'dS': 0} extra={'stats': {'captures': 2, 'recaptures': 1, 'evictions': 0, 'last_capture_s': 0.05047851987183094, 'key': {'n_atoms': 192, 'numbers_sha1': 'c8aa538e33c6', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 1, 'E_caps': [10560]}, 'recapture_flags': [False, True, False, False, False]}
+--- flash+embed bug_a_species_order
+    ok=True n=6 worst={'dE': 1.7323708605198632e-13, 'dF': 1.7053025658242404e-12, 'dS': 0} extra={'stats': {'captures': 3, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.039411284029483795, 'key': {'n_atoms': 21, 'numbers_sha1': '14a6d77bbf72', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 3, 'E_caps': [384, 384, 384]}}
+--- flash+embed bug_b_diffN_interleaved
+    ok=True n=13 worst={'dE': 1.5158245029548803e-13, 'dF': 1.0658141036401503e-14, 'dS': 0} extra={'stats': {'captures': 3, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.03758689947426319, 'key': {'n_atoms': 21, 'numbers_sha1': '14a6d77bbf72', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 3, 'E_caps': [8000, 64, 384]}}
+--- flash+embed lru_eviction
+    ok=True n=5 worst={'dE': 1.4848893090170256e-13, 'dF': 5.134781488891349e-15, 'dS': 0} extra={'stats': {'captures': 5, 'recaptures': 0, 'evictions': 3, 'last_capture_s': 0.04007491655647755, 'key': {'n_atoms': 3, 'numbers_sha1': 'ccf114efd5cd', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 2, 'E_caps': [384, 64]}}
+--- flash+embed stock_builder
+    ok=True n=6 worst={'dE': 1.5158245029548803e-13, 'dF': 3.9968028886505635e-15, 'dS': 2.3418766925686896e-17} extra={'stats': {'captures': 2, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.04668804444372654, 'key': {'n_atoms': 192, 'numbers_sha1': 'c8aa538e33c6', 'pbc': (True, True, True), 'cell_is_none': False, 'head': 'Default', 'dtype': 'torch.float64', 'stress': True}, 'n_graphs': 2, 'E_caps': [384, 12672]}}
+  json.dump(res, open(out_path, "w"), indent=1)
+DONE failures: []
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz

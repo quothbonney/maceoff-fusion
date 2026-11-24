@@ -1,0 +1,43 @@
+job=1100 host=slurm-h100-206-077 start=2026-11-10T05:36:35+00:00
+0, NVIDIA H100 80GB HBM3, GPU-bf049c40-5fb8-8d2a-16c8-ba9e2bdf11fa, 345 MHz, 1980 MHz
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+waiting for TIMING_LOCK held by 1084 md9 2026-11-10T05:29:27+00:00
+TIMING_LOCK: 1100 int9 slurm-h100-206-077 2026-11-10T05:39:58+00:00
+other job: 1098 md9dr_gs jordan+123 slurm-h100-206-077 RUNNING
+other job: 1097 md9gdyn3 jordan+123 slurm-h100-206-077 RUNNING
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+proto/wbox5184 {"stage": {"nl": 42.145, "replay": 23.762, "load": 0.075, "step": 66.043}, "wall": 67449.81700000001, "busy": 67189.37099999998, "idle": 260.4460000000254, "cats": {"NL_build": 85207, "other": 23973, "conv_bwd(node)": 6418, "gemm(radialMLP+linears)": 5974, "elementwise": 5480, "fused_node": 2350, "conv_fwd(node)": 2291, "cueq_SC": 464, "scatter/gather/index": 232, "fused_embed": 232, "csr_sort/search": 182, "memcpy/memset": 60, "reduce": 19}, "syncs": {"cudaMemcpyAsync": 37.0, "cudaStreamSynchronize": 29.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+  json.dump(res, open(out_path, "w"), indent=1, default=str)
+proto/water5184 {"stage": {"nl": 1.275, "replay": 21.232, "load": 0.094, "step": 22.615}, "wall": 22897.003000000004, "busy": 22752.872, "idle": 144.13100000000486, "cats": {"other": 21874, "conv_bwd(node)": 5561, "gemm(radialMLP+linears)": 5222, "elementwise": 4942, "NL_build": 2547, "fused_node": 2355, "conv_fwd(node)": 2030, "cueq_SC": 467, "scatter/gather/index": 206, "fused_embed": 204, "csr_sort/search": 175, "memcpy/memset": 58, "reduce": 19}, "syncs": {"cudaMemcpyAsync": 7.0, "cudaStreamSynchronize": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+proto/wbox2187 {"stage": {"nl": 7.663, "replay": 10.662, "load": 0.092, "step": 18.543}, "wall": 18995.522, "busy": 18811.13199999999, "idle": 184.39000000001033, "cats": {"NL_build": 15303, "other": 10862, "conv_bwd(node)": 2852, "gemm(radialMLP+linears)": 2635, "elementwise": 2436, "fused_node": 1015, "conv_fwd(node)": 1009, "cueq_SC": 221, "csr_sort/search": 141, "scatter/gather/index": 140, "fused_embed": 104, "memcpy/memset": 40, "reduce": 15}, "syncs": {"cudaMemcpyAsync": 14.0, "cudaStreamSynchronize": 7.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+proto/water2187 {"stage": {"nl": 0.34, "replay": 9.18, "load": 0.092, "step": 9.643}, "wall": 9900.930999999999, "busy": 9760.564000000002, "idle": 140.36699999999655, "cats": {"other": 9490, "conv_bwd(node)": 2332, "gemm(radialMLP+linears)": 2205, "elementwise": 2110, "fused_node": 1016, "conv_fwd(node)": 842, "NL_build": 678, "cueq_SC": 221, "csr_sort/search": 133, "scatter/gather/index": 127, "fused_embed": 85, "memcpy/memset": 41, "reduce": 14}, "syncs": {"cudaMemcpyAsync": 7.0, "cudaStreamSynchronize": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+proto/wbox648 {"stage": {"nl": 1.109, "replay": 3.659, "load": 0.089, "step": 5.003}, "wall": 5343.215000000001, "busy": 5125.912, "idle": 217.3030000000008, "cats": {"other": 3824, "NL_build": 2055, "conv_bwd(node)": 921, "gemm(radialMLP+linears)": 882, "elementwise": 721, "conv_fwd(node)": 342, "fused_node": 313, "csr_sort/search": 124, "scatter/gather/index": 102, "cueq_SC": 81, "fused_embed": 37, "memcpy/memset": 35, "reduce": 14}, "syncs": {"cudaMemcpyAsync": 13.0, "cudaStreamSynchronize": 3.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+gpustep:brute/wbox5184 {"stage": {"nl_graph": 267.444, "step": 1968.673}, "wall": 1973874.0629999998, "busy": 1973672.039, "idle": 202.02399999974295, "cats": {"NL_build": 2242492, "other": 1342030, "scatter/gather/index": 1290862, "conv_bwd(node)": 255660, "conv_fwd(node)": 66563, "csr_sort/search": 40798, "elementwise": 40520, "gemm(radialMLP+linears)": 6017, "fused_node": 2357, "memcpy/memset": 503, "cueq_SC": 484, "fused_embed": 224, "reduce": 20}, "syncs": {"cudaMemcpyAsync": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+  json.dump(res, open(out_path, "w"), indent=1, default=str)
+gpustep:brute/water5184 {"stage": {"nl_graph": 5.013, "step": 317.259}, "wall": 318621.86399999994, "busy": 316792.4, "idle": 1829.46399999992, "cats": {"NL_build": 321793, "conv_bwd(node)": 221498, "conv_fwd(node)": 57535, "scatter/gather/index": 19722, "gemm(radialMLP+linears)": 5226, "elementwise": 4874, "fused_node": 2350, "cueq_SC": 483, "fused_embed": 193, "csr_sort/search": 101, "memcpy/memset": 29, "reduce": 19, "other": 3}, "syncs": {"cudaMemcpyAsync": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+gpustep:brute/wbox2187 {"stage": {"nl_graph": 47.554, "step": 366.184}, "wall": 366858.87399999995, "busy": 366711.7720000001, "idle": 147.10199999983888, "cats": {"NL_build": 414120, "other": 165897, "scatter/gather/index": 162277, "conv_bwd(node)": 107625, "conv_fwd(node)": 28193, "elementwise": 8693, "csr_sort/search": 7513, "gemm(radialMLP+linears)": 2674, "fused_node": 1020, "cueq_SC": 213, "fused_embed": 108, "memcpy/memset": 101, "reduce": 15}, "syncs": {"cudaMemcpyAsync": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+gpustep:brute/water2187 {"stage": {"nl_graph": 1.088, "step": 126.344}, "wall": 126261.622, "busy": 126215.592, "idle": 46.029999999998836, "cats": {"NL_build": 126933, "conv_bwd(node)": 88828, "other": 42076, "conv_fwd(node)": 23173, "scatter/gather/index": 7175, "gemm(radialMLP+linears)": 2204, "elementwise": 2105, "fused_node": 1017, "cueq_SC": 220, "fused_embed": 89, "csr_sort/search": 69, "memcpy/memset": 21, "reduce": 15}, "syncs": {"cudaMemcpyAsync": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+gpustep:brute/wbox648 {"stage": {"nl_graph": 4.434, "step": 66.892}, "wall": 67108.53899999999, "busy": 66984.57500000001, "idle": 123.96399999997811, "cats": {"NL_build": 71324, "conv_bwd(node)": 31939, "scatter/gather/index": 18538, "other": 17179, "conv_fwd(node)": 8421, "elementwise": 1293, "gemm(radialMLP+linears)": 905, "csr_sort/search": 721, "fused_node": 315, "cueq_SC": 80, "fused_embed": 40, "memcpy/memset": 33, "reduce": 14}, "syncs": {"cudaMemcpyAsync": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+DONE
+0, GPU-bf049c40-5fb8-8d2a-16c8-ba9e2bdf11fa, 1980 MHz
+end=2026-11-10T05:42:21+00:00

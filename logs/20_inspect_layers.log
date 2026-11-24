@@ -1,0 +1,104 @@
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+[    0.0s] loading /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/models/MACE-OFF23_medium.model
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+[    0.1s] model ScaleShiftMACE torch.float64 r_max 5.0
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+[    0.1s] layer 0: mace.modules.blocks.RealAgnosticInteractionBlock conv_tp 128x0e x 1x0e+1x1o+1x2e+1x3o -> 128x0e+128x1o+128x2e+128x3o n_inst=4 weight_numel=512
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+[    0.2s] layer 1: mace.modules.blocks.RealAgnosticResidualInteractionBlock conv_tp 128x0e+128x1o x 1x0e+1x1o+1x2e+1x3o -> 128x0e+128x0e+128x1o+128x1o+128x1o+128x2e+128x2e+128x2e+128x3o+128x3o n_inst=10 weight_numel=1280
+[    0.3s] H2O: n_atoms=3 E=-2081.116397 eV (0.1s CPU)
+[    0.3s]   L0: nodes=3 edges=6 avg_nb=2.00 (model 18.418) in1=[6, 128] in2=[6, 16] w=[6, 512] mji=[6, 2048] msg=[3, 2048] out=[3, 128, 16] numerics={'edges_checked': 6, 'max_abs_mji_mace_vs_e3nn_default_TP(as_uvu_TP_builds)': 0.0, 'max_abs_scatter_full_vs_captured_linear_input': 0.0, 'max_abs_flashtp_math_emulation_vs_mace_gather_tp_scatter': 5.551115123125783e-16, 'max_abs_flashtp_emulation_with_fp32_rounded_cg_table_vs_mace': 3.438214735140832e-08, 'ref_scale_max_abs_message': 2.0963427355671427}
+[    0.4s]   L1: nodes=3 edges=6 avg_nb=2.00 (model 18.418) in1=[6, 512] in2=[6, 16] w=[6, 1280] mji=[6, 5120] msg=[3, 5120] out=[3, 128, 16] numerics={'edges_checked': 6, 'max_abs_mji_mace_vs_e3nn_default_TP(as_uvu_TP_builds)': 4.440892098500626e-16, 'max_abs_scatter_full_vs_captured_linear_input': 0.0, 'max_abs_flashtp_math_emulation_vs_mace_gather_tp_scatter': 1.3322676295501878e-15, 'max_abs_flashtp_emulation_with_fp32_rounded_cg_table_vs_mace': 9.223157793059045e-08, 'ref_scale_max_abs_message': 6.395624045160338}
+[    3.1s] water_cluster_6x6x6: n_atoms=648 E=-449526.009751 eV (2.8s CPU)
+[    3.2s]   L0: nodes=648 edges=26550 avg_nb=40.97 (model 18.418) in1=[26550, 128] in2=[26550, 16] w=[26550, 512] mji=[26550, 2048] msg=[648, 2048] out=[648, 128, 16] numerics={'edges_checked': 4096, 'max_abs_mji_mace_vs_e3nn_default_TP(as_uvu_TP_builds)': 0.0, 'max_abs_scatter_full_vs_captured_linear_input': 0.0, 'max_abs_flashtp_math_emulation_vs_mace_gather_tp_scatter': 1.9984014443252818e-15, 'max_abs_flashtp_emulation_with_fp32_rounded_cg_table_vs_mace': 3.900606682094576e-08, 'ref_scale_max_abs_message': 2.1732540298960954}
+[    3.3s]   L1: nodes=648 edges=26550 avg_nb=40.97 (model 18.418) in1=[26550, 512] in2=[26550, 16] w=[26550, 1280] mji=[26550, 5120] msg=[648, 5120] out=[648, 128, 16] numerics={'edges_checked': 4096, 'max_abs_mji_mace_vs_e3nn_default_TP(as_uvu_TP_builds)': 4.440892098500626e-16, 'max_abs_scatter_full_vs_captured_linear_input': 0.0, 'max_abs_flashtp_math_emulation_vs_mace_gather_tp_scatter': 3.9968028886505635e-15, 'max_abs_flashtp_emulation_with_fp32_rounded_cg_table_vs_mace': 1.0766835423225984e-07, 'ref_scale_max_abs_message': 6.213285447496633}
+[    3.3s] wrote /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/mace_layer_inventory.json
+{
+ "layers": [
+  {
+   "layer": 0,
+   "interaction_class": "mace.modules.blocks.RealAgnosticInteractionBlock",
+   "conv_tp_class": "e3nn.o3._tensor_product._tensor_product.TensorProduct",
+   "has_conv_fusion_attr": false,
+   "checks": {
+    "all_uvu": true,
+    "all_has_weight": true,
+    "irreps_in1_muls": [
+     128
+    ],
+    "irreps_out_muls": [
+     128,
+     128,
+     128,
+     128
+    ],
+    "irreps_in2_muls": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "in1_muls_mult_of_32": true,
+    "out_muls_mult_of_32": true,
+    "in2_all_mul_1": true,
+    "weight_numel_eq_sum_u*v": true,
+    "mlp_out_eq_weight_numel": true
+   },
+   "flashtp_reference_tp": {
+    "normalization_note": "e3nn 0.4.4 TensorProduct does not store irrep/path_normalization; they are folded into Instruction.path_weight (e3nn _tensor_product.py:213-217 defaults component/element, :289-314). Neither MACE wrapper_ops (return o3.TensorProduct(...) w/o kwargs) nor flashTP.uvu_TP pass them, so both use defaults; equality of path_weight below is the operative check.",
+    "path_weights_equal_mace": true,
+    "instructions_equal_mace": true,
+    "weight_numel_equal": true
+   }
+  },
+  {
+   "layer": 1,
+   "interaction_class": "mace.modules.blocks.RealAgnosticResidualInteractionBlock",
+   "conv_tp_class": "e3nn.o3._tensor_product._tensor_product.TensorProduct",
+   "has_conv_fusion_attr": false,
+   "checks": {
+    "all_uvu": true,
+    "all_has_weight": true,
+    "irreps_in1_muls": [
+     128,
+     128
+    ],
+    "irreps_out_muls": [
+     128,
+     128,
+     128,
+     128,
+     128,
+     128,
+     128,
+     128,
+     128,
+     128
+    ],
+    "irreps_in2_muls": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "in1_muls_mult_of_32": true,
+    "out_muls_mult_of_32": true,
+    "in2_all_mul_1": true,
+    "weight_numel_eq_sum_u*v": true,
+    "mlp_out_eq_weight_numel": true
+   },
+   "flashtp_reference_tp": {
+    "normalization_note": "e3nn 0.4.4 TensorProduct does not store irrep/path_normalization; they are folded into Instruction.path_weight (e3nn _tensor_product.py:213-217 defaults component/element, :289-314). Neither MACE wrapper_ops (return o3.TensorProduct(...) w/o kwargs) nor flashTP.uvu_TP pass them, so both use defaults; equality of path_weight below is the operative check.",
+    "path_weights_equal_mace": true,
+    "instructions_equal_mace": true,
+    "weight_numel_equal": true
+   }
+  }
+ ],
+ "identical": false
+}

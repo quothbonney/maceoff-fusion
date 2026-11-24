@@ -1,0 +1,89 @@
+{
+  "dtype": "float64",
+  "rows": [
+    {
+      "module": "node_embedding.linear.f",
+      "method": "naive",
+      "impl": "SegmentedPolynomialNaive"
+    },
+    {
+      "module": "interactions.0.linear_up.f",
+      "method": "naive",
+      "impl": "SegmentedPolynomialNaive"
+    },
+    {
+      "module": "interactions.0.conv_tp.conv_tp",
+      "method": "uniform_1d",
+      "impl": "SegmentedPolynomialFromUniform1dJit"
+    },
+    {
+      "module": "interactions.0.linear.f",
+      "method": "naive",
+      "impl": "SegmentedPolynomialNaive"
+    },
+    {
+      "module": "interactions.0.skip_tp.f",
+      "method": "naive",
+      "impl": "SegmentedPolynomialNaive"
+    },
+    {
+      "module": "interactions.1.linear_up.f",
+      "method": "naive",
+      "impl": "SegmentedPolynomialNaive"
+    },
+    {
+      "module": "interactions.1.conv_tp.conv_tp",
+      "method": "uniform_1d",
+      "impl": "SegmentedPolynomialFromUniform1dJit"
+    },
+    {
+      "module": "interactions.1.linear.f",
+      "method": "naive",
+      "impl": "SegmentedPolynomialNaive"
+    },
+    {
+      "module": "interactions.1.skip_tp.f",
+      "method": "naive",
+      "impl": "SegmentedPolynomialNaive"
+    },
+    {
+      "module": "products.0.symmetric_contractions.f",
+      "method": "uniform_1d",
+      "impl": "SegmentedPolynomialFromUniform1dJit"
+    },
+    {
+      "module": "products.0.linear.f",
+      "method": "naive",
+      "impl": "SegmentedPolynomialNaive"
+    },
+    {
+      "module": "products.1.symmetric_contractions.f",
+      "method": "uniform_1d",
+      "impl": "SegmentedPolynomialFromUniform1dJit"
+    },
+    {
+      "module": "products.1.linear.f",
+      "method": "naive",
+      "impl": "SegmentedPolynomialNaive"
+    },
+    {
+      "module": "readouts.0.linear.f",
+      "method": "naive",
+      "impl": "SegmentedPolynomialNaive"
+    },
+    {
+      "module": "readouts.1.linear_1.f",
+      "method": "naive",
+      "impl": "SegmentedPolynomialNaive"
+    },
+    {
+      "module": "readouts.1.linear_2.f",
+      "method": "naive",
+      "impl": "SegmentedPolynomialNaive"
+    }
+  ],
+  "counts": {
+    "naive|SegmentedPolynomialNaive": 12,
+    "uniform_1d|SegmentedPolynomialFromUniform1dJit": 4
+  }
+}

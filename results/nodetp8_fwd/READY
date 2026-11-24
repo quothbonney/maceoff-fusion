@@ -1,0 +1,36 @@
+STATUS (agent B, nodetp8_fwd) -- FINAL v3. Both layers WORKING, validated, tuned. H100 job 1063 (GPU-4b202516-..., 1980 MHz).
+
+API  scripts/nodetp8_fwd/nodetp_fwd.py
+  make_cfg(conv_tp) -> NodeCfg ; fwd(layer_cfg, x, y, w, edge_index, csr, out=None, G=None, PG=None) -> out [N, d_out] fp64
+  layer_cfg: NodeCfg | the conv_tp module (cfg cached on it) | dict/object with key/attr conv_tp|node_cfg|b_cfg|module.
+  csr: needs perm_dst (int32 or int64) + rowptr_dst [N+1] (int32; int64 converted). Works with C's csr.py (used in tests).
+  build_csr local stub (same signature) kept in nodetp_fwd.py. Kernel on current stream, no host syncs, CUDA-graph
+  capturable (tested), launch config depends only on (N, E); E=0 and zero in-degree -> zeros (tested). Extension built via
+  load_inline under $TORCH_EXTENSIONS_DIR (first build ~40 s per layer, cached by cfg hash).
+
+Design: 1 CTA per dst node, thread u = channel u (uvu channel-diagonal), G edge-slices of 128 threads per CTA (G=1..4,
+  chosen from shapes) reduced once in smem; accumulators in registers (L0 16, L1 40 per thread); next-edge operands
+  prefetched; CG = o3.wigner_3j fp64 * path_weight baked as %.17g literals (module _w3j buffers == o3 fp64 exactly, checked);
+  x_i*y_j products shared across paths; each output written once, no atomics. L0 paths 0e x l -> l reduce to
+  C = path_weight/sqrt(2l+1) * delta (= 1 numerically for component norm; derived from the w3j table, verified).
+  Path grouping (LunaTP-style, PG=2/4) implemented but measured SLOWER (re-gathers x, more warps of 238-reg L1 code) -> PG=1.
+
+Correctness (vs MACE conv_tp + gather + scatter_sum, fp64): max rel(max|ref|) <= 1.1e-15, max abs <= 6.2e-15 on aspirin,
+  org192, water192, org648, water648, wbox648 (both layers); random w/ padded zero-weight self-edges + isolated nodes
+  <= 1.0e-15; E=0 exact zeros; near-zero (|ref|<1e-8) entries max abs err <= 4.4e-16. Threshold 1e-12: PASS.
+
+Timing (us, graph replay x20 amortised = GPU time per call; full table incl. eager/graph p10-p90: final_fwd_summary.md)
+  system    L  node  FlashTP-gc  speedup  e3nn   GB/s  TFLOP/s  HBM floor  FP64 floor
+  aspirin   0   6.4    23.1      3.6x     35*     257   0.48     0.5        0.1   (launch/latency bound)
+  aspirin   1  12.5    30.5      2.4x    164*     327   0.97     1.2        0.4
+  water648  0  65.8   328.9      5.0x    988*    1877   4.13    36.8        8.1   (memory bound; 56% of HBM peak)
+  water648  1 150.4   922.5      6.1x   5026*    2024   7.09    90.9       31.9   (memory bound; 60% of floor)
+  wbox648   1 198.4  1223.2      6.2x   6730*    2013   7.23   119.2       42.8
+  (* e3nn = single graph replay.) Roofline: bytes = w + y + x + out (unique), FLOPs from generated code (L0 10240/edge,
+  L1 40192/edge). Every layer/system is HBM-bound (w[E,W] dominates: 4 KB/edge L0, 10 KB/edge L1); aspirin is latency bound.
+CSR (C's csr.py, 2x torch.sort + searchsorted): 59 us (aspirin) .. 111 us (water648) in a graph -- comparable to both
+  forward layers together. Built once per forward, shared, but worth a cheaper build (edges already src-sorted ->
+  perm_src = arange, rowptr_src = searchsorted only; dst via single counting sort).
+Remaining headroom: L1 uses 238 regs/thread (2 CTAs/SM) -> ~2 TB/s; y in smem / dropping register prefetch could lift
+  occupancy toward ~3 TB/s (floor 91 us water648 L1). Not done in this budget.
+Files: results/nodetp8_fwd/final_fwd.json (all raw), sweep_v3.json (G x PG tuning), v1_quick.json; logs/nodetp8_fwd/*.log

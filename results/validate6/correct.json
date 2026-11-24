@@ -1,0 +1,2003 @@
+{
+ "job": "1024",
+ "node": "slurm-h100-206-077",
+ "gpu_start": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz, 29, 69.41 W",
+ "torch": "2.11.0+cu128",
+ "flashTP": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/flashTP-graphcap/flashTP_e3nn/__init__.py",
+ "failures": [
+  "check3_edge_cases: RuntimeError: The size of tensor a (192) must match the size of tensor b (21) at non-singleton dimension 0"
+ ],
+ "r_max": 5.0,
+ "check1_kernels": {
+  "aspirin/hybrid": {
+   "replay": {
+    "n_gpu_events": 599,
+    "n_memcpy_memset": 43,
+    "n_flash": 4,
+    "flash_us": 89.5039999999999,
+    "flash_names": [
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*",
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int "
+    ],
+    "n_cueq": 6,
+    "cueq_us": 29.247999999999593,
+    "cueq_names": [
+     "segmented_polynomial_algo1_4",
+     "segmented_polynomial_bwd_algo1_4",
+     "segmented_polynomial_bwd_algo4_2",
+     "void kernelcatcher::tensor_product::segmented_transpose_kernel<double, 4, false, 2>(double*, double const*, int const*, ",
+     "void kernelcatcher::tensor_product::segmented_transpose_kernel<double, 4, true, 2>(double*, double const*, int const*, i"
+    ],
+    "sum_gpu_us": 1147.5289999999977,
+    "span_us": 1413.1149999999998,
+    "top": [
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1})",
+      78
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul>)",
+      58
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      57
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)",
+      56
+     ],
+     [
+      "memcpy32_post",
+      43
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      25
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_cublas",
+      24
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_cublas",
+      23
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1})",
+      16
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      12
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul>)",
+      11
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      10
+     ]
+    ],
+    "replay_event_ms": 1.3645600080490112,
+    "flash_plus_cueq_le_replay": true,
+    "sum_gpu_le_replay": true,
+    "flash_kernels_present": true,
+    "cueq_kernels_present": true
+   },
+   "eager": {
+    "n_gpu_events": 601,
+    "n_memcpy_memset": 45,
+    "n_flash": 4,
+    "flash_us": 80.64000000004307,
+    "flash_names": [
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*",
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int "
+    ],
+    "n_cueq": 6,
+    "cueq_us": 28.800000000104774,
+    "cueq_names": [
+     "segmented_polynomial_algo1_4",
+     "segmented_polynomial_bwd_algo1_4",
+     "segmented_polynomial_bwd_algo4_2",
+     "void kernelcatcher::tensor_product::segmented_transpose_kernel<double, 4, false, 2>(double*, double const*, int const*, ",
+     "void kernelcatcher::tensor_product::segmented_transpose_kernel<double, 4, true, 2>(double*, double const*, int const*, i"
+    ],
+    "sum_gpu_us": 1170.071000000393,
+    "span_us": 539565.3940000001,
+    "top": [
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1})",
+      78
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul>)",
+      58
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      57
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)",
+      56
+     ],
+     [
+      "Memcpy DtoD (Device -> Device)",
+      45
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      25
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_cublas",
+      24
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_cublas",
+      23
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1})",
+      16
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      12
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul>)",
+      11
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      10
+     ]
+    ]
+   },
+   "pass_": true
+  },
+  "aspirin/flash": {
+   "replay": {
+    "n_gpu_events": 661,
+    "n_memcpy_memset": 45,
+    "n_flash": 4,
+    "flash_us": 95.0069999999996,
+    "flash_names": [
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*",
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int "
+    ],
+    "n_cueq": 0,
+    "cueq_us": 0.0,
+    "cueq_names": [],
+    "sum_gpu_us": 1702.8059999999934,
+    "span_us": 2063.355,
+    "top": [
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1})",
+      87
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul>)",
+      71
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      57
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)",
+      54
+     ],
+     [
+      "Memcpy DtoD (Device -> Device)",
+      44
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_cublas",
+      31
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      31
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_cublas",
+      24
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1})",
+      16
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      12
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul>)",
+      11
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      10
+     ]
+    ],
+    "replay_event_ms": 1.9107679724693298,
+    "flash_plus_cueq_le_replay": true,
+    "sum_gpu_le_replay": true,
+    "flash_kernels_present": true,
+    "cueq_kernels_present": true
+   },
+   "eager": {
+    "n_gpu_events": 663,
+    "n_memcpy_memset": 47,
+    "n_flash": 4,
+    "flash_us": 87.45499999999902,
+    "flash_names": [
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*",
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int "
+    ],
+    "n_cueq": 0,
+    "cueq_us": 0.0,
+    "cueq_names": [],
+    "sum_gpu_us": 1737.4089999999803,
+    "span_us": 15473.627999999999,
+    "top": [
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1})",
+      87
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul>)",
+      71
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      57
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)",
+      54
+     ],
+     [
+      "Memcpy DtoD (Device -> Device)",
+      46
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_cublas",
+      31
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      31
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_cublas",
+      24
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1})",
+      16
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      12
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul>)",
+      11
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      10
+     ]
+    ]
+   },
+   "pass_": true
+  },
+  "water648/hybrid": {
+   "replay": {
+    "n_gpu_events": 610,
+    "n_memcpy_memset": 51,
+    "n_flash": 4,
+    "flash_us": 4489.751,
+    "flash_names": [
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*",
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int "
+    ],
+    "n_cueq": 6,
+    "cueq_us": 80.38299999999936,
+    "cueq_names": [
+     "segmented_polynomial_algo1_4",
+     "segmented_polynomial_bwd_algo1_4",
+     "segmented_polynomial_bwd_algo4_2",
+     "void kernelcatcher::tensor_product::segmented_transpose_kernel<double, 4, false, 2>(double*, double const*, int const*, ",
+     "void kernelcatcher::tensor_product::segmented_transpose_kernel<double, 4, true, 2>(double*, double const*, int const*, i"
+    ],
+    "sum_gpu_us": 7471.922999999979,
+    "span_us": 7753.874,
+    "top": [
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1})",
+      78
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul>)",
+      58
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      57
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)",
+      56
+     ],
+     [
+      "Memcpy DtoD (Device -> Device)",
+      43
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      25
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1})",
+      16
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      12
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul>)",
+      11
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_cublas",
+      10
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      10
+     ],
+     [
+      "void at::native::index_elementwise_kernel<128, 4, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<8> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<8> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1}>(long, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<8> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<8> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1})",
+      8
+     ]
+    ],
+    "replay_event_ms": 7.672304153442383,
+    "flash_plus_cueq_le_replay": true,
+    "sum_gpu_le_replay": true,
+    "flash_kernels_present": true,
+    "cueq_kernels_present": true
+   },
+   "eager": {
+    "n_gpu_events": 612,
+    "n_memcpy_memset": 53,
+    "n_flash": 4,
+    "flash_us": 3752.5009999999984,
+    "flash_names": [
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*",
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int "
+    ],
+    "n_cueq": 6,
+    "cueq_us": 80.51100000000406,
+    "cueq_names": [
+     "segmented_polynomial_algo1_4",
+     "segmented_polynomial_bwd_algo1_4",
+     "segmented_polynomial_bwd_algo4_2",
+     "void kernelcatcher::tensor_product::segmented_transpose_kernel<double, 4, false, 2>(double*, double const*, int const*, ",
+     "void kernelcatcher::tensor_product::segmented_transpose_kernel<double, 4, true, 2>(double*, double const*, int const*, i"
+    ],
+    "sum_gpu_us": 6619.214999999989,
+    "span_us": 20454.571,
+    "top": [
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1})",
+      78
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul>)",
+      58
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      57
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)",
+      56
+     ],
+     [
+      "Memcpy DtoD (Device -> Device)",
+      45
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      25
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1})",
+      16
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      12
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul>)",
+      11
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_cublas",
+      10
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      10
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x64x32_stage3_warpsize2x2x1_tensor16x8x8_execute_kernel__5x_cublas",
+      9
+     ]
+    ]
+   },
+   "pass_": true
+  },
+  "water648/flash": {
+   "replay": {
+    "n_gpu_events": 689,
+    "n_memcpy_memset": 52,
+    "n_flash": 4,
+    "flash_us": 4505.053000000001,
+    "flash_names": [
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*",
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int "
+    ],
+    "n_cueq": 0,
+    "cueq_us": 0.0,
+    "cueq_names": [],
+    "sum_gpu_us": 19606.621999999985,
+    "span_us": 19911.319,
+    "top": [
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1})",
+      87
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul>)",
+      71
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      57
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)",
+      54
+     ],
+     [
+      "Memcpy DtoD (Device -> Device)",
+      44
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      31
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1})",
+      16
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_cublas",
+      13
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      12
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul>)",
+      11
+     ],
+     [
+      "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4> >(at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4>)",
+      11
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      10
+     ]
+    ],
+    "replay_event_ms": 19.6976318359375,
+    "flash_plus_cueq_le_replay": true,
+    "sum_gpu_le_replay": true,
+    "flash_kernels_present": true,
+    "cueq_kernels_present": true
+   },
+   "eager": {
+    "n_gpu_events": 691,
+    "n_memcpy_memset": 54,
+    "n_flash": 4,
+    "flash_us": 3752.8289999999997,
+    "flash_names": [
+     "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*",
+     "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int "
+    ],
+    "n_cueq": 0,
+    "cueq_us": 0.0,
+    "cueq_names": [],
+    "sum_gpu_us": 18734.353999999974,
+    "span_us": 22737.318,
+    "top": [
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1} const&)::{lambda(int)#1})",
+      87
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<double>, std::array<char*, 3ul>)",
+      71
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      57
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)",
+      54
+     ],
+     [
+      "Memcpy DtoD (Device -> Device)",
+      46
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      31
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::DivFunctor<double> > const&)::{lambda(int)#1})",
+      16
+     ],
+     [
+      "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_cublas",
+      13
+     ],
+     [
+      "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int)#1})",
+      12
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 3ul>)",
+      11
+     ],
+     [
+      "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4> >(at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4>)",
+      11
+     ],
+     [
+      "void at::native::vectorized_elementwise_kernel<2, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::BUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>)",
+      10
+     ]
+    ]
+   },
+   "pass_": true
+  }
+ },
+ "gpu_end": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz, 1980 MHz, 34, 257.58 W",
+ "check2_long_run": {
+  "md_wall_s": 3.993908002972603,
+  "n_frames": 41,
+  "frames": [
+   {
+    "step": 0,
+    "E": 6634,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.3869795029440866e-15,
+     "rms_dF": 9.942436673937744e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.219646771412954e-15,
+     "rms_dF": 1.5879817915565783e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.6645352591003757e-15,
+     "rms_dF": 1.3461264157425196e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 5,
+    "E": 6626,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.220446049250313e-15,
+     "rms_dF": 9.981001732061163e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.1086244689504383e-15,
+     "rms_dF": 1.606449676846628e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.55351295663786e-15,
+     "rms_dF": 1.395080938491637e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 10,
+    "E": 6626,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.4424906541753444e-15,
+     "rms_dF": 1.021450567881783e-15,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.886579864025407e-15,
+     "rms_dF": 1.5019960325352428e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.7755575615628914e-15,
+     "rms_dF": 1.4106869851548305e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 15,
+    "E": 6608,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.220446049250313e-15,
+     "rms_dF": 9.031041126910375e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.9976021664879227e-15,
+     "rms_dF": 1.6310533959471403e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.4416913763379853e-15,
+     "rms_dF": 1.4927137174004577e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 20,
+    "E": 6596,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 1.887379141862766e-15,
+     "rms_dF": 9.227000719488629e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.552713678800501e-15,
+     "rms_dF": 1.5434168407393245e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.552713678800501e-15,
+     "rms_dF": 1.2701064006049053e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 25,
+    "E": 6592,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.3869795029440866e-15,
+     "rms_dF": 1.09928622913817e-15,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.0531133177191805e-15,
+     "rms_dF": 1.5660224786540342e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.2751579226442118e-15,
+     "rms_dF": 1.4751726422573284e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 30,
+    "E": 6568,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.6645352591003757e-15,
+     "rms_dF": 9.740020817716868e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.1086244689504383e-15,
+     "rms_dF": 1.6063518507468225e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.552713678800501e-15,
+     "rms_dF": 1.4663217610500677e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 35,
+    "E": 6578,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.3869795029440866e-15,
+     "rms_dF": 9.607643221256954e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.219646771412954e-15,
+     "rms_dF": 1.533671766374629e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.7755575615628914e-15,
+     "rms_dF": 1.3788154214159403e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 40,
+    "E": 6562,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.3592239273284576e-15,
+     "rms_dF": 9.88962256756574e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 4.107825191113079e-15,
+     "rms_dF": 1.6587448153952411e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.942091015256665e-15,
+     "rms_dF": 1.4129358929506111e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 45,
+    "E": 6546,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.4424906541753444e-15,
+     "rms_dF": 1.0459467705821694e-15,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.552713678800501e-15,
+     "rms_dF": 1.5190656428399315e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.8727020762175925e-15,
+     "rms_dF": 1.3780454444178386e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 50,
+    "E": 6516,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.6367796834847468e-15,
+     "rms_dF": 9.892041101258326e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.886579864025407e-15,
+     "rms_dF": 1.5402148141897266e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.9968028886505635e-15,
+     "rms_dF": 1.4483897685698467e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 55,
+    "E": 6490,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.4424906541753444e-15,
+     "rms_dF": 9.891876239823866e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.3306690738754696e-15,
+     "rms_dF": 1.541674085509438e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.3306690738754696e-15,
+     "rms_dF": 1.3197687678858206e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 60,
+    "E": 6498,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 1.9984014443252818e-15,
+     "rms_dF": 9.546073261734407e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.164135620181696e-15,
+     "rms_dF": 1.415180824086285e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.886579864025407e-15,
+     "rms_dF": 1.182199195360953e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 65,
+    "E": 6492,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.220446049250313e-15,
+     "rms_dF": 9.73543336811909e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.219646771412954e-15,
+     "rms_dF": 1.4781686535152237e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.3306690738754696e-15,
+     "rms_dF": 1.3585822380196448e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 70,
+    "E": 6468,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.0539125955565396e-15,
+     "rms_dF": 9.592226120180616e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.9968028886505635e-15,
+     "rms_dF": 1.5053249805074727e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.1086244689504383e-15,
+     "rms_dF": 1.4132766317409925e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 75,
+    "E": 6456,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.3314683517128287e-15,
+     "rms_dF": 9.865569229345675e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.886579864025407e-15,
+     "rms_dF": 1.4575559587594978e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.7755575615628914e-15,
+     "rms_dF": 1.2464051064622369e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 80,
+    "E": 6480,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.3314683517128287e-15,
+     "rms_dF": 9.110588229736418e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.885780586188048e-15,
+     "rms_dF": 1.4853710365733372e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.9968028886505635e-15,
+     "rms_dF": 1.4034669722614323e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 85,
+    "E": 6476,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.220446049250313e-15,
+     "rms_dF": 9.760903439529962e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.0253577421035516e-15,
+     "rms_dF": 1.5625196516039276e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.7755575615628914e-15,
+     "rms_dF": 1.334473325947179e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 90,
+    "E": 6490,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.1086244689504383e-15,
+     "rms_dF": 1.1288160422881739e-15,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.1086244689504383e-15,
+     "rms_dF": 1.5890590490289542e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.552713678800501e-15,
+     "rms_dF": 1.4199086513624644e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 95,
+    "E": 6482,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.6645352591003757e-15,
+     "rms_dF": 9.305969166700274e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.3306690738754696e-15,
+     "rms_dF": 1.5079387005987977e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.886579864025407e-15,
+     "rms_dF": 1.2919823967279313e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 100,
+    "E": 6482,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.4702462297909733e-15,
+     "rms_dF": 9.688266331527893e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.552713678800501e-15,
+     "rms_dF": 1.5547741668456764e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.3306690738754696e-15,
+     "rms_dF": 1.406968826434935e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 105,
+    "E": 6494,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.831068712794149e-15,
+     "rms_dF": 9.950408486078208e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.1780134079895106e-15,
+     "rms_dF": 1.5607393010571503e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.0808688933348094e-15,
+     "rms_dF": 1.3940116183240069e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 110,
+    "E": 6502,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 1.887379141862766e-15,
+     "rms_dF": 9.01421239255152e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.1086244689504383e-15,
+     "rms_dF": 1.6111709914243463e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.6645352591003757e-15,
+     "rms_dF": 1.4163667395130446e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 115,
+    "E": 6504,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.1094237467877974e-15,
+     "rms_dF": 9.682857065153067e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.552713678800501e-15,
+     "rms_dF": 1.5709651851611146e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.774758283725532e-15,
+     "rms_dF": 1.3358044091575231e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 120,
+    "E": 6490,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.4424906541753444e-15,
+     "rms_dF": 1.0206228666612396e-15,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.774758283725532e-15,
+     "rms_dF": 1.5805547867418788e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.774758283725532e-15,
+     "rms_dF": 1.3390273523882356e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 125,
+    "E": 6506,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.9351521213527576e-15,
+     "rms_dF": 1.0569588724299098e-15,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.3306690738754696e-15,
+     "rms_dF": 1.5422341924462167e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.6922908347160046e-15,
+     "rms_dF": 1.3806187666163038e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 130,
+    "E": 6552,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.1094237467877974e-15,
+     "rms_dF": 9.73471958441579e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.4424906541753444e-15,
+     "rms_dF": 1.402651331147466e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.7200464103316335e-15,
+     "rms_dF": 1.2998801301098717e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 135,
+    "E": 6546,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.3869795029440866e-15,
+     "rms_dF": 9.934113364168891e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.886579864025407e-15,
+     "rms_dF": 1.4160380548498155e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.9976021664879227e-15,
+     "rms_dF": 1.3316809609448607e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 140,
+    "E": 6536,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.275957200481571e-15,
+     "rms_dF": 9.223217583814567e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.1086244689504383e-15,
+     "rms_dF": 1.5896837915542642e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.1086244689504383e-15,
+     "rms_dF": 1.4252929786953875e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 145,
+    "E": 6536,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.6645352591003757e-15,
+     "rms_dF": 9.794239646332676e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.886579864025407e-15,
+     "rms_dF": 1.4985322882669149e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.552713678800501e-15,
+     "rms_dF": 1.3152334304420517e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 150,
+    "E": 6540,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 1.9984014443252818e-15,
+     "rms_dF": 1.048510721062072e-15,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 4.884981308350689e-15,
+     "rms_dF": 1.6994153672722647e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.2751579226442118e-15,
+     "rms_dF": 1.4803707010805467e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 155,
+    "E": 6494,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.0261570199409107e-15,
+     "rms_dF": 9.512921174079483e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.9968028886505635e-15,
+     "rms_dF": 1.6046437524907826e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.6637359812630166e-15,
+     "rms_dF": 1.3213884827791566e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 160,
+    "E": 6452,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.220446049250313e-15,
+     "rms_dF": 9.785030583616531e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.552713678800501e-15,
+     "rms_dF": 1.5702776009339356e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.1086244689504383e-15,
+     "rms_dF": 1.4084748198067406e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 165,
+    "E": 6420,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.55351295663786e-15,
+     "rms_dF": 9.534510316075892e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.3306690738754696e-15,
+     "rms_dF": 1.442825221959001e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.2751579226442118e-15,
+     "rms_dF": 1.3334014804194701e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 170,
+    "E": 6346,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.220446049250313e-15,
+     "rms_dF": 1.0555072945039613e-15,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.219646771412954e-15,
+     "rms_dF": 1.5359159180158333e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.4424906541753444e-15,
+     "rms_dF": 1.3880758203875885e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 175,
+    "E": 6308,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.6645352591003757e-15,
+     "rms_dF": 9.77610625960512e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.1086244689504383e-15,
+     "rms_dF": 1.4996393382501868e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.1086244689504383e-15,
+     "rms_dF": 1.3713927650132691e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 180,
+    "E": 6316,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 1.6930901125533637e-15,
+     "rms_dF": 8.908313705257698e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.1086244689504383e-15,
+     "rms_dF": 1.4361863578251013e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.886579864025407e-15,
+     "rms_dF": 1.2787776744758996e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 185,
+    "E": 6284,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.220446049250313e-15,
+     "rms_dF": 1.026843537003608e-15,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.886579864025407e-15,
+     "rms_dF": 1.508074593798522e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 3.219646771412954e-15,
+     "rms_dF": 1.4317092938214573e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 190,
+    "E": 6246,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.55351295663786e-15,
+     "rms_dF": 1.0215485833227315e-15,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 5.329070518200751e-15,
+     "rms_dF": 1.7166016879266229e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.1086244689504383e-15,
+     "rms_dF": 1.4869743479456886e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 195,
+    "E": 6208,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.55351295663786e-15,
+     "rms_dF": 9.139232935301552e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.6637359812630166e-15,
+     "rms_dF": 1.4552254520806207e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.6645352591003757e-15,
+     "rms_dF": 1.347608965627301e-15,
+     "finite": true,
+     "ok": true
+    }
+   },
+   {
+    "step": 200,
+    "E": 6152,
+    "proto_vs_stock_calc": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.220446049250313e-15,
+     "rms_dF": 9.182931352421245e-16,
+     "finite": true
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.2751579226442118e-15,
+     "rms_dF": 1.5745336679167232e-15,
+     "finite": true,
+     "ok": true
+    },
+    "flash": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 2.886579864025407e-15,
+     "rms_dF": 1.3666978221751685e-15,
+     "finite": true,
+     "ok": true
+    }
+   }
+  ],
+  "hybrid_max_dE_per_atom": 1.5158245029548803e-13,
+  "hybrid_max_dF": 5.329070518200751e-15,
+  "hybrid_max_rms_dF": 1.7166016879266229e-15,
+  "hybrid_recaptures": [],
+  "hybrid_E_cap": 8000,
+  "flash_max_dE_per_atom": 1.5158245029548803e-13,
+  "flash_max_dF": 3.9968028886505635e-15,
+  "flash_max_rms_dF": 1.4927137174004577e-15,
+  "flash_recaptures": [],
+  "flash_E_cap": 8000,
+  "E_range": [
+   6152,
+   6634
+  ],
+  "pass_": true,
+  "recapture": {
+   "hybrid": {
+    "rows": [
+     {
+      "scale": 1.0,
+      "E": 6634,
+      "E_cap": 6656,
+      "recaptured": false,
+      "dE_per_atom": 1.5158245029548803e-13,
+      "max_dF": 3.497202527569243e-15,
+      "rms_dF": 1.643351223582739e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 1.9984014443252818e-15
+     },
+     {
+      "scale": 0.98,
+      "E": 6934,
+      "E_cap": 8704,
+      "recaptured": true,
+      "dE_per_atom": 0.0,
+      "max_dF": 3.4416913763379853e-15,
+      "rms_dF": 1.6184297619808942e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 1.9984014443252818e-15
+     },
+     {
+      "scale": 0.96,
+      "E": 7210,
+      "E_cap": 8704,
+      "recaptured": false,
+      "dE_per_atom": 1.5158245029548803e-13,
+      "max_dF": 3.552713678800501e-15,
+      "rms_dF": 1.787761635949114e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 2.886579864025407e-15
+     },
+     {
+      "scale": 0.9400000000000001,
+      "E": 7528,
+      "E_cap": 8704,
+      "recaptured": false,
+      "dE_per_atom": 0.0,
+      "max_dF": 3.9968028886505635e-15,
+      "rms_dF": 2.1848544415050322e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 2.6645352591003757e-15
+     },
+     {
+      "scale": 0.92,
+      "E": 7822,
+      "E_cap": 8704,
+      "recaptured": false,
+      "dE_per_atom": 0.0,
+      "max_dF": 6.217248937900877e-15,
+      "rms_dF": 2.531835858906826e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 3.552713678800501e-15
+     },
+     {
+      "scale": 0.9,
+      "E": 8102,
+      "E_cap": 8704,
+      "recaptured": false,
+      "dE_per_atom": 0.0,
+      "max_dF": 7.105427357601002e-15,
+      "rms_dF": 3.3923600279121043e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 5.329070518200751e-15
+     },
+     {
+      "scale": 0.88,
+      "E": 8438,
+      "E_cap": 8704,
+      "recaptured": false,
+      "dE_per_atom": 1.5158245029548803e-13,
+      "max_dF": 9.769962616701378e-15,
+      "rms_dF": 4.8979718947797515e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 7.105427357601002e-15
+     },
+     {
+      "scale": 0.86,
+      "E": 8772,
+      "E_cap": 11008,
+      "recaptured": true,
+      "dE_per_atom": 1.5158245029548803e-13,
+      "max_dF": 1.7763568394002505e-14,
+      "rms_dF": 7.206045773639857e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 9.103828801926284e-15
+     },
+     {
+      "scale": 0.8400000000000001,
+      "E": 9184,
+      "E_cap": 11008,
+      "recaptured": false,
+      "dE_per_atom": 1.5158245029548803e-13,
+      "max_dF": 1.9539925233402755e-14,
+      "rms_dF": 9.461350198591728e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 1.0769163338864018e-14
+     },
+     {
+      "scale": 0.8200000000000001,
+      "E": 9550,
+      "E_cap": 11008,
+      "recaptured": false,
+      "dE_per_atom": 1.5158245029548803e-13,
+      "max_dF": 3.907985046680551e-14,
+      "rms_dF": 1.3759030859859455e-14,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 1.7763568394002505e-14
+     },
+     {
+      "scale": 0.8,
+      "E": 10026,
+      "E_cap": 11008,
+      "recaptured": false,
+      "dE_per_atom": 1.5158245029548803e-13,
+      "max_dF": 1.1937117960769683e-12,
+      "rms_dF": 2.1360597736607033e-13,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 1.9184653865522705e-13
+     },
+     {
+      "scale": 0.78,
+      "E": 10638,
+      "E_cap": 11008,
+      "recaptured": false,
+      "dE_per_atom": 1.5158245029548803e-13,
+      "max_dF": 1.3585577107733116e-11,
+      "rms_dF": 1.85798605660202e-12,
+      "finite": true,
+      "ok": false,
+      "rereplay_max_dF": 7.702283255639486e-12
+     },
+     {
+      "scale": 1.0,
+      "E": 6634,
+      "E_cap": 11008,
+      "recaptured": false,
+      "dE_per_atom": 1.5158245029548803e-13,
+      "max_dF": 3.219646771412954e-15,
+      "rms_dF": 1.5731949166023076e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 1.9984014443252818e-15
+     },
+     {
+      "scale": 0.9,
+      "E": 8102,
+      "E_cap": 11008,
+      "recaptured": false,
+      "dE_per_atom": 1.5158245029548803e-13,
+      "max_dF": 7.105427357601002e-15,
+      "rms_dF": 3.0904240424121034e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 6.217248937900877e-15
+     },
+     {
+      "scale": 0.78,
+      "E": 10638,
+      "E_cap": 11008,
+      "recaptured": false,
+      "dE_per_atom": 1.5158245029548803e-13,
+      "max_dF": 1.0970779840135947e-11,
+      "rms_dF": 1.455693522389655e-12,
+      "finite": true,
+      "ok": false,
+      "rereplay_max_dF": 8.185452315956354e-12
+     }
+    ],
+    "recaptures": [
+     {
+      "old_cap": 6656,
+      "new_cap": 8704,
+      "E": 6934,
+      "capture_s": 0.08304453641176224
+     },
+     {
+      "old_cap": 8704,
+      "new_cap": 11008,
+      "E": 8772,
+      "capture_s": 0.08767044357955456
+     }
+    ],
+    "n_recaptures": 2,
+    "mem_growth_MiB": 128.70068359375,
+    "pass_": false
+   },
+   "flash": {
+    "rows": [
+     {
+      "scale": 1.0,
+      "E": 6634,
+      "E_cap": 6656,
+      "recaptured": false,
+      "dE_per_atom": 0.0,
+      "max_dF": 2.9976021664879227e-15,
+      "rms_dF": 1.3240337065064108e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 2.1649348980190553e-15
+     },
+     {
+      "scale": 0.98,
+      "E": 6934,
+      "E_cap": 8704,
+      "recaptured": true,
+      "dE_per_atom": 0.0,
+      "max_dF": 3.4416913763379853e-15,
+      "rms_dF": 1.5647142698373368e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 2.1094237467877974e-15
+     },
+     {
+      "scale": 0.96,
+      "E": 7210,
+      "E_cap": 8704,
+      "recaptured": false,
+      "dE_per_atom": 0.0,
+      "max_dF": 3.3306690738754696e-15,
+      "rms_dF": 1.6464372911411073e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 2.6645352591003757e-15
+     },
+     {
+      "scale": 0.9400000000000001,
+      "E": 7528,
+      "E_cap": 8704,
+      "recaptured": false,
+      "dE_per_atom": 0.0,
+      "max_dF": 4.218847493575595e-15,
+      "rms_dF": 2.000826189379224e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 4.218847493575595e-15
+     },
+     {
+      "scale": 0.92,
+      "E": 7822,
+      "E_cap": 8704,
+      "recaptured": false,
+      "dE_per_atom": 0.0,
+      "max_dF": 5.329070518200751e-15,
+      "rms_dF": 2.6475374658300884e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 3.552713678800501e-15
+     },
+     {
+      "scale": 0.9,
+      "E": 8102,
+      "E_cap": 8704,
+      "recaptured": false,
+      "dE_per_atom": 0.0,
+      "max_dF": 9.769962616701378e-15,
+      "rms_dF": 3.748398534102725e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 5.329070518200751e-15
+     },
+     {
+      "scale": 0.88,
+      "E": 8438,
+      "E_cap": 8704,
+      "recaptured": false,
+      "dE_per_atom": 0.0,
+      "max_dF": 1.0658141036401503e-14,
+      "rms_dF": 4.156403481837122e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 6.217248937900877e-15
+     },
+     {
+      "scale": 0.86,
+      "E": 8772,
+      "E_cap": 11008,
+      "recaptured": true,
+      "dE_per_atom": 0.0,
+      "max_dF": 1.2434497875801753e-14,
+      "rms_dF": 6.468743059427807e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 9.325873406851315e-15
+     },
+     {
+      "scale": 0.8400000000000001,
+      "E": 9184,
+      "E_cap": 11008,
+      "recaptured": false,
+      "dE_per_atom": 0.0,
+      "max_dF": 1.7763568394002505e-14,
+      "rms_dF": 8.150179882399844e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 1.354472090042691e-14
+     },
+     {
+      "scale": 0.8200000000000001,
+      "E": 9550,
+      "E_cap": 11008,
+      "recaptured": false,
+      "dE_per_atom": 0.0,
+      "max_dF": 2.3092638912203256e-14,
+      "rms_dF": 1.1669855737601746e-14,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 1.5987211554602254e-14
+     },
+     {
+      "scale": 0.8,
+      "E": 10026,
+      "E_cap": 11008,
+      "recaptured": false,
+      "dE_per_atom": 0.0,
+      "max_dF": 2.5934809855243657e-13,
+      "rms_dF": 6.309343890185769e-14,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 3.126388037344441e-13
+     },
+     {
+      "scale": 0.78,
+      "E": 10638,
+      "E_cap": 11008,
+      "recaptured": false,
+      "dE_per_atom": 1.5158245029548803e-13,
+      "max_dF": 9.833911462919787e-12,
+      "rms_dF": 1.8189251737916457e-12,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 7.389644451905042e-12
+     },
+     {
+      "scale": 1.0,
+      "E": 6634,
+      "E_cap": 11008,
+      "recaptured": false,
+      "dE_per_atom": 0.0,
+      "max_dF": 3.1086244689504383e-15,
+      "rms_dF": 1.3180299492485033e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 2.4424906541753444e-15
+     },
+     {
+      "scale": 0.9,
+      "E": 8102,
+      "E_cap": 11008,
+      "recaptured": false,
+      "dE_per_atom": 1.5158245029548803e-13,
+      "max_dF": 5.329070518200751e-15,
+      "rms_dF": 2.9613451472444193e-15,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 6.661338147750939e-15
+     },
+     {
+      "scale": 0.78,
+      "E": 10638,
+      "E_cap": 11008,
+      "recaptured": false,
+      "dE_per_atom": 0.0,
+      "max_dF": 9.663381206337363e-12,
+      "rms_dF": 1.4515838990366613e-12,
+      "finite": true,
+      "ok": true,
+      "rereplay_max_dF": 5.002220859751105e-12
+     }
+    ],
+    "recaptures": [
+     {
+      "old_cap": 6656,
+      "new_cap": 8704,
+      "E": 6934,
+      "capture_s": 0.060735369101166725
+     },
+     {
+      "old_cap": 8704,
+      "new_cap": 11008,
+      "E": 8772,
+      "capture_s": 0.14207944832742214
+     }
+    ],
+    "n_recaptures": 2,
+    "mem_growth_MiB": 128.42236328125,
+    "pass_": true
+   }
+  }
+ },
+ "check3_edge_cases": {
+  "error": "RuntimeError: The size of tensor a (192) must match the size of tensor b (21) at non-singleton dimension 0",
+  "tb": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/validate6/v_correct.py\", line 29, in section\n    res[name] = fn()\n                ^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/validate6/v_correct.py\", line 248, in check3\n    E1, F1 = G.step(builders[\"hybrid\"].build(at)); keep = F1.clone(); G.step(builders[\"hybrid\"].build(perturb(at, 0.05, 3)))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/graphed_model.py\", line 106, in step\n    self._load(bd)\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/graphed_model.py\", line 81, in _load\n    self._load_ng(bd)\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/graphed_model.py\", line 87, in _load_ng\n    st[k].copy_(bd[k].detach())\nRuntimeError: The size of tensor a (192) must match the size of tensor b (21) at non-singleton dimension 0\n"
+ }
+}

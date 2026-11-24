@@ -1,0 +1,7439 @@
+{
+ "sources": {
+  "ref": {
+   "file": "bench_ref.json",
+   "env": {
+    "job": "1056",
+    "host": "slurm-h100-206-077",
+    "gpu": "NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845",
+    "torch": "2.11.0+cu128",
+    "python": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/bin/python"
+   },
+   "E0": null,
+   "build": null
+  },
+  "oeq": {
+   "file": "bench_oeq.json",
+   "env": {
+    "job": "1051",
+    "host": "slurm-h100-206-077",
+    "gpu": "NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800",
+    "torch": "2.11.0+cu128",
+    "python": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-oeq/bin/python"
+   },
+   "E0": {
+    "L0": {
+     "oeq_atomic": {
+      "out_abs_max": 0.0,
+      "gx_abs_max": 0.0,
+      "shapes": [
+       [
+        3,
+        2048
+       ],
+       [
+        3,
+        128
+       ],
+       [
+        0,
+        16
+       ],
+       [
+        0,
+        512
+       ]
+      ]
+     },
+     "oeq_det_full": {
+      "out_abs_max": 0.0,
+      "gx_abs_max": 0.0,
+      "shapes": [
+       [
+        3,
+        2048
+       ],
+       [
+        3,
+        128
+       ],
+       [
+        0,
+        16
+       ],
+       [
+        0,
+        512
+       ]
+      ]
+     },
+     "oeq_det_kernel": {
+      "out_abs_max": 0.0,
+      "gx_abs_max": 0.0,
+      "shapes": [
+       [
+        3,
+        2048
+       ],
+       [
+        3,
+        128
+       ],
+       [
+        0,
+        16
+       ],
+       [
+        0,
+        512
+       ]
+      ]
+     }
+    },
+    "L1": {
+     "oeq_atomic": {
+      "out_abs_max": 0.0,
+      "gx_abs_max": 0.0,
+      "shapes": [
+       [
+        3,
+        5120
+       ],
+       [
+        3,
+        512
+       ],
+       [
+        0,
+        16
+       ],
+       [
+        0,
+        1280
+       ]
+      ]
+     },
+     "oeq_det_full": {
+      "out_abs_max": 0.0,
+      "gx_abs_max": 0.0,
+      "shapes": [
+       [
+        3,
+        5120
+       ],
+       [
+        3,
+        512
+       ],
+       [
+        0,
+        16
+       ],
+       [
+        0,
+        1280
+       ]
+      ]
+     },
+     "oeq_det_kernel": {
+      "out_abs_max": 0.0,
+      "gx_abs_max": 0.0,
+      "shapes": [
+       [
+        3,
+        5120
+       ],
+       [
+        3,
+        512
+       ],
+       [
+        0,
+        16
+       ],
+       [
+        0,
+        1280
+       ]
+      ]
+     }
+    }
+   },
+   "build": {
+    "L0": "ok",
+    "L1": "ok"
+   }
+  },
+  "luna": {
+   "file": "bench_luna.json",
+   "env": {
+    "job": "1057",
+    "host": "slurm-h100-206-077",
+    "gpu": "NVIDIA H100 80GB HBM3, GPU-3ef4e875-4571-3cea-d408-241db662acb5",
+    "torch": "2.11.0+cu128",
+    "python": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-luna/bin/python"
+   },
+   "E0": {
+    "L0": {
+     "luna_full": {
+      "out_abs_max": 0.0,
+      "gx_abs_max": 0.0,
+      "shapes": [
+       [
+        3,
+        2048
+       ],
+       [
+        3,
+        128
+       ],
+       [
+        0,
+        16
+       ],
+       [
+        0,
+        512
+       ]
+      ]
+     },
+     "luna_kernel": {
+      "out_abs_max": 0.0,
+      "gx_abs_max": 0.0,
+      "shapes": [
+       [
+        3,
+        2048
+       ],
+       [
+        3,
+        128
+       ],
+       [
+        0,
+        16
+       ],
+       [
+        0,
+        512
+       ]
+      ]
+     }
+    },
+    "L1": {
+     "luna_full": {
+      "out_abs_max": 0.0,
+      "gx_abs_max": 0.0,
+      "shapes": [
+       [
+        3,
+        5120
+       ],
+       [
+        3,
+        512
+       ],
+       [
+        0,
+        16
+       ],
+       [
+        0,
+        1280
+       ]
+      ]
+     },
+     "luna_kernel": {
+      "out_abs_max": 0.0,
+      "gx_abs_max": 0.0,
+      "shapes": [
+       [
+        3,
+        5120
+       ],
+       [
+        3,
+        512
+       ],
+       [
+        0,
+        16
+       ],
+       [
+        0,
+        1280
+       ]
+      ]
+     }
+    }
+   },
+   "build": {
+    "L0": "ok",
+    "L1": "ok"
+   }
+  }
+ },
+ "rows": {
+  "aspirin_L0": {
+   "N": 21,
+   "E": 302,
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 4.0698736981758313e-16,
+      "max_ref": 3.2734864232944796,
+      "n_nearzero": 14592,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 34.46064895512645,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 3.8613814281623053,
+      "n_nearzero": 38,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 2.3932811222017425,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.15672389417886734,
+      "p10": 0.15363991260528564,
+      "p90": 0.16189757734537125,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.03129599988460541,
+      "p10": 0.031072000041604042,
+      "p90": 0.031459201127290726,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.6167227402329445,
+      "p10": 0.6119079887866974,
+      "p90": 0.6238929927349091,
+      "n": 50
+     },
+     "graph_bwd": {
+      "error": "AcceleratorError(\"CUDA error: operation failed due to a previous error during capture\\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\\nCUDA kernel errors might be asynchronously reported at some other AP"
+     },
+     "eager_fwd_bwd": {
+      "median": 0.9619276970624924,
+      "p10": 0.9435363113880157,
+      "p90": 1.1504238471388817,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "AcceleratorError(\"CUDA error: operation failed due to a previous error during capture\\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\\nCUDA kernel errors might be asynchronously reported at some other AP"
+     }
+    }
+   },
+   "flashtp_gc": {
+    "err": {
+     "out": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 8.139747396351663e-16,
+      "max_ref": 3.2734864232944796,
+      "n_nearzero": 14592,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 1.7763568394002505e-14,
+      "scaled": 5.154739951976427e-16,
+      "max_ref": 34.46064895512645,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 6.900471524690768e-16,
+      "max_ref": 3.8613814281623053,
+      "n_nearzero": 38,
+      "max_abs_nearzero": 9.926167350636332e-24,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 7.422265704273214e-16,
+      "max_ref": 2.3932811222017425,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.10078586637973785,
+      "p10": 0.09880494326353073,
+      "p90": 0.10525006800889969,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.027456000447273254,
+      "p10": 0.02729279939085245,
+      "p90": 0.027648000046610832,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.158810056746006,
+      "p10": 0.15518013387918472,
+      "p90": 0.16299188137054443,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.03336000069975853,
+      "p10": 0.03315199911594391,
+      "p90": 0.03370879963040352,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.42863283306360245,
+      "p10": 0.42149797081947327,
+      "p90": 0.43630450963974,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.05724800005555153,
+      "p10": 0.05705279856920242,
+      "p90": 0.057440001517534256,
+      "n": 50
+     }
+    }
+   },
+   "cueq_fused_irmul_T": {
+    "err": {
+     "out": {
+      "max_abs": 2.220446049250313e-15,
+      "scaled": 6.783122830293052e-16,
+      "max_ref": 3.2734864232944796,
+      "n_nearzero": 14592,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 1.3322676295501878e-14,
+      "scaled": 3.8660549639823205e-16,
+      "max_ref": 34.46064895512645,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.220446049250313e-15,
+      "scaled": 5.750392937242307e-16,
+      "max_ref": 3.8613814281623053,
+      "n_nearzero": 38,
+      "max_abs_nearzero": 4.963083675318166e-24,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 7.422265704273214e-16,
+      "max_ref": 2.3932811222017425,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.2513052895665169,
+      "p10": 0.2472376450896263,
+      "p90": 0.2601355314254761,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.01708799973130226,
+      "p10": 0.01695680059492588,
+      "p90": 0.017315199598670006,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.4600146785378456,
+      "p10": 0.447574257850647,
+      "p90": 0.4921702668070793,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.03046399913728237,
+      "p10": 0.030300799757242203,
+      "p90": 0.03062400035560131,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.104487106204033,
+      "p10": 1.0853806510567665,
+      "p90": 1.1237040162086487,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.04275200143456459,
+      "p10": 0.04249279946088791,
+      "p90": 0.043011199682950974,
+      "n": 50
+     }
+    }
+   },
+   "oeq_atomic": {
+    "run_to_run_bitwise": false,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 4.069873698175831e-16,
+      "max_ref": 3.27348642329448,
+      "n_nearzero": 14592,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 7.105427357601002e-15,
+      "scaled": 2.061895980790571e-16,
+      "max_ref": 34.46064895512645,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.1102230246251565e-15,
+      "scaled": 2.8751964686211534e-16,
+      "max_ref": 3.8613814281623053,
+      "n_nearzero": 38,
+      "max_abs_nearzero": 3.308722450212111e-24,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 6.661338147750939e-16,
+      "scaled": 2.7833496391024553e-16,
+      "max_ref": 2.3932811222017425,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.03486312925815582,
+      "p10": 0.034056976437568665,
+      "p90": 0.03708153963088989,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.014015999622642994,
+      "p10": 0.01375359958037734,
+      "p90": 0.014371200371533633,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.10320451110601425,
+      "p10": 0.09916536509990692,
+      "p90": 0.10971575975418091,
+      "n": 50
+     },
+     "graph_bwd": {
+      "error": "AcceleratorError(\"CUDA error: operation failed due to a previous error during capture\\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\\nCUDA kernel errors might be asynchronously reported at some other AP"
+     },
+     "eager_fwd_bwd": {
+      "median": 0.2136947587132454,
+      "p10": 0.20923428237438202,
+      "p90": 0.2283236011862755,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "AcceleratorError(\"CUDA error: operation failed due to a previous error during capture\\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\\nCUDA kernel errors might be asynchronously reported at some other AP"
+     }
+    }
+   },
+   "oeq_det_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 5.426498264234441e-16,
+      "max_ref": 3.27348642329448,
+      "n_nearzero": 14592,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 2.5773699759882137e-16,
+      "max_ref": 34.46064895512645,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.1102230246251565e-15,
+      "scaled": 2.8751964686211534e-16,
+      "max_ref": 3.8613814281623053,
+      "n_nearzero": 38,
+      "max_abs_nearzero": 3.308722450212111e-24,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 6.661338147750939e-16,
+      "scaled": 2.7833496391024553e-16,
+      "max_ref": 2.3932811222017425,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.36852993071079254,
+      "p10": 0.366821326315403,
+      "p90": 0.37466511130332947,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.31385600566864014,
+      "p10": 0.3135968029499054,
+      "p90": 0.3140160143375397,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.18896907567977905,
+      "p10": 0.18301606178283691,
+      "p90": 0.20421035587787628,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.05655999854207039,
+      "p10": 0.05542080104351044,
+      "p90": 0.05815359950065613,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.47322921454906464,
+      "p10": 0.46028513461351395,
+      "p90": 0.491119921207428,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.35551999509334564,
+      "p10": 0.35282879173755644,
+      "p90": 0.3840959966182709,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 5.426498264234441e-16,
+      "max_ref": 3.27348642329448,
+      "n_nearzero": 14592,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 2.5773699759882137e-16,
+      "max_ref": 34.46064895512645,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.1102230246251565e-15,
+      "scaled": 2.8751964686211534e-16,
+      "max_ref": 3.8613814281623053,
+      "n_nearzero": 38,
+      "max_abs_nearzero": 3.308722450212111e-24,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 6.661338147750939e-16,
+      "scaled": 2.7833496391024553e-16,
+      "max_ref": 2.3932811222017425,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.2642013132572174,
+      "p10": 0.25785695761442184,
+      "p90": 0.2660507336258888,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.24291199445724487,
+      "p10": 0.23871999979019165,
+      "p90": 0.2458911955356598,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.10385829955339432,
+      "p10": 0.1010313630104065,
+      "p90": 0.11554807424545288,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.028991999104619026,
+      "p10": 0.027644800022244453,
+      "p90": 0.030998399294912816,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.29365625232458115,
+      "p10": 0.2841241657733917,
+      "p90": 0.31386278569698334,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.26289600133895874,
+      "p10": 0.24346879869699478,
+      "p90": 0.27233600318431855,
+      "n": 50
+     }
+    }
+   },
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 4.0698736981758313e-16,
+      "max_ref": 3.2734864232944796,
+      "n_nearzero": 14592,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 3.092843971185856e-16,
+      "max_ref": 34.46064895512645,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 9.43689570931383e-16,
+      "scaled": 2.4439169983279803e-16,
+      "max_ref": 3.8613814281623053,
+      "n_nearzero": 38,
+      "max_abs_nearzero": 5.37667398159468e-24,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-16,
+      "scaled": 3.711132852136607e-16,
+      "max_ref": 2.3932811222017425,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.1888154074549675,
+      "p10": 0.1853998750448227,
+      "p90": 0.19330251961946487,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.16983132809400558,
+      "p10": 0.16662552952766418,
+      "p90": 0.17372947186231613,
+      "n": 50
+     },
+     "graph_bwd": {
+      "error": "AcceleratorError(\"CUDA error: operation failed due to a previous error during capture\\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\\nCUDA kernel errors might be asynchronously reported at some other AP"
+     },
+     "eager_fwd_bwd": {
+      "median": 0.4391912370920181,
+      "p10": 0.42792800813913345,
+      "p90": 0.45247897505760193,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 4.0698736981758313e-16,
+      "max_ref": 3.2734864232944796,
+      "n_nearzero": 14592,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 3.092843971185856e-16,
+      "max_ref": 34.46064895512645,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 9.43689570931383e-16,
+      "scaled": 2.4439169983279803e-16,
+      "max_ref": 3.8613814281623053,
+      "n_nearzero": 38,
+      "max_abs_nearzero": 5.37667398159468e-24,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-16,
+      "scaled": 3.711132852136607e-16,
+      "max_ref": 2.3932811222017425,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.025350600481033325,
+      "p10": 0.024307332932949066,
+      "p90": 0.027383863925933838,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.009488000068813562,
+      "p10": 0.009247999638319016,
+      "p90": 0.009955200273543597,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.0926479697227478,
+      "p10": 0.09117759764194489,
+      "p90": 0.09646397083997726,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.028351999819278717,
+      "p10": 0.02815680019557476,
+      "p90": 0.028547199442982674,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.12848153710365295,
+      "p10": 0.12552477419376373,
+      "p90": 0.13231821358203888,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.033695999532938004,
+      "p10": 0.03347200155258179,
+      "p90": 0.03388800099492073,
+      "n": 50
+     }
+    }
+   }
+  },
+  "aspirin_L1": {
+   "N": 21,
+   "E": 302,
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.364360299901816e-16,
+      "max_ref": 7.513054755123475,
+      "n_nearzero": 36480,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 26.578020704604526,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 28.38494722518969,
+      "n_nearzero": 7,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 9.661942732369189,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.47666020691394806,
+      "p10": 0.46673398464918137,
+      "p90": 0.48663727939128876,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.16076800227165222,
+      "p10": 0.16018559783697128,
+      "p90": 0.16141440570354462,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 1.6548838466405869,
+      "p10": 1.6275934875011444,
+      "p90": 1.682850532233715,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.4283520132303238,
+      "p10": 0.4276127994060516,
+      "p90": 0.42979838848114016,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 2.526789903640747,
+      "p10": 2.491639368236065,
+      "p90": 2.557668089866638,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.5856000185012817,
+      "p10": 0.5845280051231384,
+      "p90": 0.5869439780712128,
+      "n": 50
+     }
+    }
+   },
+   "flashtp_gc": {
+    "err": {
+     "out": {
+      "max_abs": 5.329070518200751e-15,
+      "scaled": 7.093080899705448e-16,
+      "max_ref": 7.513054755123475,
+      "n_nearzero": 36480,
+      "max_abs_nearzero": 4.440892098500626e-16,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.552713678800501e-14,
+      "scaled": 1.3367111562920141e-15,
+      "max_ref": 26.578020704604526,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.2434497875801753e-14,
+      "scaled": 4.380666195062357e-16,
+      "max_ref": 28.38494722518969,
+      "n_nearzero": 7,
+      "max_abs_nearzero": 1.075334796318936e-23,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 7.105427357601002e-15,
+      "scaled": 7.354035885346934e-16,
+      "max_ref": 9.661942732369189,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.10018516331911087,
+      "p10": 0.0987473875284195,
+      "p90": 0.102972611784935,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.034671999514102936,
+      "p10": 0.034432001411914825,
+      "p90": 0.03497600182890892,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.15338975936174393,
+      "p10": 0.15112441033124924,
+      "p90": 0.15823431313037872,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.05873600021004677,
+      "p10": 0.058559998869895935,
+      "p90": 0.05897919833660126,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.43074972927570343,
+      "p10": 0.4237562417984009,
+      "p90": 0.43800733983516693,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.08980799838900566,
+      "p10": 0.08956479653716087,
+      "p90": 0.09008320048451424,
+      "n": 50
+     }
+    }
+   },
+   "cueq_fused_irmul_T": {
+    "err": {
+     "out": {
+      "max_abs": 5.329070518200751e-15,
+      "scaled": 7.093080899705448e-16,
+      "max_ref": 7.513054755123475,
+      "n_nearzero": 36480,
+      "max_abs_nearzero": 2.220446049250313e-16,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 1.4210854715202004e-14,
+      "scaled": 5.346844625168056e-16,
+      "max_ref": 26.578020704604526,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 3.129047282187398e-16,
+      "max_ref": 28.38494722518969,
+      "n_nearzero": 7,
+      "max_abs_nearzero": 2.3161057151484775e-23,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 7.105427357601002e-15,
+      "scaled": 7.354035885346934e-16,
+      "max_ref": 9.661942732369189,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.4428708925843239,
+      "p10": 0.4359520971775055,
+      "p90": 0.4510674625635147,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.03532800078392029,
+      "p10": 0.0351295992732048,
+      "p90": 0.03561919927597046,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.8543534204363823,
+      "p10": 0.8420400321483612,
+      "p90": 0.8722109720110893,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.08140800148248672,
+      "p10": 0.08099199831485748,
+      "p90": 0.081727996468544,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.7538592219352722,
+      "p10": 1.7384793609380722,
+      "p90": 1.7691196873784065,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.11393600329756737,
+      "p10": 0.11330239847302437,
+      "p90": 0.11460160091519356,
+      "n": 50
+     }
+    }
+   },
+   "oeq_atomic": {
+    "run_to_run_bitwise": false,
+    "err": {
+     "out": {
+      "max_abs": 7.105427357601002e-15,
+      "scaled": 9.457441199607265e-16,
+      "max_ref": 7.513054755123475,
+      "n_nearzero": 36480,
+      "max_abs_nearzero": 3.3306690738754696e-16,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 9.356978094044098e-16,
+      "max_ref": 26.578020704604526,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 3.129047282187398e-16,
+      "max_ref": 28.38494722518969,
+      "n_nearzero": 7,
+      "max_abs_nearzero": 3.970466940254533e-23,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 4.440892098500626e-15,
+      "scaled": 4.596272428341833e-16,
+      "max_ref": 9.661942732369189,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.044568441808223724,
+      "p10": 0.043665431439876556,
+      "p90": 0.0467400997877121,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.021503999829292297,
+      "p10": 0.02134080044925213,
+      "p90": 0.021891200728714467,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.10639801621437073,
+      "p10": 0.10349322110414505,
+      "p90": 0.11237841099500656,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.022592000663280487,
+      "p10": 0.022332800552248955,
+      "p90": 0.022911999374628067,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.2039531245827675,
+      "p10": 0.20071975886821747,
+      "p90": 0.2112608402967453,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.03921600058674812,
+      "p10": 0.03887680172920227,
+      "p90": 0.040383998304605484,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 7.993605777301127e-15,
+      "scaled": 1.0639621349558171e-15,
+      "max_ref": 7.513054755123475,
+      "n_nearzero": 36480,
+      "max_abs_nearzero": 3.3306690738754696e-16,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.1316282072803006e-14,
+      "scaled": 8.020266937752085e-16,
+      "max_ref": 26.578020704604526,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 3.129047282187398e-16,
+      "max_ref": 28.38494722518969,
+      "n_nearzero": 7,
+      "max_abs_nearzero": 3.970466940254533e-23,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 4.440892098500626e-15,
+      "scaled": 4.596272428341833e-16,
+      "max_ref": 9.661942732369189,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.7110033184289932,
+      "p10": 0.7087266072630882,
+      "p90": 0.7164441049098969,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.6569280028343201,
+      "p10": 0.6566047847270966,
+      "p90": 0.657286423444748,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.18966197967529297,
+      "p10": 0.1836264505982399,
+      "p90": 0.195244699716568,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.1170399971306324,
+      "p10": 0.11004800349473953,
+      "p90": 0.11875840276479721,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.8638454601168633,
+      "p10": 0.8376272395253181,
+      "p90": 0.9189559146761894,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.7525759935379028,
+      "p10": 0.7313536167144775,
+      "p90": 0.7738943874835968,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 7.993605777301127e-15,
+      "scaled": 1.0639621349558171e-15,
+      "max_ref": 7.513054755123475,
+      "n_nearzero": 36480,
+      "max_abs_nearzero": 3.3306690738754696e-16,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.1316282072803006e-14,
+      "scaled": 8.020266937752085e-16,
+      "max_ref": 26.578020704604526,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 3.129047282187398e-16,
+      "max_ref": 28.38494722518969,
+      "n_nearzero": 7,
+      "max_abs_nearzero": 3.970466940254533e-23,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 4.440892098500626e-15,
+      "scaled": 4.596272428341833e-16,
+      "max_ref": 9.661942732369189,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.6130486726760864,
+      "p10": 0.6013743579387665,
+      "p90": 0.6202435120940208,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.5904799997806549,
+      "p10": 0.5806975781917572,
+      "p90": 0.5986271917819976,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.14586839824914932,
+      "p10": 0.14027170836925507,
+      "p90": 0.14845505356788635,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.08398399874567986,
+      "p10": 0.08278399705886841,
+      "p90": 0.08905920013785362,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.6762593984603882,
+      "p10": 0.6527496501803398,
+      "p90": 0.7267119362950325,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.6326560080051422,
+      "p10": 0.6103039979934692,
+      "p90": 0.6978848099708557,
+      "n": 50
+     }
+    }
+   },
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 6.217248937900877e-15,
+      "scaled": 8.275261049656356e-16,
+      "max_ref": 7.513054755123475,
+      "n_nearzero": 36480,
+      "max_abs_nearzero": 4.440892098500626e-16,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 9.356978094044098e-16,
+      "max_ref": 26.578020704604526,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 3.754856738624877e-16,
+      "max_ref": 28.38494722518969,
+      "n_nearzero": 7,
+      "max_abs_nearzero": 4.632211430296955e-23,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 4.440892098500626e-15,
+      "scaled": 4.596272428341833e-16,
+      "max_ref": 9.661942732369189,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.19607692956924438,
+      "p10": 0.19434429705142975,
+      "p90": 0.20304862409830093,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.17990265041589737,
+      "p10": 0.17639249563217163,
+      "p90": 0.1838376745581627,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.06864000111818314,
+      "p10": 0.06841599941253662,
+      "p90": 0.06897920295596123,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.4230877384543419,
+      "p10": 0.41723791509866714,
+      "p90": 0.43099336326122284,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 6.217248937900877e-15,
+      "scaled": 8.275261049656356e-16,
+      "max_ref": 7.513054755123475,
+      "n_nearzero": 36480,
+      "max_abs_nearzero": 4.440892098500626e-16,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 9.356978094044098e-16,
+      "max_ref": 26.578020704604526,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 3.754856738624877e-16,
+      "max_ref": 28.38494722518969,
+      "n_nearzero": 7,
+      "max_abs_nearzero": 4.632211430296955e-23,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 4.440892098500626e-15,
+      "scaled": 4.596272428341833e-16,
+      "max_ref": 9.661942732369189,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.027447938919067383,
+      "p10": 0.026635825634002686,
+      "p90": 0.029251724481582645,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.011376000009477139,
+      "p10": 0.011103999800980091,
+      "p90": 0.011619199998676777,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.10106619447469711,
+      "p10": 0.09960290044546127,
+      "p90": 0.10327324271202087,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.0395359992980957,
+      "p10": 0.039292801171541214,
+      "p90": 0.04000319913029671,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.1364024356007576,
+      "p10": 0.13378262519836426,
+      "p90": 0.1395992934703827,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.04451199993491173,
+      "p10": 0.044252801686525345,
+      "p90": 0.04467200115323067,
+      "n": 50
+     }
+    }
+   }
+  },
+  "water192_L0": {
+   "N": 192,
+   "E": 6634,
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 6.661338147750939e-16,
+      "scaled": 3.005303295981706e-16,
+      "max_ref": 2.2165277483499253,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 35.582550588492694,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 6.03744642412442,
+      "n_nearzero": 713,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 3.3592447042011284,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.3036772832274437,
+      "p10": 0.302325002849102,
+      "p90": 0.30682720243930817,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.23483199626207352,
+      "p10": 0.23403839468955995,
+      "p90": 0.23580799996852875,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.8564470335841179,
+      "p10": 0.8521938696503639,
+      "p90": 0.8599713444709778,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.712224006652832,
+      "p10": 0.7095584213733673,
+      "p90": 0.7141151845455169,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.176184043288231,
+      "p10": 1.1723393574357033,
+      "p90": 1.1847805231809616,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.9476639926433563,
+      "p10": 0.9454720079898834,
+      "p90": 0.9494752049446106,
+      "n": 50
+     }
+    }
+   },
+   "flashtp_gc": {
+    "err": {
+     "out": {
+      "max_abs": 1.5543122344752192e-15,
+      "scaled": 7.012374357290647e-16,
+      "max_ref": 2.2165277483499253,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.1316282072803006e-14,
+      "scaled": 5.990656015450629e-16,
+      "max_ref": 35.582550588492694,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 5.884464108210671e-16,
+      "max_ref": 6.03744642412442,
+      "n_nearzero": 713,
+      "max_abs_nearzero": 8.470329472543003e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 7.931947487386265e-16,
+      "max_ref": 3.3592447042011284,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 1.2900915628530158e-19,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.15487056225538254,
+      "p10": 0.15322230756282806,
+      "p90": 0.15927031636238098,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.0915519967675209,
+      "p10": 0.09116160124540329,
+      "p90": 0.09235520288348198,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.27715228497982025,
+      "p10": 0.27502235025167465,
+      "p90": 0.28073620051145554,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.1881759986281395,
+      "p10": 0.18771199882030487,
+      "p90": 0.18857599794864655,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.5614403635263443,
+      "p10": 0.5523053929209709,
+      "p90": 0.5781294777989388,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.285520002245903,
+      "p10": 0.28473280668258666,
+      "p90": 0.2864319980144501,
+      "n": 50
+     }
+    }
+   },
+   "cueq_fused_irmul_T": {
+    "err": {
+     "out": {
+      "max_abs": 1.9984014443252818e-15,
+      "scaled": 9.015909887945118e-16,
+      "max_ref": 2.2165277483499253,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.1316282072803006e-14,
+      "scaled": 5.990656015450629e-16,
+      "max_ref": 35.582550588492694,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 5.884464108210671e-16,
+      "max_ref": 6.03744642412442,
+      "n_nearzero": 713,
+      "max_abs_nearzero": 1.3552527156068805e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 2.4424906541753444e-15,
+      "scaled": 7.270951863437409e-16,
+      "max_ref": 3.3592447042011284,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 4.944687178494987e-19,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.24865474551916122,
+      "p10": 0.24572238326072693,
+      "p90": 0.25935303419828415,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.06961600109934807,
+      "p10": 0.06921599805355072,
+      "p90": 0.0699648030102253,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.4864111542701721,
+      "p10": 0.47451257705688477,
+      "p90": 0.4974575713276863,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.07353600114583969,
+      "p10": 0.07288960367441177,
+      "p90": 0.07405439764261246,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.1251475661993027,
+      "p10": 1.1133292689919472,
+      "p90": 1.1441279202699661,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.13700799643993378,
+      "p10": 0.1364064022898674,
+      "p90": 0.13799679279327393,
+      "n": 50
+     }
+    }
+   },
+   "oeq_atomic": {
+    "run_to_run_bitwise": false,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 6.010606591963412e-16,
+      "max_ref": 2.2165277483499253,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.1316282072803006e-14,
+      "scaled": 5.990656015450629e-16,
+      "max_ref": 35.582550588492694,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.9422320541053356e-16,
+      "max_ref": 6.03744642412442,
+      "n_nearzero": 713,
+      "max_abs_nearzero": 8.893845946170154e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-16,
+      "scaled": 2.6439824957954215e-16,
+      "max_ref": 3.3592447042011284,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 4.44537200943654e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.0856621190905571,
+      "p10": 0.08455142378807068,
+      "p90": 0.08694306015968323,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.06585600227117538,
+      "p10": 0.06508479714393615,
+      "p90": 0.0666240006685257,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.11215917766094208,
+      "p10": 0.11086538434028625,
+      "p90": 0.11403337121009827,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.055743999779224396,
+      "p10": 0.055452801287174225,
+      "p90": 0.056195199489593506,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.2025701105594635,
+      "p10": 0.19926726818084717,
+      "p90": 0.2092389389872551,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.11580800265073776,
+      "p10": 0.11532799899578094,
+      "p90": 0.11683520302176476,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 6.010606591963412e-16,
+      "max_ref": 2.2165277483499253,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 6.989098684692399e-16,
+      "max_ref": 35.582550588492694,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.9422320541053356e-16,
+      "max_ref": 6.03744642412442,
+      "n_nearzero": 713,
+      "max_abs_nearzero": 8.893845946170154e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-16,
+      "scaled": 2.6439824957954215e-16,
+      "max_ref": 3.3592447042011284,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 4.44537200943654e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.3711627796292305,
+      "p10": 0.368773378431797,
+      "p90": 0.37436094135046005,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.3375519961118698,
+      "p10": 0.3342656046152115,
+      "p90": 0.33974720239639283,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.25480613112449646,
+      "p10": 0.2526545897126198,
+      "p90": 0.25856010615825653,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.18406399339437485,
+      "p10": 0.18299840092658998,
+      "p90": 0.18518720120191573,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.5780663341283798,
+      "p10": 0.5735304206609726,
+      "p90": 0.5841171368956566,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.5173279941082001,
+      "p10": 0.5133599996566772,
+      "p90": 0.5208127975463868,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 6.010606591963412e-16,
+      "max_ref": 2.2165277483499253,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 6.989098684692399e-16,
+      "max_ref": 35.582550588492694,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.9422320541053356e-16,
+      "max_ref": 6.03744642412442,
+      "n_nearzero": 713,
+      "max_abs_nearzero": 8.893845946170154e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-16,
+      "scaled": 2.6439824957954215e-16,
+      "max_ref": 3.3592447042011284,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 4.44537200943654e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.14756526798009872,
+      "p10": 0.14600101858377457,
+      "p90": 0.14947503805160522,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.1252799928188324,
+      "p10": 0.12434560060501099,
+      "p90": 0.1260799989104271,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.12949761003255844,
+      "p10": 0.12722183018922806,
+      "p90": 0.1318836584687233,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.07214399799704552,
+      "p10": 0.07080960273742676,
+      "p90": 0.07332159951329231,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.23705791682004929,
+      "p10": 0.2339545637369156,
+      "p90": 0.24034380912780762,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.19484799355268478,
+      "p10": 0.1906528055667877,
+      "p90": 0.1964736044406891,
+      "n": 50
+     }
+    }
+   },
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 6.010606591963413e-16,
+      "max_ref": 2.216527748349925,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.552713678800501e-14,
+      "scaled": 9.984426692417714e-16,
+      "max_ref": 35.582550588492694,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 4.413348081158003e-16,
+      "max_ref": 6.03744642412442,
+      "n_nearzero": 713,
+      "max_abs_nearzero": 1.0164395367051604e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.9659737436931325e-16,
+      "max_ref": 3.3592447042011284,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 5.678739661783732e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.24529173970222473,
+      "p10": 0.2384888008236885,
+      "p90": 0.24724788963794708,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.24963542819023132,
+      "p10": 0.24759862571954727,
+      "p90": 0.2509335055947304,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.18188799917697906,
+      "p10": 0.18108479976654052,
+      "p90": 0.1826911985874176,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.4931613802909851,
+      "p10": 0.4878990352153778,
+      "p90": 0.4994535818696022,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 6.010606591963413e-16,
+      "max_ref": 2.216527748349925,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.552713678800501e-14,
+      "scaled": 9.984426692417714e-16,
+      "max_ref": 35.582550588492694,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 4.413348081158003e-16,
+      "max_ref": 6.03744642412442,
+      "n_nearzero": 713,
+      "max_abs_nearzero": 1.0164395367051604e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.9659737436931325e-16,
+      "max_ref": 3.3592447042011284,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 5.678739661783732e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.033387914299964905,
+      "p10": 0.0327620655298233,
+      "p90": 0.03692060708999634,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.017872000113129616,
+      "p10": 0.01759999990463257,
+      "p90": 0.018211200647056103,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.12350920587778091,
+      "p10": 0.12227408587932587,
+      "p90": 0.1249261200428009,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.06966400146484375,
+      "p10": 0.06904959678649902,
+      "p90": 0.07021119818091393,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.14694221317768097,
+      "p10": 0.1456884667277336,
+      "p90": 0.14960411936044693,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.08796799927949905,
+      "p10": 0.0874176025390625,
+      "p90": 0.08864959701895714,
+      "n": 50
+     }
+    }
+   }
+  },
+  "water192_L1": {
+   "N": 192,
+   "E": 6634,
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.971615956474743e-16,
+      "max_ref": 5.977747008424197,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 33.74150494488999,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 33.65646148408008,
+      "n_nearzero": 436,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 13.224191316960937,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 1.3740304857492447,
+      "p10": 1.3714289292693138,
+      "p90": 1.380637288093567,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 1.2436160445213318,
+      "p10": 1.2421120405197144,
+      "p90": 1.2450080156326293,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 3.4874966368079185,
+      "p10": 3.483995236456394,
+      "p90": 3.4929605200886726,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 3.1488959789276123,
+      "p10": 3.1447616100311278,
+      "p90": 3.1528608798980713,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 4.83737513422966,
+      "p10": 4.833020083606243,
+      "p90": 4.847489297389984,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 4.391567945480347,
+      "p10": 4.388918256759643,
+      "p90": 4.39664945602417,
+      "n": 50
+     }
+    }
+   },
+   "flashtp_gc": {
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-14,
+      "scaled": 2.2287119673560573e-15,
+      "max_ref": 5.977747008424197,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.197442310920451e-14,
+      "scaled": 9.47628837582329e-16,
+      "max_ref": 33.74150494488999,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 8.444651688606012e-16,
+      "max_ref": 33.65646148408008,
+      "n_nearzero": 436,
+      "max_abs_nearzero": 8.470329472543003e-22,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 7.387947120948506e-16,
+      "max_ref": 13.224191316960937,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.3177626058459282,
+      "p10": 0.3157481551170349,
+      "p90": 0.3222040832042694,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.25646400451660156,
+      "p10": 0.25570560097694395,
+      "p90": 0.2574175924062729,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.593886710703373,
+      "p10": 0.591217540204525,
+      "p90": 0.5991635844111443,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.5038719773292542,
+      "p10": 0.5031295835971832,
+      "p90": 0.5044511973857879,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.8869506418704987,
+      "p10": 0.8759249001741409,
+      "p90": 0.8964648470282555,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.7540799975395203,
+      "p10": 0.7532447814941406,
+      "p90": 0.7550751984119415,
+      "n": 50
+     }
+    }
+   },
+   "cueq_fused_irmul_T": {
+    "err": {
+     "out": {
+      "max_abs": 4.440892098500626e-15,
+      "scaled": 7.429039891186858e-16,
+      "max_ref": 5.977747008424197,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.1316282072803006e-14,
+      "scaled": 6.317525583882194e-16,
+      "max_ref": 33.74150494488999,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.7763568394002505e-14,
+      "scaled": 5.277907305378757e-16,
+      "max_ref": 33.65646148408008,
+      "n_nearzero": 436,
+      "max_abs_nearzero": 1.4823076576950256e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 6.716315564498641e-16,
+      "max_ref": 13.224191316960937,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.44260360300540924,
+      "p10": 0.4360562190413475,
+      "p90": 0.45322757214307785,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.169344000518322,
+      "p10": 0.16889600455760956,
+      "p90": 0.16966719627380372,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.8302442729473114,
+      "p10": 0.8194217458367348,
+      "p90": 0.8465593680739403,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.253711998462677,
+      "p10": 0.25289281010627745,
+      "p90": 0.255142405629158,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.7562778666615486,
+      "p10": 1.7409617081284523,
+      "p90": 1.7808808013796806,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.41891199350357056,
+      "p10": 0.4167648136615753,
+      "p90": 0.41975041329860685,
+      "n": 50
+     }
+    }
+   },
+   "oeq_atomic": {
+    "run_to_run_bitwise": false,
+    "err": {
+     "out": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 1.931550371708583e-15,
+      "max_ref": 5.977747008424197,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.618527782440651e-14,
+      "scaled": 1.368797209841142e-15,
+      "max_ref": 33.74150494488999,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.9539925233402755e-14,
+      "scaled": 5.805698035916633e-16,
+      "max_ref": 33.65646148408008,
+      "n_nearzero": 436,
+      "max_abs_nearzero": 1.0587911840678754e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 7.387947120948506e-16,
+      "max_ref": 13.224191316960937,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.17764512449502945,
+      "p10": 0.1759478822350502,
+      "p90": 0.1799141988158226,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.16043199598789215,
+      "p10": 0.15810239762067796,
+      "p90": 0.16252799332141876,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.211469829082489,
+      "p10": 0.2092396840453148,
+      "p90": 0.21687205880880356,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.1550239995121956,
+      "p10": 0.1529855951666832,
+      "p90": 0.15700480341911316,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.35146530717611313,
+      "p10": 0.3479441627860069,
+      "p90": 0.356086902320385,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.30529600381851196,
+      "p10": 0.3034591943025589,
+      "p90": 0.309132793545723,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 1.4858079782373715e-15,
+      "max_ref": 5.977747008424197,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.552713678800501e-14,
+      "scaled": 1.0529209306470324e-15,
+      "max_ref": 33.74150494488999,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.9539925233402755e-14,
+      "scaled": 5.805698035916633e-16,
+      "max_ref": 33.65646148408008,
+      "n_nearzero": 436,
+      "max_abs_nearzero": 1.0587911840678754e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 7.387947120948506e-16,
+      "max_ref": 13.224191316960937,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.7416205480694771,
+      "p10": 0.7342271506786346,
+      "p90": 0.7494360208511353,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.7171359956264496,
+      "p10": 0.7032544136047363,
+      "p90": 0.731443214416504,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.48851873725652695,
+      "p10": 0.4850085824728012,
+      "p90": 0.4935804754495621,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.41223999857902527,
+      "p10": 0.4109727948904037,
+      "p90": 0.4137439996004105,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.1939499527215958,
+      "p10": 1.181267388164997,
+      "p90": 1.2120839208364487,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 1.1316159963607788,
+      "p10": 1.1209151983261108,
+      "p90": 1.143987238407135,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 1.4858079782373715e-15,
+      "max_ref": 5.977747008424197,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.552713678800501e-14,
+      "scaled": 1.0529209306470324e-15,
+      "max_ref": 33.74150494488999,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.9539925233402755e-14,
+      "scaled": 5.805698035916633e-16,
+      "max_ref": 33.65646148408008,
+      "n_nearzero": 436,
+      "max_abs_nearzero": 1.0587911840678754e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 7.387947120948506e-16,
+      "max_ref": 13.224191316960937,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.48766378313302994,
+      "p10": 0.47832224518060684,
+      "p90": 0.5095252767205238,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.47116801142692566,
+      "p10": 0.46629440486431123,
+      "p90": 0.4740831971168518,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.2990681678056717,
+      "p10": 0.29637422412633896,
+      "p90": 0.30196309089660645,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.24062400311231613,
+      "p10": 0.23970880061388017,
+      "p90": 0.2416384056210518,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.7584579288959503,
+      "p10": 0.7504096254706383,
+      "p90": 0.7710995152592659,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.7047199904918671,
+      "p10": 0.6970048010349273,
+      "p90": 0.7126559913158417,
+      "n": 50
+     }
+    }
+   },
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 1.931550371708583e-15,
+      "max_ref": 5.977747008424197,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.263256414560601e-14,
+      "scaled": 1.2635051167764388e-15,
+      "max_ref": 33.74150494488999,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.9539925233402755e-14,
+      "scaled": 5.805698035916633e-16,
+      "max_ref": 33.65646148408008,
+      "n_nearzero": 436,
+      "max_abs_nearzero": 6.352747104407253e-22,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 6.716315564498641e-16,
+      "max_ref": 13.224191316960937,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.2899244427680969,
+      "p10": 0.28810761868953705,
+      "p90": 0.29575396329164505,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.35627372562885284,
+      "p10": 0.35387352108955383,
+      "p90": 0.35954415798187256,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.28379198908805847,
+      "p10": 0.28239681124687194,
+      "p90": 0.2852959901094437,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.6021950393915176,
+      "p10": 0.5977297201752663,
+      "p90": 0.6093455478549004,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 1.931550371708583e-15,
+      "max_ref": 5.977747008424197,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.263256414560601e-14,
+      "scaled": 1.2635051167764388e-15,
+      "max_ref": 33.74150494488999,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.9539925233402755e-14,
+      "scaled": 5.805698035916633e-16,
+      "max_ref": 33.65646148408008,
+      "n_nearzero": 436,
+      "max_abs_nearzero": 6.352747104407253e-22,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 6.716315564498641e-16,
+      "max_ref": 13.224191316960937,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.06293505430221558,
+      "p10": 0.06208159029483795,
+      "p90": 0.0643707811832428,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.046879999339580536,
+      "p10": 0.046486400067806244,
+      "p90": 0.04758400097489357,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.16757473349571228,
+      "p10": 0.16628894954919815,
+      "p90": 0.17029717564582825,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.11089600250124931,
+      "p10": 0.11004800349473953,
+      "p90": 0.11175360158085823,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.19674282521009445,
+      "p10": 0.19492395222187042,
+      "p90": 0.20081344991922379,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.1512639969587326,
+      "p10": 0.14993919432163239,
+      "p90": 0.15243840515613555,
+      "n": 50
+     }
+    }
+   }
+  },
+  "org192_L0": {
+   "N": 196,
+   "E": 3670,
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-16,
+      "scaled": 2.1037727368520247e-16,
+      "max_ref": 4.221836342594442,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 31.13848191333433,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 4.760288689503183,
+      "n_nearzero": 516,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 8.410811742928674,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.22248458117246628,
+      "p10": 0.22119097411632538,
+      "p90": 0.226464681327343,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.13702400028705597,
+      "p10": 0.136326402425766,
+      "p90": 0.13766079843044282,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.6527965888381004,
+      "p10": 0.6445759907364845,
+      "p90": 0.6617192178964615,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.45206400752067566,
+      "p10": 0.45063679814338686,
+      "p90": 0.45395521223545077,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.9688111022114754,
+      "p10": 0.9610559791326523,
+      "p90": 0.9842181578278542,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.5894399881362915,
+      "p10": 0.5877375960350036,
+      "p90": 0.5912031948566436,
+      "n": 50
+     }
+    }
+   },
+   "flashtp_gc": {
+    "err": {
+     "out": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 6.311318210556074e-16,
+      "max_ref": 4.221836342594442,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 7.986579378153286e-16,
+      "max_ref": 31.13848191333433,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 7.463231561217115e-16,
+      "max_ref": 4.760288689503183,
+      "n_nearzero": 516,
+      "max_abs_nearzero": 1.2705494208814505e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 5.329070518200751e-15,
+      "scaled": 6.335976456352298e-16,
+      "max_ref": 8.410811742928674,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 9.218572239240096e-19,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.12695230543613434,
+      "p10": 0.12546014040708542,
+      "p90": 0.12987609952688217,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.062224000692367554,
+      "p10": 0.06185600161552429,
+      "p90": 0.06265600025653839,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.1961207017302513,
+      "p10": 0.19365325570106506,
+      "p90": 0.19835494458675385,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.1125119999051094,
+      "p10": 0.11219199746847153,
+      "p90": 0.11325439810752869,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.4563489928841591,
+      "p10": 0.449901819229126,
+      "p90": 0.4612501710653305,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.1778239980340004,
+      "p10": 0.17733759433031082,
+      "p90": 0.17878719866275788,
+      "n": 50
+     }
+    }
+   },
+   "cueq_fused_irmul_T": {
+    "err": {
+     "out": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 8.415090947408099e-16,
+      "max_ref": 4.221836342594442,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.1316282072803006e-14,
+      "scaled": 6.845639466988532e-16,
+      "max_ref": 31.13848191333433,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 7.463231561217115e-16,
+      "max_ref": 4.760288689503183,
+      "n_nearzero": 516,
+      "max_abs_nearzero": 5.929230630780102e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 3.9968028886505635e-15,
+      "scaled": 4.751982342264223e-16,
+      "max_ref": 8.410811742928674,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 9.944414954949252e-19,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.24724192917346954,
+      "p10": 0.24321619421243668,
+      "p90": 0.2547780051827431,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.046112000942230225,
+      "p10": 0.04578879848122597,
+      "p90": 0.04633599892258644,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.45332126319408417,
+      "p10": 0.44563915580511093,
+      "p90": 0.4611872136592865,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.05689600110054016,
+      "p10": 0.05603199824690819,
+      "p90": 0.057603199034929276,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.0996926575899124,
+      "p10": 1.0886874049901962,
+      "p90": 1.1200131848454475,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.1005759984254837,
+      "p10": 0.1000928021967411,
+      "p90": 0.10118720307946205,
+      "n": 50
+     }
+    }
+   },
+   "oeq_atomic": {
+    "run_to_run_bitwise": false,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.155659105278037e-16,
+      "max_ref": 4.221836342594442,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 3.7080547112854543e-16,
+      "max_ref": 31.13848191333433,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.1086244689504383e-15,
+      "scaled": 6.530327616064975e-16,
+      "max_ref": 4.760288689503183,
+      "n_nearzero": 516,
+      "max_abs_nearzero": 2.541098841762901e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.1119921521174326e-16,
+      "max_ref": 8.410811742928674,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 1.438950158707446e-18,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.06371457129716873,
+      "p10": 0.06310753524303436,
+      "p90": 0.06501935422420502,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.04118400067090988,
+      "p10": 0.040863998234272,
+      "p90": 0.041916798800230026,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.10214745998382568,
+      "p10": 0.09971614927053452,
+      "p90": 0.10479558259248734,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.03619199991226196,
+      "p10": 0.03585920110344887,
+      "p90": 0.036582399159669876,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.19911397248506546,
+      "p10": 0.19608233124017715,
+      "p90": 0.20262282341718674,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.07355200126767159,
+      "p10": 0.07318079844117165,
+      "p90": 0.07433599978685379,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.155659105278037e-16,
+      "max_ref": 4.221836342594442,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 1.687538997430238e-14,
+      "scaled": 5.419464578032587e-16,
+      "max_ref": 31.13848191333433,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.1086244689504383e-15,
+      "scaled": 6.530327616064975e-16,
+      "max_ref": 4.760288689503183,
+      "n_nearzero": 516,
+      "max_abs_nearzero": 2.541098841762901e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.1119921521174326e-16,
+      "max_ref": 8.410811742928674,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 1.438950158707446e-18,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.2563726156949997,
+      "p10": 0.25256089866161346,
+      "p90": 0.26265885680913925,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.2101920023560524,
+      "p10": 0.20838080644607543,
+      "p90": 0.2256032034754753,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.22352766245603561,
+      "p10": 0.22148694843053818,
+      "p90": 0.22721067070960999,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.14908800274133682,
+      "p10": 0.14802879542112352,
+      "p90": 0.15063040554523469,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.4602428525686264,
+      "p10": 0.45174527913331985,
+      "p90": 0.4727855324745178,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.35441599786281586,
+      "p10": 0.3522527992725372,
+      "p90": 0.37008639574050906,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.155659105278037e-16,
+      "max_ref": 4.221836342594442,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 1.687538997430238e-14,
+      "scaled": 5.419464578032587e-16,
+      "max_ref": 31.13848191333433,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.1086244689504383e-15,
+      "scaled": 6.530327616064975e-16,
+      "max_ref": 4.760288689503183,
+      "n_nearzero": 516,
+      "max_abs_nearzero": 2.541098841762901e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.1119921521174326e-16,
+      "max_ref": 8.410811742928674,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 1.438950158707446e-18,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.1188749447464943,
+      "p10": 0.11812262237071991,
+      "p90": 0.12019947171211243,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.10011200234293938,
+      "p10": 0.09977279976010323,
+      "p90": 0.10051839798688889,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.10451860725879669,
+      "p10": 0.10316800326108932,
+      "p90": 0.10755881667137146,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.0485600009560585,
+      "p10": 0.04786879941821098,
+      "p90": 0.04960960112512112,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.19393768161535263,
+      "p10": 0.19051041454076767,
+      "p90": 0.20191892981529236,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.14630399644374847,
+      "p10": 0.1443872034549713,
+      "p90": 0.14885760098695755,
+      "n": 50
+     }
+    }
+   },
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.155659105278037e-16,
+      "max_ref": 4.221836342594442,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 7.986579378153286e-16,
+      "max_ref": 31.13848191333433,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 5.597423670912835e-16,
+      "max_ref": 4.760288689503183,
+      "n_nearzero": 516,
+      "max_abs_nearzero": 3.3881317890172014e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 3.167988228176149e-16,
+      "max_ref": 8.410811742928674,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 9.177254567643072e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.19461661577224731,
+      "p10": 0.1861363649368286,
+      "p90": 0.1991385594010353,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.22755935788154602,
+      "p10": 0.22459644824266434,
+      "p90": 0.23008398711681366,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.1605599969625473,
+      "p10": 0.15962560176849366,
+      "p90": 0.16154559403657914,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.4379991441965103,
+      "p10": 0.43220315128564835,
+      "p90": 0.4464970901608467,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.155659105278037e-16,
+      "max_ref": 4.221836342594442,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 7.986579378153286e-16,
+      "max_ref": 31.13848191333433,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 5.597423670912835e-16,
+      "max_ref": 4.760288689503183,
+      "n_nearzero": 516,
+      "max_abs_nearzero": 3.3881317890172014e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 3.167988228176149e-16,
+      "max_ref": 8.410811742928674,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 9.177254567643072e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.029556453227996826,
+      "p10": 0.028912536799907684,
+      "p90": 0.030413828790187836,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.013999999966472387,
+      "p10": 0.013724800199270248,
+      "p90": 0.014275199733674526,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.09886547923088074,
+      "p10": 0.09783022105693817,
+      "p90": 0.10035932064056396,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.045791998505592346,
+      "p10": 0.045343998819589615,
+      "p90": 0.0461760014295578,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.1342175528407097,
+      "p10": 0.13160128146409988,
+      "p90": 0.1365259289741516,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.0647520013153553,
+      "p10": 0.06406080350279808,
+      "p90": 0.06515199691057205,
+      "n": 50
+     }
+    }
+   }
+  },
+  "org192_L1": {
+   "N": 196,
+   "E": 3670,
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 1.9903127176673946e-16,
+      "max_ref": 8.925013761064161,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 2.710505431213761e-20,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 41.315490442830914,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 22.375151358988386,
+      "n_nearzero": 358,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 13.544590447580976,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.8572395890951157,
+      "p10": 0.8517369627952576,
+      "p90": 0.8619232103228569,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.7128799855709076,
+      "p10": 0.7118943989276886,
+      "p90": 0.7140831768512725,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 2.209646627306938,
+      "p10": 2.2047949954867363,
+      "p90": 2.212813124060631,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 1.9095839858055115,
+      "p10": 1.9060704231262207,
+      "p90": 1.9120384097099303,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 3.0588163062930107,
+      "p10": 3.0497681349515915,
+      "p90": 3.0671773478388786,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 2.6205599308013916,
+      "p10": 2.617580842971802,
+      "p90": 2.623593640327454,
+      "n": 50
+     }
+    }
+   },
+   "flashtp_gc": {
+    "err": {
+     "out": {
+      "max_abs": 9.325873406851315e-15,
+      "scaled": 1.0449141767753822e-15,
+      "max_ref": 8.925013761064161,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 5.5741544192911e-17,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 6.879189651574318e-16,
+      "max_ref": 41.315490442830914,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.019806626980426e-14,
+      "scaled": 1.3496251169569544e-15,
+      "max_ref": 22.375151358988386,
+      "n_nearzero": 358,
+      "max_abs_nearzero": 6.776263578034403e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-14,
+      "scaled": 9.836160308473018e-16,
+      "max_ref": 13.544590447580976,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.21813716739416122,
+      "p10": 0.21748002618551254,
+      "p90": 0.2209460362792015,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.15833599865436554,
+      "p10": 0.15782079547643663,
+      "p90": 0.15883199572563172,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.383058562874794,
+      "p10": 0.38090068846940994,
+      "p90": 0.38717612624168396,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.30115199089050293,
+      "p10": 0.30066879391670226,
+      "p90": 0.30166399478912354,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.6448337808251381,
+      "p10": 0.6401309743523598,
+      "p90": 0.6531376391649246,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.45579200983047485,
+      "p10": 0.45494401454925537,
+      "p90": 0.4563551962375641,
+      "n": 50
+     }
+    }
+   },
+   "cueq_fused_irmul_T": {
+    "err": {
+     "out": {
+      "max_abs": 5.329070518200751e-15,
+      "scaled": 5.970938153002184e-16,
+      "max_ref": 8.925013761064161,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 1.0842021724855044e-19,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.3092638912203256e-14,
+      "scaled": 5.589341591904134e-16,
+      "max_ref": 41.315490442830914,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.509903313490213e-14,
+      "scaled": 6.748125584784772e-16,
+      "max_ref": 22.375151358988386,
+      "n_nearzero": 358,
+      "max_abs_nearzero": 2.371692252312041e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 6.557440205648678e-16,
+      "max_ref": 13.544590447580976,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.4439735785126686,
+      "p10": 0.438033789396286,
+      "p90": 0.4567597061395645,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.1106720007956028,
+      "p10": 0.11030079796910286,
+      "p90": 0.1113951988518238,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.874609686434269,
+      "p10": 0.8411837741732597,
+      "p90": 0.8924935013055801,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.20812800526618958,
+      "p10": 0.20732800662517548,
+      "p90": 0.2086848020553589,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.7947154119610786,
+      "p10": 1.7710931599140167,
+      "p90": 1.8213003873825073,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.31431999802589417,
+      "p10": 0.31259200274944304,
+      "p90": 0.315596804022789,
+      "n": 50
+     }
+    }
+   },
+   "oeq_atomic": {
+    "run_to_run_bitwise": false,
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 9.951563588336972e-16,
+      "max_ref": 8.925013761064161,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 7.24653627034999e-17,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.197442310920451e-14,
+      "scaled": 7.739088358021108e-16,
+      "max_ref": 41.315490442830914,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 1.190845691432607e-15,
+      "max_ref": 22.375151358988386,
+      "n_nearzero": 358,
+      "max_abs_nearzero": 9.317362419797304e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.2434497875801753e-14,
+      "scaled": 9.18041628790815e-16,
+      "max_ref": 13.544590447580976,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.11742766946554184,
+      "p10": 0.11619143187999725,
+      "p90": 0.1203322783112526,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.09428800269961357,
+      "p10": 0.09349439740180969,
+      "p90": 0.09530880227684975,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.1539532095193863,
+      "p10": 0.1517966389656067,
+      "p90": 0.15602875500917435,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.09587199985980988,
+      "p10": 0.09528640285134315,
+      "p90": 0.09690240025520325,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.24377088993787766,
+      "p10": 0.24128705263137817,
+      "p90": 0.24800654500722885,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.1857440024614334,
+      "p10": 0.1841184005141258,
+      "p90": 0.18851519674062728,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 1.094671994717067e-15,
+      "max_ref": 8.925013761064161,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 7.501323780884084e-17,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 6.879189651574318e-16,
+      "max_ref": 41.315490442830914,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 1.190845691432607e-15,
+      "max_ref": 22.375151358988386,
+      "n_nearzero": 358,
+      "max_abs_nearzero": 9.317362419797304e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.2434497875801753e-14,
+      "scaled": 9.18041628790815e-16,
+      "max_ref": 13.544590447580976,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.6204396486282349,
+      "p10": 0.6086071953177452,
+      "p90": 0.6330184638500214,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.5421599745750427,
+      "p10": 0.5311872005462647,
+      "p90": 0.5543072044849395,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.37980545312166214,
+      "p10": 0.37688128650188446,
+      "p90": 0.38343481719493866,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.3049919903278351,
+      "p10": 0.3027359902858734,
+      "p90": 0.30814401209354403,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.955597497522831,
+      "p10": 0.9378416463732719,
+      "p90": 0.9618811309337616,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.8321119844913483,
+      "p10": 0.8246240079402923,
+      "p90": 0.8429920256137848,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 1.094671994717067e-15,
+      "max_ref": 8.925013761064161,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 7.501323780884084e-17,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 6.879189651574318e-16,
+      "max_ref": 41.315490442830914,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 1.190845691432607e-15,
+      "max_ref": 22.375151358988386,
+      "n_nearzero": 358,
+      "max_abs_nearzero": 9.317362419797304e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.2434497875801753e-14,
+      "scaled": 9.18041628790815e-16,
+      "max_ref": 13.544590447580976,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.47061312943696976,
+      "p10": 0.46553201973438263,
+      "p90": 0.4747135564684868,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.4407999962568283,
+      "p10": 0.43668480813503263,
+      "p90": 0.4456352084875107,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.22785086184740067,
+      "p10": 0.22593364119529724,
+      "p90": 0.2305777743458748,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.17403200268745422,
+      "p10": 0.1726911962032318,
+      "p90": 0.17618559300899506,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.6541283801198006,
+      "p10": 0.6439780816435814,
+      "p90": 0.6635885685682297,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.6022720038890839,
+      "p10": 0.5953471899032593,
+      "p90": 0.6089760005474091,
+      "n": 50
+     }
+    }
+   },
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 7.993605777301127e-15,
+      "scaled": 8.956407229503275e-16,
+      "max_ref": 8.925013761064161,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 7.479639737434374e-17,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.197442310920451e-14,
+      "scaled": 7.739088358021108e-16,
+      "max_ref": 41.315490442830914,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 1.190845691432607e-15,
+      "max_ref": 22.375151358988386,
+      "n_nearzero": 358,
+      "max_abs_nearzero": 3.3881317890172014e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.2434497875801753e-14,
+      "scaled": 9.18041628790815e-16,
+      "max_ref": 13.544590447580976,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.21190382540225983,
+      "p10": 0.21027140319347382,
+      "p90": 0.21891966462135315,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.29370561242103577,
+      "p10": 0.2914510667324066,
+      "p90": 0.2970477566123009,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.22472000122070312,
+      "p10": 0.22326399385929108,
+      "p90": 0.22593920528888703,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.5082143470644951,
+      "p10": 0.5043057724833488,
+      "p90": 0.5161512643098831,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 7.993605777301127e-15,
+      "scaled": 8.956407229503275e-16,
+      "max_ref": 8.925013761064161,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 7.479639737434374e-17,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.197442310920451e-14,
+      "scaled": 7.739088358021108e-16,
+      "max_ref": 41.315490442830914,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 1.190845691432607e-15,
+      "max_ref": 22.375151358988386,
+      "n_nearzero": 358,
+      "max_abs_nearzero": 3.3881317890172014e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.2434497875801753e-14,
+      "scaled": 9.18041628790815e-16,
+      "max_ref": 13.544590447580976,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.047043897211551666,
+      "p10": 0.04627257585525513,
+      "p90": 0.04885531961917877,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.03147200122475624,
+      "p10": 0.030937600880861282,
+      "p90": 0.03207039833068848,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.1505548134446144,
+      "p10": 0.14914609491825104,
+      "p90": 0.15161801129579544,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.09444799646735191,
+      "p10": 0.09372799843549728,
+      "p90": 0.09513920173048973,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.17879530787467957,
+      "p10": 0.17665624618530273,
+      "p90": 0.18091779202222824,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.11856000125408173,
+      "p10": 0.11727999895811081,
+      "p90": 0.11934079974889755,
+      "n": 50
+     }
+    }
+   }
+  },
+  "water648_L0": {
+   "N": 648,
+   "E": 26550,
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-16,
+      "scaled": 3.4414466999487265e-16,
+      "max_ref": 2.580828637309298,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 37.33445423661254,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 6.037446424124418,
+      "n_nearzero": 3117,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 3.869066700556904,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.9555835276842117,
+      "p10": 0.9538281708955765,
+      "p90": 0.9585199877619743,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.9061280190944672,
+      "p10": 0.9048256039619446,
+      "p90": 0.907779198884964,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 2.514991909265518,
+      "p10": 2.5111088529229164,
+      "p90": 2.5185059756040573,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 2.3571360111236572,
+      "p10": 2.354524755477905,
+      "p90": 2.3598847150802613,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 3.4431656822562218,
+      "p10": 3.4374522045254707,
+      "p90": 3.447633236646652,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 3.2605440616607666,
+      "p10": 3.2577056884765625,
+      "p90": 3.2628064155578613,
+      "n": 50
+     }
+    }
+   },
+   "flashtp_gc": {
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 6.882893399897453e-16,
+      "max_ref": 2.580828637309298,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 7.612729317074595e-16,
+      "max_ref": 37.33445423661254,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 6.217248937900877e-15,
+      "scaled": 1.0297812189368677e-15,
+      "max_ref": 6.037446424124418,
+      "n_nearzero": 3117,
+      "max_abs_nearzero": 2.710505431213761e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 6.886764859124421e-16,
+      "max_ref": 3.869066700556904,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 2.1554837838029306e-19,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.39895717054605484,
+      "p10": 0.39662737399339676,
+      "p90": 0.40204040706157684,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.33846400678157806,
+      "p10": 0.3363168120384216,
+      "p90": 0.34033599197864534,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.7529901340603828,
+      "p10": 0.7509302347898483,
+      "p90": 0.760529562830925,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.668751984834671,
+      "p10": 0.6680575966835022,
+      "p90": 0.66907519698143,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.1067017912864685,
+      "p10": 1.1017179116606712,
+      "p90": 1.1114289984107018,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.9986560046672821,
+      "p10": 0.9960608065128327,
+      "p90": 1.0014783978462218,
+      "n": 50
+     }
+    }
+   },
+   "cueq_fused_irmul_T": {
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 6.882893399897453e-16,
+      "max_ref": 2.580828637309298,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.1316282072803006e-14,
+      "scaled": 5.709546987805947e-16,
+      "max_ref": 37.33445423661254,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.9968028886505635e-15,
+      "scaled": 6.620022121737007e-16,
+      "max_ref": 6.037446424124418,
+      "n_nearzero": 3117,
+      "max_abs_nearzero": 1.6517142471458857e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 3.1086244689504383e-15,
+      "scaled": 8.034559002311825e-16,
+      "max_ref": 3.869066700556904,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 8.604903486399255e-19,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.3688149154186249,
+      "p10": 0.36612190306186676,
+      "p90": 0.3725096583366394,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.23110400140285492,
+      "p10": 0.23078079968690873,
+      "p90": 0.23165119886398317,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.48674363642930984,
+      "p10": 0.4796193912625313,
+      "p90": 0.4971148446202278,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.1844640001654625,
+      "p10": 0.1833824023604393,
+      "p90": 0.19341119825839997,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.1013727635145187,
+      "p10": 1.087081991136074,
+      "p90": 1.1198092252016068,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.40940800309181213,
+      "p10": 0.4084799885749817,
+      "p90": 0.41025279462337494,
+      "n": 50
+     }
+    }
+   },
+   "oeq_atomic": {
+    "run_to_run_bitwise": false,
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 6.882893399897453e-16,
+      "max_ref": 2.580828637309298,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.1316282072803006e-14,
+      "scaled": 5.709546987805947e-16,
+      "max_ref": 37.33445423661254,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 5.884464108210672e-16,
+      "max_ref": 6.037446424124418,
+      "n_nearzero": 3117,
+      "max_abs_nearzero": 2.710505431213761e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.4433824295622105e-16,
+      "max_ref": 3.869066700556904,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 3.6228153365076836e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.24685822427272797,
+      "p10": 0.24436991661787033,
+      "p90": 0.24902280420064926,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.22233600169420242,
+      "p10": 0.22073279768228532,
+      "p90": 0.22464320361614226,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.22254511713981628,
+      "p10": 0.2211032435297966,
+      "p90": 0.2287738025188446,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.16595200449228287,
+      "p10": 0.16469439566135408,
+      "p90": 0.16726399958133698,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.430891290307045,
+      "p10": 0.42777955532073975,
+      "p90": 0.4347248002886772,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.38497599959373474,
+      "p10": 0.3830304086208344,
+      "p90": 0.387280011177063,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 5.16217004992309e-16,
+      "max_ref": 2.580828637309298,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 5.3290705182007514e-14,
+      "scaled": 1.4273867469514866e-15,
+      "max_ref": 37.33445423661254,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 5.884464108210672e-16,
+      "max_ref": 6.037446424124418,
+      "n_nearzero": 3117,
+      "max_abs_nearzero": 2.710505431213761e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.4433824295622105e-16,
+      "max_ref": 3.869066700556904,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 3.6228153365076836e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.49684569239616394,
+      "p10": 0.4952583461999893,
+      "p90": 0.4985293373465538,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.4294719994068146,
+      "p10": 0.4282656103372574,
+      "p90": 0.4307584077119827,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.4927227273583412,
+      "p10": 0.49014948308467865,
+      "p90": 0.49635153263807297,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.4138080030679703,
+      "p10": 0.4130208075046539,
+      "p90": 0.4154912054538727,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.9411554783582687,
+      "p10": 0.9393686428666115,
+      "p90": 0.944686122238636,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.8372159898281097,
+      "p10": 0.8355519771575928,
+      "p90": 0.8392320275306702,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 5.16217004992309e-16,
+      "max_ref": 2.580828637309298,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 5.3290705182007514e-14,
+      "scaled": 1.4273867469514866e-15,
+      "max_ref": 37.33445423661254,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 5.884464108210672e-16,
+      "max_ref": 6.037446424124418,
+      "n_nearzero": 3117,
+      "max_abs_nearzero": 2.710505431213761e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.4433824295622105e-16,
+      "max_ref": 3.869066700556904,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 3.6228153365076836e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.1770937815308571,
+      "p10": 0.17585158348083496,
+      "p90": 0.17806123942136765,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.1597599983215332,
+      "p10": 0.15902720391750336,
+      "p90": 0.16036160588264464,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.23645441979169846,
+      "p10": 0.23459438234567642,
+      "p90": 0.24175848811864853,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.18001600354909897,
+      "p10": 0.17931519448757172,
+      "p90": 0.18180160522460936,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.3755735233426094,
+      "p10": 0.3739623352885246,
+      "p90": 0.3785140812397003,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.3370240032672882,
+      "p10": 0.3356863886117935,
+      "p90": 0.3380799889564514,
+      "n": 50
+     }
+    }
+   },
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 5.162170049923089e-16,
+      "max_ref": 2.5808286373092986,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.197442310920451e-14,
+      "scaled": 8.564320481708919e-16,
+      "max_ref": 37.33445423661254,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 5.884464108210672e-16,
+      "max_ref": 6.037446424124418,
+      "n_nearzero": 3117,
+      "max_abs_nearzero": 2.541098841762901e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.4433824295622105e-16,
+      "max_ref": 3.869066700556904,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 3.6129057127692983e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.36115944385528564,
+      "p10": 0.35897810012102127,
+      "p90": 0.3655143082141876,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.4692310467362404,
+      "p10": 0.4665698856115341,
+      "p90": 0.4745837301015854,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.391744002699852,
+      "p10": 0.390720009803772,
+      "p90": 0.39321921169757845,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.7822271436452866,
+      "p10": 0.7786707952618599,
+      "p90": 0.7882548496127129,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 5.162170049923089e-16,
+      "max_ref": 2.5808286373092986,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.197442310920451e-14,
+      "scaled": 8.564320481708919e-16,
+      "max_ref": 37.33445423661254,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 5.884464108210672e-16,
+      "max_ref": 6.037446424124418,
+      "n_nearzero": 3117,
+      "max_abs_nearzero": 2.541098841762901e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.4433824295622105e-16,
+      "max_ref": 3.869066700556904,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 3.6129057127692983e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.07593166083097458,
+      "p10": 0.0748777762055397,
+      "p90": 0.07833708077669144,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.05984000116586685,
+      "p10": 0.05896959863603115,
+      "p90": 0.06120640002191067,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.21355785429477692,
+      "p10": 0.2107035368680954,
+      "p90": 0.21900124847888947,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.15876799821853638,
+      "p10": 0.1577216014266014,
+      "p90": 0.15971200168132782,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.2429559826850891,
+      "p10": 0.24087261408567429,
+      "p90": 0.2453278750181198,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.21529600024223328,
+      "p10": 0.2142688065767288,
+      "p90": 0.2166208028793335,
+      "n": 50
+     }
+    }
+   }
+  },
+  "water648_L1": {
+   "N": 648,
+   "E": 26550,
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 2.220446049250313e-15,
+      "scaled": 3.2331826387546997e-16,
+      "max_ref": 6.867678994173819,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 49.09137075836422,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 35.76315487746527,
+      "n_nearzero": 1959,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 13.547686467903421,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 4.887924529612064,
+      "p10": 4.884246736764908,
+      "p90": 4.893029108643532,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 4.78985595703125,
+      "p10": 4.786467361450195,
+      "p90": 4.791872024536133,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 11.88289187848568,
+      "p10": 11.87487468123436,
+      "p90": 11.890755780041218,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 11.566415786743164,
+      "p10": 11.5630784034729,
+      "p90": 11.572041606903076,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 16.730621457099915,
+      "p10": 16.718601621687412,
+      "p90": 16.74458496272564,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 16.35462474822998,
+      "p10": 16.349055290222168,
+      "p90": 16.360419273376465,
+      "n": 50
+     }
+    }
+   },
+   "flashtp_gc": {
+    "err": {
+     "out": {
+      "max_abs": 1.2434497875801753e-14,
+      "scaled": 1.810582277702632e-15,
+      "max_ref": 6.867678994173819,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.730349362740526e-14,
+      "scaled": 7.59878835142314e-16,
+      "max_ref": 49.09137075836422,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-14,
+      "scaled": 9.93400523799734e-16,
+      "max_ref": 35.76315487746527,
+      "n_nearzero": 1959,
+      "max_abs_nearzero": 1.8634724839594607e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.2434497875801753e-14,
+      "scaled": 9.178318309374088e-16,
+      "max_ref": 13.547686467903421,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 2.640774105575541e-22,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.9800000116229057,
+      "p10": 0.9776752442121506,
+      "p90": 0.9826777502894402,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.9205759763717651,
+      "p10": 0.9187040090560913,
+      "p90": 0.9223615765571594,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 1.9994443282485008,
+      "p10": 1.9966069608926773,
+      "p90": 2.0046988502144814,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 1.9139360189437866,
+      "p10": 1.9128607749938964,
+      "p90": 1.9165216088294983,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 2.9385043308138847,
+      "p10": 2.9334450140595436,
+      "p90": 2.947390452027321,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 2.832672119140625,
+      "p10": 2.830111932754517,
+      "p90": 2.836108899116516,
+      "n": 50
+     }
+    }
+   },
+   "cueq_fused_irmul_T": {
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 1.422600361052068e-15,
+      "max_ref": 6.867678994173819,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 5.06585890094876e-16,
+      "max_ref": 49.09137075836422,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.1316282072803006e-14,
+      "scaled": 5.960403142798404e-16,
+      "max_ref": 35.76315487746527,
+      "n_nearzero": 1959,
+      "max_abs_nearzero": 1.6940658945086007e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 7.867129979463504e-16,
+      "max_ref": 13.547686467903421,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 7.423945997663423e-22,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.8102850988507271,
+      "p10": 0.7977921515703201,
+      "p90": 0.8237576112151146,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.31755200028419495,
+      "p10": 0.31599041223526003,
+      "p90": 0.32015039324760436,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 1.1432729661464691,
+      "p10": 1.132616214454174,
+      "p90": 1.1604996398091316,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.8370720148086548,
+      "p10": 0.8350495815277099,
+      "p90": 0.8388799965381623,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 2.379518002271652,
+      "p10": 2.370823360979557,
+      "p90": 2.395293116569519,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 1.1511199474334717,
+      "p10": 1.1477408528327941,
+      "p90": 1.1547295570373535,
+      "n": 50
+     }
+    }
+   },
+   "oeq_atomic": {
+    "run_to_run_bitwise": false,
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 1.2932730555018799e-15,
+      "max_ref": 6.867678994173819,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.907985046680551e-14,
+      "scaled": 7.960635415776623e-16,
+      "max_ref": 49.09137075836422,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 6.953803666598138e-16,
+      "max_ref": 35.76315487746527,
+      "n_nearzero": 1959,
+      "max_abs_nearzero": 4.2351647362715017e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 7.867129979463504e-16,
+      "max_ref": 13.547686467903421,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 5.293955920339377e-23,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.6039580330252647,
+      "p10": 0.5984798073768616,
+      "p90": 0.6094843149185181,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.591376006603241,
+      "p10": 0.5877247989177704,
+      "p90": 0.5954688012599945,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.6523104384541512,
+      "p10": 0.6451644003391266,
+      "p90": 0.6625283509492874,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.5925279855728149,
+      "p10": 0.5874239802360535,
+      "p90": 0.6014015913009644,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.214376650750637,
+      "p10": 1.206783764064312,
+      "p90": 1.2273136526346207,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 1.1786720156669617,
+      "p10": 1.1695679783821107,
+      "p90": 1.186233603954315,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 1.422600361052068e-15,
+      "max_ref": 6.867678994173819,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.973799150320701e-14,
+      "scaled": 1.013171780189752e-15,
+      "max_ref": 49.09137075836422,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 6.953803666598138e-16,
+      "max_ref": 35.76315487746527,
+      "n_nearzero": 1959,
+      "max_abs_nearzero": 4.2351647362715017e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 7.867129979463504e-16,
+      "max_ref": 13.547686467903421,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 5.293955920339377e-23,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.8690562099218369,
+      "p10": 0.8675344288349152,
+      "p90": 0.8723899722099304,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.7988480031490326,
+      "p10": 0.7970368146896363,
+      "p90": 0.801206398010254,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 1.1214297264814377,
+      "p10": 1.1158641427755356,
+      "p90": 1.126694679260254,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 1.0329920053482056,
+      "p10": 1.030572772026062,
+      "p90": 1.035926389694214,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.935233362019062,
+      "p10": 1.9316008314490318,
+      "p90": 1.9404731690883636,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 1.82668799161911,
+      "p10": 1.8238144159317016,
+      "p90": 1.8301535844802856,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 1.422600361052068e-15,
+      "max_ref": 6.867678994173819,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.973799150320701e-14,
+      "scaled": 1.013171780189752e-15,
+      "max_ref": 49.09137075836422,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 6.953803666598138e-16,
+      "max_ref": 35.76315487746527,
+      "n_nearzero": 1959,
+      "max_abs_nearzero": 4.2351647362715017e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 7.867129979463504e-16,
+      "max_ref": 13.547686467903421,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 5.293955920339377e-23,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.4328833892941475,
+      "p10": 0.4306783899664879,
+      "p90": 0.46196039766073227,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.41412800550460815,
+      "p10": 0.41246719658374786,
+      "p90": 0.41592320799827576,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.6403904408216476,
+      "p10": 0.635298527777195,
+      "p90": 0.6445897743105888,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.5812319815158844,
+      "p10": 0.5782751917839051,
+      "p90": 0.5832799911499024,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.0316520929336548,
+      "p10": 1.0287011042237282,
+      "p90": 1.0366011410951614,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.9922720193862915,
+      "p10": 0.9883328020572663,
+      "p90": 0.9949919879436493,
+      "n": 50
+     }
+    }
+   },
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 1.422600361052068e-15,
+      "max_ref": 6.867678994173819,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.973799150320701e-14,
+      "scaled": 1.013171780189752e-15,
+      "max_ref": 49.09137075836422,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 6.953803666598138e-16,
+      "max_ref": 35.76315487746527,
+      "n_nearzero": 1959,
+      "max_abs_nearzero": 5.082197683525802e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 7.211535814508211e-16,
+      "max_ref": 13.547686467903421,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 2.7669191489898776e-22,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.5675405263900757,
+      "p10": 0.5651755258440971,
+      "p90": 0.5707025527954102,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.8801110088825226,
+      "p10": 0.8776148781180382,
+      "p90": 0.8833397179841995,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.7982079982757568,
+      "p10": 0.7964415907859802,
+      "p90": 0.7996607899665833,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.388699747622013,
+      "p10": 1.3839557766914368,
+      "p90": 1.3951914384961128,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 1.422600361052068e-15,
+      "max_ref": 6.867678994173819,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.973799150320701e-14,
+      "scaled": 1.013171780189752e-15,
+      "max_ref": 49.09137075836422,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 6.953803666598138e-16,
+      "max_ref": 35.76315487746527,
+      "n_nearzero": 1959,
+      "max_abs_nearzero": 5.082197683525802e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 7.211535814508211e-16,
+      "max_ref": 13.547686467903421,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 2.7669191489898776e-22,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.15851855278015137,
+      "p10": 0.15787556767463684,
+      "p90": 0.1600632444024086,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.1428000032901764,
+      "p10": 0.1422047957777977,
+      "p90": 0.14360319823026657,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.40275417268276215,
+      "p10": 0.40150657296180725,
+      "p90": 0.4060862585902214,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.3461120128631592,
+      "p10": 0.34492799639701843,
+      "p90": 0.3470111906528473,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.5074180662631989,
+      "p10": 0.5052333697676659,
+      "p90": 0.5134962499141693,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.48446398973464966,
+      "p10": 0.48351680040359496,
+      "p90": 0.4856672078371048,
+      "n": 50
+     }
+    }
+   }
+  },
+  "org648_L0": {
+   "N": 650,
+   "E": 14856,
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.20542193734605e-16,
+      "max_ref": 4.15629410290131,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 42.450449275011806,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 4.839041352790185,
+      "n_nearzero": 1464,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 6.021386483683129,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.5740821361541748,
+      "p10": 0.5725344642996788,
+      "p90": 0.5760131403803825,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.5180319845676422,
+      "p10": 0.5168960094451904,
+      "p90": 0.5190143823623657,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 1.5386249870061874,
+      "p10": 1.5348277986049652,
+      "p90": 1.5445174649357796,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 1.388208031654358,
+      "p10": 1.3861920475959777,
+      "p90": 1.3904064416885376,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 2.123896963894367,
+      "p10": 2.1188482642173767,
+      "p90": 2.13032029569149,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 1.9027840495109558,
+      "p10": 1.9005823493003846,
+      "p90": 1.905292797088623,
+      "n": 50
+     }
+    }
+   },
+   "flashtp_gc": {
+    "err": {
+     "out": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 8.547791832922799e-16,
+      "max_ref": 4.15629410290131,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 6.695267050361766e-16,
+      "max_ref": 42.450449275011806,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 7.341771685319471e-16,
+      "max_ref": 4.839041352790185,
+      "n_nearzero": 1464,
+      "max_abs_nearzero": 2.752857078576476e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 4.440892098500626e-15,
+      "scaled": 7.375198570187519e-16,
+      "max_ref": 6.021386483683129,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 2.388897609053144e-21,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.26072002947330475,
+      "p10": 0.2588048577308655,
+      "p90": 0.2637682482600212,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.20071999728679657,
+      "p10": 0.19990399479866028,
+      "p90": 0.20138240605592728,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.48090051859617233,
+      "p10": 0.4778526723384857,
+      "p90": 0.4853326827287674,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.3898400068283081,
+      "p10": 0.38944000005722046,
+      "p90": 0.39059520661830904,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.7790718227624893,
+      "p10": 0.7701341062784195,
+      "p90": 0.7908303290605545,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.5873759984970093,
+      "p10": 0.5863616228103637,
+      "p90": 0.5883040070533753,
+      "n": 50
+     }
+    }
+   },
+   "cueq_fused_irmul_T": {
+    "err": {
+     "out": {
+      "max_abs": 4.440892098500626e-15,
+      "scaled": 1.06847397911535e-15,
+      "max_ref": 4.15629410290131,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 6.276812859714156e-16,
+      "max_ref": 42.450449275011806,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 7.341771685319471e-16,
+      "max_ref": 4.839041352790185,
+      "n_nearzero": 1464,
+      "max_abs_nearzero": 3.3881317890172014e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 6.217248937900877e-15,
+      "scaled": 1.0325277998262526e-15,
+      "max_ref": 6.021386483683129,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 5.426966562837904e-20,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.28002820909023285,
+      "p10": 0.2776455134153366,
+      "p90": 0.2866869792342186,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.14204800128936768,
+      "p10": 0.1417247995734215,
+      "p90": 0.1428192064166069,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.49363914877176285,
+      "p10": 0.48005860298871994,
+      "p90": 0.5063559859991074,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.14020799845457077,
+      "p10": 0.13945600390434265,
+      "p90": 0.14096319377422334,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.1418191716074944,
+      "p10": 1.1327287182211876,
+      "p90": 1.1625787243247032,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.2776319980621338,
+      "p10": 0.2768864005804062,
+      "p90": 0.2785312056541443,
+      "n": 50
+     }
+    }
+   },
+   "oeq_atomic": {
+    "run_to_run_bitwise": false,
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 4.273895916461398e-16,
+      "max_ref": 4.156294102901311,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 1.5987211554602254e-14,
+      "scaled": 3.7660877158284935e-16,
+      "max_ref": 42.450449275011806,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.220446049250313e-15,
+      "scaled": 4.588607303324669e-16,
+      "max_ref": 4.839041352790185,
+      "n_nearzero": 1464,
+      "max_abs_nearzero": 4.235164736271502e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.9500794280750075e-16,
+      "max_ref": 6.021386483683129,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 6.352747104407253e-22,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.15517603605985641,
+      "p10": 0.1536138355731964,
+      "p90": 0.15826597809791565,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.1342719942331314,
+      "p10": 0.1333919957280159,
+      "p90": 0.13600000739097595,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.1600673422217369,
+      "p10": 0.15852972865104675,
+      "p90": 0.16536414623260498,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.10307200253009796,
+      "p10": 0.10242239758372307,
+      "p90": 0.1037760004401207,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.2754712477326393,
+      "p10": 0.27364734560251236,
+      "p90": 0.2777140587568283,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.23315199464559555,
+      "p10": 0.23170239925384523,
+      "p90": 0.2347264066338539,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 6.410843874692097e-16,
+      "max_ref": 4.156294102901311,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.197442310920451e-14,
+      "scaled": 7.532175431656987e-16,
+      "max_ref": 42.450449275011806,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.220446049250313e-15,
+      "scaled": 4.588607303324669e-16,
+      "max_ref": 4.839041352790185,
+      "n_nearzero": 1464,
+      "max_abs_nearzero": 4.235164736271502e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.9500794280750075e-16,
+      "max_ref": 6.021386483683129,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 6.352747104407253e-22,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.39927754551172256,
+      "p10": 0.39779022336006165,
+      "p90": 0.40116086602211,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.3624480068683624,
+      "p10": 0.36146880984306334,
+      "p90": 0.36368000507354736,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.35565905272960663,
+      "p10": 0.35300906747579575,
+      "p90": 0.3605067729949951,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.28438399732112885,
+      "p10": 0.2830976009368896,
+      "p90": 0.28521600365638733,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.7060831412672997,
+      "p10": 0.7037904113531113,
+      "p90": 0.7098650559782982,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.6413760185241699,
+      "p10": 0.639443176984787,
+      "p90": 0.6426048099994659,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 6.410843874692097e-16,
+      "max_ref": 4.156294102901311,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.197442310920451e-14,
+      "scaled": 7.532175431656987e-16,
+      "max_ref": 42.450449275011806,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.220446049250313e-15,
+      "scaled": 4.588607303324669e-16,
+      "max_ref": 4.839041352790185,
+      "n_nearzero": 1464,
+      "max_abs_nearzero": 4.235164736271502e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.9500794280750075e-16,
+      "max_ref": 6.021386483683129,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 6.352747104407253e-22,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.13373978435993195,
+      "p10": 0.1328418031334877,
+      "p90": 0.13487134128808975,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.1148960031569004,
+      "p10": 0.11416639760136604,
+      "p90": 0.11558400094509125,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.17098989337682724,
+      "p10": 0.16909446567296982,
+      "p90": 0.17340462654829025,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.11473600193858147,
+      "p10": 0.11404479667544365,
+      "p90": 0.11549120023846626,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.2672988921403885,
+      "p10": 0.2652585506439209,
+      "p90": 0.27160029858350754,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.2282079979777336,
+      "p10": 0.22725760191679,
+      "p90": 0.22934719622135163,
+      "n": 50
+     }
+    }
+   },
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 2.220446049250313e-15,
+      "scaled": 5.34236989557675e-16,
+      "max_ref": 4.15629410290131,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 6.695267050361766e-16,
+      "max_ref": 42.450449275011806,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 3.6708858426597353e-16,
+      "max_ref": 4.839041352790185,
+      "n_nearzero": 1464,
+      "max_abs_nearzero": 4.235164736271502e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.9500794280750075e-16,
+      "max_ref": 6.021386483683129,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 2.3732638954758917e-20,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.29749516397714615,
+      "p10": 0.29619578272104263,
+      "p90": 0.30044689774513245,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.33821817487478256,
+      "p10": 0.3361934795975685,
+      "p90": 0.3416365012526512,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.2709600031375885,
+      "p10": 0.2700383931398392,
+      "p90": 0.2717759907245636,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.6028730422258377,
+      "p10": 0.5991129204630852,
+      "p90": 0.6120834499597549,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 2.220446049250313e-15,
+      "scaled": 5.34236989557675e-16,
+      "max_ref": 4.15629410290131,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 6.695267050361766e-16,
+      "max_ref": 42.450449275011806,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 3.6708858426597353e-16,
+      "max_ref": 4.839041352790185,
+      "n_nearzero": 1464,
+      "max_abs_nearzero": 4.235164736271502e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.9500794280750075e-16,
+      "max_ref": 6.021386483683129,
+      "n_nearzero": 1,
+      "max_abs_nearzero": 2.3732638954758917e-20,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.05523208528757095,
+      "p10": 0.05449671298265457,
+      "p90": 0.0569462776184082,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.03991999849677086,
+      "p10": 0.03935360163450241,
+      "p90": 0.04086719825863838,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.15585590153932571,
+      "p10": 0.15435777604579926,
+      "p90": 0.15882663428783417,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.10120000317692757,
+      "p10": 0.10052799805998802,
+      "p90": 0.1023423969745636,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.18343515694141388,
+      "p10": 0.1812310889363289,
+      "p90": 0.18703211098909378,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.1385120004415512,
+      "p10": 0.1378496065735817,
+      "p90": 0.13942399621009827,
+      "n": 50
+     }
+    }
+   }
+  },
+  "org648_L1": {
+   "N": 650,
+   "E": 14856,
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 3.0684322924140634e-16,
+      "max_ref": 8.683702311723733,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 36.257920674423936,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 32.68657885131538,
+      "n_nearzero": 1003,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 17.584007566254858,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 2.853384241461754,
+      "p10": 2.8487373143434525,
+      "p90": 2.8575554490089417,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 2.739856004714966,
+      "p10": 2.7383296251297,
+      "p90": 2.7424479484558106,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 6.972218863666058,
+      "p10": 6.9657716900110245,
+      "p90": 6.978421285748482,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 6.62062406539917,
+      "p10": 6.616470193862915,
+      "p90": 6.624979257583618,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 9.77705791592598,
+      "p10": 9.767642989754677,
+      "p90": 9.786046482622623,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 9.354255676269531,
+      "p10": 9.34840030670166,
+      "p90": 9.357011222839356,
+      "n": 50
+     }
+    }
+   },
+   "flashtp_gc": {
+    "err": {
+     "out": {
+      "max_abs": 7.549516567451064e-15,
+      "scaled": 8.69389149517318e-16,
+      "max_ref": 8.683702311723733,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.552713678800501e-14,
+      "scaled": 9.798448484406769e-16,
+      "max_ref": 36.257920674423936,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 8.695223063780581e-16,
+      "max_ref": 32.68657885131538,
+      "n_nearzero": 1003,
+      "max_abs_nearzero": 1.4823076576950256e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.4210854715202004e-14,
+      "scaled": 8.08169278911924e-16,
+      "max_ref": 17.584007566254858,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 3.0503658207709734e-18,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.5883397534489632,
+      "p10": 0.5867756903171539,
+      "p90": 0.5905663594603539,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.5293440222740173,
+      "p10": 0.5287616014480591,
+      "p90": 0.5301855862140655,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 1.1947061866521835,
+      "p10": 1.1855341494083405,
+      "p90": 1.2056227773427963,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 1.0973119735717773,
+      "p10": 1.0967584252357483,
+      "p90": 1.098038423061371,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.7394190654158592,
+      "p10": 1.7328577116131783,
+      "p90": 1.7593896016478539,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 1.6249759793281555,
+      "p10": 1.6237727642059325,
+      "p90": 1.6258879899978638,
+      "n": 50
+     }
+    }
+   },
+   "cueq_fused_irmul_T": {
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 1.0228107641380212e-15,
+      "max_ref": 8.683702311723733,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.3092638912203256e-14,
+      "scaled": 6.368991514864401e-16,
+      "max_ref": 36.257920674423936,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 1.5987211554602254e-14,
+      "scaled": 4.891062973376577e-16,
+      "max_ref": 32.68657885131538,
+      "n_nearzero": 1003,
+      "max_abs_nearzero": 6.988021814847978e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 6.06126959183943e-16,
+      "max_ref": 17.584007566254858,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 1.6774395641962848e-19,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.764044001698494,
+      "p10": 0.7511593401432037,
+      "p90": 0.7740471512079239,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.2327520027756691,
+      "p10": 0.23128320276737213,
+      "p90": 0.23475199937820435,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.9493418037891388,
+      "p10": 0.9399509057402611,
+      "p90": 0.9586483240127563,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.6755199730396271,
+      "p10": 0.6728160083293915,
+      "p90": 0.6783552229404449,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 2.155924215912819,
+      "p10": 2.140134759247303,
+      "p90": 2.315850742161274,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.9029919803142548,
+      "p10": 0.9007999956607818,
+      "p90": 0.9057791888713836,
+      "n": 50
+     }
+    }
+   },
+   "oeq_atomic": {
+    "run_to_run_bitwise": false,
+    "err": {
+     "out": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 1.3296539933794272e-15,
+      "max_ref": 8.683702311723735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.907985046680551e-14,
+      "scaled": 1.0778293332847448e-15,
+      "max_ref": 36.257920674423936,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 8.695223063780581e-16,
+      "max_ref": 32.68657885131538,
+      "n_nearzero": 1003,
+      "max_abs_nearzero": 8.682087709356578e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 6.566375391159382e-16,
+      "max_ref": 17.584007566254858,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 1.4123720184455048e-18,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.3651352599263191,
+      "p10": 0.3617357462644577,
+      "p90": 0.36980602890253067,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.33929601311683655,
+      "p10": 0.3357087880373001,
+      "p90": 0.343503999710083,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.42284000664949417,
+      "p10": 0.4171529784798622,
+      "p90": 0.4517354071140291,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.3627200126647949,
+      "p10": 0.3596799969673157,
+      "p90": 0.366809606552124,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.7779281586408615,
+      "p10": 0.7717790082097054,
+      "p90": 0.785258412361145,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.7017920017242432,
+      "p10": 0.697273600101471,
+      "p90": 0.7079583764076233,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 1.2273729169656252e-15,
+      "max_ref": 8.683702311723735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.907985046680551e-14,
+      "scaled": 1.0778293332847448e-15,
+      "max_ref": 36.257920674423936,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 8.695223063780581e-16,
+      "max_ref": 32.68657885131538,
+      "n_nearzero": 1003,
+      "max_abs_nearzero": 8.682087709356578e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 6.566375391159382e-16,
+      "max_ref": 17.584007566254858,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 1.4123720184455048e-18,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.6606169044971466,
+      "p10": 0.6574323400855064,
+      "p90": 0.6895808503031731,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.6203040182590485,
+      "p10": 0.6187744081020355,
+      "p90": 0.6224223852157593,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.7337974384427071,
+      "p10": 0.7294686511158943,
+      "p90": 0.7402246817946434,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.6598399877548218,
+      "p10": 0.658054381608963,
+      "p90": 0.6628095746040344,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.3426383957266808,
+      "p10": 1.3397770002484322,
+      "p90": 1.346605271100998,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 1.2759680151939392,
+      "p10": 1.2737760305404664,
+      "p90": 1.278278374671936,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 1.2273729169656252e-15,
+      "max_ref": 8.683702311723735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.907985046680551e-14,
+      "scaled": 1.0778293332847448e-15,
+      "max_ref": 36.257920674423936,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 8.695223063780581e-16,
+      "max_ref": 32.68657885131538,
+      "n_nearzero": 1003,
+      "max_abs_nearzero": 8.682087709356578e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 6.566375391159382e-16,
+      "max_ref": 17.584007566254858,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 1.4123720184455048e-18,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.32663438469171524,
+      "p10": 0.32474473118782043,
+      "p90": 0.32869167625904083,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.3076480031013489,
+      "p10": 0.30635519325733185,
+      "p90": 0.30973119735717775,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.42388029396533966,
+      "p10": 0.4213811829686165,
+      "p90": 0.43065790086984634,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.36745600402355194,
+      "p10": 0.36602880656719206,
+      "p90": 0.3691103935241699,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.7125213742256165,
+      "p10": 0.7104849442839622,
+      "p90": 0.7152734324336052,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.672080010175705,
+      "p10": 0.670355212688446,
+      "p90": 0.674265593290329,
+      "n": 50
+     }
+    }
+   },
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 1.022810764138021e-15,
+      "max_ref": 8.683702311723735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.618527782440651e-14,
+      "scaled": 1.2737983029728801e-15,
+      "max_ref": 36.257920674423936,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 7.608320180808008e-16,
+      "max_ref": 32.68657885131538,
+      "n_nearzero": 1003,
+      "max_abs_nearzero": 9.317362419797304e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 6.566375391159382e-16,
+      "max_ref": 17.584007566254858,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 1.4123720184455048e-18,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.41546765714883804,
+      "p10": 0.4141753539443016,
+      "p90": 0.4208564758300781,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.5834400653839111,
+      "p10": 0.5806311964988708,
+      "p90": 0.5866611376404762,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.5116159915924072,
+      "p10": 0.5097887814044952,
+      "p90": 0.5129408061504364,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.9344164282083511,
+      "p10": 0.9260984137654305,
+      "p90": 0.9463610127568245,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 1.022810764138021e-15,
+      "max_ref": 8.683702311723735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.618527782440651e-14,
+      "scaled": 1.2737983029728801e-15,
+      "max_ref": 36.257920674423936,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.4868995751603507e-14,
+      "scaled": 7.608320180808008e-16,
+      "max_ref": 32.68657885131538,
+      "n_nearzero": 1003,
+      "max_abs_nearzero": 9.317362419797304e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 6.566375391159382e-16,
+      "max_ref": 17.584007566254858,
+      "n_nearzero": 2,
+      "max_abs_nearzero": 1.4123720184455048e-18,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.10567624121904373,
+      "p10": 0.10490939021110535,
+      "p90": 0.10731257498264313,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.09008000046014786,
+      "p10": 0.0894688032567501,
+      "p90": 0.09059199690818787,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.2742242068052292,
+      "p10": 0.27258656919002533,
+      "p90": 0.2767186611890793,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.21758399903774261,
+      "p10": 0.2167008027434349,
+      "p90": 0.21824959367513658,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.3288686275482178,
+      "p10": 0.3127880394458771,
+      "p90": 0.3315873444080353,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.30246400833129883,
+      "p10": 0.301651194691658,
+      "p90": 0.30349758863449094,
+      "n": 50
+     }
+    }
+   }
+  },
+  "wbox648_L0": {
+   "N": 648,
+   "E": 35698,
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 6.661338147750939e-16,
+      "scaled": 2.8616879253894206e-16,
+      "max_ref": 2.3277654032958397,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 36.39146494783642,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 6.082144731903991,
+      "n_nearzero": 4901,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 3.900374388694777,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 1.2547113001346588,
+      "p10": 1.2527668848633766,
+      "p90": 1.2576816603541374,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 1.2082879543304443,
+      "p10": 1.2072639465332031,
+      "p90": 1.2095199465751647,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 3.269416280090809,
+      "p10": 3.2670293003320694,
+      "p90": 3.273688815534115,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 3.1047199964523315,
+      "p10": 3.1031232595443727,
+      "p90": 3.107331132888794,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 4.498032853007317,
+      "p10": 4.494807869195938,
+      "p90": 4.505383037030697,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 4.3111841678619385,
+      "p10": 4.308793783187866,
+      "p90": 4.313753509521485,
+      "n": 50
+     }
+    }
+   },
+   "flashtp_gc": {
+    "err": {
+     "out": {
+      "max_abs": 1.9984014443252818e-15,
+      "scaled": 8.585063776168261e-16,
+      "max_ref": 2.3277654032958397,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.907985046680551e-14,
+      "scaled": 1.0738740669775902e-15,
+      "max_ref": 36.39146494783642,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 4.440892098500626e-15,
+      "scaled": 7.301523219606816e-16,
+      "max_ref": 6.082144731903991,
+      "n_nearzero": 4901,
+      "max_abs_nearzero": 6.098637220230962e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 3.1086244689504383e-15,
+      "scaled": 7.97006686835186e-16,
+      "max_ref": 3.900374388694777,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 1.5558481500540525e-19,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.5002524703741074,
+      "p10": 0.49695149064064026,
+      "p90": 0.5056150257587433,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.4376640021800995,
+      "p10": 0.4358655959367752,
+      "p90": 0.4410847991704941,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.9714309126138687,
+      "p10": 0.968882255256176,
+      "p90": 0.9756291285157204,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.8855520188808441,
+      "p10": 0.884857577085495,
+      "p90": 0.886383980512619,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.4300746843218803,
+      "p10": 1.425219140946865,
+      "p90": 1.4358371496200562,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 1.3195199966430664,
+      "p10": 1.3183423638343812,
+      "p90": 1.3237504482269287,
+      "n": 50
+     }
+    }
+   },
+   "cueq_fused_irmul_T": {
+    "err": {
+     "out": {
+      "max_abs": 2.220446049250313e-15,
+      "scaled": 9.538959751298068e-16,
+      "max_ref": 2.3277654032958397,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.3092638912203256e-14,
+      "scaled": 6.34561948668576e-16,
+      "max_ref": 36.39146494783642,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.552713678800501e-15,
+      "scaled": 5.841218575685453e-16,
+      "max_ref": 6.082144731903991,
+      "n_nearzero": 4901,
+      "max_abs_nearzero": 2.710505431213761e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 6.831485887158737e-16,
+      "max_ref": 3.900374388694777,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 1.9067784909539088e-19,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.43931975960731506,
+      "p10": 0.4364311695098877,
+      "p90": 0.44300463050603867,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.2998720109462738,
+      "p10": 0.29938881397247313,
+      "p90": 0.3004864066839218,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.5305446684360504,
+      "p10": 0.5264241248369217,
+      "p90": 0.5392733961343765,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.2250880002975464,
+      "p10": 0.22431999444961548,
+      "p90": 0.22592640668153763,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.1406214907765388,
+      "p10": 1.131809689104557,
+      "p90": 1.1588670313358307,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.51979199051857,
+      "p10": 0.5190015852451324,
+      "p90": 0.5206496119499207,
+      "n": 50
+     }
+    }
+   },
+   "oeq_atomic": {
+    "run_to_run_bitwise": false,
+    "err": {
+     "out": {
+      "max_abs": 2.220446049250313e-15,
+      "scaled": 9.538959751298068e-16,
+      "max_ref": 2.3277654032958397,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.197442310920451e-14,
+      "scaled": 8.786242366180284e-16,
+      "max_ref": 36.39146494783642,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 4.380913931764089e-16,
+      "max_ref": 6.082144731903991,
+      "n_nearzero": 4901,
+      "max_abs_nearzero": 4.743384504624082e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.1102230246251565e-15,
+      "scaled": 2.846452452982807e-16,
+      "max_ref": 3.900374388694777,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 6.232144171097021e-20,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.3148224204778671,
+      "p10": 0.3126205876469612,
+      "p90": 0.31748246401548386,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.2945439964532852,
+      "p10": 0.2913248121738434,
+      "p90": 0.2981184035539627,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.27738139033317566,
+      "p10": 0.2757502719759941,
+      "p90": 0.28279349207878113,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.22057600319385529,
+      "p10": 0.2193248003721237,
+      "p90": 0.2218655988574028,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.5534226074814796,
+      "p10": 0.5502659827470779,
+      "p90": 0.5566878244280815,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.5107679963111877,
+      "p10": 0.5082528173923493,
+      "p90": 0.5135200262069702,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 7.631167801038455e-16,
+      "max_ref": 2.3277654032958397,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.973799150320701e-14,
+      "scaled": 1.3667488125169329e-15,
+      "max_ref": 36.39146494783642,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 4.380913931764089e-16,
+      "max_ref": 6.082144731903991,
+      "n_nearzero": 4901,
+      "max_abs_nearzero": 4.743384504624082e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.1102230246251565e-15,
+      "scaled": 2.846452452982807e-16,
+      "max_ref": 3.900374388694777,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 6.232144171097021e-20,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.5616359412670135,
+      "p10": 0.5600754171609879,
+      "p90": 0.5638889968395233,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.49451199173927307,
+      "p10": 0.49313919246196747,
+      "p90": 0.49563839137554166,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.6041992455720901,
+      "p10": 0.6003372371196747,
+      "p90": 0.6097182631492615,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.5209760069847107,
+      "p10": 0.5192671895027161,
+      "p90": 0.5224000215530396,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.116403378546238,
+      "p10": 1.1133816093206406,
+      "p90": 1.119845174252987,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 1.0106080174446106,
+      "p10": 1.009599995613098,
+      "p90": 1.012332832813263,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 7.631167801038455e-16,
+      "max_ref": 2.3277654032958397,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.973799150320701e-14,
+      "scaled": 1.3667488125169329e-15,
+      "max_ref": 36.39146494783642,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 4.380913931764089e-16,
+      "max_ref": 6.082144731903991,
+      "n_nearzero": 4901,
+      "max_abs_nearzero": 4.743384504624082e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.1102230246251565e-15,
+      "scaled": 2.846452452982807e-16,
+      "max_ref": 3.900374388694777,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 6.232144171097021e-20,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.2112342044711113,
+      "p10": 0.2103036269545555,
+      "p90": 0.2125043421983719,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.193183995783329,
+      "p10": 0.19243520498275757,
+      "p90": 0.19399360120296477,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.2887137234210968,
+      "p10": 0.2871669828891754,
+      "p90": 0.29129236936569214,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.2338080033659935,
+      "p10": 0.23260800540447235,
+      "p90": 0.23504000157117844,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.4640873521566391,
+      "p10": 0.4625564441084862,
+      "p90": 0.46666450798511505,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.42526400089263916,
+      "p10": 0.4239008009433746,
+      "p90": 0.42628160417079924,
+      "n": 50
+     }
+    }
+   },
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 7.631167801038455e-16,
+      "max_ref": 2.3277654032958397,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 7.809993214382474e-16,
+      "max_ref": 36.39146494783642,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 4.380913931764089e-16,
+      "max_ref": 6.082144731903991,
+      "n_nearzero": 4901,
+      "max_abs_nearzero": 4.743384504624082e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.4157429435793685e-16,
+      "max_ref": 3.900374388694777,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 1.1806638396183758e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.41810981929302216,
+      "p10": 0.4150843247771263,
+      "p90": 0.4206838086247444,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 0.5716392770409584,
+      "p10": 0.5681110545992851,
+      "p90": 0.5745818838477135,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.49273601174354553,
+      "p10": 0.49112961292266843,
+      "p90": 0.49383040368556974,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.9346641600131989,
+      "p10": 0.9295446798205376,
+      "p90": 0.9388498961925507,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 7.631167801038455e-16,
+      "max_ref": 2.3277654032958397,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 2.842170943040401e-14,
+      "scaled": 7.809993214382474e-16,
+      "max_ref": 36.39146494783642,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-15,
+      "scaled": 4.380913931764089e-16,
+      "max_ref": 6.082144731903991,
+      "n_nearzero": 4901,
+      "max_abs_nearzero": 4.743384504624082e-20,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.3322676295501878e-15,
+      "scaled": 3.4157429435793685e-16,
+      "max_ref": 3.900374388694777,
+      "n_nearzero": 3,
+      "max_abs_nearzero": 1.1806638396183758e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.09167380630970001,
+      "p10": 0.09071789681911469,
+      "p90": 0.09367689490318298,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.0759039968252182,
+      "p10": 0.07484480366110802,
+      "p90": 0.07669120207428932,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.2615218982100487,
+      "p10": 0.2597589045763016,
+      "p90": 0.2638978883624077,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.20601599663496017,
+      "p10": 0.20546880662441253,
+      "p90": 0.20716799795627594,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.3034370020031929,
+      "p10": 0.30186958611011505,
+      "p90": 0.30520837754011154,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.27932800352573395,
+      "p10": 0.27848959863185885,
+      "p90": 0.28046078979969025,
+      "n": 50
+     }
+    }
+   }
+  },
+  "wbox648_L1": {
+   "N": 648,
+   "E": 35698,
+   "e3nn": {
+    "err": {
+     "out": {
+      "max_abs": 1.7763568394002505e-15,
+      "scaled": 2.5783905593290946e-16,
+      "max_ref": 6.889401735408402,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 38.95208020172735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gy": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 41.248295050330675,
+      "n_nearzero": 3189,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     },
+     "gw": {
+      "max_abs": 0.0,
+      "scaled": 0.0,
+      "max_ref": 13.683460971077517,
+      "n_nearzero": 15,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": true
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 6.508094258606434,
+      "p10": 6.504754722118378,
+      "p90": 6.51486162096262,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 6.409088134765625,
+      "p10": 6.406489658355713,
+      "p90": 6.412016153335571,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 15.746377408504486,
+      "p10": 15.734538994729519,
+      "p90": 15.759088099002838,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 15.43675184249878,
+      "p10": 15.430012702941895,
+      "p90": 15.443228626251221,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 22.199317812919617,
+      "p10": 22.180449590086937,
+      "p90": 22.221592627465725,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 21.87679958343506,
+      "p10": 21.848410034179686,
+      "p90": 21.882034492492675,
+      "n": 50
+     }
+    }
+   },
+   "flashtp_gc": {
+    "err": {
+     "out": {
+      "max_abs": 9.325873406851315e-15,
+      "scaled": 1.3536550436477746e-15,
+      "max_ref": 6.889401735408402,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.263256414560601e-14,
+      "scaled": 1.09448748115166e-15,
+      "max_ref": 38.95208020172735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 3.019806626980426e-14,
+      "scaled": 7.321045932433556e-16,
+      "max_ref": 41.248295050330675,
+      "n_nearzero": 3189,
+      "max_abs_nearzero": 7.940933880509066e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.2434497875801753e-14,
+      "scaled": 9.08724620334309e-16,
+      "max_ref": 13.683460971077517,
+      "n_nearzero": 15,
+      "max_abs_nearzero": 6.761374327008448e-20,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 1.2851525098085403,
+      "p10": 1.282806321978569,
+      "p90": 1.2907447293400764,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 1.2277600169181824,
+      "p10": 1.2267136335372926,
+      "p90": 1.2296831727027893,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 2.656221389770508,
+      "p10": 2.655099146068096,
+      "p90": 2.6587989181280136,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 2.569983959197998,
+      "p10": 2.5691808700561523,
+      "p90": 2.5711104393005373,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 3.9039766415953636,
+      "p10": 3.8976749405264854,
+      "p90": 3.911571577191353,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 3.7966721057891846,
+      "p10": 3.794470453262329,
+      "p90": 3.7985791206359862,
+      "n": 50
+     }
+    }
+   },
+   "cueq_fused_irmul_T": {
+    "err": {
+     "out": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 1.5470343355974566e-15,
+      "max_ref": 6.889401735408402,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.197442310920451e-14,
+      "scaled": 8.208656108637451e-16,
+      "max_ref": 38.95208020172735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.1316282072803006e-14,
+      "scaled": 5.167797128776628e-16,
+      "max_ref": 41.248295050330675,
+      "n_nearzero": 3189,
+      "max_abs_nearzero": 3.3881317890172014e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.0658141036401503e-14,
+      "scaled": 7.789068174294077e-16,
+      "max_ref": 13.683460971077517,
+      "n_nearzero": 15,
+      "max_abs_nearzero": 8.131102703335007e-19,
+      "bitwise_equal": false
+     }
+    },
+    "run_to_run_bitwise": false,
+    "time": {
+     "eager_fwd": {
+      "median": 0.8835168555378914,
+      "p10": 0.871085561811924,
+      "p90": 0.9141024202108383,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.37588800489902496,
+      "p10": 0.37424638867378235,
+      "p90": 0.3779967874288559,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 1.2721521779894829,
+      "p10": 1.264871470630169,
+      "p90": 1.280331239104271,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.9884799718856812,
+      "p10": 0.986332792043686,
+      "p90": 0.9905983984470368,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 2.50045582652092,
+      "p10": 2.465326525270939,
+      "p90": 2.5711795315146446,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 1.3607680201530457,
+      "p10": 1.3582207560539246,
+      "p90": 1.364576017856598,
+      "n": 50
+     }
+    }
+   },
+   "oeq_atomic": {
+    "run_to_run_bitwise": false,
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 1.418114807631002e-15,
+      "max_ref": 6.889401735408402,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 3.907985046680551e-14,
+      "scaled": 1.0032801910556883e-15,
+      "max_ref": 38.95208020172735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 6.459746410970785e-16,
+      "max_ref": 41.248295050330675,
+      "n_nearzero": 3189,
+      "max_abs_nearzero": 9.211483301390516e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 8.4381571888185845e-16,
+      "max_ref": 13.683460971077517,
+      "n_nearzero": 15,
+      "max_abs_nearzero": 7.3603192649458445e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.8106203749775887,
+      "p10": 0.8034907281398773,
+      "p90": 0.8182166144251823,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.7796320021152496,
+      "p10": 0.7729792177677155,
+      "p90": 0.7861536204814911,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.8748425170779228,
+      "p10": 0.867542065680027,
+      "p90": 0.8842071518301964,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.815311998128891,
+      "p10": 0.808790385723114,
+      "p90": 0.8206591904163361,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.6483701765537262,
+      "p10": 1.6371671110391617,
+      "p90": 1.663348264992237,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 1.5926719903945923,
+      "p10": 1.5830560088157655,
+      "p90": 1.6031712412834167,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 1.2891952796645473e-15,
+      "max_ref": 6.889401735408402,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 5.861977570020827e-14,
+      "scaled": 1.5049202865835325e-15,
+      "max_ref": 38.95208020172735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 6.459746410970785e-16,
+      "max_ref": 41.248295050330675,
+      "n_nearzero": 3189,
+      "max_abs_nearzero": 9.211483301390516e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 8.4381571888185845e-16,
+      "max_ref": 13.683460971077517,
+      "n_nearzero": 15,
+      "max_abs_nearzero": 7.3603192649458445e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 1.025206409394741,
+      "p10": 1.022966019809246,
+      "p90": 1.0295923799276352,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.9586719870567322,
+      "p10": 0.9571680128574371,
+      "p90": 0.960201621055603,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 1.4400593936443329,
+      "p10": 1.4359667897224426,
+      "p90": 1.4458058401942253,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 1.3531039953231812,
+      "p10": 1.350499200820923,
+      "p90": 1.3573312163352966,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 2.411162480711937,
+      "p10": 2.4070601910352707,
+      "p90": 2.4168476462364197,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 2.3091520071029663,
+      "p10": 2.3061055898666383,
+      "p90": 2.3131808280944823,
+      "n": 50
+     }
+    }
+   },
+   "oeq_det_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 1.2891952796645473e-15,
+      "max_ref": 6.889401735408402,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 5.861977570020827e-14,
+      "scaled": 1.5049202865835325e-15,
+      "max_ref": 38.95208020172735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 6.459746410970785e-16,
+      "max_ref": 41.248295050330675,
+      "n_nearzero": 3189,
+      "max_abs_nearzero": 9.211483301390516e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 1.1546319456101628e-14,
+      "scaled": 8.4381571888185845e-16,
+      "max_ref": 13.683460971077517,
+      "n_nearzero": 15,
+      "max_abs_nearzero": 7.3603192649458445e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.5159936845302582,
+      "p10": 0.5139779299497604,
+      "p90": 0.5187401548027992,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.4973759949207306,
+      "p10": 0.49607998728752134,
+      "p90": 0.49962239861488345,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.8338708430528641,
+      "p10": 0.8277606219053268,
+      "p90": 0.8379938080906868,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.7748479843139648,
+      "p10": 0.7717056035995483,
+      "p90": 0.7778239846229553,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.3113515451550484,
+      "p10": 1.3079473748803139,
+      "p90": 1.3143159449100494,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 1.2692319750785828,
+      "p10": 1.2666687846183777,
+      "p90": 1.2729408025741578,
+      "n": 50
+     }
+    }
+   },
+   "luna_full": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 1.418114807631002e-15,
+      "max_ref": 6.889401735408402,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.973799150320701e-14,
+      "scaled": 1.2769020613436034e-15,
+      "max_ref": 38.95208020172735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 6.459746410970785e-16,
+      "max_ref": 41.248295050330675,
+      "n_nearzero": 3189,
+      "max_abs_nearzero": 7.411538288475128e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 6.490890145245065e-16,
+      "max_ref": 13.683460971077517,
+      "n_nearzero": 15,
+      "max_abs_nearzero": 7.3603192649458445e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.6903456524014473,
+      "p10": 0.6881006062030792,
+      "p90": 0.6929082795977592,
+      "n": 50
+     },
+     "graph_fwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     },
+     "eager_bwd": {
+      "median": 1.1265864595770836,
+      "p10": 1.1228010058403015,
+      "p90": 1.1307859793305397,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 1.0375040173530579,
+      "p10": 1.0353888392448425,
+      "p90": 1.040287971496582,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 1.7581209540367126,
+      "p10": 1.7532063648104668,
+      "p90": 1.7651794478297234,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "error": "RuntimeError('Cannot copy between CPU and CUDA tensors during CUDA graph capture unless the CPU tensor is pinned. Please use tensor.pin_memory() or allocate the tensor with pin_memory=True.')"
+     }
+    }
+   },
+   "luna_kernel": {
+    "run_to_run_bitwise": true,
+    "err": {
+     "out": {
+      "max_abs": 9.769962616701378e-15,
+      "scaled": 1.418114807631002e-15,
+      "max_ref": 6.889401735408402,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gx": {
+      "max_abs": 4.973799150320701e-14,
+      "scaled": 1.2769020613436034e-15,
+      "max_ref": 38.95208020172735,
+      "n_nearzero": 0,
+      "max_abs_nearzero": 0.0,
+      "bitwise_equal": false
+     },
+     "gy": {
+      "max_abs": 2.6645352591003757e-14,
+      "scaled": 6.459746410970785e-16,
+      "max_ref": 41.248295050330675,
+      "n_nearzero": 3189,
+      "max_abs_nearzero": 7.411538288475128e-21,
+      "bitwise_equal": false
+     },
+     "gw": {
+      "max_abs": 8.881784197001252e-15,
+      "scaled": 6.490890145245065e-16,
+      "max_ref": 13.683460971077517,
+      "n_nearzero": 15,
+      "max_abs_nearzero": 7.3603192649458445e-19,
+      "bitwise_equal": false
+     }
+    },
+    "time": {
+     "eager_fwd": {
+      "median": 0.2042548730969429,
+      "p10": 0.20293407142162323,
+      "p90": 0.20550303161144257,
+      "n": 50
+     },
+     "graph_fwd": {
+      "median": 0.18856000155210495,
+      "p10": 0.1877695992588997,
+      "p90": 0.18931839615106583,
+      "n": 50
+     },
+     "eager_bwd": {
+      "median": 0.5154944956302643,
+      "p10": 0.5125120282173157,
+      "p90": 0.5183761939406395,
+      "n": 50
+     },
+     "graph_bwd": {
+      "median": 0.45817600190639496,
+      "p10": 0.4566080033779144,
+      "p90": 0.46065281331539154,
+      "n": 50
+     },
+     "eager_fwd_bwd": {
+      "median": 0.6710952147841454,
+      "p10": 0.6681941449642181,
+      "p90": 0.6767699494957924,
+      "n": 50
+     },
+     "graph_fwd_bwd": {
+      "median": 0.6425760090351105,
+      "p10": 0.6405087947845459,
+      "p90": 0.6442111849784851,
+      "n": 50
+     }
+    }
+   }
+  }
+ }
+}

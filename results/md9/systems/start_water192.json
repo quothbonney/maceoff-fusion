@@ -1,0 +1,12 @@
+{
+ "src": "results/md/start_water192.npz (Phase 4 start: 30 FIRE e3nn + MB300 seed 20261109)",
+ "name": "water192",
+ "n_atoms": 192,
+ "pbc": [
+  false,
+  false,
+  false
+ ],
+ "T_start_K": 322.05813698902546,
+ "slurm_job": "1068"
+}

@@ -1,0 +1,13 @@
+{
+ "src": "results/workloads/systems/org648.extxyz (already 30 FIRE e3nn fp64)",
+ "mb_seed": 20261109,
+ "name": "org648",
+ "n_atoms": 650,
+ "pbc": [
+  false,
+  false,
+  false
+ ],
+ "T_start_K": 295.542865267185,
+ "slurm_job": "1068"
+}

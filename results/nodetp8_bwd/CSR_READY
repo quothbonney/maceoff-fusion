@@ -1,0 +1,13 @@
+CSR + layer cfg + plain-torch references usable (agent C, 2026-11-10).
+  sys.path.insert(0, f"{R}/scripts/nodetp8_bwd")
+  from csr import build_csr            # build_csr(edge_index, N) -> {perm_dst int64[E], rowptr_dst int32[N+1], perm_src int64[E], rowptr_src int32[N+1]}
+                                       #   torch.sort(stable)+searchsorted(out_int32) only: no host sync, capturable; E=0 -> rowptr all 0
+  from layer_cfg import make_cfg, reference_fwd, reference_bwd, tp_edges
+  cfg = make_cfg(block.conv_tp)        # LayerCfg: d1,d2,d_out,W,mul(=128), x/y/out_irreps [(mul,l,p,offset,dim)],
+                                       #   paths[p] = dict(i1,i2,io,l1,l2,l3,x_off,y_off,out_off,w_off(=p*128),path_weight,
+                                       #   cg dense fp64 [2l1+1,2l2+1,2l3+1] (o3.wigner_3j fp64), nz=[(i,j,k,val)...]),
+                                       #   packed cg_ijk int32[nnz,3], cg_val fp64[nnz], cg_path_ptr int32[P+1]; cfg.key (str, for codegen caching)
+  semantics: out[dst, out_off+u*(2l3+1)+k] += path_weight * sum_ij C[i,j,k] x[src, x_off+u*(2l1+1)+i] y[e, y_off+j] w[e, w_off+u]
+  reference_fwd(cfg,x,y,w,edge_index,csr=None) -> out[N,d_out];  reference_bwd(cfg,g,x,y,w,edge_index,csr=None) -> (gx,gy,gw)
+Check (scripts/nodetp8_bwd/check_cfg.py, random inputs, both layers): tp_edges vs conv_tp rel 7.9e-16 (L0, nnz 16, 4 paths),
+  7.0e-16 (L1, nnz 86, 10 paths); reference_fwd/bwd vs conv_tp+index_add autograd max abs <= 5e-14 (values O(30)).

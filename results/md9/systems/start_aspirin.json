@@ -1,0 +1,13 @@
+{
+ "src": "results/workloads/systems/aspirin.extxyz (already 30 FIRE e3nn fp64)",
+ "mb_seed": 20261109,
+ "name": "aspirin",
+ "n_atoms": 21,
+ "pbc": [
+  false,
+  false,
+  false
+ ],
+ "T_start_K": 265.57780606757746,
+ "slurm_job": "1068"
+}

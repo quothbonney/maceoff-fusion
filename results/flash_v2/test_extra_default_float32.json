@@ -1,0 +1,195 @@
+{
+ "mode": "extra",
+ "global_default_dtype": "torch.float32",
+ "slurm_job": "1006",
+ "gpu": "0, NVIDIA H100 80GB HBM3, GPU-3ef4e875-4571-3cea-d408-241db662acb5",
+ "torch": "2.11.0+cu128",
+ "flashTP_e3nn": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/flashTP-cgpatch/flashTP_e3nn/__init__.py",
+ "tests": {
+  "checks": {
+   "checks": {
+    "reject_subclass": {
+     "raised": "AdapterError",
+     "msg": "interactions.0: unsupported interaction class __main__.MyInteraction; supported (exact class, mace 0.3.17): ('RealAgnosticInteractionBlock', 'RealAgnosticResidualInteractionBlock', 'RealAgnosticDensityInteractionBlock', 'RealAgnosticDensityResidualInteractionBlock', 'RealAgnosticAttResidualInteracti",
+     "_ok": true
+    },
+    "reject_magnetic": {
+     "raised": "AdapterError",
+     "msg": "interactions.0: MagneticInteractionBlock is a magnetic interaction (no conv_fusion branch); unsupported",
+     "_ok": true
+    },
+    "no_partial_install_after_reject": {
+     "installed": false,
+     "_ok": true
+    },
+    "reject_already_fused_flag": {
+     "raised": "AdapterError",
+     "msg": "interactions.0: block already fused (conv_fusion set: FlashTP, cueq or oeq conv fusion)",
+     "_ok": true
+    },
+    "reject_cueq_model": {
+     "raised": "AdapterError",
+     "msg": "interactions.0: block already fused (conv_fusion set: FlashTP, cueq or oeq conv fusion)",
+     "_ok": true
+    },
+    "double_install": {
+     "raised": "AdapterError",
+     "msg": "FlashTP v2 adapter already installed on this model; uninstall(model) first",
+     "_ok": true
+    },
+    "dtype_mismatch_fp32": {
+     "raised": "AdapterError",
+     "msg": "node_feats dtype torch.float32 != FlashTP build dtype torch.float64",
+     "_ok": true
+    },
+    "dtype_mismatch_one_input": {
+     "raised": "AdapterError",
+     "msg": "edge_attrs dtype torch.float32 != FlashTP build dtype torch.float64",
+     "_ok": true
+    },
+    "device_mismatch_cpu": {
+     "raised": "AdapterError",
+     "msg": "node_feats on cpu != FlashTP build device cuda:0",
+     "_ok": true
+    },
+    "edge_index_cpu": {
+     "raised": "AdapterError",
+     "msg": "edge_index on cpu != FlashTP build device cuda:0",
+     "_ok": true
+    },
+    "edge_index_float": {
+     "raised": "AdapterError",
+     "msg": "edge_index dtype torch.float64, expected int64/int32",
+     "_ok": true
+    },
+    "shape_mismatch": {
+     "raised": "AdapterError",
+     "msg": "edge_attrs shape (39, 16), expected [40, 16]",
+     "_ok": true
+    },
+    "index_out_of_range": {
+     "raised": "AdapterError",
+     "msg": "edge_index out of range [0, 16] for n_nodes=16",
+     "_ok": true
+    },
+    "index_negative": {
+     "raised": "AdapterError",
+     "msg": "edge_index out of range [-1, 15] for n_nodes=16",
+     "_ok": true
+    },
+    "n_nodes_ge_2^31": {
+     "raised": "AdapterError",
+     "msg": "n_nodes=2147483648 / n_edges=40 exceed int32 range",
+     "_ok": true
+    },
+    "n_edges_ge_2^31": {
+     "raised": "AdapterError",
+     "msg": "n_nodes=16 / n_edges=2147483648 exceed int32 range",
+     "_ok": true
+    },
+    "int32_edge_index_accepted": {
+     "shape": [
+      16,
+      5120
+     ]
+    },
+    "reject_model_dtype_mismatch": {
+     "raised": "AdapterError",
+     "msg": "model parameters are torch.float32, requested FlashTP dtype torch.float64",
+     "_ok": true
+    },
+    "fp32_model_install_ok": {
+     "n": 2,
+     "cg": "torch.float32"
+    },
+    "default_unchanged": {
+     "_ok": true
+    }
+   },
+   "status": "ok",
+   "sec": 3.63
+  },
+  "install_state": {
+   "checks": {
+    "state_dict_installed_keys": {
+     "same_keys_and_order": true,
+     "values_bitwise": true,
+     "same_metadata_keys": true,
+     "_ok": true
+    },
+    "load_state_dict_installed_strict": {
+     "missing": [],
+     "unexpected": [],
+     "_ok": true
+    },
+    "state_dict_saved_installed_loads_into_stock": {
+     "_ok": true
+    },
+    "torch_save_model_installed_raises": {
+     "raised": "AdapterError",
+     "msg": "FlashConv (FlashTP v2 adapter) is not picklable/deepcopyable: call flashtp_adapter_v2.uninstall(model) before torch.save(model)/copy.deepcopy(model); model.state_dict() is safe while installed (stock keys)",
+     "_ok": true
+    },
+    "deepcopy_installed_raises": {
+     "raised": "AdapterError",
+     "msg": "FlashConv (FlashTP v2 adapter) is not picklable/deepcopyable: call flashtp_adapter_v2.uninstall(model) before torch.save(model)/copy.deepcopy(model); model.state_dict() is safe while installed (stock keys)",
+     "_ok": true
+    },
+    "install_attr_not_in_state_dict": {
+     "_ok": true
+    },
+    "uninstall_restore": {
+     "first": true,
+     "second": false,
+     "third": false,
+     "same_module_objects": true,
+     "same_keys": true,
+     "values_bitwise": true,
+     "no_conv_fusion": true,
+     "_ok": true
+    },
+    "torch_save_after_uninstall_ok": {
+     "bytes": 18369916
+    },
+    "reinstall_ok": {
+     "installed": true
+    },
+    "hybrid_double_install_sc": {
+     "raised": "AdapterError",
+     "msg": "cueq SymmetricContraction already installed",
+     "_ok": true
+    },
+    "hybrid_double_install_flash": {
+     "raised": "AdapterError",
+     "msg": "FlashTP v2 adapter already installed on this model; uninstall(model) first",
+     "_ok": true
+    },
+    "hybrid_uninstall_idempotent": {
+     "flash": [
+      true,
+      false
+     ],
+     "sc": [
+      true,
+      false
+     ],
+     "_ok": true
+    },
+    "hybrid_uninstalled_keys_stock": {
+     "_ok": true
+    },
+    "hybrid_after_uninstall_vs_e3nn": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.3869795029440866e-15,
+     "rms_dF": 5.00372592940448e-16,
+     "E_ref": -133194.08439848514,
+     "E_test": -133194.08439848514
+    }
+   },
+   "status": "ok",
+   "sec": 2.34
+  }
+ },
+ "failures": [],
+ "pass": true
+}

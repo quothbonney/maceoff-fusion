@@ -1,0 +1,16 @@
+{
+ "slurm_job": "981",
+ "host": "slurm-h100-206-077",
+ "torch": "2.11.0+cu128",
+ "gpu": "NVIDIA H100 80GB HBM3",
+ "flashTP_file": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/flashTP-fp64cg/flashTP_e3nn/__init__.py",
+ "nvidia_smi": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845",
+ "backend": "e3nn",
+ "dt_fs": 0.5,
+ "nsteps": 200,
+ "save_every": 10,
+ "system": "water192",
+ "wall_s": 5.43381424061954,
+ "s_per_step": 0.0271690712030977,
+ "note": "wall includes ASE overhead + per-step observer"
+}

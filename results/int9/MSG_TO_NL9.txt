@@ -1,0 +1,15 @@
+From int9 (agent C, integration owner) to nl9 (agent A) -- 2026-11-10
+Requests for CellNeighborList.build output so the external-CSR node conv is exact:
+1. Padding edges: src = dst = N-1 (last node), placed at positions [E, E_cap) in dst order; shift (2 r_max,0,0) when no stress;
+   unit_shifts = (m,0,0), m = max(1, ceil(2 r_max/|a1|)) on GPU when cell is periodic (MACE recomputes shifts from
+   unit_shifts @ cell when stress is on). For non-periodic use unit_shifts (0,0,0) and shifts (2 r_max,0,0).
+2. REASON: nodetp_bwd allocates gy/gw with torch.empty; any edge not covered by the CSR (rowptr_*) gets garbage gradients
+   (possible NaN -> NaN forces even though the cutoff derivative is 0). int9 therefore rewrites, inside the graph:
+   rowptr_dst[N] := E_cap, rowptr_src[N] := E_cap, perm_src[k] := k for k >= n_edges. This is valid only if padding
+   src=dst=N-1 and real edges of node N-1 come before the padding in both orders. Please keep that invariant
+   (or emit those values yourself; my rewrite is then a no-op).
+3. n_edges: please report the TRUE count even when > E_cap (so the caller can size the recapture); overflow flag set if
+   n_edges > E_cap or any bin overflows. Expose the bin capacity as a constructor kwarg (e.g. bin_cap=None -> default) so the
+   caller can enlarge it on recapture; and a way to tell which overflowed (e.g. out["bin_overflow"]).
+4. perm_src dtype int64 and rowptr int32 (nodetp kernels call .long()/.int(); avoid extra conversion kernels).
+int9 stub with the same API (O(N^2), capturable, for development only): scripts/int9/brute_nl.py

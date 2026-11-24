@@ -1,0 +1,449 @@
+job=1058 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+  torch.load(f=model_path, map_location=device)
+[1/3] c++ -MMD -MF main.o.d -DTORCH_EXTENSION_NAME=nodetp_fwd_e3e329789a5bp1 -DTORCH_API_INCLUDE_EXTENSION_H -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/include/python3.11 -fPIC -std=c++17 -c /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch_extensions/nodetp_fwd_e3e329789a5bp1/main.cpp -o main.o 
+[2/3] /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/bin/nvcc -MD -MF cuda.cuda.o.d -DTORCH_EXTENSION_NAME=nodetp_fwd_e3e329789a5bp1 -DTORCH_API_INCLUDE_EXTENSION_H -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/include/python3.11 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -O3 -gencode=arch=compute_90,code=sm_90 -Xptxas=-v -std=c++17 -c /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch_extensions/nodetp_fwd_e3e329789a5bp1/cuda.cu -o cuda.cuda.o 
+ptxas info    : 11 bytes gmem
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IliLi8EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IliLi8EEvPKdS1_S1_PKT0_PKT_PKiPd
+    272 bytes stack frame, 540 bytes spill stores, 376 bytes spill loads
+ptxas info    : Used 64 registers, used 2 barriers, 272 bytes cumulative stack size
+ptxas info    : Compile time = 18.093 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IliLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IliLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 118 registers, used 2 barriers
+ptxas info    : Compile time = 17.622 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IliLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IliLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 118 registers, used 2 barriers
+ptxas info    : Compile time = 10.458 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IliLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IliLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 118 registers, used 0 barriers
+ptxas info    : Compile time = 8.508 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IllLi8EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IllLi8EEvPKdS1_S1_PKT0_PKT_PKiPd
+    272 bytes stack frame, 540 bytes spill stores, 376 bytes spill loads
+ptxas info    : Used 64 registers, used 2 barriers, 272 bytes cumulative stack size
+ptxas info    : Compile time = 12.153 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IllLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IllLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 118 registers, used 2 barriers
+ptxas info    : Compile time = 13.575 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IllLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IllLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 118 registers, used 2 barriers
+ptxas info    : Compile time = 10.461 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IllLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IllLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 118 registers, used 0 barriers
+ptxas info    : Compile time = 8.940 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IiiLi8EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IiiLi8EEvPKdS1_S1_PKT0_PKT_PKiPd
+    272 bytes stack frame, 540 bytes spill stores, 376 bytes spill loads
+ptxas info    : Used 64 registers, used 2 barriers, 272 bytes cumulative stack size
+ptxas info    : Compile time = 15.861 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IiiLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IiiLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 118 registers, used 2 barriers
+ptxas info    : Compile time = 18.719 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IiiLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IiiLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 118 registers, used 2 barriers
+ptxas info    : Compile time = 10.162 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IiiLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IiiLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 118 registers, used 0 barriers
+ptxas info    : Compile time = 8.255 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IilLi8EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IilLi8EEvPKdS1_S1_PKT0_PKT_PKiPd
+    272 bytes stack frame, 540 bytes spill stores, 376 bytes spill loads
+ptxas info    : Used 64 registers, used 2 barriers, 272 bytes cumulative stack size
+ptxas info    : Compile time = 12.215 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IilLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IilLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 118 registers, used 2 barriers
+ptxas info    : Compile time = 15.442 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IilLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IilLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 118 registers, used 2 barriers
+ptxas info    : Compile time = 10.270 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp1IilLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp1IilLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 118 registers, used 0 barriers
+ptxas info    : Compile time = 8.317 ms
+[3/3] c++ main.o cuda.cuda.o -shared -L/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/lib -lc10 -lc10_cuda -ltorch_cpu -ltorch_cuda -ltorch -ltorch_python -L/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/lib64 -lcudart -o nodetp_fwd_e3e329789a5bp1.so
+aspirin 0 PG 1 G 1 10.6us rel=5.43e-16 auto=4
+aspirin 0 PG 1 G 2 7.2us rel=5.43e-16 auto=4
+aspirin 0 PG 1 G 4 6.2us rel=5.43e-16 auto=4
+[1/3] c++ -MMD -MF main.o.d -DTORCH_EXTENSION_NAME=nodetp_fwd_e3e329789a5bp2 -DTORCH_API_INCLUDE_EXTENSION_H -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/include/python3.11 -fPIC -std=c++17 -c /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch_extensions/nodetp_fwd_e3e329789a5bp2/main.cpp -o main.o 
+[2/3] /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/bin/nvcc -MD -MF cuda.cuda.o.d -DTORCH_EXTENSION_NAME=nodetp_fwd_e3e329789a5bp2 -DTORCH_API_INCLUDE_EXTENSION_H -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/include/python3.11 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -O3 -gencode=arch=compute_90,code=sm_90 -Xptxas=-v -std=c++17 -c /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch_extensions/nodetp_fwd_e3e329789a5bp2/cuda.cu -o cuda.cuda.o 
+ptxas info    : 11 bytes gmem
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp2IliLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp2IliLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    136 bytes stack frame, 988 bytes spill stores, 412 bytes spill loads
+ptxas info    : Used 64 registers, used 3 barriers, 136 bytes cumulative stack size
+ptxas info    : Compile time = 33.300 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp2IliLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp2IliLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 96 registers, used 3 barriers
+ptxas info    : Compile time = 24.020 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp2IliLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp2IliLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 94 registers, used 0 barriers
+ptxas info    : Compile time = 21.285 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp2IllLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp2IllLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    136 bytes stack frame, 988 bytes spill stores, 412 bytes spill loads
+ptxas info    : Used 64 registers, used 3 barriers, 136 bytes cumulative stack size
+ptxas info    : Compile time = 31.031 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp2IllLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp2IllLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 96 registers, used 3 barriers
+ptxas info    : Compile time = 24.370 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp2IllLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp2IllLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 94 registers, used 0 barriers
+ptxas info    : Compile time = 21.787 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp2IiiLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp2IiiLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    144 bytes stack frame, 1000 bytes spill stores, 424 bytes spill loads
+ptxas info    : Used 64 registers, used 3 barriers, 144 bytes cumulative stack size
+ptxas info    : Compile time = 30.041 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp2IiiLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp2IiiLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 96 registers, used 3 barriers
+ptxas info    : Compile time = 25.291 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp2IiiLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp2IiiLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 94 registers, used 0 barriers
+ptxas info    : Compile time = 20.056 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp2IilLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp2IilLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    152 bytes stack frame, 1008 bytes spill stores, 432 bytes spill loads
+ptxas info    : Used 64 registers, used 3 barriers, 152 bytes cumulative stack size
+ptxas info    : Compile time = 30.496 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp2IilLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp2IilLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 96 registers, used 3 barriers
+ptxas info    : Compile time = 23.683 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp2IilLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp2IilLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 94 registers, used 0 barriers
+ptxas info    : Compile time = 20.412 ms
+[3/3] c++ main.o cuda.cuda.o -shared -L/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/lib -lc10 -lc10_cuda -ltorch_cpu -ltorch_cuda -ltorch -ltorch_python -L/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/lib64 -lcudart -o nodetp_fwd_e3e329789a5bp2.so
+aspirin 0 PG 2 G 1 11.5us rel=5.43e-16 auto=4
+aspirin 0 PG 2 G 2 8.1us rel=5.43e-16 auto=4
+aspirin 0 PG 2 G 4 12.4us rel=5.43e-16 auto=4
+[1/3] c++ -MMD -MF main.o.d -DTORCH_EXTENSION_NAME=nodetp_fwd_e3e329789a5bp4 -DTORCH_API_INCLUDE_EXTENSION_H -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/include/python3.11 -fPIC -std=c++17 -c /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch_extensions/nodetp_fwd_e3e329789a5bp4/main.cpp -o main.o 
+[2/3] /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/bin/nvcc -MD -MF cuda.cuda.o.d -DTORCH_EXTENSION_NAME=nodetp_fwd_e3e329789a5bp4 -DTORCH_API_INCLUDE_EXTENSION_H -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/include/python3.11 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -O3 -gencode=arch=compute_90,code=sm_90 -Xptxas=-v -std=c++17 -c /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch_extensions/nodetp_fwd_e3e329789a5bp4/cuda.cu -o cuda.cuda.o 
+ptxas info    : 11 bytes gmem
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp4IliLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp4IliLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    48 bytes stack frame, 192 bytes spill stores, 96 bytes spill loads
+ptxas info    : Used 64 registers, used 5 barriers, 48 bytes cumulative stack size
+ptxas info    : Compile time = 41.107 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp4IliLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp4IliLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 82 registers, used 0 barriers
+ptxas info    : Compile time = 33.388 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp4IllLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp4IllLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    48 bytes stack frame, 192 bytes spill stores, 96 bytes spill loads
+ptxas info    : Used 64 registers, used 5 barriers, 48 bytes cumulative stack size
+ptxas info    : Compile time = 39.615 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp4IllLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp4IllLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 82 registers, used 0 barriers
+ptxas info    : Compile time = 33.018 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp4IiiLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp4IiiLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    48 bytes stack frame, 192 bytes spill stores, 96 bytes spill loads
+ptxas info    : Used 64 registers, used 5 barriers, 48 bytes cumulative stack size
+ptxas info    : Compile time = 36.855 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp4IiiLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp4IiiLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 80 registers, used 0 barriers
+ptxas info    : Compile time = 30.201 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp4IilLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp4IilLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    48 bytes stack frame, 192 bytes spill stores, 96 bytes spill loads
+ptxas info    : Used 64 registers, used 5 barriers, 48 bytes cumulative stack size
+ptxas info    : Compile time = 36.415 ms
+ptxas info    : Compiling entry function '_Z16k_e3e329789a5bp4IilLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_e3e329789a5bp4IilLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 80 registers, used 0 barriers
+ptxas info    : Compile time = 30.664 ms
+[3/3] c++ main.o cuda.cuda.o -shared -L/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/lib -lc10 -lc10_cuda -ltorch_cpu -ltorch_cuda -ltorch -ltorch_python -L/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/lib64 -lcudart -o nodetp_fwd_e3e329789a5bp4.so
+aspirin 0 PG 4 G 1 10.3us rel=5.43e-16 auto=4
+aspirin 0 PG 4 G 2 8.0us rel=5.43e-16 auto=4
+[1/3] c++ -MMD -MF main.o.d -DTORCH_EXTENSION_NAME=nodetp_fwd_24bb6332bfcfp1 -DTORCH_API_INCLUDE_EXTENSION_H -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/include/python3.11 -fPIC -std=c++17 -c /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch_extensions/nodetp_fwd_24bb6332bfcfp1/main.cpp -o main.o 
+[2/3] /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/bin/nvcc -MD -MF cuda.cuda.o.d -DTORCH_EXTENSION_NAME=nodetp_fwd_24bb6332bfcfp1 -DTORCH_API_INCLUDE_EXTENSION_H -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/include/python3.11 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -O3 -gencode=arch=compute_90,code=sm_90 -Xptxas=-v -std=c++17 -c /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch_extensions/nodetp_fwd_24bb6332bfcfp1/cuda.cu -o cuda.cuda.o 
+ptxas info    : 11 bytes gmem
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IliLi8EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IliLi8EEvPKdS1_S1_PKT0_PKT_PKiPd
+    1104 bytes stack frame, 2992 bytes spill stores, 2684 bytes spill loads
+ptxas info    : Used 32 registers, used 2 barriers, 1104 bytes cumulative stack size
+ptxas info    : Compile time = 35.379 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IliLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IliLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    1144 bytes stack frame, 3180 bytes spill stores, 3088 bytes spill loads
+ptxas info    : Used 32 registers, used 2 barriers, 1144 bytes cumulative stack size
+ptxas info    : Compile time = 34.769 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IliLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IliLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 238 registers, used 2 barriers
+ptxas info    : Compile time = 24.660 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IliLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IliLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 238 registers, used 0 barriers
+ptxas info    : Compile time = 19.780 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IllLi8EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IllLi8EEvPKdS1_S1_PKT0_PKT_PKiPd
+    1104 bytes stack frame, 2988 bytes spill stores, 2680 bytes spill loads
+ptxas info    : Used 32 registers, used 2 barriers, 1104 bytes cumulative stack size
+ptxas info    : Compile time = 32.139 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IllLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IllLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    1144 bytes stack frame, 3176 bytes spill stores, 3084 bytes spill loads
+ptxas info    : Used 32 registers, used 2 barriers, 1144 bytes cumulative stack size
+ptxas info    : Compile time = 35.277 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IllLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IllLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 238 registers, used 2 barriers
+ptxas info    : Compile time = 24.022 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IllLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IllLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 238 registers, used 0 barriers
+ptxas info    : Compile time = 19.523 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IiiLi8EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IiiLi8EEvPKdS1_S1_PKT0_PKT_PKiPd
+    1104 bytes stack frame, 2992 bytes spill stores, 2684 bytes spill loads
+ptxas info    : Used 32 registers, used 2 barriers, 1104 bytes cumulative stack size
+ptxas info    : Compile time = 30.887 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IiiLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IiiLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    1144 bytes stack frame, 3180 bytes spill stores, 3088 bytes spill loads
+ptxas info    : Used 32 registers, used 2 barriers, 1144 bytes cumulative stack size
+ptxas info    : Compile time = 34.480 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IiiLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IiiLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 238 registers, used 2 barriers
+ptxas info    : Compile time = 23.351 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IiiLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IiiLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 238 registers, used 0 barriers
+ptxas info    : Compile time = 19.039 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IilLi8EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IilLi8EEvPKdS1_S1_PKT0_PKT_PKiPd
+    1104 bytes stack frame, 2988 bytes spill stores, 2680 bytes spill loads
+ptxas info    : Used 32 registers, used 2 barriers, 1104 bytes cumulative stack size
+ptxas info    : Compile time = 32.417 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IilLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IilLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    1144 bytes stack frame, 3176 bytes spill stores, 3084 bytes spill loads
+ptxas info    : Used 32 registers, used 2 barriers, 1144 bytes cumulative stack size
+ptxas info    : Compile time = 33.129 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IilLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IilLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 238 registers, used 2 barriers
+ptxas info    : Compile time = 23.301 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp1IilLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp1IilLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 238 registers, used 0 barriers
+ptxas info    : Compile time = 19.225 ms
+[3/3] c++ main.o cuda.cuda.o -shared -L/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/lib -lc10 -lc10_cuda -ltorch_cpu -ltorch_cuda -ltorch -ltorch_python -L/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/lib64 -lcudart -o nodetp_fwd_24bb6332bfcfp1.so
+aspirin 1 PG 1 G 1 14.9us rel=8.28e-16 auto=4
+aspirin 1 PG 1 G 2 12.3us rel=7.09e-16 auto=4
+[1/2] /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/bin/nvcc -MD -MF cuda.cuda.o.d -DTORCH_EXTENSION_NAME=nodetp_fwd_24bb6332bfcfp2 -DTORCH_API_INCLUDE_EXTENSION_H -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/include/python3.11 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -O3 -gencode=arch=compute_90,code=sm_90 -Xptxas=-v -std=c++17 -c /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch_extensions/nodetp_fwd_24bb6332bfcfp2/cuda.cu -o cuda.cuda.o 
+ptxas info    : 11 bytes gmem
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp2IliLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp2IliLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    544 bytes stack frame, 2552 bytes spill stores, 2376 bytes spill loads
+ptxas info    : Used 32 registers, used 3 barriers, 544 bytes cumulative stack size
+ptxas info    : Compile time = 39.169 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp2IliLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp2IliLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    8 bytes stack frame, 16 bytes spill stores, 8 bytes spill loads
+ptxas info    : Used 128 registers, used 3 barriers, 8 bytes cumulative stack size
+ptxas info    : Compile time = 28.388 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp2IliLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp2IliLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 168 registers, used 0 barriers
+ptxas info    : Compile time = 22.840 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp2IllLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp2IllLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    544 bytes stack frame, 2552 bytes spill stores, 2392 bytes spill loads
+ptxas info    : Used 32 registers, used 3 barriers, 544 bytes cumulative stack size
+ptxas info    : Compile time = 37.547 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp2IllLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp2IllLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    8 bytes stack frame, 16 bytes spill stores, 8 bytes spill loads
+ptxas info    : Used 128 registers, used 3 barriers, 8 bytes cumulative stack size
+ptxas info    : Compile time = 27.175 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp2IllLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp2IllLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 168 registers, used 0 barriers
+ptxas info    : Compile time = 22.785 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp2IiiLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp2IiiLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    544 bytes stack frame, 2540 bytes spill stores, 2372 bytes spill loads
+ptxas info    : Used 32 registers, used 3 barriers, 544 bytes cumulative stack size
+ptxas info    : Compile time = 34.785 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp2IiiLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp2IiiLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    8 bytes stack frame, 16 bytes spill stores, 8 bytes spill loads
+ptxas info    : Used 128 registers, used 3 barriers, 8 bytes cumulative stack size
+ptxas info    : Compile time = 26.445 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp2IiiLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp2IiiLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 168 registers, used 0 barriers
+ptxas info    : Compile time = 21.815 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp2IilLi4EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp2IilLi4EEvPKdS1_S1_PKT0_PKT_PKiPd
+    544 bytes stack frame, 2544 bytes spill stores, 2368 bytes spill loads
+ptxas info    : Used 32 registers, used 3 barriers, 544 bytes cumulative stack size
+ptxas info    : Compile time = 35.073 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp2IilLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp2IilLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    8 bytes stack frame, 16 bytes spill stores, 8 bytes spill loads
+ptxas info    : Used 128 registers, used 3 barriers, 8 bytes cumulative stack size
+ptxas info    : Compile time = 26.732 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp2IilLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp2IilLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 168 registers, used 0 barriers
+ptxas info    : Compile time = 22.098 ms
+[2/2] c++ main.o cuda.cuda.o -shared -L/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/lib -lc10 -lc10_cuda -ltorch_cpu -ltorch_cuda -ltorch -ltorch_python -L/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/lib64 -lcudart -o nodetp_fwd_24bb6332bfcfp2.so
+aspirin 1 PG 2 G 1 15.4us rel=8.28e-16 auto=4
+aspirin 1 PG 2 G 2 12.4us rel=7.09e-16 auto=4
+aspirin 1 PG 2 G 4 69.7us rel=7.09e-16 auto=4
+[1/3] c++ -MMD -MF main.o.d -DTORCH_EXTENSION_NAME=nodetp_fwd_24bb6332bfcfp4 -DTORCH_API_INCLUDE_EXTENSION_H -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/include/python3.11 -fPIC -std=c++17 -c /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch_extensions/nodetp_fwd_24bb6332bfcfp4/main.cpp -o main.o 
+[2/3] /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/bin/nvcc -MD -MF cuda.cuda.o.d -DTORCH_EXTENSION_NAME=nodetp_fwd_24bb6332bfcfp4 -DTORCH_API_INCLUDE_EXTENSION_H -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/include/python3.11 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -O3 -gencode=arch=compute_90,code=sm_90 -Xptxas=-v -std=c++17 -c /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch_extensions/nodetp_fwd_24bb6332bfcfp4/cuda.cu -o cuda.cuda.o 
+ptxas info    : 11 bytes gmem
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp4IliLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp4IliLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    256 bytes stack frame, 1296 bytes spill stores, 824 bytes spill loads
+ptxas info    : Used 64 registers, used 5 barriers, 256 bytes cumulative stack size
+ptxas info    : Compile time = 50.424 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp4IliLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp4IliLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 128 registers, used 0 barriers
+ptxas info    : Compile time = 35.564 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp4IllLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp4IllLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    280 bytes stack frame, 1312 bytes spill stores, 840 bytes spill loads
+ptxas info    : Used 64 registers, used 5 barriers, 280 bytes cumulative stack size
+ptxas info    : Compile time = 47.514 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp4IllLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp4IllLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 128 registers, used 0 barriers
+ptxas info    : Compile time = 35.844 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp4IiiLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp4IiiLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    248 bytes stack frame, 1280 bytes spill stores, 804 bytes spill loads
+ptxas info    : Used 64 registers, used 5 barriers, 248 bytes cumulative stack size
+ptxas info    : Compile time = 44.712 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp4IiiLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp4IiiLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 128 registers, used 0 barriers
+ptxas info    : Compile time = 34.014 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp4IilLi2EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp4IilLi2EEvPKdS1_S1_PKT0_PKT_PKiPd
+    248 bytes stack frame, 1292 bytes spill stores, 808 bytes spill loads
+ptxas info    : Used 64 registers, used 5 barriers, 248 bytes cumulative stack size
+ptxas info    : Compile time = 45.214 ms
+ptxas info    : Compiling entry function '_Z16k_24bb6332bfcfp4IilLi1EEvPKdS1_S1_PKT0_PKT_PKiPd' for 'sm_90'
+ptxas info    : Function properties for _Z16k_24bb6332bfcfp4IilLi1EEvPKdS1_S1_PKT0_PKT_PKiPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 128 registers, used 0 barriers
+ptxas info    : Compile time = 34.358 ms
+[3/3] c++ main.o cuda.cuda.o -shared -L/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/lib -lc10 -lc10_cuda -ltorch_cpu -ltorch_cuda -ltorch -ltorch_python -L/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/lib64 -lcudart -o nodetp_fwd_24bb6332bfcfp4.so
+aspirin 1 PG 4 G 1 14.1us rel=8.28e-16 auto=4
+aspirin 1 PG 4 G 2 35.3us rel=7.09e-16 auto=4
+org192 0 PG 1 G 1 17.6us rel=7.36e-16 auto=8
+org192 0 PG 1 G 2 12.4us rel=6.31e-16 auto=8
+org192 0 PG 1 G 4 13.4us rel=6.31e-16 auto=8
+org192 0 PG 2 G 1 19.8us rel=7.36e-16 auto=8
+org192 0 PG 2 G 2 17.5us rel=6.31e-16 auto=8
+org192 0 PG 2 G 4 38.0us rel=6.31e-16 auto=8
+org192 0 PG 4 G 1 23.4us rel=7.36e-16 auto=8
+org192 0 PG 4 G 2 17.8us rel=6.31e-16 auto=8
+org192 1 PG 1 G 1 37.6us rel=5.97e-16 auto=8
+org192 1 PG 1 G 2 37.4us rel=6.97e-16 auto=8
+org192 1 PG 2 G 1 45.5us rel=5.97e-16 auto=8
+org192 1 PG 2 G 2 36.2us rel=6.97e-16 auto=8
+org192 1 PG 2 G 4 406.9us rel=8.96e-16 auto=8
+org192 1 PG 4 G 1 44.6us rel=5.97e-16 auto=8
+org192 1 PG 4 G 2 115.8us rel=6.97e-16 auto=8
+water648 0 PG 1 G 1 69.3us rel=6.88e-16 auto=2
+water648 0 PG 1 G 2 65.6us rel=1.03e-15 auto=2
+water648 0 PG 1 G 4 70.2us rel=1.03e-15 auto=2
+water648 0 PG 2 G 1 96.7us rel=6.88e-16 auto=2
+water648 0 PG 2 G 2 98.7us rel=1.03e-15 auto=2
+water648 0 PG 2 G 4 194.8us rel=1.03e-15 auto=2
+water648 0 PG 4 G 1 144.3us rel=6.88e-16 auto=2
+water648 0 PG 4 G 2 91.7us rel=1.03e-15 auto=2
+water648 1 PG 1 G 1 150.3us rel=7.76e-16 auto=2
+water648 1 PG 1 G 2 157.4us rel=9.05e-16 auto=2
+water648 1 PG 2 G 1 199.9us rel=7.76e-16 auto=2
+water648 1 PG 2 G 2 151.2us rel=9.05e-16 auto=2
+water648 1 PG 2 G 4 2726.5us rel=8.41e-16 auto=2
+water648 1 PG 4 G 1 194.1us rel=7.76e-16 auto=2
+water648 1 PG 4 G 2 549.3us rel=9.05e-16 auto=2
+org648 0 PG 1 G 1 46.5us rel=8.55e-16 auto=2
+org648 0 PG 1 G 2 43.0us rel=8.55e-16 auto=2
+org648 0 PG 1 G 4 46.3us rel=8.55e-16 auto=2
+org648 0 PG 2 G 1 60.1us rel=8.55e-16 auto=2
+org648 0 PG 2 G 2 61.5us rel=8.55e-16 auto=2
+org648 0 PG 2 G 4 120.8us rel=8.55e-16 auto=2
+org648 0 PG 4 G 1 86.0us rel=8.55e-16 auto=2
+org648 0 PG 4 G 2 58.6us rel=8.55e-16 auto=2
+org648 1 PG 1 G 1 97.3us rel=8.18e-16 auto=2
+org648 1 PG 1 G 2 100.3us rel=8.18e-16 auto=2
+org648 1 PG 2 G 1 123.4us rel=8.18e-16 auto=2
+org648 1 PG 2 G 2 96.8us rel=8.18e-16 auto=2
+org648 1 PG 2 G 4 1601.0us rel=7.16e-16 auto=2
+org648 1 PG 4 G 1 119.2us rel=8.18e-16 auto=2
+org648 1 PG 4 G 2 316.0us rel=8.18e-16 auto=2
+  json.dump(res, open(sys.argv[1], "w"), indent=1)
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz

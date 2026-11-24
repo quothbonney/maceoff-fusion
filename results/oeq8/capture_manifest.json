@@ -1,0 +1,119 @@
+{
+ "env": {
+  "job": "1046",
+  "host": "slurm-h100-206-077",
+  "gpu": "NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845",
+  "torch": "2.11.0+cu128",
+  "python": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/bin/python"
+ },
+ "caps": {
+  "aspirin_L0": {
+   "N": 21,
+   "E": 302,
+   "d1": 128,
+   "W": 512,
+   "dtype": "torch.float64",
+   "sorted_by_src": true,
+   "sha": "e738da8ccf0cf617"
+  },
+  "aspirin_L1": {
+   "N": 21,
+   "E": 302,
+   "d1": 512,
+   "W": 1280,
+   "dtype": "torch.float64",
+   "sorted_by_src": true,
+   "sha": "223f017afa0377f9"
+  },
+  "water192_L0": {
+   "N": 192,
+   "E": 6634,
+   "d1": 128,
+   "W": 512,
+   "dtype": "torch.float64",
+   "sorted_by_src": true,
+   "sha": "97fc8614ca904f7b"
+  },
+  "water192_L1": {
+   "N": 192,
+   "E": 6634,
+   "d1": 512,
+   "W": 1280,
+   "dtype": "torch.float64",
+   "sorted_by_src": true,
+   "sha": "4ab81330a2065f8d"
+  },
+  "org192_L0": {
+   "N": 196,
+   "E": 3670,
+   "d1": 128,
+   "W": 512,
+   "dtype": "torch.float64",
+   "sorted_by_src": true,
+   "sha": "11ca2d59bc332724"
+  },
+  "org192_L1": {
+   "N": 196,
+   "E": 3670,
+   "d1": 512,
+   "W": 1280,
+   "dtype": "torch.float64",
+   "sorted_by_src": true,
+   "sha": "8eac231a32874751"
+  },
+  "water648_L0": {
+   "N": 648,
+   "E": 26550,
+   "d1": 128,
+   "W": 512,
+   "dtype": "torch.float64",
+   "sorted_by_src": true,
+   "sha": "ec8c98f352ba2d2f"
+  },
+  "water648_L1": {
+   "N": 648,
+   "E": 26550,
+   "d1": 512,
+   "W": 1280,
+   "dtype": "torch.float64",
+   "sorted_by_src": true,
+   "sha": "243a26d0f406bb84"
+  },
+  "org648_L0": {
+   "N": 650,
+   "E": 14856,
+   "d1": 128,
+   "W": 512,
+   "dtype": "torch.float64",
+   "sorted_by_src": true,
+   "sha": "6809e68ecd259e4a"
+  },
+  "org648_L1": {
+   "N": 650,
+   "E": 14856,
+   "d1": 512,
+   "W": 1280,
+   "dtype": "torch.float64",
+   "sorted_by_src": true,
+   "sha": "91d76aea7ecda835"
+  },
+  "wbox648_L0": {
+   "N": 648,
+   "E": 35698,
+   "d1": 128,
+   "W": 512,
+   "dtype": "torch.float64",
+   "sorted_by_src": true,
+   "sha": "d1f261e8403dab79"
+  },
+  "wbox648_L1": {
+   "N": 648,
+   "E": 35698,
+   "d1": 512,
+   "W": 1280,
+   "dtype": "torch.float64",
+   "sorted_by_src": true,
+   "sha": "fe86b65b771dc4d9"
+  }
+ }
+}

@@ -1,0 +1,31 @@
+srun: job 990 queued and waiting for resources
+srun: job 990 has been allocated resources
+job=990 host=slurm-h100-206-077 date=2026-11-09T00:52:24+00:00 args=run_nve.py e3nn 0.5 4000 10 e3nn_dt0.5_rerun
+index, name, uuid
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+step 200 Etot/atom=-693.76119722 T=348.2 28.2 ms/step
+step 400 Etot/atom=-693.76120335 T=339.3 19.3 ms/step
+step 600 Etot/atom=-693.76115670 T=317.4 18.3 ms/step
+step 800 Etot/atom=-693.76119296 T=347.9 18.2 ms/step
+step 1000 Etot/atom=-693.76118681 T=352.5 18.2 ms/step
+step 1200 Etot/atom=-693.76119584 T=344.4 18.0 ms/step
+step 1400 Etot/atom=-693.76117768 T=323.8 18.1 ms/step
+step 1600 Etot/atom=-693.76117808 T=331.9 18.1 ms/step
+step 1800 Etot/atom=-693.76120345 T=337.3 18.2 ms/step
+step 2000 Etot/atom=-693.76116602 T=305.3 18.0 ms/step
+step 2200 Etot/atom=-693.76119455 T=361.8 18.0 ms/step
+step 2400 Etot/atom=-693.76118283 T=297.7 18.0 ms/step
+step 2600 Etot/atom=-693.76118538 T=335.3 18.0 ms/step
+step 2800 Etot/atom=-693.76117928 T=327.6 18.1 ms/step
+step 3000 Etot/atom=-693.76120171 T=317.8 18.1 ms/step
+step 3200 Etot/atom=-693.76118144 T=341.5 18.4 ms/step
+step 3400 Etot/atom=-693.76117871 T=350.1 18.2 ms/step
+step 3600 Etot/atom=-693.76118627 T=345.6 18.0 ms/step
+step 3800 Etot/atom=-693.76124030 T=368.8 18.0 ms/step
+step 4000 Etot/atom=-693.76120790 T=353.9 17.9 ms/step
+{'slurm_job': '990', 'host': 'slurm-h100-206-077', 'torch': '2.11.0+cu128', 'gpu': 'NVIDIA H100 80GB HBM3', 'flashTP_file': '/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/flashTP-fp64cg/flashTP_e3nn/__init__.py', 'nvidia_smi': '0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845', 'backend': 'e3nn', 'dt_fs': 0.5, 'nsteps': 4000, 'save_every': 10, 'system': 'water192', 'wall_s': 74.6256969626993, 's_per_step': 0.018656424240674825, 'note': 'wall includes ASE overhead + per-step observer'}

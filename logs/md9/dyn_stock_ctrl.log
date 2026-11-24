@@ -1,0 +1,12 @@
+job=1073 host=slurm-h100-206-077 date=2026-11-10T05:25:03+00:00 args=dyncheck.py stock water192,wbox192 --steps 100 --every 5
+0, NVIDIA H100 80GB HBM3, GPU-3ef4e875-4571-3cea-d408-241db662acb5, 345 MHz, 1980 MHz
+water192 stock_eager step 0 E=6634 dE/at=0.00e+00 maxdF=1.94e-15 dS=0.00e+00 eq=True ok=True
+water192 stock_eager step 100 E=6656 dE/at=1.52e-13 maxdF=2.55e-15 dS=0.00e+00 eq=True ok=True
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE water192 stock_eager samples=21 fails=0 worst={'dE_per_atom': 1.5158245029548803e-13, 'max_dF': 3.1086244689504383e-15, 'rms_dF': 1.0069833588540393e-15, 'dstress': 0.0, 'maxF': 3.920254637053487} edges_eq=True +950/-928 wall=4.4s
+wbox192 stock_eager step 0 E=10552 dE/at=0.00e+00 maxdF=1.94e-15 dS=1.21e-17 eq=True ok=True
+wbox192 stock_eager step 100 E=10488 dE/at=0.00e+00 maxdF=2.22e-15 dS=1.39e-17 eq=True ok=True
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE wbox192 stock_eager samples=21 fails=0 worst={'dE_per_atom': 1.5158245029548803e-13, 'max_dF': 3.6637359812630166e-15, 'rms_dF': 1.1349714820882885e-15, 'dstress': 2.42861286636753e-17, 'maxF': 3.1443978105716597} edges_eq=True +1894/-1958 wall=3.3s
+0, GPU-3ef4e875-4571-3cea-d408-241db662acb5, 1980 MHz
+exit=0 date=2026-11-10T05:25:22+00:00

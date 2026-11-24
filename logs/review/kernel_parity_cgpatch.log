@@ -1,0 +1,36 @@
+  return visitor(node)
+  return visitor(node)
+cgpatch mace/medium.json:L0|dtype=float32|default=float32 fused_uvu_TP_exp_opt_large worst_rel=4.583e-07 out=3.70e-07 d1_in1=4.58e-07 d1_in2=1.70e-07 d1_w=1.89e-07 d2_in1=3.93e-07 d2_in2=2.23e-07 d2_w=2.08e-07 repeat_bitwise False
+  return visitor(node)
+cgpatch mace/medium.json:L0|dtype=float32|default=float64 fused_uvu_TP_exp_opt_large worst_rel=4.647e-07 out=3.73e-07 d1_in1=4.65e-07 d1_in2=1.70e-07 d1_w=1.89e-07 d2_in1=4.10e-07 d2_in2=2.23e-07 d2_w=2.08e-07 repeat_bitwise False
+  return visitor(node)
+cgpatch mace/medium.json:L0|dtype=float64|default=float32 fused_uvu_TP_exp_opt_large worst_rel=1.434e-15 out=1.25e-15 d1_in1=1.06e-15 d1_in2=1.04e-15 d1_w=9.02e-16 d2_in1=1.43e-15 d2_in2=9.65e-16 d2_w=9.64e-16 repeat_bitwise False
+  return visitor(node)
+cgpatch mace/medium.json:L0|dtype=float64|default=float64 fused_uvu_TP_exp_opt_large worst_rel=1.434e-15 out=1.25e-15 d1_in1=1.06e-15 d1_in2=1.04e-15 d1_w=9.02e-16 d2_in1=1.43e-15 d2_in2=9.65e-16 d2_w=9.64e-16 repeat_bitwise False
+  return visitor(node)
+  return visitor(node)
+cgpatch mace/medium.json:L1|dtype=float32|default=float32 fused_uvu_TP_exp_opt_large worst_rel=4.304e-07 out=3.31e-07 d1_in1=4.30e-07 d1_in2=1.52e-07 d1_w=1.87e-07 d2_in1=4.04e-07 d2_in2=1.88e-07 d2_w=2.52e-07 repeat_bitwise False
+  return visitor(node)
+cgpatch mace/medium.json:L1|dtype=float32|default=float64 fused_uvu_TP_exp_opt_large worst_rel=4.672e-07 out=3.84e-07 d1_in1=4.18e-07 d1_in2=1.52e-07 d1_w=1.87e-07 d2_in1=4.67e-07 d2_in2=1.88e-07 d2_w=3.52e-07 repeat_bitwise False
+  return visitor(node)
+cgpatch mace/medium.json:L1|dtype=float64|default=float32 fused_uvu_TP_exp_opt_large worst_rel=5.273e-15 out=2.03e-15 d1_in1=1.42e-15 d1_in2=1.68e-15 d1_w=1.64e-15 d2_in1=1.43e-15 d2_in2=2.41e-15 d2_w=5.27e-15 repeat_bitwise False
+  return visitor(node)
+cgpatch mace/medium.json:L1|dtype=float64|default=float64 fused_uvu_TP_exp_opt_large worst_rel=5.440e-15 out=2.03e-15 d1_in1=1.26e-15 d1_in2=1.68e-15 d1_w=1.57e-15 d2_in1=1.59e-15 d2_in2=2.41e-15 d2_w=5.44e-15 repeat_bitwise False
+  return visitor(node)
+  return visitor(node)
+cgpatch sevennet/sevennet-l3i5.json:L1|dtype=float32|default=float32 fused_uvu_TP_exp_opt_large worst_rel=4.243e-07 out=3.31e-07 d1_in1=4.17e-07 d1_in2=1.23e-07 d1_w=1.73e-07 d2_in1=4.24e-07 d2_in2=1.80e-07 d2_w=3.36e-07 repeat_bitwise False
+  return visitor(node)
+cgpatch sevennet/sevennet-l3i5.json:L1|dtype=float32|default=float64 fused_uvu_TP_exp_opt_large worst_rel=4.490e-07 out=3.28e-07 d1_in1=4.18e-07 d1_in2=1.23e-07 d1_w=1.73e-07 d2_in1=4.49e-07 d2_in2=1.80e-07 d2_w=2.78e-07 repeat_bitwise False
+  return visitor(node)
+cgpatch sevennet/sevennet-l3i5.json:L1|dtype=float64|default=float32 fused_uvu_TP_exp_opt_large worst_rel=2.321e-14 out=2.04e-15 d1_in1=2.33e-15 d1_in2=2.37e-15 d1_w=6.16e-15 d2_in1=3.92e-15 d2_in2=4.13e-15 d2_w=2.32e-14 repeat_bitwise False
+  return visitor(node)
+cgpatch sevennet/sevennet-l3i5.json:L1|dtype=float64|default=float64 fused_uvu_TP_exp_opt_large worst_rel=2.329e-14 out=2.32e-15 d1_in1=2.33e-15 d1_in2=2.37e-15 d1_w=6.21e-15 d2_in1=3.92e-15 d2_in2=4.13e-15 d2_w=2.33e-14 repeat_bitwise False
+  return visitor(node)
+  return visitor(node)
+cgpatch nequip/4_32_5_p_sc.txt:L1|dtype=float32|default=float32 fused_uvu_TP_exp_opt_extcg worst_rel=4.478e-07 out=3.51e-07 d1_in1=3.90e-07 d1_in2=1.60e-07 d1_w=1.90e-07 d2_in1=4.48e-07 d2_in2=1.79e-07 d2_w=2.56e-07 repeat_bitwise False
+  return visitor(node)
+cgpatch nequip/4_32_5_p_sc.txt:L1|dtype=float32|default=float64 fused_uvu_TP_exp_opt_extcg worst_rel=3.715e-07 out=3.39e-07 d1_in1=3.72e-07 d1_in2=1.60e-07 d1_w=1.90e-07 d2_in1=3.53e-07 d2_in2=1.79e-07 d2_w=2.63e-07 repeat_bitwise False
+  return visitor(node)
+cgpatch nequip/4_32_5_p_sc.txt:L1|dtype=float64|default=float32 fused_uvu_TP_exp_opt_extcg worst_rel=2.507e-08 out=1.10e-08 d1_in1=7.59e-10 d1_in2=9.91e-10 d1_w=1.25e-08 d2_in1=1.18e-09 d2_in2=2.42e-09 d2_w=2.51e-08 repeat_bitwise False
+  return visitor(node)
+cgpatch nequip/4_32_5_p_sc.txt:L1|dtype=float64|default=float64 fused_uvu_TP_exp_opt_extcg worst_rel=2.507e-08 out=1.10e-08 d1_in1=7.59e-10 d1_in2=9.91e-10 d1_w=1.25e-08 d2_in1=1.18e-09 d2_in2=2.42e-09 d2_w=2.51e-08 repeat_bitwise False

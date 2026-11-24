@@ -1,0 +1,17 @@
+job=1117 host=slurm-h100-206-077 start=2026-11-10T05:47:18+00:00
+0, NVIDIA H100 80GB HBM3, GPU-edefc586-3f13-ab62-907d-ba075a79f443, 345 MHz, 1980 MHz
+md5 106f5c73ae29dc3fc17f499fba206264  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/bench9.py
+md5 cc67e5325688f2464021000ca27ccda9  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/brute_nl.py
+md5 6c51ea1bfec7e04832c6677527ed5800  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/common9.py
+md5 78133beb87bb1c30f8e8bf94f9b84733  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gen_systems.py
+md5 0432479c74e4fe3fd36badd8386fe598  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gpu_step.py
+md5 64a8038bea51576265d2efefbb3f87d8  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/nodeconv_ext.py
+md5 1b039179a8e03ee3c221db8a90cc308f  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/prof9.py
+md5 d410bebfded9a70d729f166f8276f76b  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/summ9.py
+md5 6df5d863c6bdec92d8bd2d135434ce75  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/test9.py
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+gpustep:cell/water648 {"stage": {"nl_graph": 0.043, "step": 3.05}, "wall": 3410.611000000001, "busy": 2915.724000000001, "idle": 494.8869999999997, "cats": {"conv_bwd(node)": 728, "gemm(radialMLP+linears)": 662, "elementwise": 603, "fused_node": 314, "conv_fwd(node)": 261, "scatter/gather/index": 122, "cueq_SC": 78, "csr_sort/search": 45, "fused_embed": 32, "NL_build": 31, "memcpy/memset": 17, "reduce": 14, "other": 8, "scan/compact": 3}, "syncs": {"cudaMemcpyAsync": 1.0, "cudaDeviceSynchronize": 1.3333333333333333}}
+  json.dump(res, open(out_path, "w"), indent=1, default=str)
+DONE
+0, GPU-edefc586-3f13-ab62-907d-ba075a79f443, 1980 MHz
+end=2026-11-10T05:47:44+00:00

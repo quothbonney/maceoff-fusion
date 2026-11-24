@@ -1,0 +1,376 @@
+SLURM_JOB_ID=982 host=slurm-h100-206-077 date=2026-11-09T00:51:55+00:00
+index, name, uuid
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:89: DeprecationWarning: `torch.jit.save` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/modules/models.py:87: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+{
+ "variant": "conv=flashtp,sc=cueq",
+ "flashTP_e3nn": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/flashTP-fp64cg/flashTP_e3nn/__init__.py",
+ "flash_cg_dtypes": {
+  "interactions.0": {
+   "module_dtype": "torch.float64",
+   "tensor_dtypes": [],
+   "n_unique_cg": 5,
+   "cg_not_fp32_representable": 3
+  },
+  "interactions.1": {
+   "module_dtype": "torch.float64",
+   "tensor_dtypes": [],
+   "n_unique_cg": 19,
+   "cg_not_fp32_representable": 17
+  }
+ },
+ "backend_map": {
+  "node_embedding": "e3nn/torch mace.modules.blocks.LinearNodeEmbeddingBlock",
+  "radial_embedding": "e3nn/torch mace.modules.blocks.RadialEmbeddingBlock",
+  "spherical_harmonics": "e3nn/torch e3nn.o3._spherical_harmonics.SphericalHarmonics",
+  "interactions.0.linear_up": "e3nn/torch e3nn.o3._linear.Linear",
+  "interactions.0.conv_tp_weights": "e3nn/torch e3nn.nn._fc.FullyConnectedNet",
+  "interactions.0.conv_tp(+scatter_sum)": "FlashTP fp64-CG (fused_uvu_TP_exp_opt_large) fused gather+TP+scatter",
+  "interactions.0.linear": "e3nn/torch e3nn.o3._linear.Linear",
+  "interactions.0.skip_tp": "e3nn/torch e3nn.o3._tensor_product._sub.FullyConnectedTensorProduct",
+  "interactions.1.linear_up": "e3nn/torch e3nn.o3._linear.Linear",
+  "interactions.1.conv_tp_weights": "e3nn/torch e3nn.nn._fc.FullyConnectedNet",
+  "interactions.1.conv_tp(+scatter_sum)": "FlashTP fp64-CG (fused_uvu_TP_exp_opt_large) fused gather+TP+scatter",
+  "interactions.1.linear": "e3nn/torch e3nn.o3._linear.Linear",
+  "interactions.1.skip_tp": "e3nn/torch e3nn.o3._tensor_product._sub.FullyConnectedTensorProduct",
+  "products.0.symmetric_contractions": "cuEquivariance cuequivariance_torch.operations.symmetric_contraction.SymmetricContraction",
+  "products.0.linear": "e3nn/torch e3nn.o3._linear.Linear",
+  "products.1.symmetric_contractions": "cuEquivariance cuequivariance_torch.operations.symmetric_contraction.SymmetricContraction",
+  "products.1.linear": "e3nn/torch e3nn.o3._linear.Linear",
+  "readouts.0": "e3nn/torch mace.modules.blocks.LinearReadoutBlock",
+  "readouts.1": "e3nn/torch mace.modules.blocks.NonLinearReadoutBlock"
+ }
+}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+H2O {
+ "interactions.0.conv": {
+  "n_nodes": 3,
+  "n_edges": 6,
+  "out": {
+   "max_abs": 8.881784197001252e-16,
+   "max_abs_rel": 4.2367996636763644e-16,
+   "rms_rel": 5.070152429358519e-16,
+   "max_abs_ref": 2.096342735567141,
+   "shape": [
+    3,
+    2048
+   ]
+  },
+  "d_node_feats": {
+   "max_abs": 1.0658141036401503e-14,
+   "max_abs_rel": 7.877215995912548e-16,
+   "rms_rel": 5.938273062392522e-16,
+   "max_abs_ref": 13.530339960122921,
+   "shape": [
+    3,
+    128
+   ]
+  },
+  "d_edge_attrs": {
+   "max_abs": 1.7763568394002505e-15,
+   "max_abs_rel": 6.2868812526882645e-16,
+   "rms_rel": 5.75092948757962e-16,
+   "max_abs_ref": 2.825497680015321,
+   "shape": [
+    6,
+    16
+   ]
+  },
+  "d_tp_weights": {
+   "max_abs": 1.7763568394002505e-15,
+   "max_abs_rel": 7.125750508000717e-16,
+   "rms_rel": 5.304358823434053e-16,
+   "max_abs_ref": 2.492869821088706,
+   "shape": [
+    6,
+    512
+   ]
+  }
+ },
+ "interactions.1.conv": {
+  "n_nodes": 3,
+  "n_edges": 6,
+  "out": {
+   "max_abs": 9.769962616701378e-15,
+   "max_abs_rel": 1.5276011453635187e-15,
+   "rms_rel": 6.654397955066646e-16,
+   "max_abs_ref": 6.395624045160328,
+   "shape": [
+    3,
+    5120
+   ]
+  },
+  "d_node_feats": {
+   "max_abs": 3.019806626980426e-14,
+   "max_abs_rel": 1.7632322725737723e-15,
+   "rms_rel": 7.235838848339817e-16,
+   "max_abs_ref": 17.126538992916938,
+   "shape": [
+    3,
+    512
+   ]
+  },
+  "d_edge_attrs": {
+   "max_abs": 1.0658141036401503e-14,
+   "max_abs_rel": 7.912021442774171e-16,
+   "rms_rel": 6.7608041003589175e-16,
+   "max_abs_ref": 13.470819200237742,
+   "shape": [
+    6,
+    16
+   ]
+  },
+  "d_tp_weights": {
+   "max_abs": 3.552713678800501e-15,
+   "max_abs_rel": 6.00342307602646e-16,
+   "rms_rel": 5.660650159141726e-16,
+   "max_abs_ref": 5.917813277207789,
+   "shape": [
+    6,
+    1280
+   ]
+  }
+ },
+ "products.0.symmetric_contractions": {
+  "in_shape": [
+   3,
+   128,
+   16
+  ],
+  "out": {
+   "max_abs": 2.220446049250313e-16,
+   "max_abs_rel": 7.954919676339987e-16,
+   "rms_rel": 4.914178306109197e-16,
+   "max_abs_ref": 0.2791286574337766,
+   "shape": [
+    3,
+    512
+   ]
+  },
+  "d_node_feats": {
+   "max_abs": 4.440892098500626e-15,
+   "max_abs_rel": 8.014712551768928e-16,
+   "rms_rel": 5.917364137613635e-16,
+   "max_abs_ref": 5.540924979923923,
+   "shape": [
+    3,
+    128,
+    16
+   ]
+  }
+ },
+ "products.1.symmetric_contractions": {
+  "in_shape": [
+   3,
+   128,
+   16
+  ],
+  "out": {
+   "max_abs": 6.661338147750939e-16,
+   "max_abs_rel": 3.5314571377054777e-16,
+   "rms_rel": 4.0025230784495416e-16,
+   "max_abs_ref": 1.8862859969692467,
+   "shape": [
+    3,
+    128
+   ]
+  },
+  "d_node_feats": {
+   "max_abs": 3.552713678800501e-15,
+   "max_abs_rel": 3.587270573757051e-16,
+   "rms_rel": 3.341466041304736e-16,
+   "max_abs_ref": 9.903667999817594,
+   "shape": [
+    3,
+    128,
+    16
+   ]
+  }
+ }
+}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+water648 {
+ "interactions.0.conv": {
+  "n_nodes": 648,
+  "n_edges": 26550,
+  "out": {
+   "max_abs": 1.7763568394002505e-15,
+   "max_abs_rel": 6.882893401991576e-16,
+   "rms_rel": 5.49821556672289e-16,
+   "max_abs_ref": 2.58082863652408,
+   "shape": [
+    648,
+    2048
+   ]
+  },
+  "d_node_feats": {
+   "max_abs": 3.552713678800501e-14,
+   "max_abs_rel": 9.752414536974427e-16,
+   "rms_rel": 6.251141877910314e-16,
+   "max_abs_ref": 36.42906754354075,
+   "shape": [
+    648,
+    128
+   ]
+  },
+  "d_edge_attrs": {
+   "max_abs": 3.552713678800501e-15,
+   "max_abs_rel": 4.92119861967914e-16,
+   "rms_rel": 5.695812237416346e-16,
+   "max_abs_ref": 7.21920400569432,
+   "shape": [
+    26550,
+    16
+   ]
+  },
+  "d_tp_weights": {
+   "max_abs": 2.6645352591003757e-15,
+   "max_abs_rel": 7.59612483558145e-16,
+   "rms_rel": 5.274982383536146e-16,
+   "max_abs_ref": 3.507756016092931,
+   "shape": [
+    26550,
+    512
+   ]
+  }
+ },
+ "interactions.1.conv": {
+  "n_nodes": 648,
+  "n_edges": 26550,
+  "out": {
+   "max_abs": 1.0658141036401503e-14,
+   "max_abs_rel": 1.5519276568411434e-15,
+   "rms_rel": 6.423733815550002e-16,
+   "max_abs_ref": 6.8676790373692524,
+   "shape": [
+    648,
+    5120
+   ]
+  },
+  "d_node_feats": {
+   "max_abs": 3.907985046680551e-14,
+   "max_abs_rel": 1.0358478511404348e-15,
+   "rms_rel": 7.677019512481091e-16,
+   "max_abs_ref": 37.727404100688986,
+   "shape": [
+    648,
+    512
+   ]
+  },
+  "d_edge_attrs": {
+   "max_abs": 3.197442310920451e-14,
+   "max_abs_rel": 9.971042462456398e-16,
+   "rms_rel": 6.89161780509244e-16,
+   "max_abs_ref": 32.06728206162659,
+   "shape": [
+    26550,
+    16
+   ]
+  },
+  "d_tp_weights": {
+   "max_abs": 9.769962616701378e-15,
+   "max_abs_rel": 7.382904020182398e-16,
+   "rms_rel": 6.302334597593865e-16,
+   "max_abs_ref": 13.233224473721393,
+   "shape": [
+    26550,
+    1280
+   ]
+  }
+ },
+ "products.0.symmetric_contractions": {
+  "in_shape": [
+   648,
+   128,
+   16
+  ],
+  "out": {
+   "max_abs": 6.661338147750939e-16,
+   "max_abs_rel": 2.0824511890728127e-15,
+   "rms_rel": 7.30325458504729e-16,
+   "max_abs_ref": 0.3198796775023967,
+   "shape": [
+    648,
+    512
+   ]
+  },
+  "d_node_feats": {
+   "max_abs": 9.325873406851315e-15,
+   "max_abs_rel": 1.1304109723722923e-15,
+   "rms_rel": 7.275272250286154e-16,
+   "max_abs_ref": 8.249984859294084,
+   "shape": [
+    648,
+    128,
+    16
+   ]
+  }
+ },
+ "products.1.symmetric_contractions": {
+  "in_shape": [
+   648,
+   128,
+   16
+  ],
+  "out": {
+   "max_abs": 3.552713678800501e-15,
+   "max_abs_rel": 1.482205942190713e-15,
+   "rms_rel": 4.993931472816861e-16,
+   "max_abs_ref": 2.3969096180720744,
+   "shape": [
+    648,
+    128
+   ]
+  },
+  "d_node_feats": {
+   "max_abs": 7.993605777301127e-15,
+   "max_abs_rel": 4.528464645964643e-16,
+   "rms_rel": 4.3196186166316174e-16,
+   "max_abs_ref": 17.651911635048986,
+   "shape": [
+    648,
+    128,
+    16
+   ]
+  }
+ }
+}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/hybrid/layer_parity.py:40: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/hybrid/layer_parity.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=2)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+rc=0

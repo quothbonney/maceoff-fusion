@@ -1,0 +1,921 @@
+{
+  "env": {
+    "slurm_job": "992",
+    "host": "slurm-h100-206-077",
+    "gpu": "0, NVIDIA H100 80GB HBM3, GPU-edefc586-3f13-ab62-907d-ba075a79f443",
+    "torch": "2.11.0+cu128",
+    "mace": "0.3.17",
+    "e3nn": "0.4.4",
+    "cuequivariance": "0.10.0",
+    "flashTP_e3nn": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/flashTP-fp64cg/flashTP_e3nn/__init__.py"
+  },
+  "r_max": 5.0,
+  "nrep": 5,
+  "nseq": 5,
+  "describe": {
+    "e3nn": {
+      "node_embedding": "e3nn/torch mace.modules.blocks.LinearNodeEmbeddingBlock",
+      "radial_embedding": "e3nn/torch mace.modules.blocks.RadialEmbeddingBlock",
+      "spherical_harmonics": "e3nn/torch e3nn.o3._spherical_harmonics.SphericalHarmonics",
+      "interactions.0.linear_up": "e3nn/torch e3nn.o3._linear.Linear",
+      "interactions.0.conv_tp_weights": "e3nn/torch e3nn.nn._fc.FullyConnectedNet",
+      "interactions.0.conv_tp(+scatter_sum)": "e3nn/torch e3nn.o3._tensor_product._tensor_product.TensorProduct",
+      "interactions.0.linear": "e3nn/torch e3nn.o3._linear.Linear",
+      "interactions.0.skip_tp": "e3nn/torch e3nn.o3._tensor_product._sub.FullyConnectedTensorProduct",
+      "interactions.0.scatter_sum": "torch scatter_sum",
+      "interactions.1.linear_up": "e3nn/torch e3nn.o3._linear.Linear",
+      "interactions.1.conv_tp_weights": "e3nn/torch e3nn.nn._fc.FullyConnectedNet",
+      "interactions.1.conv_tp(+scatter_sum)": "e3nn/torch e3nn.o3._tensor_product._tensor_product.TensorProduct",
+      "interactions.1.linear": "e3nn/torch e3nn.o3._linear.Linear",
+      "interactions.1.skip_tp": "e3nn/torch e3nn.o3._tensor_product._sub.FullyConnectedTensorProduct",
+      "interactions.1.scatter_sum": "torch scatter_sum",
+      "products.0.symmetric_contractions": "e3nn/torch mace.modules.symmetric_contraction.SymmetricContraction",
+      "products.0.linear": "e3nn/torch e3nn.o3._linear.Linear",
+      "products.1.symmetric_contractions": "e3nn/torch mace.modules.symmetric_contraction.SymmetricContraction",
+      "products.1.linear": "e3nn/torch e3nn.o3._linear.Linear",
+      "readouts.0": "e3nn/torch mace.modules.blocks.LinearReadoutBlock",
+      "readouts.1": "e3nn/torch mace.modules.blocks.NonLinearReadoutBlock"
+    },
+    "hybrid": {
+      "node_embedding": "e3nn/torch mace.modules.blocks.LinearNodeEmbeddingBlock",
+      "radial_embedding": "e3nn/torch mace.modules.blocks.RadialEmbeddingBlock",
+      "spherical_harmonics": "e3nn/torch e3nn.o3._spherical_harmonics.SphericalHarmonics",
+      "interactions.0.linear_up": "e3nn/torch e3nn.o3._linear.Linear",
+      "interactions.0.conv_tp_weights": "e3nn/torch e3nn.nn._fc.FullyConnectedNet",
+      "interactions.0.conv_tp(+scatter_sum)": "FlashTP fp64-CG (fused_uvu_TP_exp_opt_large) fused gather+TP+scatter",
+      "interactions.0.linear": "e3nn/torch e3nn.o3._linear.Linear",
+      "interactions.0.skip_tp": "e3nn/torch e3nn.o3._tensor_product._sub.FullyConnectedTensorProduct",
+      "interactions.1.linear_up": "e3nn/torch e3nn.o3._linear.Linear",
+      "interactions.1.conv_tp_weights": "e3nn/torch e3nn.nn._fc.FullyConnectedNet",
+      "interactions.1.conv_tp(+scatter_sum)": "FlashTP fp64-CG (fused_uvu_TP_exp_opt_large) fused gather+TP+scatter",
+      "interactions.1.linear": "e3nn/torch e3nn.o3._linear.Linear",
+      "interactions.1.skip_tp": "e3nn/torch e3nn.o3._tensor_product._sub.FullyConnectedTensorProduct",
+      "products.0.symmetric_contractions": "cuEquivariance cuequivariance_torch.operations.symmetric_contraction.SymmetricContraction",
+      "products.0.linear": "e3nn/torch e3nn.o3._linear.Linear",
+      "products.1.symmetric_contractions": "cuEquivariance cuequivariance_torch.operations.symmetric_contraction.SymmetricContraction",
+      "products.1.linear": "e3nn/torch e3nn.o3._linear.Linear",
+      "readouts.0": "e3nn/torch mace.modules.blocks.LinearReadoutBlock",
+      "readouts.1": "e3nn/torch mace.modules.blocks.NonLinearReadoutBlock"
+    },
+    "flashtp_fp64cg_only": {
+      "node_embedding": "e3nn/torch mace.modules.blocks.LinearNodeEmbeddingBlock",
+      "radial_embedding": "e3nn/torch mace.modules.blocks.RadialEmbeddingBlock",
+      "spherical_harmonics": "e3nn/torch e3nn.o3._spherical_harmonics.SphericalHarmonics",
+      "interactions.0.linear_up": "e3nn/torch e3nn.o3._linear.Linear",
+      "interactions.0.conv_tp_weights": "e3nn/torch e3nn.nn._fc.FullyConnectedNet",
+      "interactions.0.conv_tp(+scatter_sum)": "FlashTP fp64-CG (fused_uvu_TP_exp_opt_large) fused gather+TP+scatter",
+      "interactions.0.linear": "e3nn/torch e3nn.o3._linear.Linear",
+      "interactions.0.skip_tp": "e3nn/torch e3nn.o3._tensor_product._sub.FullyConnectedTensorProduct",
+      "interactions.1.linear_up": "e3nn/torch e3nn.o3._linear.Linear",
+      "interactions.1.conv_tp_weights": "e3nn/torch e3nn.nn._fc.FullyConnectedNet",
+      "interactions.1.conv_tp(+scatter_sum)": "FlashTP fp64-CG (fused_uvu_TP_exp_opt_large) fused gather+TP+scatter",
+      "interactions.1.linear": "e3nn/torch e3nn.o3._linear.Linear",
+      "interactions.1.skip_tp": "e3nn/torch e3nn.o3._tensor_product._sub.FullyConnectedTensorProduct",
+      "products.0.symmetric_contractions": "e3nn/torch mace.modules.symmetric_contraction.SymmetricContraction",
+      "products.0.linear": "e3nn/torch e3nn.o3._linear.Linear",
+      "products.1.symmetric_contractions": "e3nn/torch mace.modules.symmetric_contraction.SymmetricContraction",
+      "products.1.linear": "e3nn/torch e3nn.o3._linear.Linear",
+      "readouts.0": "e3nn/torch mace.modules.blocks.LinearReadoutBlock",
+      "readouts.1": "e3nn/torch mace.modules.blocks.NonLinearReadoutBlock"
+    },
+    "cueq_only": {
+      "node_embedding": "e3nn/torch mace.modules.blocks.LinearNodeEmbeddingBlock",
+      "radial_embedding": "e3nn/torch mace.modules.blocks.RadialEmbeddingBlock",
+      "spherical_harmonics": "e3nn/torch e3nn.o3._spherical_harmonics.SphericalHarmonics",
+      "interactions.0.linear_up": "e3nn/torch cuequivariance_torch.operations.linear.Linear",
+      "interactions.0.conv_tp_weights": "e3nn/torch e3nn.nn._fc.FullyConnectedNet",
+      "interactions.0.conv_tp(+scatter_sum)": "e3nn/torch mace.modules.wrapper_ops.CueqConvFusionWrapper",
+      "interactions.0.linear": "e3nn/torch cuequivariance_torch.operations.linear.Linear",
+      "interactions.0.skip_tp": "e3nn/torch cuequivariance_torch.operations.tp_fully_connected.FullyConnectedTensorProduct",
+      "interactions.1.linear_up": "e3nn/torch cuequivariance_torch.operations.linear.Linear",
+      "interactions.1.conv_tp_weights": "e3nn/torch e3nn.nn._fc.FullyConnectedNet",
+      "interactions.1.conv_tp(+scatter_sum)": "e3nn/torch mace.modules.wrapper_ops.CueqConvFusionWrapper",
+      "interactions.1.linear": "e3nn/torch cuequivariance_torch.operations.linear.Linear",
+      "interactions.1.skip_tp": "e3nn/torch cuequivariance_torch.operations.tp_fully_connected.FullyConnectedTensorProduct",
+      "products.0.symmetric_contractions": "e3nn/torch cuequivariance_torch.operations.symmetric_contraction.SymmetricContraction",
+      "products.0.linear": "e3nn/torch cuequivariance_torch.operations.linear.Linear",
+      "products.1.symmetric_contractions": "e3nn/torch cuequivariance_torch.operations.symmetric_contraction.SymmetricContraction",
+      "products.1.linear": "e3nn/torch cuequivariance_torch.operations.linear.Linear",
+      "readouts.0": "e3nn/torch mace.modules.blocks.LinearReadoutBlock",
+      "readouts.1": "e3nn/torch mace.modules.blocks.NonLinearReadoutBlock"
+    }
+  },
+  "systems": {
+    "H2O": {
+      "n_atoms": 3,
+      "neighbour_list": {
+        "n_edges": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "edges_changed_vs_prev": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "E_ref": -2081.11639716893,
+      "max_abs_F_ref": 0.6474868257116836,
+      "variants": {
+        "e3nn": {
+          "fixed": {
+            "dE_per_atom": 0.0,
+            "max_dF": 2.220446049250313e-16,
+            "rms_dF": 9.435081445006127e-17
+          },
+          "sequence": {
+            "dE_per_atom": 0.0,
+            "max_dF": 0.0,
+            "rms_dF": 0.0,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 0.0,
+            "max_dF": 2.220446049250313e-16,
+            "bitwise": false
+          },
+          "finite": true
+        },
+        "hybrid": {
+          "fixed": {
+            "dE_per_atom": 0.0,
+            "max_dF": 1.3322676295501878e-15,
+            "rms_dF": 6.153703157528312e-16
+          },
+          "sequence": {
+            "dE_per_atom": 0.0,
+            "max_dF": 3.552713678800501e-15,
+            "rms_dF": 1.5198924486865216e-15,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.8318679906315083e-15,
+                "rms_dF": 8.917537962399872e-16
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 8.881784197001252e-16,
+                "rms_dF": 4.4343821139132427e-16
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 3.552713678800501e-15,
+                "rms_dF": 1.5198924486865216e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 3.1086244689504383e-15,
+                "rms_dF": 1.3777302764308355e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.7763568394002505e-15,
+                "rms_dF": 7.293003430866407e-16
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 0.0,
+            "max_dF": 0.0,
+            "bitwise": true
+          },
+          "finite": true
+        },
+        "flashtp_fp64cg_only": {
+          "fixed": {
+            "dE_per_atom": 0.0,
+            "max_dF": 4.440892098500626e-16,
+            "rms_dF": 2.496287910312615e-16
+          },
+          "sequence": {
+            "dE_per_atom": 0.0,
+            "max_dF": 2.6645352591003757e-15,
+            "rms_dF": 1.2272758231967587e-15,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 6.106226635438361e-16,
+                "rms_dF": 3.7114119466637394e-16
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.1102230246251565e-15,
+                "rms_dF": 6.248943877450927e-16
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.8041124150158794e-15,
+                "rms_dF": 7.535935526169163e-16
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 2.6645352591003757e-15,
+                "rms_dF": 1.2272758231967587e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 4.440892098500626e-16,
+                "rms_dF": 2.8196357577776834e-16
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 0.0,
+            "max_dF": 0.0,
+            "bitwise": true
+          },
+          "finite": true
+        },
+        "cueq_only": {
+          "fixed": {
+            "dE_per_atom": 0.0,
+            "max_dF": 6.106226635438361e-16,
+            "rms_dF": 3.257915578362045e-16
+          },
+          "sequence": {
+            "dE_per_atom": 0.0,
+            "max_dF": 2.6645352591003757e-15,
+            "rms_dF": 1.4749557125532158e-15,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 6.661338147750939e-16,
+                "rms_dF": 3.7592835925080507e-16
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.7763568394002505e-15,
+                "rms_dF": 8.983835717709211e-16
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.4155343563970746e-15,
+                "rms_dF": 8.192387602199265e-16
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 2.6645352591003757e-15,
+                "rms_dF": 1.4749557125532158e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 6.661338147750939e-16,
+                "rms_dF": 3.1882017285679626e-16
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 0.0,
+            "max_dF": 0.0,
+            "bitwise": true
+          },
+          "finite": true
+        }
+      }
+    },
+    "water192": {
+      "n_atoms": 192,
+      "neighbour_list": {
+        "n_edges": [
+          6634,
+          6632,
+          6618,
+          6602,
+          6612,
+          6622
+        ],
+        "edges_changed_vs_prev": [
+          58,
+          62,
+          64,
+          54,
+          74
+        ]
+      },
+      "E_ref": -133194.08439848517,
+      "max_abs_F_ref": 2.8883389022792088,
+      "variants": {
+        "e3nn": {
+          "fixed": {
+            "dE_per_atom": 1.5158245029548803e-13,
+            "max_dF": 2.4424906541753444e-15,
+            "rms_dF": 5.658457635886298e-16
+          },
+          "sequence": {
+            "dE_per_atom": 0.0,
+            "max_dF": 0.0,
+            "rms_dF": 0.0,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 2.9103830456733704e-11,
+            "max_dF": 2.4424906541753444e-15,
+            "bitwise": false
+          },
+          "finite": true
+        },
+        "hybrid": {
+          "fixed": {
+            "dE_per_atom": 1.5158245029548803e-13,
+            "max_dF": 4.107825191113079e-15,
+            "rms_dF": 9.396426111819477e-16
+          },
+          "sequence": {
+            "dE_per_atom": 1.5158245029548803e-13,
+            "max_dF": 1.4210854715202004e-14,
+            "rms_dF": 1.659189125048187e-15,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 3.1086244689504383e-15,
+                "rms_dF": 9.451776615035974e-16
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 3.552713678800501e-15,
+                "rms_dF": 1.0195991572307612e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 7.105427357601002e-15,
+                "rms_dF": 1.2670273557960542e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.2434497875801753e-14,
+                "rms_dF": 1.5803226201084525e-15
+              },
+              {
+                "dE_per_atom": 1.5158245029548803e-13,
+                "max_dF": 1.4210854715202004e-14,
+                "rms_dF": 1.659189125048187e-15
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 0.0,
+            "max_dF": 2.4424906541753444e-15,
+            "bitwise": false
+          },
+          "finite": true
+        },
+        "flashtp_fp64cg_only": {
+          "fixed": {
+            "dE_per_atom": 1.5158245029548803e-13,
+            "max_dF": 3.4416913763379853e-15,
+            "rms_dF": 7.996737498205749e-16
+          },
+          "sequence": {
+            "dE_per_atom": 1.5158245029548803e-13,
+            "max_dF": 1.2434497875801753e-14,
+            "rms_dF": 1.6830641377236892e-15,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 3.1086244689504383e-15,
+                "rms_dF": 9.02671412767595e-16
+              },
+              {
+                "dE_per_atom": 1.5158245029548803e-13,
+                "max_dF": 3.552713678800501e-15,
+                "rms_dF": 9.145560083033885e-16
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 8.881784197001252e-15,
+                "rms_dF": 1.1257280757834253e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.2434497875801753e-14,
+                "rms_dF": 1.6830641377236892e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.0658141036401503e-14,
+                "rms_dF": 1.6130094206975738e-15
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 2.9103830456733704e-11,
+            "max_dF": 2.4424906541753444e-15,
+            "bitwise": false
+          },
+          "finite": true
+        },
+        "cueq_only": {
+          "fixed": {
+            "dE_per_atom": 1.5158245029548803e-13,
+            "max_dF": 5.329070518200751e-15,
+            "rms_dF": 9.411137021712994e-16
+          },
+          "sequence": {
+            "dE_per_atom": 0.0,
+            "max_dF": 3.197442310920451e-14,
+            "rms_dF": 2.603855163340006e-15,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 4.884981308350689e-15,
+                "rms_dF": 1.0722721262845113e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 6.217248937900877e-15,
+                "rms_dF": 1.271602819171767e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.5987211554602254e-14,
+                "rms_dF": 1.6589888758304599e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.9539925233402755e-14,
+                "rms_dF": 2.2243232844036078e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 3.197442310920451e-14,
+                "rms_dF": 2.603855163340006e-15
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 0.0,
+            "max_dF": 2.4980018054066022e-15,
+            "bitwise": false
+          },
+          "finite": true
+        }
+      }
+    },
+    "water648": {
+      "n_atoms": 648,
+      "neighbour_list": {
+        "n_edges": [
+          26550,
+          26566,
+          26552,
+          26540,
+          26554,
+          26596
+        ],
+        "edges_changed_vs_prev": [
+          304,
+          330,
+          308,
+          274,
+          302
+        ]
+      },
+      "E_ref": -449526.0097505144,
+      "max_abs_F_ref": 2.1820918171182973,
+      "variants": {
+        "e3nn": {
+          "fixed": {
+            "dE_per_atom": 0.0,
+            "max_dF": 3.4416913763379853e-15,
+            "rms_dF": 6.19726904136905e-16
+          },
+          "sequence": {
+            "dE_per_atom": 0.0,
+            "max_dF": 0.0,
+            "rms_dF": 0.0,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 0.0,
+            "max_dF": 3.4416913763379853e-15,
+            "bitwise": false
+          },
+          "finite": true
+        },
+        "hybrid": {
+          "fixed": {
+            "dE_per_atom": 0.0,
+            "max_dF": 4.440892098500626e-15,
+            "rms_dF": 9.853646338279198e-16
+          },
+          "sequence": {
+            "dE_per_atom": 8.982663721214106e-14,
+            "max_dF": 2.1316282072803006e-14,
+            "rms_dF": 1.5994744980893336e-15,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 4.440892098500626e-15,
+                "rms_dF": 1.0307581679074097e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 5.329070518200751e-15,
+                "rms_dF": 1.0726919636007023e-15
+              },
+              {
+                "dE_per_atom": 8.982663721214106e-14,
+                "max_dF": 7.105427357601002e-15,
+                "rms_dF": 1.1662716554454786e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 8.881784197001252e-15,
+                "rms_dF": 1.2896945147946992e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 2.1316282072803006e-14,
+                "rms_dF": 1.5994744980893336e-15
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 0.0,
+            "max_dF": 2.831068712794149e-15,
+            "bitwise": false
+          },
+          "finite": true
+        },
+        "flashtp_fp64cg_only": {
+          "fixed": {
+            "dE_per_atom": 0.0,
+            "max_dF": 3.941291737419306e-15,
+            "rms_dF": 8.612752999861135e-16
+          },
+          "sequence": {
+            "dE_per_atom": 8.982663721214106e-14,
+            "max_dF": 2.4868995751603507e-14,
+            "rms_dF": 1.4982517117101936e-15,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 3.552713678800501e-15,
+                "rms_dF": 9.001243293068241e-16
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 5.329070518200751e-15,
+                "rms_dF": 9.638022152543708e-16
+              },
+              {
+                "dE_per_atom": 8.982663721214106e-14,
+                "max_dF": 5.329070518200751e-15,
+                "rms_dF": 1.0616878296905284e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 8.881784197001252e-15,
+                "rms_dF": 1.2138091153371306e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 2.4868995751603507e-14,
+                "rms_dF": 1.4982517117101936e-15
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 0.0,
+            "max_dF": 3.3861802251067274e-15,
+            "bitwise": false
+          },
+          "finite": true
+        },
+        "cueq_only": {
+          "fixed": {
+            "dE_per_atom": 0.0,
+            "max_dF": 4.9960036108132044e-15,
+            "rms_dF": 9.865832584047075e-16
+          },
+          "sequence": {
+            "dE_per_atom": 8.982663721214106e-14,
+            "max_dF": 4.263256414560601e-14,
+            "rms_dF": 2.2637351979216628e-15,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 5.329070518200751e-15,
+                "rms_dF": 1.094499900682977e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 7.993605777301127e-15,
+                "rms_dF": 1.2932046065203558e-15
+              },
+              {
+                "dE_per_atom": 8.982663721214106e-14,
+                "max_dF": 8.881784197001252e-15,
+                "rms_dF": 1.4308256395421148e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.7763568394002505e-14,
+                "rms_dF": 1.6705861878231952e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 4.263256414560601e-14,
+                "rms_dF": 2.2637351979216628e-15
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 0.0,
+            "max_dF": 4.107825191113079e-15,
+            "bitwise": false
+          },
+          "finite": true
+        }
+      }
+    },
+    "water1536": {
+      "n_atoms": 1536,
+      "neighbour_list": {
+        "n_edges": [
+          67960,
+          67970,
+          67920,
+          67930,
+          67912,
+          67888
+        ],
+        "edges_changed_vs_prev": [
+          742,
+          822,
+          782,
+          750,
+          824
+        ]
+      },
+      "E_ref": -1065538.247786699,
+      "max_abs_F_ref": 2.6786979374739612,
+      "variants": {
+        "e3nn": {
+          "fixed": {
+            "dE_per_atom": 0.0,
+            "max_dF": 3.1086244689504383e-15,
+            "rms_dF": 5.990539360824766e-16
+          },
+          "sequence": {
+            "dE_per_atom": 0.0,
+            "max_dF": 0.0,
+            "rms_dF": 0.0,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 0.0,
+                "rms_dF": 0.0
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 0.0,
+            "max_dF": 3.1086244689504383e-15,
+            "bitwise": false
+          },
+          "finite": true
+        },
+        "hybrid": {
+          "fixed": {
+            "dE_per_atom": 0.0,
+            "max_dF": 5.329070518200751e-15,
+            "rms_dF": 9.527610639840169e-16
+          },
+          "sequence": {
+            "dE_per_atom": 0.0,
+            "max_dF": 1.2434497875801753e-14,
+            "rms_dF": 1.3559634300157595e-15,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 4.440892098500626e-15,
+                "rms_dF": 9.968190970385085e-16
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 4.884981308350689e-15,
+                "rms_dF": 1.1041752899324165e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 5.329070518200751e-15,
+                "rms_dF": 1.146828467890307e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.2434497875801753e-14,
+                "rms_dF": 1.279608211324726e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.0658141036401503e-14,
+                "rms_dF": 1.3559634300157595e-15
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 0.0,
+            "max_dF": 3.774758283725532e-15,
+            "bitwise": false
+          },
+          "finite": true
+        },
+        "flashtp_fp64cg_only": {
+          "fixed": {
+            "dE_per_atom": 0.0,
+            "max_dF": 5.10702591327572e-15,
+            "rms_dF": 8.451408004040816e-16
+          },
+          "sequence": {
+            "dE_per_atom": 0.0,
+            "max_dF": 1.2434497875801753e-14,
+            "rms_dF": 1.2765475931877136e-15,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 5.329070518200751e-15,
+                "rms_dF": 9.139524439597691e-16
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 7.105427357601002e-15,
+                "rms_dF": 1.0076081041481448e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 6.217248937900877e-15,
+                "rms_dF": 1.0438960228330506e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.2434497875801753e-14,
+                "rms_dF": 1.1940935495938212e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.0658141036401503e-14,
+                "rms_dF": 1.2765475931877136e-15
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 0.0,
+            "max_dF": 3.608224830031759e-15,
+            "bitwise": false
+          },
+          "finite": true
+        },
+        "cueq_only": {
+          "fixed": {
+            "dE_per_atom": 0.0,
+            "max_dF": 4.440892098500626e-15,
+            "rms_dF": 9.532717359974015e-16
+          },
+          "sequence": {
+            "dE_per_atom": 1.5158245029548803e-13,
+            "max_dF": 3.552713678800501e-14,
+            "rms_dF": 1.8450877638637395e-15,
+            "per_step": [
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 7.105427357601002e-15,
+                "rms_dF": 1.1131334705138961e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 7.993605777301127e-15,
+                "rms_dF": 1.2982648491581648e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 1.4210854715202004e-14,
+                "rms_dF": 1.415123997397489e-15
+              },
+              {
+                "dE_per_atom": 0.0,
+                "max_dF": 2.4868995751603507e-14,
+                "rms_dF": 1.635041317494254e-15
+              },
+              {
+                "dE_per_atom": 1.5158245029548803e-13,
+                "max_dF": 3.552713678800501e-14,
+                "rms_dF": 1.8450877638637395e-15
+              }
+            ]
+          },
+          "repeat": {
+            "max_dE": 0.0,
+            "max_dF": 2.6645352591003757e-15,
+            "bitwise": false
+          },
+          "finite": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,627 @@
+{
+ "global_default": "torch.float32",
+ "slurm_job": "1009",
+ "gpu": "0, NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800",
+ "tests": {
+  "parity_fp64": {
+   "CH3CH2OH": {
+    "n_atoms": 9,
+    "n_edges": 72,
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 1.3322676295501878e-15,
+     "rms_dF": 5.622756292517344e-16,
+     "max_absF_ref": 2.6488081570861732
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 1.5543122344752192e-15,
+     "rms_dF": 5.968141868755534e-16,
+     "max_absF_ref": 2.6488081570861732
+    }
+   },
+   "CH3COOH": {
+    "n_atoms": 8,
+    "n_edges": 56,
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 1.3322676295501878e-15,
+     "rms_dF": 6.444290500355247e-16,
+     "max_absF_ref": 2.3610090069103618
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.6645352591003757e-15,
+     "rms_dF": 8.314443088825597e-16,
+     "max_absF_ref": 2.3610090069103618
+    }
+   },
+   "C6H6": {
+    "n_atoms": 12,
+    "n_edges": 132,
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.1086244689504383e-15,
+     "rms_dF": 8.203709701841329e-16,
+     "max_absF_ref": 3.2463768175157286
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.6645352591003757e-15,
+     "rms_dF": 7.341586216917441e-16,
+     "max_absF_ref": 3.2463768175157286
+    }
+   },
+   "CH3SH": {
+    "n_atoms": 6,
+    "n_edges": 30,
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 6.938893903907228e-16,
+     "rms_dF": 2.778543534712436e-16,
+     "max_absF_ref": 1.5422418973394176
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 6.106226635438361e-16,
+     "rms_dF": 2.5049124011068924e-16,
+     "max_absF_ref": 1.5422418973394176
+    }
+   },
+   "CH3Cl": {
+    "n_atoms": 5,
+    "n_edges": 20,
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 6.661338147750939e-16,
+     "rms_dF": 2.422276991315553e-16,
+     "max_absF_ref": 1.236443620391868
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 8.881784197001252e-16,
+     "rms_dF": 4.916638054478553e-16,
+     "max_absF_ref": 1.236443620391868
+    }
+   },
+   "waterbox648_pbc": {
+    "n_atoms": 648,
+    "n_edges": 35198,
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 4.440892098500626e-15,
+     "rms_dF": 9.260388764736594e-16,
+     "max_absF_ref": 2.439872539652047,
+     "max_dS_eV_A3": 2.1250362580715887e-17,
+     "max_absS_ref": 0.004860113913332652
+    },
+    "hybrid": {
+     "dE_per_atom": 0.0,
+     "max_dF": 6.217248937900877e-15,
+     "rms_dF": 1.0467088924699975e-15,
+     "max_absF_ref": 2.439872539652047,
+     "max_dS_eV_A3": 1.8214596497756474e-17,
+     "max_absS_ref": 0.004860113913332652
+    }
+   },
+   "waterbox192_strained_pbc": {
+    "n_atoms": 192,
+    "n_edges": 10218,
+    "flash": {
+     "dE_per_atom": 0.0,
+     "max_dF": 4.440892098500626e-15,
+     "rms_dF": 1.000791984219539e-15,
+     "max_absF_ref": 5.106213967452664,
+     "max_dS_eV_A3": 2.3201926491189795e-17,
+     "max_absS_ref": 0.015563532289178008
+    },
+    "hybrid": {
+     "dE_per_atom": 1.5158245029548803e-13,
+     "max_dF": 6.217248937900877e-15,
+     "rms_dF": 1.1408175661310034e-15,
+     "max_absF_ref": 5.106213967452664,
+     "max_dS_eV_A3": 1.9081958235744878e-17,
+     "max_absS_ref": 0.015563532289178008
+    }
+   },
+   "ase_get_stress_flash": "PropertyNotImplementedError: stress property not implemented",
+   "status": "ok",
+   "sec": 19.2
+  },
+  "cg_tables": {
+   "flash_L0": {
+    "kernel_class": "fused_uvu_TP_exp_opt_large",
+    "n_unique_cg": 5,
+    "cg_not_fp32_representable": 3,
+    "float_tensor_dtypes": [
+     "torch.float64"
+    ],
+    "cg_tensor_dtype": "torch.float64",
+    "max_abs_e3nn_fp64_cg_to_table": 6.106226635438361e-16,
+    "requested_dtype": "torch.float64",
+    "default_dtype_at_build": "torch.float32"
+   },
+   "flash_L1": {
+    "kernel_class": "fused_uvu_TP_exp_opt_large",
+    "n_unique_cg": 19,
+    "cg_not_fp32_representable": 17,
+    "float_tensor_dtypes": [
+     "torch.float64"
+    ],
+    "cg_tensor_dtype": "torch.float64",
+    "max_abs_e3nn_fp64_cg_to_table": 7.216449660063518e-16,
+    "requested_dtype": "torch.float64",
+    "default_dtype_at_build": "torch.float32"
+   },
+   "hybrid_L0": {
+    "kernel_class": "fused_uvu_TP_exp_opt_large",
+    "n_unique_cg": 5,
+    "cg_not_fp32_representable": 3,
+    "float_tensor_dtypes": [
+     "torch.float64"
+    ],
+    "cg_tensor_dtype": "torch.float64",
+    "max_abs_e3nn_fp64_cg_to_table": 6.106226635438361e-16,
+    "requested_dtype": "torch.float64",
+    "default_dtype_at_build": "torch.float32"
+   },
+   "hybrid_L1": {
+    "kernel_class": "fused_uvu_TP_exp_opt_large",
+    "n_unique_cg": 19,
+    "cg_not_fp32_representable": 17,
+    "float_tensor_dtypes": [
+     "torch.float64"
+    ],
+    "cg_tensor_dtype": "torch.float64",
+    "max_abs_e3nn_fp64_cg_to_table": 7.216449660063518e-16,
+    "requested_dtype": "torch.float64",
+    "default_dtype_at_build": "torch.float32"
+   },
+   "status": "ok",
+   "sec": 0.0
+  },
+  "fp32": {
+   "CH3CH2OH": {
+    "e3nn32_vs_e3nn64": {
+     "dE_per_atom": 0.00015244509146820442,
+     "max_dF": 3.6600830166655385e-06,
+     "rms_dF": 1.52107732597327e-06,
+     "max_absF_ref": 2.648808157086173
+    },
+    "flash32_vs_e3nn32": {
+     "dE_per_atom": 0.0,
+     "max_dF": 4.76837158203125e-07,
+     "rms_dF": 1.903169574966023e-07,
+     "max_absF_ref": 2.6488118171691895
+    },
+    "flash32_vs_e3nn64": {
+     "dE_per_atom": 0.00015244509146820442,
+     "max_dF": 3.6600830166655385e-06,
+     "rms_dF": 1.5700904606151538e-06,
+     "max_absF_ref": 2.648808157086173
+    },
+    "hybrid32_vs_e3nn32": {
+     "dE_per_atom": 0.0,
+     "max_dF": 7.152557373046875e-07,
+     "rms_dF": 2.5069689898583365e-07,
+     "max_absF_ref": 2.6488118171691895
+    },
+    "hybrid32_vs_e3nn64": {
+     "dE_per_atom": 0.00015244509146820442,
+     "max_dF": 3.421664437563976e-06,
+     "rms_dF": 1.6038314447827312e-06,
+     "max_absF_ref": 2.648808157086173
+    },
+    "e3nn32_repeat": {
+     "dE_per_atom": 0.0,
+     "max_dF": 7.152557373046875e-07,
+     "rms_dF": 2.4633079454604114e-07,
+     "max_absF_ref": 2.6488118171691895
+    }
+   },
+   "CH3SH": {
+    "e3nn32_vs_e3nn64": {
+     "dE_per_atom": 0.00020633312275701124,
+     "max_dF": 2.4469870524290727e-06,
+     "rms_dF": 1.0631578114284604e-06,
+     "max_absF_ref": 1.5422418973394176
+    },
+    "flash32_vs_e3nn32": {
+     "dE_per_atom": 0.0,
+     "max_dF": 4.172325134277344e-07,
+     "rms_dF": 1.3950802523477164e-07,
+     "max_absF_ref": 1.5422406196594238
+    },
+    "flash32_vs_e3nn64": {
+     "dE_per_atom": 0.00020633312275701124,
+     "max_dF": 2.5065916972044633e-06,
+     "rms_dF": 1.1614684737512993e-06,
+     "max_absF_ref": 1.5422418973394176
+    },
+    "hybrid32_vs_e3nn32": {
+     "dE_per_atom": 0.0,
+     "max_dF": 2.980232238769531e-07,
+     "rms_dF": 1.3459839962515694e-07,
+     "max_absF_ref": 1.5422406196594238
+    },
+    "hybrid32_vs_e3nn64": {
+     "dE_per_atom": 0.00020633312275701124,
+     "max_dF": 2.3277777628782914e-06,
+     "rms_dF": 1.1153820528198585e-06,
+     "max_absF_ref": 1.5422418973394176
+    },
+    "e3nn32_repeat": {
+     "dE_per_atom": 0.0,
+     "max_dF": 3.2782554626464844e-07,
+     "rms_dF": 1.0092581026203004e-07,
+     "max_absF_ref": 1.5422406196594238
+    }
+   },
+   "waterbox648_pbc": {
+    "e3nn32_vs_e3nn64": {
+     "dE_per_atom": 0.0005403322026307441,
+     "max_dF": 9.557809902755593e-05,
+     "rms_dF": 1.4732631535282881e-05,
+     "max_absF_ref": 2.439872539652045,
+     "max_dS_eV_A3": 6.280161655080815e-08,
+     "max_absS_ref": 0.004860113913332668
+    },
+    "flash32_vs_e3nn32": {
+     "dE_per_atom": 0.0,
+     "max_dF": 1.430511474609375e-06,
+     "rms_dF": 3.12725293400344e-07,
+     "max_absF_ref": 2.439862012863159,
+     "max_dS_eV_A3": 1.4202669262886047e-08,
+     "max_absS_ref": 0.004860152490437031
+    },
+    "flash32_vs_e3nn64": {
+     "dE_per_atom": 0.0005403322026307441,
+     "max_dF": 9.471383167831277e-05,
+     "rms_dF": 1.4717932996622526e-05,
+     "max_absF_ref": 2.439872539652045,
+     "max_dS_eV_A3": 5.024778096428609e-08,
+     "max_absS_ref": 0.004860113913332668
+    },
+    "hybrid32_vs_e3nn32": {
+     "dE_per_atom": 0.0,
+     "max_dF": 1.7881393432617188e-06,
+     "rms_dF": 3.4058613255638874e-07,
+     "max_absF_ref": 2.439862012863159,
+     "max_dS_eV_A3": 6.984919309616089e-09,
+     "max_absS_ref": 0.004860152490437031
+    },
+    "hybrid32_vs_e3nn64": {
+     "dE_per_atom": 0.0005403322026307441,
+     "max_dF": 9.550359322158669e-05,
+     "rms_dF": 1.4728158843842334e-05,
+     "max_absF_ref": 2.439872539652045,
+     "max_dS_eV_A3": 5.5816697241192065e-08,
+     "max_absS_ref": 0.004860113913332668
+    },
+    "e3nn32_repeat": {
+     "dE_per_atom": 4.8225308641975306e-05,
+     "max_dF": 1.3113021850585938e-06,
+     "rms_dF": 3.1306815900782524e-07,
+     "max_absF_ref": 2.439862012863159,
+     "max_dS_eV_A3": 6.05359673500061e-09,
+     "max_absS_ref": 0.004860152490437031
+    }
+   },
+   "flash32_cg": {
+    "interactions.0": {
+     "kernel_class": "fused_uvu_TP_exp_opt_large",
+     "n_unique_cg": 5,
+     "cg_not_fp32_representable": 0,
+     "float_tensor_dtypes": [
+      "torch.float32"
+     ],
+     "cg_tensor_dtype": "torch.float32",
+     "max_abs_e3nn_fp64_cg_to_table": 1.036241636942492e-08,
+     "requested_dtype": "torch.float32",
+     "default_dtype_at_build": "torch.float32"
+    },
+    "interactions.1": {
+     "kernel_class": "fused_uvu_TP_exp_opt_large",
+     "n_unique_cg": 19,
+     "cg_not_fp32_representable": 0,
+     "float_tensor_dtypes": [
+      "torch.float32"
+     ],
+     "cg_tensor_dtype": "torch.float32",
+     "max_abs_e3nn_fp64_cg_to_table": 1.036241636942492e-08,
+     "requested_dtype": "torch.float32",
+     "default_dtype_at_build": "torch.float32"
+    }
+   },
+   "status": "ok",
+   "sec": 14.46
+  },
+  "graph_changes": {
+   "flash": [
+    {
+     "sys": "wbox192",
+     "dE": 0.0,
+     "max_dF": 5.329070518200751e-15
+    },
+    {
+     "sys": "ethanol",
+     "dE": 0.0,
+     "max_dF": 1.7763568394002505e-15
+    },
+    {
+     "sys": "wbox192_perm",
+     "dE": 0.0,
+     "max_dF": 4.440892098500626e-15
+    },
+    {
+     "sys": "wbox648",
+     "dE": 0.0,
+     "max_dF": 4.440892098500626e-15
+    },
+    {
+     "sys": "ch3cl",
+     "dE": 0.0,
+     "max_dF": 1.1102230246251565e-15
+    },
+    {
+     "sys": "wbox192",
+     "dE": 0.0,
+     "max_dF": 4.440892098500626e-15
+    },
+    {
+     "sys": "wbox192_perm",
+     "dE": 0.0,
+     "max_dF": 6.217248937900877e-15
+    },
+    {
+     "sys": "strained",
+     "dE": 0.0,
+     "max_dF": 3.9968028886505635e-15
+    },
+    {
+     "sys": "inplace0",
+     "n_edges": 10388,
+     "dE": 0.0,
+     "max_dF": 3.552713678800501e-15
+    },
+    {
+     "sys": "inplace1",
+     "n_edges": 10390,
+     "dE": 0.0,
+     "max_dF": 6.217248937900877e-15
+    },
+    {
+     "sys": "inplace2",
+     "n_edges": 10384,
+     "dE": 0.0,
+     "max_dF": 6.217248937900877e-15
+    },
+    {
+     "sys": "inplace3",
+     "n_edges": 10380,
+     "dE": 4.656612873077393e-10,
+     "max_dF": 8.940696716308594e-08
+    },
+    {
+     "sys": "inplace4",
+     "n_edges": 10394,
+     "dE": 5.587935447692871e-09,
+     "max_dF": 1.341104507446289e-07
+    },
+    {
+     "sys": "inplace5",
+     "n_edges": 10396,
+     "dE": 1.257285475730896e-08,
+     "max_dF": 4.3958425521850586e-07
+    },
+    {
+     "sys": "inplace_numbers",
+     "dE": 9.313225746154785e-09,
+     "max_dF": 1.4156103134155273e-07
+    },
+    {
+     "sys": "inplace_cell",
+     "dE": 2.514570951461792e-08,
+     "max_dF": 4.3213367462158203e-07
+    }
+   ],
+   "hybrid": [
+    {
+     "sys": "wbox192",
+     "dE": 0.0,
+     "max_dF": 7.105427357601002e-15
+    },
+    {
+     "sys": "ethanol",
+     "dE": 0.0,
+     "max_dF": 1.3322676295501878e-15
+    },
+    {
+     "sys": "wbox192_perm",
+     "dE": 0.0,
+     "max_dF": 4.440892098500626e-15
+    },
+    {
+     "sys": "wbox648",
+     "dE": 0.0,
+     "max_dF": 4.6629367034256575e-15
+    },
+    {
+     "sys": "ch3cl",
+     "dE": 0.0,
+     "max_dF": 8.881784197001252e-16
+    },
+    {
+     "sys": "wbox192",
+     "dE": 0.0,
+     "max_dF": 5.329070518200751e-15
+    },
+    {
+     "sys": "wbox192_perm",
+     "dE": 0.0,
+     "max_dF": 7.105427357601002e-15
+    },
+    {
+     "sys": "strained",
+     "dE": 0.0,
+     "max_dF": 7.993605777301127e-15
+    },
+    {
+     "sys": "inplace0",
+     "n_edges": 10388,
+     "dE": 0.0,
+     "max_dF": 5.329070518200751e-15
+    },
+    {
+     "sys": "inplace1",
+     "n_edges": 10390,
+     "dE": 0.0,
+     "max_dF": 7.105427357601002e-15
+    },
+    {
+     "sys": "inplace2",
+     "n_edges": 10384,
+     "dE": 0.0,
+     "max_dF": 4.884981308350689e-15
+    },
+    {
+     "sys": "inplace3",
+     "n_edges": 10380,
+     "dE": 8.381903171539307e-09,
+     "max_dF": 1.2665987014770508e-07
+    },
+    {
+     "sys": "inplace4",
+     "n_edges": 10394,
+     "dE": 5.587935447692871e-09,
+     "max_dF": 1.043081283569336e-07
+    },
+    {
+     "sys": "inplace5",
+     "n_edges": 10396,
+     "dE": 4.656612873077393e-10,
+     "max_dF": 1.6391277313232422e-07
+    },
+    {
+     "sys": "inplace_numbers",
+     "dE": 2.561137080192566e-08,
+     "max_dF": 4.0978193283081055e-07
+    },
+    {
+     "sys": "inplace_cell",
+     "dE": 2.7939677238464355e-09,
+     "max_dF": 1.1920928955078125e-07
+    }
+   ],
+   "batch_flash": {
+    "n_edges": 10488,
+    "max_dE_vs_e3nn_batch": 0.0,
+    "max_dE_vs_e3nn_single": 0.0,
+    "max_dF": 6.217248937900877e-15
+   },
+   "batch_hybrid": {
+    "n_edges": 10488,
+    "max_dE_vs_e3nn_batch": 0.0,
+    "max_dE_vs_e3nn_single": 0.0,
+    "max_dF": 8.881784197001252e-15
+   },
+   "status": "FAIL",
+   "sec": 1.59
+  },
+  "zero_edge": {
+   "status": "ERROR",
+   "error": "ValueError: max() arg is an empty sequence",
+   "tb": "Traceback (most recent call last):\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/review2/review2.py\", line 38, in record\n    r = fn() or {}\n        ^^^^\n  File \"/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/review2/review2.py\", line 301, in t_zero_edge\n    r[\"max_param_grad_diff\"] = max(float((grads[\"e3nn\"][k] - grads[\"flash\"][k]).abs().max()) for k in common)\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: max() arg is an empty sequence\n",
+   "sec": 0.45
+  },
+  "input_checks": {
+   "index_eq_n": "AdapterError: edge_index out of range [0, 10] for n_nodes=10",
+   "index_neg": "AdapterError: edge_index out of range [-1, 9] for n_nodes=10",
+   "fp32_inputs": "AdapterError: node_feats dtype torch.float32 != FlashTP build dtype torch.float64",
+   "cpu_inputs": "AdapterError: node_feats on cpu != FlashTP build device cuda:0",
+   "int32_index": "accepted",
+   "noncontig_nf": "accepted",
+   "ok": "accepted",
+   "status": "ok",
+   "sec": 0.0
+  },
+  "build_errors": {
+   "bad_conv": {
+    "err": "ValueError: conv='x' sc='cueq'",
+    "default_after": "torch.float32"
+   },
+   "bad_path": {
+    "err": "ValueError: Couldn't find MACE model files: /nonexistent.model",
+    "default_after": "torch.float32"
+   },
+   "bad_device_cuda7": {
+    "err": "RuntimeError: Attempting to deserialize object on CUDA device 7 but torch.cuda.device_count() is 1. Please use torch.load with map_location to map your storages to ",
+    "default_after": "torch.float32"
+   },
+   "dtype_f16": {
+    "err": "KeyError: torch.float16",
+    "default_after": "torch.float32"
+   },
+   "inject_install_fail": {
+    "err": "AdapterError: injected",
+    "default_after": "torch.float32"
+   },
+   "status": "ok",
+   "sec": 0.41
+  },
+  "cleanup": {
+   "installed_sd_keys_equal": true,
+   "installed_sd_values_bitwise": true,
+   "installed_md_keys_equal": true,
+   "installed_md_values_equal": true,
+   "installed_parity": {
+    "dE_per_atom": 0.0,
+    "max_dF": 2.220446049250313e-15,
+    "rms_dF": 7.170069996603109e-16,
+    "max_absF_ref": 2.3610090069103618
+   },
+   "torch_save": "AdapterError",
+   "deepcopy": "AdapterError",
+   "load_sd_strict_installed": "ok",
+   "mem_allocated_bytes_first_last": [
+    151473664,
+    151473664,
+    151473664
+   ],
+   "mem_growth_after_first_cycle": 0,
+   "flashconv_alive_after_uninstall": 0,
+   "after_sd_identical": true,
+   "after_md_identical": true,
+   "hooks_before_after": [
+    0,
+    0
+   ],
+   "conv_tp_identity_restored": true,
+   "conv_fusion_left": [
+    false,
+    false
+   ],
+   "state_attr_left": false,
+   "after_parity": {
+    "dE_per_atom": 0.0,
+    "max_dF": 1.2490009027033011e-15,
+    "rms_dF": 5.122474537173353e-16,
+    "max_absF_ref": 2.3610090069103618
+   },
+   "torch_save_after_uninstall": "ok",
+   "partial_install": "raised: injected failure in layer 1",
+   "partial_unchanged": true,
+   "hybrid_uninstalled_sd_equals_stock": true,
+   "hybrid_uninstalled_md_equals_stock": true,
+   "hybrid_uninstalled_hooks": 0,
+   "status": "FAIL",
+   "sec": 9.54
+  }
+ },
+ "failures": [
+  "graph_changes",
+  "zero_edge",
+  "cleanup"
+ ],
+ "default_at_end": "torch.float32"
+}

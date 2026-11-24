@@ -1,0 +1,26 @@
+job=1046 host=slurm-h100-206-077 venv=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+aspirin 0 {'N': 21, 'E': 302, 'd1': 128, 'W': 512, 'dtype': 'torch.float64', 'sorted_by_src': True, 'sha': 'e738da8ccf0cf617'}
+aspirin 1 {'N': 21, 'E': 302, 'd1': 512, 'W': 1280, 'dtype': 'torch.float64', 'sorted_by_src': True, 'sha': '223f017afa0377f9'}
+water192 0 {'N': 192, 'E': 6634, 'd1': 128, 'W': 512, 'dtype': 'torch.float64', 'sorted_by_src': True, 'sha': '97fc8614ca904f7b'}
+water192 1 {'N': 192, 'E': 6634, 'd1': 512, 'W': 1280, 'dtype': 'torch.float64', 'sorted_by_src': True, 'sha': '4ab81330a2065f8d'}
+org192 0 {'N': 196, 'E': 3670, 'd1': 128, 'W': 512, 'dtype': 'torch.float64', 'sorted_by_src': True, 'sha': '11ca2d59bc332724'}
+org192 1 {'N': 196, 'E': 3670, 'd1': 512, 'W': 1280, 'dtype': 'torch.float64', 'sorted_by_src': True, 'sha': '8eac231a32874751'}
+water648 0 {'N': 648, 'E': 26550, 'd1': 128, 'W': 512, 'dtype': 'torch.float64', 'sorted_by_src': True, 'sha': 'ec8c98f352ba2d2f'}
+water648 1 {'N': 648, 'E': 26550, 'd1': 512, 'W': 1280, 'dtype': 'torch.float64', 'sorted_by_src': True, 'sha': '243a26d0f406bb84'}
+org648 0 {'N': 650, 'E': 14856, 'd1': 128, 'W': 512, 'dtype': 'torch.float64', 'sorted_by_src': True, 'sha': '6809e68ecd259e4a'}
+org648 1 {'N': 650, 'E': 14856, 'd1': 512, 'W': 1280, 'dtype': 'torch.float64', 'sorted_by_src': True, 'sha': '91d76aea7ecda835'}
+wbox648 0 {'N': 648, 'E': 35698, 'd1': 128, 'W': 512, 'dtype': 'torch.float64', 'sorted_by_src': True, 'sha': 'd1f261e8403dab79'}
+wbox648 1 {'N': 648, 'E': 35698, 'd1': 512, 'W': 1280, 'dtype': 'torch.float64', 'sorted_by_src': True, 'sha': 'fe86b65b771dc4d9'}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/oeq8/capture.py:37: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/oeq8/capture_manifest.json' mode='w' encoding='UTF-8'>
+  json.dump(dict(env=C.env_info(), caps=manifest), open(f"{C.R}/results/oeq8/capture_manifest.json", "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz

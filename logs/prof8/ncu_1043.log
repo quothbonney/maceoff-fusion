@@ -1,0 +1,81 @@
+job=1043 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz, 1980 MHz
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+  warnings.warn(
+  torch.load(f=model_path, map_location=device)
+  warnings.warn(
+  warnings.warn(
+  warnings.warn(
+  warnings.warn(
+  return visitor(node)
+  warnings.warn(
+  return visitor(node)
+  warnings.warn(
+  return visitor(node)
+  warnings.warn(
+  return visitor(node)
+aspirin {0: [(21, 128), (302, 16), (302, 512), (2, 302)], 1: [(21, 512), (302, 16), (302, 1280), (2, 302)]}
+water192 {0: [(192, 128), (6634, 16), (6634, 512), (2, 6634)], 1: [(192, 512), (6634, 16), (6634, 1280), (2, 6634)]}
+org192 {0: [(196, 128), (3670, 16), (3670, 512), (2, 3670)], 1: [(196, 512), (3670, 16), (3670, 1280), (2, 3670)]}
+water648 {0: [(648, 128), (26550, 16), (26550, 512), (2, 26550)], 1: [(648, 512), (26550, 16), (26550, 1280), (2, 26550)]}
+org648 {0: [(650, 128), (14856, 16), (14856, 512), (2, 14856)], 1: [(650, 512), (14856, 16), (14856, 1280), (2, 14856)]}
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+  warnings.warn(
+  torch.load(f=model_path, map_location=device)
+  warnings.warn(
+  warnings.warn(
+  warnings.warn(
+  warnings.warn(
+  return visitor(node)
+  warnings.warn(
+  return visitor(node)
+  warnings.warn(
+  return visitor(node)
+  warnings.warn(
+  return visitor(node)
+  x, y, w, ei = [t.cuda() for t in torch.load(f"{OUT}/inputs_{s}.pt")[i]]
+  _warn_once(
+aspirin 0 21 302 {"void fwd_sptp_lienar_kernel_v2_shared_exp<double>(": 8.7, "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(": 14.4}
+aspirin 1 21 302 {"void fwd_sptp_lienar_kernel_v2_shared_exp<double>(": 15.9, "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(": 39.1}
+water192 0 192 6634 {"void fwd_sptp_lienar_kernel_v2_shared_exp<double>(": 82.1, "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(": 160.6}
+water192 1 192 6634 {"void fwd_sptp_lienar_kernel_v2_shared_exp<double>(": 232.0, "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(": 476.4}
+org192 0 196 3670 {"void fwd_sptp_lienar_kernel_v2_shared_exp<double>(": 47.4, "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(": 92.0}
+org192 1 196 3670 {"void fwd_sptp_lienar_kernel_v2_shared_exp<double>(": 134.1, "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(": 277.3}
+water648 0 648 26550 {"void fwd_sptp_lienar_kernel_v2_shared_exp<double>(": 316.5, "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(": 644.2}
+water648 1 648 26550 {"void fwd_sptp_lienar_kernel_v2_shared_exp<double>(": 900.4, "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(": 1895.3}
+org648 0 650 14856 {"void fwd_sptp_lienar_kernel_v2_shared_exp<double>(": 178.1, "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(": 365.6}
+org648 1 650 14856 {"void fwd_sptp_lienar_kernel_v2_shared_exp<double>(": 504.5, "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(": 1072.7}
+  json.dump(res, open(f"{OUT}/flash_kernel_times.json", "w"), indent=1)
+==PROF== Profiling "fwd_sptp_lienar_kernel_v2_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "bwd_sptp_lienar_kernel_v1_shared_exp": 0%....50%....100% - 39 passes
+ran org192 0
+==PROF== Profiling "fwd_sptp_lienar_kernel_v2_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "bwd_sptp_lienar_kernel_v1_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "fwd_sptp_lienar_kernel_v2_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "bwd_sptp_lienar_kernel_v1_shared_exp": 0%....50%....100% - 39 passes
+ran org192 1
+==PROF== Profiling "fwd_sptp_lienar_kernel_v2_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "bwd_sptp_lienar_kernel_v1_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "fwd_sptp_lienar_kernel_v2_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "bwd_sptp_lienar_kernel_v1_shared_exp": 0%....50%....100% - 39 passes
+ran water648 0
+==PROF== Profiling "fwd_sptp_lienar_kernel_v2_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "bwd_sptp_lienar_kernel_v1_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "fwd_sptp_lienar_kernel_v2_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "bwd_sptp_lienar_kernel_v1_shared_exp": 0%....50%....100% - 39 passes
+ran water648 1
+==PROF== Profiling "fwd_sptp_lienar_kernel_v2_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "bwd_sptp_lienar_kernel_v1_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "fwd_sptp_lienar_kernel_v2_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "bwd_sptp_lienar_kernel_v1_shared_exp": 0%....50%....100% - 39 passes
+ran org648 0
+==PROF== Profiling "fwd_sptp_lienar_kernel_v2_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "bwd_sptp_lienar_kernel_v1_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "fwd_sptp_lienar_kernel_v2_shared_exp": 0%....50%....100% - 39 passes
+==PROF== Profiling "bwd_sptp_lienar_kernel_v1_shared_exp": 0%....50%....100% - 39 passes
+ran org648 1
+==PROF== Disconnected from process 357917
+==PROF== Report: /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/prof8/flashtp_full.ncu-rep
+raw rc=0
+det rc=0
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz

@@ -1,0 +1,37 @@
+{
+ "env": {
+  "slurm_job": "996",
+  "host": "slurm-h100-206-077",
+  "torch": "2.11.0+cu128",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "flashTP_file": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/flashTP-fp64cg/flashTP_e3nn/__init__.py",
+  "nvidia_smi": "0, NVIDIA H100 80GB HBM3, GPU-3ef4e875-4571-3cea-d408-241db662acb5"
+ },
+ "system": "water648",
+ "tags": {
+  "w648_e3nn_dt0.5": {
+   "n_frames": 301,
+   "max_abs_dF": 6.661338147750939e-15,
+   "median_max_abs_dF": 3.4416913763379853e-15,
+   "max_rms_dF": 8.604933913036064e-16,
+   "max_dE_per_atom": 8.982663721214106e-14,
+   "e3nn_repeat_max_abs_dF": 3.9968028886505635e-15,
+   "e3nn_repeat_max_dE_per_atom": 8.982663721214106e-14,
+   "e3nn_repeat_bitwise_frac": 0.0,
+   "max_abs_F": 4.240120698212593,
+   "stored_vs_reeval_same_backend_max_abs_dF": 4.218847493575595e-15
+  },
+  "w648_flash_dt0.5": {
+   "n_frames": 301,
+   "max_abs_dF": 5.329070518200751e-15,
+   "median_max_abs_dF": 3.4416913763379853e-15,
+   "max_rms_dF": 8.529927990306476e-16,
+   "max_dE_per_atom": 8.982663721214106e-14,
+   "e3nn_repeat_max_abs_dF": 4.218847493575595e-15,
+   "e3nn_repeat_max_dE_per_atom": 8.982663721214106e-14,
+   "e3nn_repeat_bitwise_frac": 0.0,
+   "max_abs_F": 4.240120698253302,
+   "stored_vs_reeval_same_backend_max_abs_dF": 3.9968028886505635e-15
+  }
+ }
+}

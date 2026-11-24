@@ -1,0 +1,36 @@
+job=1098 host=slurm-h100-206-077 date=2026-11-10T05:36:20+00:00 args=drift9.py gpustep water192 0.5 4000 10 gpustep_brute_water192_dt0.5
+0, NVIDIA H100 80GB HBM3, GPU-a6a957a6-a4b5-edc7-17c3-2343ebb01051, 345 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+step 500 Etot/atom=-693.76115895 8.07 ms/step
+step 1000 Etot/atom=-693.76118681 7.62 ms/step
+step 1500 Etot/atom=-693.76119656 8.50 ms/step
+step 2000 Etot/atom=-693.76116602 9.31 ms/step
+step 2500 Etot/atom=-693.76122926 9.15 ms/step
+step 3000 Etot/atom=-693.76120208 8.62 ms/step
+step 3500 Etot/atom=-693.76117715 8.91 ms/step
+step 4000 Etot/atom=-693.76118844 9.20 ms/step
+  json.dump(info, open(f"{OUT}/traj_{tag}.json", "w"), indent=1, default=float)
+{"dt_fs": 0.5, "n_steps": 4000, "t_ps": 2.0, "drift_eV_atom_ps": -5.949287794205919e-06, "block_slopes_eV_atom_ps": [-9.104783122214003e-06, -5.714771951863584e-06, -5.297750447159772e-06, -8.293664174990788e-06], "block_slope_std": 1.8806842409318614e-06, "rms_fluct_eV_atom": 2.2956951896323502e-05, "rms_fluct_first1ps_eV_atom": 2.8027787163375746e-05, "max_minus_min_eV_atom": 0.00038522258842021984, "Etot0_eV_atom": -693.761386672706, "Etot_end_minus_0": 0.0001982285555186536, "T_start_K": 322.0581369890254, "T_end_K": 301.5563708916389, "T_mean_K": 333.7130919873823} 8.67079582810402
+0, GPU-a6a957a6-a4b5-edc7-17c3-2343ebb01051, 1980 MHz
+exit=0 date=2026-11-10T05:37:20+00:00
+job=1098 host=slurm-h100-206-077 date=2026-11-10T05:37:20+00:00 args=drift9.py gpustep wbox648 0.5 4000 20 gpustep_brute_wbox648_dt0.5
+0, NVIDIA H100 80GB HBM3, GPU-a6a957a6-a4b5-edc7-17c3-2343ebb01051, 1980 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+step 500 Etot/atom=-693.76036329 72.73 ms/step
+step 1000 Etot/atom=-693.76035212 79.83 ms/step
+step 1500 Etot/atom=-693.76036794 80.50 ms/step
+step 2000 Etot/atom=-693.76036005 80.59 ms/step
+step 2500 Etot/atom=-693.76038878 81.01 ms/step
+step 3000 Etot/atom=-693.76036383 80.65 ms/step
+step 3500 Etot/atom=-693.76038707 81.28 ms/step
+step 4000 Etot/atom=-693.76036166 80.42 ms/step
+  json.dump(info, open(f"{OUT}/traj_{tag}.json", "w"), indent=1, default=float)
+{"dt_fs": 0.5, "n_steps": 4000, "t_ps": 2.0, "drift_eV_atom_ps": -8.56104324145796e-06, "block_slopes_eV_atom_ps": [-1.2923123635666571e-05, -7.691907559354731e-06, -5.754686985061785e-06, -6.219790109670181e-06], "block_slope_std": 3.289162257414426e-06, "rms_fluct_eV_atom": 1.402819368411831e-05, "rms_fluct_first1ps_eV_atom": 1.7126321911450036e-05, "max_minus_min_eV_atom": 0.00028799794188216765, "Etot0_eV_atom": -693.7604980404184, "Etot_end_minus_0": 0.00013638366533541557, "T_start_K": 295.5325953613855, "T_end_K": 433.6984541093604, "T_mean_K": 420.85013543146744} 79.62660975614563
+0, GPU-a6a957a6-a4b5-edc7-17c3-2343ebb01051, 1980 MHz
+exit=0 date=2026-11-10T05:43:08+00:00
+job=1098 host=slurm-h100-206-077 date=2026-11-10T05:43:08+00:00 args=drift9.py gpustep wbox648 0.25 8000 40 gpustep_brute_wbox648_dt0.25
+0, NVIDIA H100 80GB HBM3, GPU-a6a957a6-a4b5-edc7-17c3-2343ebb01051, 1980 MHz, 1980 MHz
+[2026-11-10T05:51:00.260] error: *** STEP 1098.0 ON slurm-h100-206-077 CANCELLED AT 2026-11-10T05:51:00 DUE to SIGNAL Terminated ***
+srun: error: slurm-h100-206-077: task 0: Terminated
+srun: Force Terminated StepId=1098.0

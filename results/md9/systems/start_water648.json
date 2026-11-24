@@ -1,0 +1,12 @@
+{
+ "src": "results/md/start_water648.npz (Phase 4 start: 30 FIRE e3nn + MB300 seed 20261109)",
+ "name": "water648",
+ "n_atoms": 648,
+ "pbc": [
+  false,
+  false,
+  false
+ ],
+ "T_start_K": 295.5325953613855,
+ "slurm_job": "1068"
+}

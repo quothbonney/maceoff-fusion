@@ -1,0 +1,331 @@
+{
+ "job": "1043",
+ "flash_cg": {
+  "interactions.0": {
+   "kernel_class": "fused_uvu_TP_exp_opt_large",
+   "n_unique_cg": 5,
+   "cg_not_fp32_representable": 3,
+   "float_tensor_dtypes": [
+    "torch.float64"
+   ],
+   "cg_tensor_dtype": "torch.float64",
+   "max_abs_e3nn_fp64_cg_to_table": 6.106226635438361e-16,
+   "requested_dtype": "torch.float64",
+   "default_dtype_at_build": "torch.float32"
+  },
+  "interactions.1": {
+   "kernel_class": "fused_uvu_TP_exp_opt_large",
+   "n_unique_cg": 19,
+   "cg_not_fp32_representable": 17,
+   "float_tensor_dtypes": [
+    "torch.float64"
+   ],
+   "cg_tensor_dtype": "torch.float64",
+   "max_abs_e3nn_fp64_cg_to_table": 7.216449660063518e-16,
+   "requested_dtype": "torch.float64",
+   "default_dtype_at_build": "torch.float32"
+  }
+ },
+ "systems": {
+  "aspirin/L0": {
+   "N": 21,
+   "E": 302,
+   "kernels": {
+    "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+     "n": 2.0,
+     "median_us": 1.4729999999999563
+    },
+    "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)": {
+     "n": 2.0,
+     "median_us": 1.0400000000006457
+    },
+    "Memcpy DtoD (Device -> Device)": {
+     "n": 19.0,
+     "median_us": 0.9920000000001892
+    },
+    "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int const*, unsigned char const*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 8.672000000000253
+    },
+    "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*, int const*, double*, double*, double*, double*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 14.432000000000471
+    },
+    "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4> >(at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4>)": {
+     "n": 1.0,
+     "median_us": 3.087999999999738
+    }
+   }
+  },
+  "aspirin/L1": {
+   "N": 21,
+   "E": 302,
+   "kernels": {
+    "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+     "n": 2.0,
+     "median_us": 1.504000000000019
+    },
+    "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)": {
+     "n": 2.0,
+     "median_us": 1.1520000000000437
+    },
+    "Memcpy DtoD (Device -> Device)": {
+     "n": 19.0,
+     "median_us": 0.9920000000001892
+    },
+    "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int const*, unsigned char const*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 15.935999999999694
+    },
+    "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*, int const*, double*, double*, double*, double*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 39.10400000000027
+    },
+    "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4> >(at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4>)": {
+     "n": 1.0,
+     "median_us": 3.456000000000131
+    }
+   }
+  },
+  "water192/L0": {
+   "N": 192,
+   "E": 6634,
+   "kernels": {
+    "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+     "n": 2.0,
+     "median_us": 2.175999999999476
+    },
+    "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)": {
+     "n": 2.0,
+     "median_us": 1.3764999999997372
+    },
+    "Memcpy DtoD (Device -> Device)": {
+     "n": 19.0,
+     "median_us": 1.1199999999998909
+    },
+    "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int const*, unsigned char const*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 82.11200000000008
+    },
+    "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*, int const*, double*, double*, double*, double*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 160.63999999999942
+    },
+    "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4> >(at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4>)": {
+     "n": 1.0,
+     "median_us": 5.5515000000004875
+    }
+   }
+  },
+  "water192/L1": {
+   "N": 192,
+   "E": 6634,
+   "kernels": {
+    "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+     "n": 2.0,
+     "median_us": 2.2080000000005384
+    },
+    "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)": {
+     "n": 2.0,
+     "median_us": 2.064499999999498
+    },
+    "Memcpy DtoD (Device -> Device)": {
+     "n": 19.0,
+     "median_us": 1.2479999999995925
+    },
+    "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int const*, unsigned char const*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 232.00000000000068
+    },
+    "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*, int const*, double*, double*, double*, double*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 476.3524999999995
+    },
+    "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4> >(at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4>)": {
+     "n": 1.0,
+     "median_us": 6.9600000000007185
+    }
+   }
+  },
+  "org192/L0": {
+   "N": 196,
+   "E": 3670,
+   "kernels": {
+    "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+     "n": 2.0,
+     "median_us": 2.06450000000018
+    },
+    "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)": {
+     "n": 2.0,
+     "median_us": 1.3919999999998254
+    },
+    "Memcpy DtoD (Device -> Device)": {
+     "n": 19.0,
+     "median_us": 1.0229999999999109
+    },
+    "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int const*, unsigned char const*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 47.36000000000058
+    },
+    "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*, int const*, double*, double*, double*, double*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 92.03199999999993
+    },
+    "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4> >(at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4>)": {
+     "n": 1.0,
+     "median_us": 4.463999999999942
+    }
+   }
+  },
+  "org192/L1": {
+   "N": 196,
+   "E": 3670,
+   "kernels": {
+    "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+     "n": 2.0,
+     "median_us": 2.144000000000119
+    },
+    "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)": {
+     "n": 2.0,
+     "median_us": 2.0799999999999272
+    },
+    "Memcpy DtoD (Device -> Device)": {
+     "n": 19.0,
+     "median_us": 1.2479999999995925
+    },
+    "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int const*, unsigned char const*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 134.11249999999995
+    },
+    "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*, int const*, double*, double*, double*, double*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 277.32899999999927
+    },
+    "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4> >(at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4>)": {
+     "n": 1.0,
+     "median_us": 5.280000000000086
+    }
+   }
+  },
+  "water648/L0": {
+   "N": 648,
+   "E": 26550,
+   "kernels": {
+    "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+     "n": 2.0,
+     "median_us": 2.336000000000098
+    },
+    "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)": {
+     "n": 2.0,
+     "median_us": 2.431999999999789
+    },
+    "Memcpy DtoD (Device -> Device)": {
+     "n": 19.0,
+     "median_us": 1.1520000000000437
+    },
+    "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int const*, unsigned char const*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 316.52849999999876
+    },
+    "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*, int const*, double*, double*, double*, double*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 644.1610000000001
+    },
+    "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4> >(at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4>)": {
+     "n": 1.0,
+     "median_us": 13.120000000000346
+    }
+   }
+  },
+  "water648/L1": {
+   "N": 648,
+   "E": 26550,
+   "kernels": {
+    "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+     "n": 2.0,
+     "median_us": 2.399999999999636
+    },
+    "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)": {
+     "n": 2.0,
+     "median_us": 4.688500000000204
+    },
+    "Memcpy DtoD (Device -> Device)": {
+     "n": 19.0,
+     "median_us": 1.2479999999995925
+    },
+    "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int const*, unsigned char const*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 900.4169999999995
+    },
+    "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*, int const*, double*, double*, double*, double*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 1895.3464999999997
+    },
+    "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4> >(at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4>)": {
+     "n": 1.0,
+     "median_us": 19.503999999998996
+    }
+   }
+  },
+  "org648/L0": {
+   "N": 650,
+   "E": 14856,
+   "kernels": {
+    "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+     "n": 2.0,
+     "median_us": 2.2399999999997817
+    },
+    "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)": {
+     "n": 2.0,
+     "median_us": 2.3679999999994834
+    },
+    "Memcpy DtoD (Device -> Device)": {
+     "n": 19.0,
+     "median_us": 1.1520000000000437
+    },
+    "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int const*, unsigned char const*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 178.09600000000012
+    },
+    "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*, int const*, double*, double*, double*, double*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 365.56799999999976
+    },
+    "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4> >(at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4>)": {
+     "n": 1.0,
+     "median_us": 8.576000000000022
+    }
+   }
+  },
+  "org648/L1": {
+   "N": 650,
+   "E": 14856,
+   "kernels": {
+    "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+     "n": 2.0,
+     "median_us": 2.2399999999997817
+    },
+    "void at::native::vectorized_elementwise_kernel<2, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>)": {
+     "n": 2.0,
+     "median_us": 4.591999999998734
+    },
+    "Memcpy DtoD (Device -> Device)": {
+     "n": 19.0,
+     "median_us": 1.2479999999995925
+    },
+    "void fwd_sptp_lienar_kernel_v2_shared_exp<double>(double const*, double const*, double const*, double*, int const*, int const*, unsigned char const*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 504.5284999999999
+    },
+    "void bwd_sptp_lienar_kernel_v1_shared_exp<double>(double const*, double const*, double const*, double const*, int const*, int const*, double*, double*, double*, double*, unsigned short const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)": {
+     "n": 1.0,
+     "median_us": 1072.6575000000012
+    },
+    "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4> >(at::native::ReduceOp<double, at::native::func_wrapper_t<double, at::native::sum_functor<double, double, double>::operator()(at::TensorIterator&)::{lambda(double, double)#1}>, unsigned int, double, 4, 4>)": {
+     "n": 1.0,
+     "median_us": 11.232499999998254
+    }
+   }
+  }
+ }
+}

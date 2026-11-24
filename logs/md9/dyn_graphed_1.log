@@ -1,0 +1,74 @@
+job=1072 host=slurm-h100-206-077 date=2026-11-10T05:25:03+00:00 args=dyncheck.py graphed water192,water192_iso,aspirin,org192,org192_rev --steps 1000 --every 5
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+water192 graphed_nodehybrid+embed+node_proto step 0 E=6634 dE/at=0.00e+00 maxdF=2.33e-15 dS=0.00e+00 eq=True ok=True
+water192 graphed_nodehybrid+embed+node_proto step 100 E=6656 dE/at=0.00e+00 maxdF=2.53e-15 dS=0.00e+00 eq=True ok=True
+water192 graphed_nodehybrid+embed+node_proto step 200 E=6838 dE/at=0.00e+00 maxdF=2.89e-15 dS=0.00e+00 eq=True ok=True
+water192 graphed_nodehybrid+embed+node_proto step 300 E=6870 dE/at=0.00e+00 maxdF=2.33e-15 dS=0.00e+00 eq=True ok=True
+water192 graphed_nodehybrid+embed+node_proto step 400 E=6968 dE/at=1.52e-13 maxdF=4.22e-15 dS=0.00e+00 eq=True ok=True
+water192 graphed_nodehybrid+embed+node_proto step 500 E=6958 dE/at=1.52e-13 maxdF=2.89e-15 dS=0.00e+00 eq=True ok=True
+water192 graphed_nodehybrid+embed+node_proto step 600 E=6964 dE/at=0.00e+00 maxdF=2.94e-15 dS=0.00e+00 eq=True ok=True
+water192 graphed_nodehybrid+embed+node_proto step 700 E=6870 dE/at=1.52e-13 maxdF=3.72e-15 dS=0.00e+00 eq=True ok=True
+water192 graphed_nodehybrid+embed+node_proto step 800 E=6848 dE/at=0.00e+00 maxdF=3.61e-15 dS=0.00e+00 eq=True ok=True
+water192 graphed_nodehybrid+embed+node_proto step 900 E=6820 dE/at=1.52e-13 maxdF=3.33e-15 dS=0.00e+00 eq=True ok=True
+water192 graphed_nodehybrid+embed+node_proto step 1000 E=6814 dE/at=1.52e-13 maxdF=2.66e-15 dS=0.00e+00 eq=True ok=True
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE water192 graphed_nodehybrid+embed+node_proto samples=201 fails=0 worst={'dE_per_atom': 1.5158245029548803e-13, 'max_dF': 5.10702591327572e-15, 'rms_dF': 1.518867688806947e-15, 'dstress': 0.0, 'maxF': 4.554353181690976} edges_eq=True +10468/-10288 wall=10.7s
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+water192_iso graphed_nodehybrid+embed+node_proto step 0 E=6634 dE/at=1.51e-13 maxdF=2.42e-15 dS=0.00e+00 eq=True ok=True
+water192_iso graphed_nodehybrid+embed+node_proto step 100 E=6656 dE/at=1.51e-13 maxdF=2.55e-15 dS=0.00e+00 eq=True ok=True
+water192_iso graphed_nodehybrid+embed+node_proto step 200 E=6838 dE/at=0.00e+00 maxdF=3.33e-15 dS=0.00e+00 eq=True ok=True
+water192_iso graphed_nodehybrid+embed+node_proto step 300 E=6870 dE/at=0.00e+00 maxdF=3.11e-15 dS=0.00e+00 eq=True ok=True
+water192_iso graphed_nodehybrid+embed+node_proto step 400 E=6968 dE/at=1.51e-13 maxdF=4.11e-15 dS=0.00e+00 eq=True ok=True
+water192_iso graphed_nodehybrid+embed+node_proto step 500 E=6958 dE/at=0.00e+00 maxdF=3.44e-15 dS=0.00e+00 eq=True ok=True
+water192_iso graphed_nodehybrid+embed+node_proto step 600 E=6964 dE/at=0.00e+00 maxdF=3.11e-15 dS=0.00e+00 eq=True ok=True
+water192_iso graphed_nodehybrid+embed+node_proto step 700 E=6870 dE/at=0.00e+00 maxdF=3.66e-15 dS=0.00e+00 eq=True ok=True
+water192_iso graphed_nodehybrid+embed+node_proto step 800 E=6848 dE/at=0.00e+00 maxdF=4.52e-15 dS=0.00e+00 eq=True ok=True
+water192_iso graphed_nodehybrid+embed+node_proto step 900 E=6820 dE/at=0.00e+00 maxdF=2.66e-15 dS=0.00e+00 eq=True ok=True
+water192_iso graphed_nodehybrid+embed+node_proto step 1000 E=6814 dE/at=0.00e+00 maxdF=3.11e-15 dS=0.00e+00 eq=True ok=True
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE water192_iso graphed_nodehybrid+embed+node_proto samples=201 fails=0 worst={'dE_per_atom': 1.5079704899862023e-13, 'max_dF': 4.6629367034256575e-15, 'rms_dF': 1.5355479446660802e-15, 'dstress': 0.0, 'maxF': 4.554353181690976} edges_eq=True +10468/-10288 wall=8.7s
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+aspirin graphed_nodehybrid+embed+node_proto step 0 E=302 dE/at=0.00e+00 maxdF=3.25e-15 dS=0.00e+00 eq=True ok=True
+aspirin graphed_nodehybrid+embed+node_proto step 100 E=300 dE/at=0.00e+00 maxdF=4.00e-15 dS=0.00e+00 eq=True ok=True
+aspirin graphed_nodehybrid+embed+node_proto step 200 E=302 dE/at=0.00e+00 maxdF=2.66e-15 dS=0.00e+00 eq=True ok=True
+aspirin graphed_nodehybrid+embed+node_proto step 300 E=302 dE/at=0.00e+00 maxdF=2.22e-15 dS=0.00e+00 eq=True ok=True
+aspirin graphed_nodehybrid+embed+node_proto step 400 E=306 dE/at=0.00e+00 maxdF=3.11e-15 dS=0.00e+00 eq=True ok=True
+aspirin graphed_nodehybrid+embed+node_proto step 500 E=326 dE/at=0.00e+00 maxdF=3.28e-15 dS=0.00e+00 eq=True ok=True
+aspirin graphed_nodehybrid+embed+node_proto step 600 E=342 dE/at=0.00e+00 maxdF=3.05e-15 dS=0.00e+00 eq=True ok=True
+aspirin graphed_nodehybrid+embed+node_proto step 700 E=346 dE/at=0.00e+00 maxdF=3.55e-15 dS=0.00e+00 eq=True ok=True
+aspirin graphed_nodehybrid+embed+node_proto step 800 E=336 dE/at=0.00e+00 maxdF=4.00e-15 dS=0.00e+00 eq=True ok=True
+aspirin graphed_nodehybrid+embed+node_proto step 900 E=328 dE/at=0.00e+00 maxdF=3.55e-15 dS=0.00e+00 eq=True ok=True
+aspirin graphed_nodehybrid+embed+node_proto step 1000 E=326 dE/at=0.00e+00 maxdF=5.88e-15 dS=0.00e+00 eq=True ok=True
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE aspirin graphed_nodehybrid+embed+node_proto samples=201 fails=0 worst={'dE_per_atom': 0.0, 'max_dF': 6.8833827526759706e-15, 'rms_dF': 2.7353532837393044e-15, 'dstress': 0.0, 'maxF': 4.8773626762165385} edges_eq=True +130/-106 wall=4.6s
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+org192 graphed_nodehybrid+embed+node_proto step 0 E=3670 dE/at=0.00e+00 maxdF=3.43e-15 dS=0.00e+00 eq=True ok=True
+org192 graphed_nodehybrid+embed+node_proto step 100 E=3738 dE/at=1.48e-13 maxdF=4.88e-15 dS=0.00e+00 eq=True ok=True
+org192 graphed_nodehybrid+embed+node_proto step 200 E=3784 dE/at=0.00e+00 maxdF=4.22e-15 dS=0.00e+00 eq=True ok=True
+org192 graphed_nodehybrid+embed+node_proto step 300 E=3868 dE/at=0.00e+00 maxdF=4.33e-15 dS=0.00e+00 eq=True ok=True
+org192 graphed_nodehybrid+embed+node_proto step 400 E=3946 dE/at=0.00e+00 maxdF=3.55e-15 dS=0.00e+00 eq=True ok=True
+org192 graphed_nodehybrid+embed+node_proto step 500 E=4060 dE/at=1.48e-13 maxdF=5.33e-15 dS=0.00e+00 eq=True ok=True
+org192 graphed_nodehybrid+embed+node_proto step 600 E=4170 dE/at=0.00e+00 maxdF=5.33e-15 dS=0.00e+00 eq=True ok=True
+org192 graphed_nodehybrid+embed+node_proto step 700 E=4216 dE/at=1.48e-13 maxdF=5.33e-15 dS=0.00e+00 eq=True ok=True
+org192 graphed_nodehybrid+embed+node_proto step 800 E=4232 dE/at=0.00e+00 maxdF=3.77e-15 dS=0.00e+00 eq=True ok=True
+org192 graphed_nodehybrid+embed+node_proto step 900 E=4278 dE/at=0.00e+00 maxdF=4.22e-15 dS=0.00e+00 eq=True ok=True
+org192 graphed_nodehybrid+embed+node_proto step 1000 E=4214 dE/at=0.00e+00 maxdF=4.88e-15 dS=0.00e+00 eq=True ok=True
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE org192 graphed_nodehybrid+embed+node_proto samples=201 fails=0 worst={'dE_per_atom': 2.969778618034051e-13, 'max_dF': 7.66053886991358e-15, 'rms_dF': 1.938341451710185e-15, 'dstress': 0.0, 'maxF': 5.424143856631867} edges_eq=True +5450/-4906 wall=6.8s
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+org192_rev graphed_nodehybrid+embed+node_proto step 0 E=3670 dE/at=5.94e-13 maxdF=3.89e-15 dS=0.00e+00 eq=True ok=True
+org192_rev graphed_nodehybrid+embed+node_proto step 100 E=3738 dE/at=5.94e-13 maxdF=4.00e-15 dS=0.00e+00 eq=True ok=True
+org192_rev graphed_nodehybrid+embed+node_proto step 200 E=3784 dE/at=5.94e-13 maxdF=3.77e-15 dS=0.00e+00 eq=True ok=True
+org192_rev graphed_nodehybrid+embed+node_proto step 300 E=3868 dE/at=5.94e-13 maxdF=4.66e-15 dS=0.00e+00 eq=True ok=True
+org192_rev graphed_nodehybrid+embed+node_proto step 400 E=3946 dE/at=0.00e+00 maxdF=3.22e-15 dS=0.00e+00 eq=True ok=True
+org192_rev graphed_nodehybrid+embed+node_proto step 500 E=4060 dE/at=0.00e+00 maxdF=5.77e-15 dS=0.00e+00 eq=True ok=True
+org192_rev graphed_nodehybrid+embed+node_proto step 600 E=4170 dE/at=0.00e+00 maxdF=5.33e-15 dS=0.00e+00 eq=True ok=True
+org192_rev graphed_nodehybrid+embed+node_proto step 700 E=4216 dE/at=4.45e-13 maxdF=4.50e-15 dS=0.00e+00 eq=True ok=True
+org192_rev graphed_nodehybrid+embed+node_proto step 800 E=4232 dE/at=4.45e-13 maxdF=7.55e-15 dS=0.00e+00 eq=True ok=True
+org192_rev graphed_nodehybrid+embed+node_proto step 900 E=4278 dE/at=0.00e+00 maxdF=3.55e-15 dS=0.00e+00 eq=True ok=True
+org192_rev graphed_nodehybrid+embed+node_proto step 1000 E=4214 dE/at=5.94e-13 maxdF=4.33e-15 dS=0.00e+00 eq=True ok=True
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE org192_rev graphed_nodehybrid+embed+node_proto samples=201 fails=0 worst={'dE_per_atom': 5.939557236068102e-13, 'max_dF': 7.993605777301127e-15, 'rms_dF': 1.9191844621349366e-15, 'dstress': 0.0, 'maxF': 5.42414385663106} edges_eq=True +5450/-4906 wall=6.6s
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz
+exit=0 date=2026-11-10T05:26:13+00:00

@@ -1,0 +1,917 @@
+{
+ "slurm_job": "1084",
+ "host": "slurm-h100-206-077",
+ "torch": "2.11.0+cu128",
+ "gpu": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz",
+ "date": "2026-11-10T05:29:35",
+ "warm": 10,
+ "steps": 200,
+ "dt_fs": 0.5,
+ "rows": [
+  {
+   "provider": "stock",
+   "system": "water192",
+   "N": 192,
+   "periodic": false,
+   "setup_first_force_s": 0.6330702025443316,
+   "provider_name": "stock_eager",
+   "warmup_s": 2.090961107984185,
+   "ms_step_mean": 17.223509000614285,
+   "ms_step_blocks": [
+    17.18619979918003,
+    17.2018663585186,
+    17.269611693918705,
+    17.236248701810837
+   ],
+   "ms_step_median": 17.21905753016472,
+   "ms_step_min": 17.18619979918003,
+   "ms_step_max": 17.269611693918705,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 11150.436059793064,
+   "ns_per_day_at_dt": 2.508848113453439,
+   "peak_mem_MiB": 1237.509765625,
+   "sync_audit": {
+    "per_step": 38.2,
+    "n_steps": 5,
+    "kinds": {
+     "Synchronization debug mode is a prototype feature and does not yet detect all synchronizing operations (Triggered intern": 0.2,
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 38.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.00038522258842021984,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "ase",
+   "system": "water192",
+   "N": 192,
+   "periodic": false,
+   "setup_first_force_s": 0.12608757242560387,
+   "note": "ASE VelocityVerlet + MACECalculator(default_dtype=float64, compute_stress default)",
+   "warmup_s": 0.18322966806590557,
+   "ms_step_mean": 18.231079736724496,
+   "ms_step_blocks": [
+    18.20305835455656,
+    18.18920448422432,
+    18.236308358609676,
+    18.29566892236471
+   ],
+   "ms_step_median": 18.21968335658312,
+   "ms_step_min": 18.18920448422432,
+   "ms_step_max": 18.29566892236471,
+   "timed_steps": 200,
+   "atom_steps_per_s": 10538.053611707075,
+   "ns_per_day_at_dt": 2.3710620626340915,
+   "peak_mem_MiB": 1237.48046875,
+   "sync_audit": {
+    "per_step": 43.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 43.0
+    }
+   }
+  },
+  {
+   "provider": "graphed",
+   "system": "water192",
+   "N": 192,
+   "periodic": false,
+   "setup_first_force_s": 18.30385502614081,
+   "provider_name": "graphed_nodehybrid+embed+node_proto",
+   "warmup_s": 0.021775122731924057,
+   "ms_step_mean": 2.1233225148171186,
+   "ms_step_blocks": [
+    2.1157390624284744,
+    2.1189960837364197,
+    2.1429719775915146,
+    2.115507423877716
+   ],
+   "ms_step_median": 2.117367573082447,
+   "ms_step_min": 2.115507423877716,
+   "ms_step_max": 2.1429719775915146,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 90678.63437640537,
+   "ns_per_day_at_dt": 20.402692734691207,
+   "peak_mem_MiB": 837.60009765625,
+   "runner_stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 15.416361652314663,
+    "key": {
+     "n_atoms": 192,
+     "numbers_sha1": "c8aa538e33c6",
+     "pbc": [
+      false,
+      false,
+      false
+     ],
+     "cell_is_none": true,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     8000
+    ]
+   },
+   "sync_audit": {
+    "per_step": 2.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 2.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.00038522258819284616,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "stock",
+   "system": "water648",
+   "N": 648,
+   "periodic": false,
+   "setup_first_force_s": 0.046523673459887505,
+   "provider_name": "stock_eager",
+   "warmup_s": 0.443826038390398,
+   "ms_step_mean": 44.3702984508127,
+   "ms_step_blocks": [
+    44.44487329572439,
+    44.275344647467136,
+    44.266962483525276,
+    44.49390962719917
+   ],
+   "ms_step_median": 44.360108971595764,
+   "ms_step_min": 44.266962483525276,
+   "ms_step_max": 44.49390962719917,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 14607.718849719713,
+   "ns_per_day_at_dt": 0.9738479233146474,
+   "peak_mem_MiB": 4539.49169921875,
+   "sync_audit": {
+    "per_step": 38.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 38.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.00029569180082944513,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "ase",
+   "system": "water648",
+   "N": 648,
+   "periodic": false,
+   "setup_first_force_s": 0.04920282959938049,
+   "note": "ASE VelocityVerlet + MACECalculator(default_dtype=float64, compute_stress default)",
+   "warmup_s": 0.4577535167336464,
+   "ms_step_mean": 47.81460631638765,
+   "ms_step_blocks": [
+    45.862877294421196,
+    45.68844273686409,
+    53.844445273280144,
+    45.86257144808769
+   ],
+   "ms_step_median": 45.862724371254444,
+   "ms_step_min": 45.68844273686409,
+   "ms_step_max": 53.844445273280144,
+   "timed_steps": 200,
+   "atom_steps_per_s": 14129.121391797418,
+   "ns_per_day_at_dt": 0.9419414261198278,
+   "peak_mem_MiB": 4541.86572265625,
+   "sync_audit": {
+    "per_step": 43.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 43.0
+    }
+   }
+  },
+  {
+   "provider": "graphed",
+   "system": "water648",
+   "N": 648,
+   "periodic": false,
+   "setup_first_force_s": 0.6026799269020557,
+   "provider_name": "graphed_nodehybrid+embed+node_proto",
+   "warmup_s": 0.03663160838186741,
+   "ms_step_mean": 3.6330361012369394,
+   "ms_step_blocks": [
+    3.6355766654014587,
+    3.6304806917905807,
+    3.6352474987506866,
+    3.6307621747255325
+   ],
+   "ms_step_median": 3.6330048367381096,
+   "ms_step_min": 3.6304806917905807,
+   "ms_step_max": 3.6355766654014587,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 178364.7501504034,
+   "ns_per_day_at_dt": 11.890983343360224,
+   "peak_mem_MiB": 1258.3359375,
+   "runner_stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.11585759185254574,
+    "key": {
+     "n_atoms": 648,
+     "numbers_sha1": "1f532494b7d0",
+     "pbc": [
+      false,
+      false,
+      false
+     ],
+     "cell_is_none": true,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     31872
+    ]
+   },
+   "sync_audit": {
+    "per_step": 2.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 2.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.00029569180082944513,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "stock",
+   "system": "wbox648",
+   "N": 648,
+   "periodic": true,
+   "setup_first_force_s": 0.05702975206077099,
+   "provider_name": "stock_eager",
+   "warmup_s": 0.550013218075037,
+   "ms_step_mean": 55.02928434871137,
+   "ms_step_blocks": [
+    54.959797114133835,
+    55.17174441367388,
+    55.013492219150066,
+    54.971990026533604
+   ],
+   "ms_step_median": 54.992741122841835,
+   "ms_step_min": 54.959797114133835,
+   "ms_step_max": 55.17174441367388,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 11783.37334653875,
+   "ns_per_day_at_dt": 0.7855582231025833,
+   "peak_mem_MiB": 5780.83642578125,
+   "sync_audit": {
+    "per_step": 38.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 38.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.00028799794188216765,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "ase",
+   "system": "wbox648",
+   "N": 648,
+   "periodic": true,
+   "setup_first_force_s": 0.060575930401682854,
+   "note": "ASE VelocityVerlet + MACECalculator(default_dtype=float64, compute_stress default)",
+   "warmup_s": 0.5643970128148794,
+   "ms_step_mean": 56.43718610517681,
+   "ms_step_blocks": [
+    57.11390841752291,
+    56.17834556847811,
+    55.972757041454315,
+    56.483636274933815
+   ],
+   "ms_step_median": 56.33099092170596,
+   "ms_step_min": 55.972757041454315,
+   "ms_step_max": 57.11390841752291,
+   "timed_steps": 200,
+   "atom_steps_per_s": 11503.436907414793,
+   "ns_per_day_at_dt": 0.7668957938276528,
+   "peak_mem_MiB": 5783.98583984375,
+   "sync_audit": {
+    "per_step": 43.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 43.0
+    }
+   }
+  },
+  {
+   "provider": "graphed",
+   "system": "wbox648",
+   "N": 648,
+   "periodic": true,
+   "setup_first_force_s": 0.8848154712468386,
+   "provider_name": "graphed_nodehybrid+embed+node_proto",
+   "warmup_s": 0.0528033971786499,
+   "ms_step_mean": 5.166523167863488,
+   "ms_step_blocks": [
+    5.203845575451851,
+    5.208730325102806,
+    5.138729773461819,
+    5.1147156953811646
+   ],
+   "ms_step_median": 5.171287674456835,
+   "ms_step_min": 5.1147156953811646,
+   "ms_step_max": 5.208730325102806,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 125307.28143412802,
+   "ns_per_day_at_dt": 8.3538187622752,
+   "peak_mem_MiB": 1578.27978515625,
+   "runner_stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.09732672944664955,
+    "key": {
+     "n_atoms": 648,
+     "numbers_sha1": "1f532494b7d0",
+     "pbc": [
+      true,
+      true,
+      true
+     ],
+     "cell_is_none": false,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     42880
+    ]
+   },
+   "sync_audit": {
+    "per_step": 4.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 4.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.00028799794188216765,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "stock",
+   "system": "water2187",
+   "N": 2187,
+   "periodic": false,
+   "setup_first_force_s": 0.1468348279595375,
+   "provider_name": "stock_eager",
+   "warmup_s": 1.4057055562734604,
+   "ms_step_mean": 141.64479437284172,
+   "ms_step_blocks": [
+    140.7812151685357,
+    140.38230244070292,
+    139.69615574926138,
+    145.71940261870623
+   ],
+   "ms_step_median": 140.5817588046193,
+   "ms_step_min": 139.69615574926138,
+   "ms_step_max": 145.71940261870623,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 15556.783601203162,
+   "ns_per_day_at_dt": 0.3072944908879637,
+   "peak_mem_MiB": 16063.89990234375,
+   "sync_audit": {
+    "per_step": 38.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 38.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.0003048318658329663,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "ase",
+   "system": "water2187",
+   "N": 2187,
+   "periodic": false,
+   "setup_first_force_s": 0.16123298928141594,
+   "note": "ASE VelocityVerlet + MACECalculator(default_dtype=float64, compute_stress default)",
+   "warmup_s": 1.4901932440698147,
+   "ms_step_mean": 146.0048977844417,
+   "ms_step_blocks": [
+    145.7016570493579,
+    154.18539833277464,
+    141.99632480740547,
+    142.13612139225006
+   ],
+   "ms_step_median": 143.91888922080398,
+   "ms_step_min": 141.99632480740547,
+   "ms_step_max": 154.18539833277464,
+   "timed_steps": 200,
+   "atom_steps_per_s": 15196.059473782136,
+   "ns_per_day_at_dt": 0.3001690760253261,
+   "peak_mem_MiB": 16073.0078125,
+   "sync_audit": {
+    "per_step": 43.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 43.0
+    }
+   }
+  },
+  {
+   "provider": "graphed",
+   "system": "water2187",
+   "N": 2187,
+   "periodic": false,
+   "setup_first_force_s": 0.6492840796709061,
+   "provider_name": "graphed_nodehybrid+embed+node_proto",
+   "warmup_s": 0.10222846083343029,
+   "ms_step_mean": 10.186463491991162,
+   "ms_step_blocks": [
+    10.18579788506031,
+    10.173182263970375,
+    10.203389339148998,
+    10.18335409462452
+   ],
+   "ms_step_median": 10.184575989842415,
+   "ms_step_min": 10.173182263970375,
+   "ms_step_max": 10.203389339148998,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 214736.4801618844,
+   "ns_per_day_at_dt": 4.241708250111296,
+   "peak_mem_MiB": 3852.240234375,
+   "runner_stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.10517146624624729,
+    "key": {
+     "n_atoms": 2187,
+     "numbers_sha1": "a2accae2fe7f",
+     "pbc": [
+      false,
+      false,
+      false
+     ],
+     "cell_is_none": true,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     119232
+    ]
+   },
+   "sync_audit": {
+    "per_step": 2.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 2.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.0003048318658329663,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "stock",
+   "system": "wbox2187",
+   "N": 2187,
+   "periodic": true,
+   "setup_first_force_s": 0.2176443561911583,
+   "provider_name": "stock_eager",
+   "warmup_s": 2.101829254999757,
+   "ms_step_mean": 205.25268749333918,
+   "ms_step_blocks": [
+    207.61243745684624,
+    204.94687143713236,
+    204.13347501307726,
+    204.31779019534588
+   ],
+   "ms_step_median": 204.63233081623912,
+   "ms_step_min": 204.13347501307726,
+   "ms_step_max": 207.61243745684624,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 10687.460731529942,
+   "ns_per_day_at_dt": 0.21111033543762844,
+   "peak_mem_MiB": 18803.3798828125,
+   "sync_audit": {
+    "per_step": 38.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 38.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.0003128955444253734,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "ase",
+   "system": "wbox2187",
+   "N": 2187,
+   "periodic": true,
+   "setup_first_force_s": 0.21228116936981678,
+   "note": "ASE VelocityVerlet + MACECalculator(default_dtype=float64, compute_stress default)",
+   "warmup_s": 2.0686034988611937,
+   "ms_step_mean": 206.922973273322,
+   "ms_step_blocks": [
+    207.5120109692216,
+    207.38812986761332,
+    206.6536169499159,
+    206.13804560154676
+   ],
+   "ms_step_median": 207.0208734087646,
+   "ms_step_min": 206.13804560154676,
+   "ms_step_max": 207.5120109692216,
+   "timed_steps": 200,
+   "atom_steps_per_s": 10564.152126253224,
+   "ns_per_day_at_dt": 0.2086746099012982,
+   "peak_mem_MiB": 18814.42724609375,
+   "sync_audit": {
+    "per_step": 43.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 43.0
+    }
+   }
+  },
+  {
+   "provider": "graphed",
+   "system": "wbox2187",
+   "N": 2187,
+   "periodic": true,
+   "setup_first_force_s": 0.6944614723324776,
+   "provider_name": "graphed_nodehybrid+embed+node_proto",
+   "warmup_s": 0.18905841372907162,
+   "ms_step_mean": 18.82779698818922,
+   "ms_step_blocks": [
+    18.82245320826769,
+    18.832564428448677,
+    18.82546868175268,
+    18.83059460669756
+   ],
+   "ms_step_median": 18.82803164422512,
+   "ms_step_min": 18.82245320826769,
+   "ms_step_max": 18.832564428448677,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 116156.59253848718,
+   "ns_per_day_at_dt": 2.2944512106367836,
+   "peak_mem_MiB": 4644.56396484375,
+   "runner_stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.12037849985063076,
+    "key": {
+     "n_atoms": 2187,
+     "numbers_sha1": "a2accae2fe7f",
+     "pbc": [
+      true,
+      true,
+      true
+     ],
+     "cell_is_none": false,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     144896
+    ]
+   },
+   "sync_audit": {
+    "per_step": 8.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 8.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.0003128955445390602,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "stock",
+   "system": "water5184",
+   "N": 5184,
+   "periodic": false,
+   "setup_first_force_s": 0.4318153578788042,
+   "provider_name": "stock_eager",
+   "warmup_s": 4.058757467195392,
+   "ms_step_mean": 392.911284994334,
+   "ms_step_blocks": [
+    392.4619923904538,
+    391.3954371958971,
+    395.0467910245061,
+    392.7407946437597
+   ],
+   "ms_step_median": 392.60139351710677,
+   "ms_step_min": 391.3954371958971,
+   "ms_step_max": 395.0467910245061,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 13204.232296679605,
+   "ns_per_day_at_dt": 0.1100352691389967,
+   "peak_mem_MiB": 39275.08203125,
+   "sync_audit": {
+    "per_step": 38.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 38.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.000301971217368191,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "ase",
+   "system": "water5184",
+   "N": 5184,
+   "periodic": false,
+   "setup_first_force_s": 0.43866011314094067,
+   "note": "ASE VelocityVerlet + MACECalculator(default_dtype=float64, compute_stress default)",
+   "warmup_s": 3.9565978702157736,
+   "ms_step_mean": 395.7430986594409,
+   "ms_step_blocks": [
+    397.2756514325738,
+    389.43683736026287,
+    398.34294356405735,
+    397.9168716818094
+   ],
+   "ms_step_median": 397.5962615571916,
+   "ms_step_min": 389.43683736026287,
+   "ms_step_max": 398.34294356405735,
+   "timed_steps": 200,
+   "atom_steps_per_s": 13038.35196965079,
+   "ns_per_day_at_dt": 0.10865293308042323,
+   "peak_mem_MiB": 39295.4775390625,
+   "sync_audit": {
+    "per_step": 43.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 43.0
+    }
+   }
+  },
+  {
+   "provider": "graphed",
+   "system": "water5184",
+   "N": 5184,
+   "periodic": false,
+   "setup_first_force_s": 0.7098828833550215,
+   "provider_name": "graphed_nodehybrid+embed+node_proto",
+   "warmup_s": 0.23219901137053967,
+   "ms_step_mean": 23.10580044053495,
+   "ms_step_blocks": [
+    23.14963772892952,
+    23.07990189641714,
+    23.088370822370052,
+    23.10517955571413
+   ],
+   "ms_step_median": 23.09677518904209,
+   "ms_step_min": 23.07990189641714,
+   "ms_step_max": 23.14963772892952,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 224446.9177004186,
+   "ns_per_day_at_dt": 1.8703909808368213,
+   "peak_mem_MiB": 9084.55615234375,
+   "runner_stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.14306575246155262,
+    "key": {
+     "n_atoms": 5184,
+     "numbers_sha1": "286e1be42d91",
+     "pbc": [
+      false,
+      false,
+      false
+     ],
+     "cell_is_none": true,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     297344
+    ]
+   },
+   "sync_audit": {
+    "per_step": 2.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 2.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.00030197121725450415,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "stock",
+   "system": "wbox5184",
+   "N": 5184,
+   "periodic": true,
+   "setup_first_force_s": 0.44535487703979015,
+   "provider_name": "stock_eager",
+   "warmup_s": 4.3792369943112135,
+   "ms_step_mean": 431.61152977496386,
+   "ms_step_blocks": [
+    436.00308775901794,
+    432.05766029655933,
+    432.19560500234365,
+    426.1895804852247
+   ],
+   "ms_step_median": 432.1266326494515,
+   "ms_step_min": 426.1895804852247,
+   "ms_step_max": 436.00308775901794,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 11996.483457212296,
+   "ns_per_day_at_dt": 0.09997069547676912,
+   "peak_mem_MiB": 44074.35205078125,
+   "sync_audit": {
+    "per_step": 38.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 38.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.000308106400439101,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  },
+  {
+   "provider": "ase",
+   "system": "wbox5184",
+   "N": 5184,
+   "periodic": true,
+   "setup_first_force_s": 0.4357184860855341,
+   "note": "ASE VelocityVerlet + MACECalculator(default_dtype=float64, compute_stress default)",
+   "warmup_s": 4.443008257076144,
+   "ms_step_mean": 436.75492295995355,
+   "ms_step_blocks": [
+    435.87308675050735,
+    439.66721564531326,
+    440.8730974420905,
+    430.6061873584986
+   ],
+   "ms_step_median": 437.7701511979103,
+   "ms_step_min": 430.6061873584986,
+   "ms_step_max": 440.8730974420905,
+   "timed_steps": 200,
+   "atom_steps_per_s": 11841.830663453296,
+   "ns_per_day_at_dt": 0.09868192219544412,
+   "peak_mem_MiB": 44098.60791015625,
+   "sync_audit": {
+    "per_step": 43.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 43.0
+    }
+   }
+  },
+  {
+   "provider": "graphed",
+   "system": "wbox5184",
+   "N": 5184,
+   "periodic": true,
+   "setup_first_force_s": 0.7997578345239162,
+   "provider_name": "graphed_nodehybrid+embed+node_proto",
+   "warmup_s": 0.6673831082880497,
+   "ms_step_mean": 66.66793359443545,
+   "ms_step_blocks": [
+    66.66349478065968,
+    66.67457398027182,
+    66.65209610015154,
+    66.68117646127939
+   ],
+   "ms_step_median": 66.66903438046575,
+   "ms_step_min": 66.65209610015154,
+   "ms_step_max": 66.68117646127939,
+   "timed_steps": 200,
+   "explicit_syncs_per_step": {
+    "d2h_positions": 1.0
+   },
+   "atom_steps_per_s": 77757.23839670506,
+   "ns_per_day_at_dt": 0.6479769866392087,
+   "peak_mem_MiB": 10411.8720703125,
+   "runner_stats": {
+    "captures": 1,
+    "recaptures": 0,
+    "evictions": 0,
+    "last_capture_s": 0.1445043757557869,
+    "key": {
+     "n_atoms": 5184,
+     "numbers_sha1": "286e1be42d91",
+     "pbc": [
+      true,
+      true,
+      true
+     ],
+     "cell_is_none": false,
+     "head": "Default",
+     "dtype": "torch.float64",
+     "stress": false
+    },
+    "n_graphs": 1,
+    "E_caps": [
+     342912
+    ]
+   },
+   "sync_audit": {
+    "per_step": 30.0,
+    "n_steps": 5,
+    "kinds": {
+     "called a synchronizing CUDA operation (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:162.)": 30.0
+    }
+   },
+   "Etot_per_atom_range_during_bench": 0.0003081064002117273,
+   "finite": true,
+   "check_failures": [],
+   "n_rollbacks": 0,
+   "n_post_captures": 0
+  }
+ ],
+ "gpu_end": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz, 1980 MHz"
+}

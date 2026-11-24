@@ -1,0 +1,8 @@
+fp32 module metadata (fiber arrays, CG table, path weights, ...) bitwise equal orig vs cgpatch: mace/medium.json:0:torch.float32 True n_items 14
+fp32 module metadata (fiber arrays, CG table, path weights, ...) bitwise equal orig vs cgpatch: mace/medium.json:0:torch.float64 True n_items 14
+fp32 module metadata (fiber arrays, CG table, path weights, ...) bitwise equal orig vs cgpatch: mace/medium.json:1:torch.float32 True n_items 14
+fp32 module metadata (fiber arrays, CG table, path weights, ...) bitwise equal orig vs cgpatch: mace/medium.json:1:torch.float64 True n_items 14
+fp32 module metadata (fiber arrays, CG table, path weights, ...) bitwise equal orig vs cgpatch: sevennet/sevennet-l3i5.json:1:torch.float32 True n_items 14
+fp32 module metadata (fiber arrays, CG table, path weights, ...) bitwise equal orig vs cgpatch: sevennet/sevennet-l3i5.json:1:torch.float64 True n_items 14
+fp32 module metadata (fiber arrays, CG table, path weights, ...) bitwise equal orig vs cgpatch: nequip/4_32_5_p_sc.txt:1:torch.float32 True n_items 18
+fp32 module metadata (fiber arrays, CG table, path weights, ...) bitwise equal orig vs cgpatch: nequip/4_32_5_p_sc.txt:1:torch.float64 True n_items 18

@@ -1,0 +1,46 @@
+job=1069 host=slurm-h100-206-077 start=2026-11-10T05:22:45+00:00
+0, NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 345 MHz, 1980 MHz
+TIMING_LOCK: 1069 int9 slurm-h100-206-077 2026-11-10T05:22:45+00:00
+other job: 1068 md9prep jordan+123 slurm-h100-206-077 RUNNING
+built stock {'build_install_s': 0.24864611960947514}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built hybrid+embed+node {'build_install_s': 5.374980680644512}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built nodehybrid+embed+node {'build_install_s': 0.668891066685319}
+aspirin stock {"E": 302, "B1": 11.2829, "B2": 15.9904, "peak_MiB": 112.32275390625}
+  json.dump(res, open(out_path, "w"), indent=1)
+aspirin hybrid+embed+node {"first_step_s": 13.126947607845068, "E": 302, "E_cap": 384, "B1": 0.6758, "B2": 0.9077, "B2_nl_only": 0.0881, "B2host": 1.2558, "peak_MiB": 142.51416015625}
+  json.dump(res, open(out_path, "w"), indent=1)
+aspirin nodehybrid+embed+node {"first_step_s": 0.5910121407359838, "E": 302, "E_cap": 384, "B1": 0.7665, "B2": 0.9474, "B2_nl_only": 0.091, "B2host": 1.2944, "peak_MiB": 77.3203125}
+  json.dump(res, open(out_path, "w"), indent=1)
+water192 hybrid+embed+node {"first_step_s": 0.08413493260741234, "E": 6634, "E_cap": 8000, "B1": 2.1939, "B2": 2.3808, "B2_nl_only": 0.0952, "B2host": 2.7455, "peak_MiB": 311.724609375}
+water192 nodehybrid+embed+node {"first_step_s": 0.06477362662553787, "E": 6634, "E_cap": 8000, "B1": 1.5182, "B2": 1.7028, "B2_nl_only": 0.0935, "B2host": 2.0649, "peak_MiB": 296.40625}
+water192 stock {"E": 6634, "B1": 13.071, "B2": 17.7535, "peak_MiB": 1132.4384765625}
+wbox192 nodehybrid+embed+node {"first_step_s": 0.08338104747235775, "E": 10588, "E_cap": 12736, "B1": 1.7292, "B2": 2.3785, "B2_nl_only": 0.5224, "B2host": 2.7288, "peak_MiB": 423.24365234375}
+wbox192 stock {"E": 10588, "B1": 15.6708, "B2": 21.8639, "peak_MiB": 1623.30419921875}
+wbox192 hybrid+embed+node {"first_step_s": 0.0667080208659172, "E": 10588, "E_cap": 12736, "B1": 2.9387, "B2": 3.5895, "B2_nl_only": 0.5224, "B2host": 3.9432, "peak_MiB": 443.36669921875}
+water648 stock {"E": 26550, "B1": 36.2, "B2": 45.4124, "peak_MiB": 4306.73291015625}
+water648 hybrid+embed+node {"first_step_s": 0.1548297367990017, "E": 26550, "E_cap": 31872, "B1": 6.4767, "B2": 6.6674, "B2_nl_only": 0.1067, "B2host": 7.061, "peak_MiB": 1039.02783203125}
+water648 nodehybrid+embed+node {"first_step_s": 0.06998680531978607, "E": 26550, "E_cap": 31872, "B1": 2.987, "B2": 3.1773, "B2_nl_only": 0.106, "B2host": 3.5686, "peak_MiB": 980.83740234375}
+wbox648 hybrid+embed+node {"first_step_s": 0.08562997356057167, "E": 35724, "E_cap": 42880, "B1": 8.3812, "B2": 9.5116, "B2_nl_only": 1.0161, "B2host": 9.8741, "peak_MiB": 1338.8369140625}
+wbox648 nodehybrid+embed+node {"first_step_s": 0.07665758579969406, "E": 35724, "E_cap": 42880, "B1": 3.669, "B2": 4.7985, "B2_nl_only": 1.0165, "B2host": 5.1695, "peak_MiB": 1270.3505859375}
+wbox648 stock {"E": 35724, "B1": 43.0301, "B2": 56.1375, "peak_MiB": 5446.35302734375}
+org648 nodehybrid+embed+node {"first_step_s": 0.06614783592522144, "E": 14856, "E_cap": 17856, "B1": 2.3279, "B2": 2.5079, "B2_nl_only": 0.0956, "B2host": 2.9026, "peak_MiB": 597.44580078125}
+org648 stock {"E": 14856, "B1": 27.7411, "B2": 35.0136, "peak_MiB": 2856.5771484375}
+org648 hybrid+embed+node {"first_step_s": 0.06999053061008453, "E": 14856, "E_cap": 17856, "B1": 4.1869, "B2": 4.3833, "B2_nl_only": 0.0955, "B2host": 4.7848, "peak_MiB": 641.56201171875}
+water2187 stock {"E": 99438, "B1": 120.6808, "B2": 141.1938, "peak_MiB": 15718.443359375}
+water2187 hybrid+embed+node {"first_step_s": 0.1571948640048504, "E": 99438, "E_cap": 119360, "B1": 22.5483, "B2": 22.9379, "B2_nl_only": 0.3232, "B2host": 23.3803, "peak_MiB": 3652.8349609375}
+water2187 nodehybrid+embed+node {"first_step_s": 0.11899645812809467, "E": 99438, "E_cap": 119360, "B1": 9.1648, "B2": 9.5526, "B2_nl_only": 0.3241, "B2host": 9.9831, "peak_MiB": 3450.0107421875}
+wbox2187 hybrid+embed+node {"first_step_s": 0.2867424916476011, "E": 120506, "E_cap": 144640, "B1": 26.8214, "B2": 34.497, "B2_nl_only": 7.5813, "B2host": 34.8779, "peak_MiB": 4360.57568359375}
+wbox2187 nodehybrid+embed+node {"first_step_s": 0.17351924628019333, "E": 120506, "E_cap": 144640, "B1": 10.6614, "B2": 18.3474, "B2_nl_only": 7.5821, "B2host": 18.6209, "peak_MiB": 4131.29736328125}
+wbox2187 stock {"E": 120506, "B1": 136.2349, "B2": 205.4809, "peak_MiB": 18330.0595703125}
+water5184 nodehybrid+embed+node {"first_step_s": 0.2702826298773289, "E": 247652, "E_cap": 297216, "B1": 21.2314, "B2": 22.5937, "B2_nl_only": 1.2621, "B2host": 23.126, "peak_MiB": 8473.3388671875}
+water5184 stock {"E": 247652, "B1": 291.3971, "B2": 411.3884, "peak_MiB": 38713.53173828125}
+water5184 hybrid+embed+node {"first_step_s": 0.39190753549337387, "E": 247652, "E_cap": 297216, "B1": 55.8112, "B2": 57.1284, "B2_nl_only": 1.2619, "B2host": 57.6702, "peak_MiB": 8970.7431640625}
+wbox5184 stock {"E": 285460, "B1": 319.5946, "B2": 446.0572, "peak_MiB": 43403.611328125}
+wbox5184 hybrid+embed+node {"first_step_s": 0.5320476517081261, "E": 285460, "E_cap": 342592, "B1": 63.5535, "B2": 106.3643, "B2_nl_only": 42.3348, "B2host": 106.6697, "peak_MiB": 10231.13623046875}
+wbox5184 nodehybrid+embed+node {"first_step_s": 0.3387136124074459, "E": 285460, "E_cap": 342592, "B1": 23.8232, "B2": 66.307, "B2_nl_only": 42.3409, "B2host": 67.0543, "peak_MiB": 9689.63623046875}
+  json.dump(res, open(out_path, "w"), indent=1)
+DONE
+scripts/int9/job.sh: error reading input file: Stale file handle
+srun: error: slurm-h100-206-077: task 0: Exited with exit code 2

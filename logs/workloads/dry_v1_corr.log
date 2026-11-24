@@ -1,0 +1,625 @@
+SLURM_JOB_ID=1001 host=slurm-h100-206-077 date=2026-11-09T01:36:24Z CUDA_VISIBLE_DEVICES=0 SLURM_STEP_GPUS=0 SLURM_JOB_GPUS=
+index, name, uuid, clocks.current.sm [MHz], clocks.max.sm [MHz]
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+pid, gpu_uuid, used_gpu_memory [MiB]
+1001 jordan+123 bash gres/gpu:1 slurm-h100-206-077
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/modules/models.py:87: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:89: DeprecationWarning: `torch.jit.save` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/modules/models.py:87: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+SETUP {"e3nn": {"construct_ms": 1889.5, "first_ase_call_aspirin_ms": 390.1, "second_ase_call_aspirin_ms": 228.1, "third_ase_call_aspirin_ms": 588.3, "setup_total_ms": 2279.6}, "cueq": {"construct_ms": 2622.6, "first_ase_call_aspirin_ms": 10779.1, "second_ase_call_aspirin_ms": 24.2, "third_ase_call_aspirin_ms": 22.3, "setup_total_ms": 13401.7}, "flash64": {"construct_ms": 223.9, "first_ase_call_aspirin_ms": 34.1, "second_ase_call_aspirin_ms": 43.0, "third_ase_call_aspirin_ms": 27.5, "setup_total_ms": 258.0}, "hybrid": {"construct_ms": 543.0, "first_ase_call_aspirin_ms": 11558.0, "second_ase_call_aspirin_ms": 51.0, "third_ase_call_aspirin_ms": 33.7, "setup_total_ms": 12101.0}}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+CORR aspirin 21 302 {"e3nn": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "0.00e+00", "rms_dF_eVA": "0.00e+00", "valid": true, "pass_1e12": true}, "cueq": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "1.07e-14", "rms_dF_eVA": "2.63e-15", "valid": true, "pass_1e12": true}, "flash64": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "7.11e-15", "rms_dF_eVA": "1.38e-15", "valid": true, "pass_1e12": true}, "hybrid": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "4.44e-15", "rms_dF_eVA": "1.32e-15", "valid": true, "pass_1e12": true}} repeat {"e3nn": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 1.817990202823694e-15, "max_abs_dF_vs_seq0": 3.011479954295737e-15}, "cueq": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.3592239273284576e-15, "max_abs_dF_vs_seq0": 1.9984014443252818e-15}, "flash64": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.609024107869118e-15, "max_abs_dF_vs_seq0": 2.1094237467877974e-15}, "hybrid": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.7755575615628914e-15, "max_abs_dF_vs_seq0": 3.497202527569243e-15}}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py:37: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/workloads/wl_dry_v1_corr.json' mode='w' encoding='UTF-8'>
+  json.dump(out, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+CORR AT_WC 30 470 {"e3nn": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "0.00e+00", "rms_dF_eVA": "0.00e+00", "valid": true, "pass_1e12": true}, "cueq": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "7.99e-15", "rms_dF_eVA": "1.77e-15", "valid": true, "pass_1e12": true}, "flash64": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "6.22e-15", "rms_dF_eVA": "1.59e-15", "valid": true, "pass_1e12": true}, "hybrid": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "7.99e-15", "rms_dF_eVA": "2.15e-15", "valid": true, "pass_1e12": true}} repeat {"e3nn": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.609024107869118e-15, "max_abs_dF_vs_seq0": 2.220446049250313e-15}, "cueq": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 3.3306690738754696e-15, "max_abs_dF_vs_seq0": 3.885780586188048e-15}, "flash64": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 3.885780586188048e-15, "max_abs_dF_vs_seq0": 5.162537064506978e-15}, "hybrid": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.3314683517128287e-15, "max_abs_dF_vs_seq0": 3.1086244689504383e-15}}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+CORR org192 196 3670 {"e3nn": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "0.00e+00", "rms_dF_eVA": "0.00e+00", "valid": true, "pass_1e12": true}, "cueq": {"dE_per_atom_eV": "1.48e-13", "max_abs_dF_eVA": "8.88e-15", "rms_dF_eVA": "1.59e-15", "valid": true, "pass_1e12": true}, "flash64": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "7.11e-15", "rms_dF_eVA": "1.15e-15", "valid": true, "pass_1e12": true}, "hybrid": {"dE_per_atom_eV": "1.48e-13", "max_abs_dF_eVA": "7.11e-15", "rms_dF_eVA": "1.23e-15", "valid": true, "pass_1e12": true}} repeat {"e3nn": {"E_range_eV": 2.9103830456733704e-11, "max_abs_dF_vs_call0": 3.0808688933348094e-15, "max_abs_dF_vs_seq0": 3.885780586188048e-15}, "cueq": {"E_range_eV": 2.9103830456733704e-11, "max_abs_dF_vs_call0": 3.4416913763379853e-15, "max_abs_dF_vs_seq0": 3.552713678800501e-15}, "flash64": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.886579864025407e-15, "max_abs_dF_vs_seq0": 3.8719027983802334e-15}, "hybrid": {"E_range_eV": 2.9103830456733704e-11, "max_abs_dF_vs_call0": 3.9968028886505635e-15, "max_abs_dF_vs_seq0": 2.581268532253489e-15}}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+CORR org384 385 8284 {"e3nn": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "0.00e+00", "rms_dF_eVA": "0.00e+00", "valid": true, "pass_1e12": true}, "cueq": {"dE_per_atom_eV": "1.51e-13", "max_abs_dF_eVA": "2.13e-14", "rms_dF_eVA": "2.05e-15", "valid": true, "pass_1e12": true}, "flash64": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "1.42e-14", "rms_dF_eVA": "1.55e-15", "valid": true, "pass_1e12": true}, "hybrid": {"dE_per_atom_eV": "1.51e-13", "max_abs_dF_eVA": "1.42e-14", "rms_dF_eVA": "1.54e-15", "valid": true, "pass_1e12": true}} repeat {"e3nn": {"E_range_eV": 5.820766091346741e-11, "max_abs_dF_vs_call0": 3.70536934468646e-15, "max_abs_dF_vs_seq0": 5.051514762044462e-15}, "cueq": {"E_range_eV": 5.820766091346741e-11, "max_abs_dF_vs_call0": 3.885780586188048e-15, "max_abs_dF_vs_seq0": 4.218847493575595e-15}, "flash64": {"E_range_eV": 5.820766091346741e-11, "max_abs_dF_vs_call0": 3.497202527569243e-15, "max_abs_dF_vs_seq0": 3.1086244689504383e-15}, "hybrid": {"E_range_eV": 1.7462298274040222e-10, "max_abs_dF_vs_call0": 3.774758283725532e-15, "max_abs_dF_vs_seq0": 3.9968028886505635e-15}}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+CORR org648 650 14856 {"e3nn": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "0.00e+00", "rms_dF_eVA": "0.00e+00", "valid": true, "pass_1e12": true}, "cueq": {"dE_per_atom_eV": "1.79e-13", "max_abs_dF_eVA": "2.13e-14", "rms_dF_eVA": "2.12e-15", "valid": true, "pass_1e12": true}, "flash64": {"dE_per_atom_eV": "1.79e-13", "max_abs_dF_eVA": "1.42e-14", "rms_dF_eVA": "1.46e-15", "valid": true, "pass_1e12": true}, "hybrid": {"dE_per_atom_eV": "1.79e-13", "max_abs_dF_eVA": "1.60e-14", "rms_dF_eVA": "1.63e-15", "valid": true, "pass_1e12": true}} repeat {"e3nn": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 3.9968028886505635e-15, "max_abs_dF_vs_seq0": 6.217248937900877e-15}, "cueq": {"E_range_eV": 1.1641532182693481e-10, "max_abs_dF_vs_call0": 4.884981308350689e-15, "max_abs_dF_vs_seq0": 4.038436252074007e-15}, "flash64": {"E_range_eV": 1.1641532182693481e-10, "max_abs_dF_vs_call0": 4.440892098500626e-15, "max_abs_dF_vs_seq0": 4.274358644806853e-15}, "hybrid": {"E_range_eV": 1.1641532182693481e-10, "max_abs_dF_vs_call0": 3.802513859341161e-15, "max_abs_dF_vs_seq0": 4.218847493575595e-15}}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+CORR water192 192 6634 {"e3nn": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "0.00e+00", "rms_dF_eVA": "0.00e+00", "valid": true, "pass_1e12": true}, "cueq": {"dE_per_atom_eV": "1.52e-13", "max_abs_dF_eVA": "1.24e-14", "rms_dF_eVA": "1.68e-15", "valid": true, "pass_1e12": true}, "flash64": {"dE_per_atom_eV": "1.52e-13", "max_abs_dF_eVA": "1.07e-14", "rms_dF_eVA": "1.19e-15", "valid": true, "pass_1e12": true}, "hybrid": {"dE_per_atom_eV": "1.52e-13", "max_abs_dF_eVA": "8.88e-15", "rms_dF_eVA": "1.32e-15", "valid": true, "pass_1e12": true}} repeat {"e3nn": {"E_range_eV": 2.9103830456733704e-11, "max_abs_dF_vs_call0": 2.6645352591003757e-15, "max_abs_dF_vs_seq0": 2.6645352591003757e-15}, "cueq": {"E_range_eV": 2.9103830456733704e-11, "max_abs_dF_vs_call0": 2.609024107869118e-15, "max_abs_dF_vs_seq0": 2.6645352591003757e-15}, "flash64": {"E_range_eV": 2.9103830456733704e-11, "max_abs_dF_vs_call0": 2.609024107869118e-15, "max_abs_dF_vs_seq0": 2.4424906541753444e-15}, "hybrid": {"E_range_eV": 2.9103830456733704e-11, "max_abs_dF_vs_call0": 2.220446049250313e-15, "max_abs_dF_vs_seq0": 2.4424906541753444e-15}}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+CORR water288 288 10824 {"e3nn": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "0.00e+00", "rms_dF_eVA": "0.00e+00", "valid": true, "pass_1e12": true}, "cueq": {"dE_per_atom_eV": "1.01e-13", "max_abs_dF_eVA": "1.07e-14", "rms_dF_eVA": "1.56e-15", "valid": true, "pass_1e12": true}, "flash64": {"dE_per_atom_eV": "1.01e-13", "max_abs_dF_eVA": "5.33e-15", "rms_dF_eVA": "1.12e-15", "valid": true, "pass_1e12": true}, "hybrid": {"dE_per_atom_eV": "1.01e-13", "max_abs_dF_eVA": "5.33e-15", "rms_dF_eVA": "1.23e-15", "valid": true, "pass_1e12": true}} repeat {"e3nn": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.3314683517128287e-15, "max_abs_dF_vs_seq0": 2.886579864025407e-15}, "cueq": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.6645352591003757e-15, "max_abs_dF_vs_seq0": 3.1225022567582528e-15}, "flash64": {"E_range_eV": 2.9103830456733704e-11, "max_abs_dF_vs_call0": 2.886579864025407e-15, "max_abs_dF_vs_seq0": 2.7755575615628914e-15}, "hybrid": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.4980018054066022e-15, "max_abs_dF_vs_seq0": 2.275957200481571e-15}}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+CORR water384 384 15040 {"e3nn": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "0.00e+00", "rms_dF_eVA": "0.00e+00", "valid": true, "pass_1e12": true}, "cueq": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "1.42e-14", "rms_dF_eVA": "2.02e-15", "valid": true, "pass_1e12": true}, "flash64": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "1.24e-14", "rms_dF_eVA": "1.43e-15", "valid": true, "pass_1e12": true}, "hybrid": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "1.07e-14", "rms_dF_eVA": "1.42e-15", "valid": true, "pass_1e12": true}} repeat {"e3nn": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 3.552713678800501e-15, "max_abs_dF_vs_seq0": 3.552713678800501e-15}, "cueq": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.6645352591003757e-15, "max_abs_dF_vs_seq0": 3.1086244689504383e-15}, "flash64": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.4424906541753444e-15, "max_abs_dF_vs_seq0": 3.4416913763379853e-15}, "hybrid": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.7755575615628914e-15, "max_abs_dF_vs_seq0": 2.6645352591003757e-15}}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+CORR water480 480 19360 {"e3nn": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "0.00e+00", "rms_dF_eVA": "0.00e+00", "valid": true, "pass_1e12": true}, "cueq": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "8.88e-15", "rms_dF_eVA": "1.57e-15", "valid": true, "pass_1e12": true}, "flash64": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "6.22e-15", "rms_dF_eVA": "1.20e-15", "valid": true, "pass_1e12": true}, "hybrid": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "7.11e-15", "rms_dF_eVA": "1.28e-15", "valid": true, "pass_1e12": true}} repeat {"e3nn": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 4.218847493575595e-15, "max_abs_dF_vs_seq0": 4.6629367034256575e-15}, "cueq": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 3.4416913763379853e-15, "max_abs_dF_vs_seq0": 4.440892098500626e-15}, "flash64": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.9004576518332215e-15, "max_abs_dF_vs_seq0": 3.6637359812630166e-15}, "hybrid": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.886579864025407e-15, "max_abs_dF_vs_seq0": 3.3306690738754696e-15}}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+CORR water648 648 26550 {"e3nn": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "0.00e+00", "rms_dF_eVA": "0.00e+00", "valid": true, "pass_1e12": true}, "cueq": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "1.78e-14", "rms_dF_eVA": "2.01e-15", "valid": true, "pass_1e12": true}, "flash64": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "3.20e-14", "rms_dF_eVA": "1.68e-15", "valid": true, "pass_1e12": true}, "hybrid": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "3.55e-14", "rms_dF_eVA": "1.85e-15", "valid": true, "pass_1e12": true}} repeat {"e3nn": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 3.3306690738754696e-15, "max_abs_dF_vs_seq0": 4.218847493575595e-15}, "cueq": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 3.7192471324942744e-15, "max_abs_dF_vs_seq0": 3.3306690738754696e-15}, "flash64": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 3.885780586188048e-15, "max_abs_dF_vs_seq0": 3.9968028886505635e-15}, "hybrid": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 3.264749581788351e-15, "max_abs_dF_vs_seq0": 3.3306690738754696e-15}}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+CORR wbox192 192 10552 {"e3nn": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "0.00e+00", "rms_dF_eVA": "0.00e+00", "max_abs_dstress_eVA3": null, "stress_ok": false, "valid": true, "pass_1e12": true}, "cueq": {"dE_per_atom_eV": "1.52e-13", "max_abs_dF_eVA": "1.07e-14", "rms_dF_eVA": "1.69e-15", "max_abs_dstress_eVA3": null, "stress_ok": false, "valid": true, "pass_1e12": true}, "flash64": {"dE_per_atom_eV": "1.52e-13", "max_abs_dF_eVA": "8.88e-15", "rms_dF_eVA": "1.18e-15", "max_abs_dstress_eVA3": null, "stress_ok": false, "valid": true, "pass_1e12": true}, "hybrid": {"dE_per_atom_eV": "1.52e-13", "max_abs_dF_eVA": "7.11e-15", "rms_dF_eVA": "1.37e-15", "max_abs_dstress_eVA3": null, "stress_ok": false, "valid": true, "pass_1e12": true}} repeat {"e3nn": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.525757381022231e-15, "max_abs_dF_vs_seq0": 3.788636071533347e-15}, "cueq": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.8033131371785203e-15, "max_abs_dF_vs_seq0": 2.886579864025407e-15}, "flash64": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.706168622523819e-15, "max_abs_dF_vs_seq0": 2.4147350785597155e-15}, "hybrid": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 3.0253577421035516e-15, "max_abs_dF_vs_seq0": 2.7408630920433552e-15}}
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+shared_memory_bytes 115816
+shared_memory_bytes 116096
+CORR wbox648 648 35698 {"e3nn": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "0.00e+00", "rms_dF_eVA": "0.00e+00", "max_abs_dstress_eVA3": null, "stress_ok": false, "valid": true, "pass_1e12": true}, "cueq": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "1.42e-14", "rms_dF_eVA": "1.81e-15", "max_abs_dstress_eVA3": null, "stress_ok": false, "valid": true, "pass_1e12": true}, "flash64": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "1.42e-14", "rms_dF_eVA": "1.30e-15", "max_abs_dstress_eVA3": null, "stress_ok": false, "valid": true, "pass_1e12": true}, "hybrid": {"dE_per_atom_eV": "0.00e+00", "max_abs_dF_eVA": "2.13e-14", "rms_dF_eVA": "1.48e-15", "max_abs_dstress_eVA3": null, "stress_ok": false, "valid": true, "pass_1e12": true}} repeat {"e3nn": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 3.0531133177191805e-15, "max_abs_dF_vs_seq0": 2.8727020762175925e-15}, "cueq": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 3.58046925441613e-15, "max_abs_dF_vs_seq0": 3.635980405647388e-15}, "flash64": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 2.67841304690819e-15, "max_abs_dF_vs_seq0": 2.9282132274488504e-15}, "hybrid": {"E_range_eV": 0.0, "max_abs_dF_vs_call0": 3.247402347028583e-15, "max_abs_dF_vs_seq0": 3.1502578323738817e-15}}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/workloads/bench_wl.py:37: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/workloads/wl_dry_v1_corr.json' mode='w' encoding='UTF-8'>
+  json.dump(out, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+DONE /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/workloads/wl_dry_v1_corr.json
+rc=0
+index, name, uuid, clocks.current.sm [MHz], clocks.max.sm [MHz]
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz, 1980 MHz
+END 2026-11-09T01:37:22Z

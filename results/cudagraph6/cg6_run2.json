@@ -1,0 +1,4491 @@
+{
+ "job": "1023",
+ "node": "slurm-h100-206-077",
+ "gpu_start": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz, 27, 69.48 W",
+ "torch": "2.11.0+cu128",
+ "flashTP": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/flashTP-graphcap/flashTP_e3nn/__init__.py",
+ "check_indices": false,
+ "warm": 10,
+ "reps": 60,
+ "systems": {
+  "aspirin": {
+   "n_atoms": 21,
+   "n_edges": 302,
+   "E_cap": 384,
+   "pbc": false,
+   "backends": {
+    "e3nn": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 1.8318679906315083e-15,
+      "rms_dF": 1.0055137679916212e-15,
+      "finite": true
+     },
+     "capture_s": 0.724360192194581,
+     "peak_mem_capture_MiB": 219.650390625,
+     "graph_resident_MiB": 128.05810546875,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 302,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.8318679906315083e-15,
+        "rms_dF": 9.982570575363122e-16,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.5118795932144167e-15,
+        "rms_dF": 1.3662627069865215e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.4424906541753444e-15,
+        "rms_dF": 1.4704792366398708e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.9984014443252818e-15,
+        "rms_dF": 1.134986373439409e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.1086244689504383e-15,
+        "rms_dF": 1.851841095916007e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.1086244689504383e-15,
+        "rms_dF": 1.3957523302563356e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.9968028886505635e-15,
+        "rms_dF": 1.791431852052497e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.55351295663786e-15,
+        "rms_dF": 1.3559832139991321e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.886579864025407e-15,
+        "rms_dF": 1.2309635409797985e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.6645352591003757e-15,
+        "rms_dF": 1.3639715980251958e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.1086244689504383e-15,
+        "rms_dF": 1.3733053088205246e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.6681634507217472e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 3.774758283725532e-15
+     },
+     "padded_eager_vs_unpadded": {
+      "dE_per_atom": 0.0,
+      "max_dF": 1.9984014443252818e-15,
+      "rms_dF": 9.496585890777802e-16,
+      "finite": true
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 11.322756297886372,
+      "p10": 11.298059113323689,
+      "p90": 11.349970661103725,
+      "min": 11.256143450737
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 2.5425348430871964,
+      "p10": 2.5401078164577484,
+      "p90": 2.5481482967734337,
+      "min": 2.5366395711898804
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 2.4813292548060417,
+      "p10": 2.478642202913761,
+      "p90": 2.4848757311701775,
+      "min": 2.4773012846708298
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 11.81291788816452,
+      "p10": 11.78025584667921,
+      "p90": 11.854366958141327,
+      "min": 11.707477271556854
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 2.9671629890799522,
+      "p10": 2.956673502922058,
+      "p90": 2.9818356037139893,
+      "min": 2.9520560055971146
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.3912542015314102,
+      "p10": 0.37932321429252625,
+      "p90": 0.40122680366039276,
+      "min": 0.372815877199173
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 713,
+       "cudaLaunchKernelExC": 89,
+       "cuLaunchKernel": 28,
+       "cudaMemsetAsync": 1,
+       "cudaMemcpyAsync": 13
+      },
+      "n_launch_api": 844,
+      "n_gpu_ops": 844
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 852
+     },
+     "recaptures": [],
+     "recapture_s": 0.0665303710848093
+    },
+    "flash": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 2.942091015256665e-15,
+      "rms_dF": 1.3368964082048194e-15,
+      "finite": true
+     },
+     "capture_s": 0.09936435148119926,
+     "peak_mem_capture_MiB": 138.43017578125,
+     "graph_resident_MiB": 64.05810546875,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 302,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.7755575615628914e-15,
+        "rms_dF": 1.382376250188879e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.2551405187698492e-15,
+        "rms_dF": 1.2597707227775158e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.1094237467877974e-15,
+        "rms_dF": 1.293761285227024e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.219646771412954e-15,
+        "rms_dF": 1.5375360955576364e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.6645352591003757e-15,
+        "rms_dF": 1.8341109003921475e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.4424906541753444e-15,
+        "rms_dF": 1.1453962578257815e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.9167938980707533e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.2376573971754275e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 2.7059390107989474e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.886579864025407e-15,
+        "rms_dF": 1.4437036963897762e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 4.440892098500626e-15,
+        "rms_dF": 2.5079447452063887e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.220446049250313e-15,
+        "rms_dF": 1.2445819315510225e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 2.3592239273284576e-15
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 11.131444945931435,
+      "p10": 11.103236302733421,
+      "p90": 11.167793162167072,
+      "min": 11.054759845137596
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 1.991228200495243,
+      "p10": 1.9892238080501556,
+      "p90": 1.9966889172792435,
+      "min": 1.9865427166223526
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 1.9092988222837448,
+      "p10": 1.906714215874672,
+      "p90": 1.91227737814188,
+      "min": 1.9061975181102753
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 11.687823571264744,
+      "p10": 11.645841598510742,
+      "p90": 12.055832706391811,
+      "min": 11.626902967691422
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 2.553616650402546,
+      "p10": 2.539977803826332,
+      "p90": 2.5860803201794624,
+      "min": 2.5262534618377686
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.46608690172433853,
+      "p10": 0.4443533718585968,
+      "p90": 0.48975367099046707,
+      "min": 0.435754656791687
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 516,
+       "cudaLaunchKernelExC": 74,
+       "cuLaunchKernel": 26,
+       "cudaMemcpyToSymbolAsync": 38,
+       "cudaMemsetAsync": 1,
+       "cudaMemcpyAsync": 8
+      },
+      "n_launch_api": 663,
+      "n_gpu_ops": 663
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 671
+     },
+     "recaptures": [],
+     "recapture_s": 0.054796598851680756
+    },
+    "hybrid": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 2.706168622523819e-15,
+      "rms_dF": 1.538229661073802e-15,
+      "finite": true
+     },
+     "capture_s": 0.12160634808242321,
+     "peak_mem_capture_MiB": 89.61669921875,
+     "graph_resident_MiB": 64.05810546875,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 302,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.587408148320037e-15,
+        "rms_dF": 1.5883543963650266e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.3245294578089215e-15,
+        "rms_dF": 1.321910304563993e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.774758283725532e-15,
+        "rms_dF": 1.9444130741458082e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.609823385706477e-15,
+        "rms_dF": 9.733674637366786e-16,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.9968028886505635e-15,
+        "rms_dF": 1.9168861489486486e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 6.217248937900877e-15,
+        "rms_dF": 1.8044885502741415e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 2.2072369300567752e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.220446049250313e-15,
+        "rms_dF": 1.085872498414116e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 8.881784197001252e-15,
+        "rms_dF": 3.270109823208418e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.568812732360803e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 298,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 3.0921132854769834e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.6645352591003757e-15,
+        "rms_dF": 1.3782105996792052e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 2.55351295663786e-15
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 16.860376112163067,
+      "p10": 16.724981367588043,
+      "p90": 17.01253205537796,
+      "min": 16.710422933101654
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 1.4377441257238388,
+      "p10": 1.43488310277462,
+      "p90": 1.4447018504142761,
+      "min": 1.4327000826597214
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 1.3551320880651474,
+      "p10": 1.353282853960991,
+      "p90": 1.3572435826063156,
+      "min": 1.3512298464775085
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 17.30423793196678,
+      "p10": 17.223320715129375,
+      "p90": 17.47914981096983,
+      "min": 17.165564000606537
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 1.9814502447843552,
+      "p10": 1.971534825861454,
+      "p90": 1.9963104277849197,
+      "min": 1.9664764404296875
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.4509417340159416,
+      "p10": 0.4367804154753685,
+      "p90": 0.4606856033205986,
+      "min": 0.4292987287044525
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 472,
+       "cudaLaunchKernelExC": 55,
+       "cuLaunchKernel": 29,
+       "cudaMemcpyToSymbolAsync": 38,
+       "cudaMemcpyAsync": 7
+      },
+      "n_launch_api": 601,
+      "n_gpu_ops": 600
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 607
+     },
+     "recaptures": [],
+     "recapture_s": 0.12439165636897087
+    }
+   },
+   "seq_edges": [
+    302,
+    298,
+    298,
+    298,
+    298,
+    298
+   ]
+  },
+  "org192": {
+   "n_atoms": 196,
+   "n_edges": 3670,
+   "E_cap": 4416,
+   "pbc": false,
+   "backends": {
+    "e3nn": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 1.4848893090170256e-13,
+      "max_dF": 2.7755575615628914e-15,
+      "rms_dF": 1.060511884361733e-15,
+      "finite": true
+     },
+     "capture_s": 0.06958130188286304,
+     "peak_mem_capture_MiB": 927.0849609375,
+     "graph_resident_MiB": 65.4365234375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 3670,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.8033131371785203e-15,
+        "rms_dF": 1.0202527553369918e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 2.3314683517128287e-15,
+        "rms_dF": 9.274774919580905e-16,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 3662,
+       "vs_e3nn": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 1.3756664589311613e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 1.3569434822220191e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 3656,
+       "vs_e3nn": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 3.4416913763379853e-15,
+        "rms_dF": 1.2159971994197937e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 2.609024107869118e-15,
+        "rms_dF": 1.0483400576324866e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 3670,
+       "vs_e3nn": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 4.884981308350689e-15,
+        "rms_dF": 1.1563419149395157e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.2238036727228258e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 3672,
+       "vs_e3nn": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.151912736125522e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.0935846078529142e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 3668,
+       "vs_e3nn": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.273407268853616e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.1708957051394958e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 3.774758283725532e-15
+     },
+     "padded_eager_vs_unpadded": {
+      "dE_per_atom": 0.0,
+      "max_dF": 3.70536934468646e-15,
+      "rms_dF": 1.0843932976061178e-15,
+      "finite": true
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 13.808496296405792,
+      "p10": 13.706275261938572,
+      "p90": 13.911236822605133,
+      "min": 13.670610263943672
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 9.065327234566212,
+      "p10": 9.059649892151356,
+      "p90": 9.072432294487953,
+      "min": 9.053312242031097
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 8.97460151463747,
+      "p10": 8.96897204220295,
+      "p90": 8.980795554816723,
+      "min": 8.964180946350098
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 14.466571621596813,
+      "p10": 14.277174696326256,
+      "p90": 14.495059102773666,
+      "min": 14.254173263907433
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 9.621177799999714,
+      "p10": 9.610791876912117,
+      "p90": 9.636830724775791,
+      "min": 9.58954356610775
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.4642447456717491,
+      "p10": 0.45317113399505615,
+      "p90": 0.47885607928037643,
+      "min": 0.4419256001710892
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 717,
+       "cudaLaunchKernelExC": 90,
+       "cuLaunchKernel": 28,
+       "cudaMemcpyAsync": 13,
+       "cudaMemsetAsync": 10
+      },
+      "n_launch_api": 858,
+      "n_gpu_ops": 856
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 862
+     },
+     "recaptures": [],
+     "recapture_s": 0.0706817265599966
+    },
+    "flash": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 1.4848893090170256e-13,
+      "max_dF": 4.3021142204224816e-15,
+      "rms_dF": 1.4179836843159917e-15,
+      "finite": true
+     },
+     "capture_s": 0.05634262226521969,
+     "peak_mem_capture_MiB": 702.41845703125,
+     "graph_resident_MiB": 64.4990234375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 3670,
+       "vs_e3nn": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 5.773159728050814e-15,
+        "rms_dF": 1.4097773163654288e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 2.969778618034051e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.09780970503808e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 3662,
+       "vs_e3nn": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 4.6629367034256575e-15,
+        "rms_dF": 1.5309734031992458e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 2.969778618034051e-13,
+        "max_dF": 2.55351295663786e-15,
+        "rms_dF": 1.1237137697610745e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 3656,
+       "vs_e3nn": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 3.9968028886505635e-15,
+        "rms_dF": 1.652381627346717e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 2.969778618034051e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.1632868640691968e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 3670,
+       "vs_e3nn": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 3.9968028886505635e-15,
+        "rms_dF": 1.5827495692990957e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 2.969778618034051e-13,
+        "max_dF": 2.886579864025407e-15,
+        "rms_dF": 1.231799713377915e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 3672,
+       "vs_e3nn": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.8252792824311187e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 2.969778618034051e-13,
+        "max_dF": 4.440892098500626e-15,
+        "rms_dF": 1.269888284712941e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 3668,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 2.0967267018744213e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.2777963646201669e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 4.551914400963142e-15
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 11.451348662376404,
+      "p10": 11.413395591080189,
+      "p90": 11.496341042220592,
+      "min": 11.398779228329659
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 6.108328700065613,
+      "p10": 6.1048440635204315,
+      "p90": 6.113955564796925,
+      "min": 6.099848076701164
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 6.024166941642761,
+      "p10": 6.019267626106739,
+      "p90": 6.032154709100723,
+      "min": 6.014527752995491
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 12.012805789709091,
+      "p10": 11.991197988390923,
+      "p90": 12.061629444360733,
+      "min": 11.960707604885101
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 6.676755845546722,
+      "p10": 6.664413772523403,
+      "p90": 6.69360589236021,
+      "min": 6.659399718046188
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.4696603864431381,
+      "p10": 0.45615043491125107,
+      "p90": 0.48037339001893997,
+      "min": 0.44913776218891144
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 518,
+       "cudaLaunchKernelExC": 79,
+       "cuLaunchKernel": 22,
+       "cudaMemcpyToSymbolAsync": 38,
+       "cudaMemcpyAsync": 8,
+       "cudaMemsetAsync": 7
+      },
+      "n_launch_api": 672,
+      "n_gpu_ops": 670
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 678
+     },
+     "recaptures": [],
+     "recapture_s": 0.05680298060178757
+    },
+    "hybrid": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 1.4848893090170256e-13,
+      "max_dF": 4.3021142204224816e-15,
+      "rms_dF": 1.5471900435522752e-15,
+      "finite": true
+     },
+     "capture_s": 0.07584027014672756,
+     "peak_mem_capture_MiB": 292.84326171875,
+     "graph_resident_MiB": 64.4990234375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 3670,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 6.217248937900877e-15,
+        "rms_dF": 1.4945595267125887e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.0743241372819562e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 3662,
+       "vs_e3nn": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 5.10702591327572e-15,
+        "rms_dF": 1.6668714691041831e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 2.6645352591003757e-15,
+        "rms_dF": 1.0923294008271803e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 3656,
+       "vs_e3nn": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 4.884981308350689e-15,
+        "rms_dF": 1.9741131418896897e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 2.4424906541753444e-15,
+        "rms_dF": 1.046583103033717e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 3670,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.9968028886505635e-15,
+        "rms_dF": 1.7828103677529914e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.0932877020404003e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 3672,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 8.881784197001252e-15,
+        "rms_dF": 2.1143854920792268e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 2.8033131371785203e-15,
+        "rms_dF": 1.235660550987347e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 3668,
+       "vs_e3nn": {
+        "dE_per_atom": 1.4848893090170256e-13,
+        "max_dF": 1.0658141036401503e-14,
+        "rms_dF": 2.506254293424044e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 2.969778618034051e-13,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.348389963723298e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 1.4848893090170256e-13,
+      "max_dF": 3.4139358007223564e-15
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 16.857119277119637,
+      "p10": 16.79141726344824,
+      "p90": 16.93713329732418,
+      "min": 16.744280233979225
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 2.392127178609371,
+      "p10": 2.389802038669586,
+      "p90": 2.3949217051267624,
+      "min": 2.386387437582016
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 2.311897464096546,
+      "p10": 2.308855764567852,
+      "p90": 2.314709685742855,
+      "min": 2.3067817091941833
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 17.485538497567177,
+      "p10": 17.40208175033331,
+      "p90": 17.677559703588486,
+      "min": 17.340609803795815
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 2.955576404929161,
+      "p10": 2.9440557584166527,
+      "p90": 2.974853664636612,
+      "min": 2.93673574924469
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.4712482914328575,
+      "p10": 0.4573022946715355,
+      "p90": 0.49086473882198334,
+      "min": 0.4468429833650589
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 474,
+       "cudaLaunchKernelExC": 60,
+       "cuLaunchKernel": 25,
+       "cudaMemcpyToSymbolAsync": 38,
+       "cudaMemcpyAsync": 7,
+       "cudaMemsetAsync": 7
+      },
+      "n_launch_api": 611,
+      "n_gpu_ops": 609
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 617
+     },
+     "recaptures": [],
+     "recapture_s": 0.07949012890458107
+    }
+   },
+   "seq_edges": [
+    3670,
+    3662,
+    3656,
+    3670,
+    3672,
+    3668
+   ]
+  },
+  "water192": {
+   "n_atoms": 192,
+   "n_edges": 6634,
+   "E_cap": 8000,
+   "pbc": false,
+   "backends": {
+    "e3nn": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 2.4980018054066022e-15,
+      "rms_dF": 9.600954061851917e-16,
+      "finite": true
+     },
+     "capture_s": 0.07477203011512756,
+     "peak_mem_capture_MiB": 1365.9501953125,
+     "graph_resident_MiB": 64.849609375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 6634,
+       "vs_e3nn": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 1.942890293094024e-15,
+        "rms_dF": 9.792321715762515e-16,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 2.1094237467877974e-15,
+        "rms_dF": 9.720749574255504e-16,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 6632,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.6645352591003757e-15,
+        "rms_dF": 9.42028324827765e-16,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.011132303503446e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 6638,
+       "vs_e3nn": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.1381807958994087e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.0723369355098928e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 6630,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.1808433585949005e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 2.6645352591003757e-15,
+        "rms_dF": 1.1653738017492515e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 6626,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.3108193304365414e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.4478712556053578e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 6630,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.4000301267931143e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 3.9968028886505635e-15,
+        "rms_dF": 1.4211026167753463e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 2.6645352591003757e-15
+     },
+     "padded_eager_vs_unpadded": {
+      "dE_per_atom": 0.0,
+      "max_dF": 2.220446049250313e-15,
+      "rms_dF": 9.360988330148171e-16,
+      "finite": true
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 14.179312624037266,
+      "p10": 14.14693370461464,
+      "p90": 14.238996990025043,
+      "min": 14.116168022155762
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 11.62758283317089,
+      "p10": 11.619838699698448,
+      "p90": 11.641862988471985,
+      "min": 11.612650007009506
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 11.532347649335861,
+      "p10": 11.525453440845013,
+      "p90": 11.541363224387169,
+      "min": 11.522242799401283
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 14.767262153327465,
+      "p10": 14.714137651026249,
+      "p90": 14.82510082423687,
+      "min": 14.697741717100143
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 12.187396176159382,
+      "p10": 12.1757248416543,
+      "p90": 12.208100780844688,
+      "min": 12.164836749434471
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.46936236321926117,
+      "p10": 0.4558973014354706,
+      "p90": 0.4891911521553993,
+      "min": 0.44553354382514954
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 717,
+       "cudaLaunchKernelExC": 85,
+       "cuLaunchKernel": 31,
+       "cudaMemcpyAsync": 13,
+       "cudaMemsetAsync": 9
+      },
+      "n_launch_api": 855,
+      "n_gpu_ops": 853
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 860
+     },
+     "recaptures": [],
+     "recapture_s": 0.07513878494501114
+    },
+    "flash": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 1.5158245029548803e-13,
+      "max_dF": 2.7755575615628914e-15,
+      "rms_dF": 1.314227191612814e-15,
+      "finite": true
+     },
+     "capture_s": 0.05698736198246479,
+     "peak_mem_capture_MiB": 714.3955078125,
+     "graph_resident_MiB": 65.849609375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 6634,
+       "vs_e3nn": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 2.7755575615628914e-15,
+        "rms_dF": 1.355721524494863e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.7208456881689926e-15,
+        "rms_dF": 9.227425940417961e-16,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 6632,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.9968028886505635e-15,
+        "rms_dF": 1.5876599994623927e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.6645352591003757e-15,
+        "rms_dF": 1.0563242999309857e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 6638,
+       "vs_e3nn": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.6440172504656776e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.1086244689504383e-15,
+        "rms_dF": 1.0836580845070157e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 6630,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.7547863976885937e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 4.440892098500626e-15,
+        "rms_dF": 1.2095347838765204e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 6626,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.9341629510487043e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.6645352591003757e-15,
+        "rms_dF": 1.2385744220809211e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 6630,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 8.881784197001252e-15,
+        "rms_dF": 2.513224951453909e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.3667387278338894e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 2.886579864025407e-15
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 11.507419869303703,
+      "p10": 11.466976441442966,
+      "p90": 11.584202758967876,
+      "min": 11.441122740507126
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 6.684774532914162,
+      "p10": 6.67736791074276,
+      "p90": 6.690872274339199,
+      "min": 6.675206124782562
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 6.594082340598106,
+      "p10": 6.586681492626667,
+      "p90": 6.6015128046274185,
+      "min": 6.582299247384071
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 12.02111691236496,
+      "p10": 11.949413642287254,
+      "p90": 12.075014226138592,
+      "min": 11.930035427212715
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 7.246196269989014,
+      "p10": 7.2320520877838135,
+      "p90": 7.259875349700451,
+      "min": 7.2243232280015945
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.46737678349018097,
+      "p10": 0.4560168832540512,
+      "p90": 0.47698821872472763,
+      "min": 0.45174360275268555
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 518,
+       "cudaLaunchKernelExC": 77,
+       "cuLaunchKernel": 24,
+       "cudaMemcpyToSymbolAsync": 38,
+       "cudaMemcpyAsync": 8,
+       "cudaMemsetAsync": 6
+      },
+      "n_launch_api": 671,
+      "n_gpu_ops": 669
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 676
+     },
+     "recaptures": [],
+     "recapture_s": 0.05968510918319225
+    },
+    "hybrid": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 2.886579864025407e-15,
+      "rms_dF": 1.556820282192866e-15,
+      "finite": true
+     },
+     "capture_s": 0.07705528661608696,
+     "peak_mem_capture_MiB": 390.24365234375,
+     "graph_resident_MiB": 64.849609375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 6634,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.1086244689504383e-15,
+        "rms_dF": 1.6858484997784674e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 1.887379141862766e-15,
+        "rms_dF": 9.379916764043483e-16,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 6632,
+       "vs_e3nn": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 4.440892098500626e-15,
+        "rms_dF": 1.5729298729427509e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 1.7763568394002505e-15,
+        "rms_dF": 9.709195212389702e-16,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 6638,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 4.884981308350689e-15,
+        "rms_dF": 1.820833182959536e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 3.1086244689504383e-15,
+        "rms_dF": 1.0884391378466611e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 6630,
+       "vs_e3nn": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 4.440892098500626e-15,
+        "rms_dF": 1.8951569152747547e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.3031831633303106e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 6626,
+       "vs_e3nn": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 2.2311975573991395e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 3.1086244689504383e-15,
+        "rms_dF": 1.2563064849448992e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 6630,
+       "vs_e3nn": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 1.2434497875801753e-14,
+        "rms_dF": 2.760734521852435e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.5158245029548803e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.2844205084356754e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 2.6645352591003757e-15
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 16.976455226540565,
+      "p10": 16.890307888388634,
+      "p90": 17.10698753595352,
+      "min": 16.823571175336838
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 3.007601946592331,
+      "p10": 3.0023710802197456,
+      "p90": 3.013765439391136,
+      "min": 3.0017178505659103
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 2.9237810522317886,
+      "p10": 2.920425869524479,
+      "p90": 2.930476702749729,
+      "min": 2.916485071182251
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 17.558252438902855,
+      "p10": 17.488871328532696,
+      "p90": 17.609599977731705,
+      "min": 17.445668578147888
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 3.583132289350033,
+      "p10": 3.5721151158213615,
+      "p90": 3.6009807139635086,
+      "min": 3.5646427422761917
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.47226157039403915,
+      "p10": 0.4577798768877983,
+      "p90": 0.4860563203692436,
+      "min": 0.4505086690187454
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 474,
+       "cudaLaunchKernelExC": 58,
+       "cuLaunchKernel": 27,
+       "cudaMemcpyToSymbolAsync": 38,
+       "cudaMemcpyAsync": 7,
+       "cudaMemsetAsync": 6
+      },
+      "n_launch_api": 610,
+      "n_gpu_ops": 608
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 615
+     },
+     "recaptures": [],
+     "recapture_s": 0.078479478135705
+    }
+   },
+   "seq_edges": [
+    6634,
+    6632,
+    6638,
+    6630,
+    6626,
+    6630
+   ]
+  },
+  "org648": {
+   "n_atoms": 650,
+   "n_edges": 14856,
+   "E_cap": 17856,
+   "pbc": false,
+   "backends": {
+    "e3nn": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 7.16401980473445e-13,
+      "max_dF": 3.6637359812630166e-15,
+      "rms_dF": 1.0164593314508936e-15,
+      "finite": true
+     },
+     "capture_s": 0.1263425499200821,
+     "peak_mem_capture_MiB": 3291.52099609375,
+     "graph_resident_MiB": 65.931640625,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 14856,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 4.496403249731884e-15,
+        "rms_dF": 1.0637412605219717e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 4.6074255521944e-15,
+        "rms_dF": 1.0507197650138527e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 14856,
+       "vs_e3nn": {
+        "dE_per_atom": 5.373014853550838e-13,
+        "max_dF": 4.440892098500626e-15,
+        "rms_dF": 1.1956427921793605e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.1843652096931872e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 14866,
+       "vs_e3nn": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.2119965564735204e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 3.582009902367225e-13,
+        "max_dF": 4.440892098500626e-15,
+        "rms_dF": 1.1666901732890102e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 14872,
+       "vs_e3nn": {
+        "dE_per_atom": 3.582009902367225e-13,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.272967222237418e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 3.582009902367225e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.2765729906588176e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 14868,
+       "vs_e3nn": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.2861561637198396e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.322840139901742e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 14848,
+       "vs_e3nn": {
+        "dE_per_atom": 7.16401980473445e-13,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 1.3860552301689323e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 1.0658141036401503e-14,
+        "rms_dF": 1.4074844134596244e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 1.7910049511836125e-13,
+      "max_dF": 4.440892098500626e-15
+     },
+     "padded_eager_vs_unpadded": {
+      "dE_per_atom": 7.16401980473445e-13,
+      "max_dF": 3.2612801348363973e-15,
+      "rms_dF": 1.0747760643619036e-15,
+      "finite": true
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 28.138303197920322,
+      "p10": 28.121606074273586,
+      "p90": 28.16673293709755,
+      "min": 28.102945536375046
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 28.15810963511467,
+      "p10": 28.14242448657751,
+      "p90": 28.17547805607319,
+      "min": 28.137506917119026
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 28.051278553903103,
+      "p10": 28.04290857166052,
+      "p90": 28.071370348334312,
+      "min": 28.031131252646446
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 28.677763417363167,
+      "p10": 28.66272609680891,
+      "p90": 28.69163304567337,
+      "min": 28.650829568505287
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 28.747756965458393,
+      "p10": 28.723901696503162,
+      "p90": 28.7687037140131,
+      "min": 28.711119666695595
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.5027661100029945,
+      "p10": 0.48299841582775116,
+      "p90": 0.5162881687283516,
+      "min": 0.47176890075206757
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 734,
+       "cudaLaunchKernelExC": 90,
+       "cuLaunchKernel": 32,
+       "cudaMemcpyAsync": 13,
+       "cudaMemsetAsync": 12
+      },
+      "n_launch_api": 881,
+      "n_gpu_ops": 878
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 889
+     },
+     "recaptures": [],
+     "recapture_s": 0.13250805251300335
+    },
+    "flash": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 5.373014853550838e-13,
+      "max_dF": 4.440892098500626e-15,
+      "rms_dF": 1.2789729248675929e-15,
+      "finite": true
+     },
+     "capture_s": 0.08383935876190662,
+     "peak_mem_capture_MiB": 2181.85302734375,
+     "graph_resident_MiB": 65.931640625,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 14856,
+       "vs_e3nn": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 5.995204332975845e-15,
+        "rms_dF": 1.3566376600000818e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 8.955024755918063e-13,
+        "max_dF": 3.191891195797325e-15,
+        "rms_dF": 1.0590228600254073e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 14856,
+       "vs_e3nn": {
+        "dE_per_atom": 3.582009902367225e-13,
+        "max_dF": 6.661338147750939e-15,
+        "rms_dF": 1.620522203129116e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.1712639288793739e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 14866,
+       "vs_e3nn": {
+        "dE_per_atom": 8.955024755918063e-13,
+        "max_dF": 6.661338147750939e-15,
+        "rms_dF": 1.792157322379834e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.0746029707101676e-12,
+        "max_dF": 3.9968028886505635e-15,
+        "rms_dF": 1.24215765346046e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 14872,
+       "vs_e3nn": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 7.993605777301127e-15,
+        "rms_dF": 1.9658751008189678e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 5.373014853550838e-13,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.2696675974466651e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 14868,
+       "vs_e3nn": {
+        "dE_per_atom": 3.582009902367225e-13,
+        "max_dF": 8.881784197001252e-15,
+        "rms_dF": 2.3110393193413247e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.261694629319802e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 14848,
+       "vs_e3nn": {
+        "dE_per_atom": 1.0746029707101676e-12,
+        "max_dF": 1.0658141036401503e-14,
+        "rms_dF": 2.5367443667743867e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 1.4789026739647778e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 1.7910049511836125e-13,
+      "max_dF": 7.327471962526033e-15
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 19.377215765416622,
+      "p10": 19.286000728607178,
+      "p90": 19.466222822666168,
+      "min": 19.274577498435974
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 17.40507036447525,
+      "p10": 17.39408280700445,
+      "p90": 17.426388897001743,
+      "min": 17.3879973590374
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 17.311885952949524,
+      "p10": 17.298865877091885,
+      "p90": 17.327839508652687,
+      "min": 17.28859543800354
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 19.887415692210197,
+      "p10": 19.85201556235552,
+      "p90": 20.008704625070095,
+      "min": 19.836748018860817
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 18.058479763567448,
+      "p10": 18.03656704723835,
+      "p90": 18.089518882334232,
+      "min": 18.018323928117752
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.5304170772433281,
+      "p10": 0.5128044635057449,
+      "p90": 0.5541807040572166,
+      "min": 0.5056150257587433
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 534,
+       "cudaLaunchKernelExC": 76,
+       "cuLaunchKernel": 27,
+       "cudaMemcpyToSymbolAsync": 38,
+       "cudaMemcpyAsync": 8,
+       "cudaMemsetAsync": 8
+      },
+      "n_launch_api": 691,
+      "n_gpu_ops": 688
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 695
+     },
+     "recaptures": [],
+     "recapture_s": 0.08918828517198563
+    },
+    "hybrid": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 8.955024755918063e-13,
+      "max_dF": 7.105427357601002e-15,
+      "rms_dF": 1.5739237907083985e-15,
+      "finite": true
+     },
+     "capture_s": 0.08670807629823685,
+     "peak_mem_capture_MiB": 896.7119140625,
+     "graph_resident_MiB": 65.931640625,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 14856,
+       "vs_e3nn": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 7.327471962526033e-15,
+        "rms_dF": 1.6628243172544289e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.551115123125783e-15,
+        "rms_dF": 1.086176636018952e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 14856,
+       "vs_e3nn": {
+        "dE_per_atom": 5.373014853550838e-13,
+        "max_dF": 8.881784197001252e-15,
+        "rms_dF": 1.8506666586379306e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 3.1086244689504383e-15,
+        "rms_dF": 1.0780540098179223e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 14866,
+       "vs_e3nn": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 5.773159728050814e-15,
+        "rms_dF": 1.9336348760120617e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.238226029057809e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 14872,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 7.993605777301127e-15,
+        "rms_dF": 2.078667434604276e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.3421822286475507e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 14868,
+       "vs_e3nn": {
+        "dE_per_atom": 5.373014853550838e-13,
+        "max_dF": 1.0658141036401503e-14,
+        "rms_dF": 2.573117828410043e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.3857697715870375e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 14848,
+       "vs_e3nn": {
+        "dE_per_atom": 1.0746029707101676e-12,
+        "max_dF": 1.0658141036401503e-14,
+        "rms_dF": 2.4734310901129336e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 1.7910049511836125e-13,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 1.3933810847242146e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 6.217248937900877e-15
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 17.274352721869946,
+      "p10": 17.066907323896885,
+      "p90": 17.462169751524925,
+      "min": 16.999101266264915
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 5.366886034607887,
+      "p10": 5.359427072107792,
+      "p90": 5.378075875341892,
+      "min": 5.354424938559532
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 5.291124805808067,
+      "p10": 5.280058458447456,
+      "p90": 5.307699553668499,
+      "min": 5.273241549730301
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 17.61885453015566,
+      "p10": 17.54604633897543,
+      "p90": 17.847587168216705,
+      "min": 17.486903816461563
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 6.00459985435009,
+      "p10": 5.989160388708115,
+      "p90": 6.035756878554821,
+      "min": 5.9708524495363235
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.5103116855025291,
+      "p10": 0.4926683381199837,
+      "p90": 0.5315123125910759,
+      "min": 0.4787035286426544
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 476,
+       "cudaLaunchKernelExC": 55,
+       "cuLaunchKernel": 28,
+       "cudaMemcpyToSymbolAsync": 38,
+       "cudaMemcpyAsync": 7,
+       "cudaMemsetAsync": 8
+      },
+      "n_launch_api": 612,
+      "n_gpu_ops": 609
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 615
+     },
+     "recaptures": [],
+     "recapture_s": 0.0916776992380619
+    }
+   },
+   "seq_edges": [
+    14856,
+    14856,
+    14866,
+    14872,
+    14868,
+    14848
+   ]
+  },
+  "water648": {
+   "n_atoms": 648,
+   "n_edges": 26550,
+   "E_cap": 31872,
+   "pbc": false,
+   "backends": {
+    "e3nn": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 2.55351295663786e-15,
+      "rms_dF": 1.068112300063652e-15,
+      "finite": true
+     },
+     "capture_s": 0.1703420877456665,
+     "peak_mem_capture_MiB": 5030.4873046875,
+     "graph_resident_MiB": 67.32177734375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 26550,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.9559688030644793e-15,
+        "rms_dF": 1.041050225394689e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.3314683517128287e-15,
+        "rms_dF": 1.0192983440519702e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 26570,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.9968028886505635e-15,
+        "rms_dF": 1.128180299407397e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.4416913763379853e-15,
+        "rms_dF": 1.109567225345019e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 26520,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 4.440892098500626e-15,
+        "rms_dF": 1.196930975177754e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.2309856834947334e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 26502,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.3667197508933178e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 1.4476441822746686e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 26504,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.0658141036401503e-14,
+        "rms_dF": 1.6097061887167876e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 4.440892098500626e-15,
+        "rms_dF": 1.3571665427032995e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 26518,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 6.217248937900877e-15,
+        "rms_dF": 1.4326481379308595e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 1.4840482326830292e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 3.497202527569243e-15
+     },
+     "padded_eager_vs_unpadded": {
+      "dE_per_atom": 0.0,
+      "max_dF": 2.55351295663786e-15,
+      "rms_dF": 1.0115819101964143e-15,
+      "finite": true
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 36.65184509009123,
+      "p10": 36.601622402668,
+      "p90": 36.704037711024284,
+      "min": 36.58509999513626
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 38.27264439314604,
+      "p10": 38.25465440750122,
+      "p90": 38.30197528004646,
+      "min": 38.246968761086464
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 38.161042146384716,
+      "p10": 38.14743738621473,
+      "p90": 38.177625834941864,
+      "min": 38.132140412926674
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 37.16237563639879,
+      "p10": 37.139106169342995,
+      "p90": 37.245471216738224,
+      "min": 37.119198590517044
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 38.89167867600918,
+      "p10": 38.864883221685886,
+      "p90": 38.93145527690649,
+      "min": 38.84854353964329
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.542687252163887,
+      "p10": 0.5173822864890099,
+      "p90": 0.5710538476705551,
+      "min": 0.503048300743103
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 734,
+       "cudaLaunchKernelExC": 98,
+       "cuLaunchKernel": 32,
+       "cudaMemcpyAsync": 13,
+       "cudaMemsetAsync": 12
+      },
+      "n_launch_api": 889,
+      "n_gpu_ops": 885
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 891
+     },
+     "recaptures": [],
+     "recapture_s": 0.17713377438485622
+    },
+    "flash": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 3.9968028886505635e-15,
+      "rms_dF": 1.5099524174123216e-15,
+      "finite": true
+     },
+     "capture_s": 0.0930512435734272,
+     "peak_mem_capture_MiB": 2278.24072265625,
+     "graph_resident_MiB": 67.32177734375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 26550,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.219646771412954e-15,
+        "rms_dF": 1.4941142576596759e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.0531133177191805e-15,
+        "rms_dF": 1.0683824924695846e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 26570,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.9968028886505635e-15,
+        "rms_dF": 1.6357798512962298e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.4424906541753444e-15,
+        "rms_dF": 1.0989040574699505e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 26520,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.7632600460647236e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.9968028886505635e-15,
+        "rms_dF": 1.1902770485069944e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 26502,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.4210854715202004e-14,
+        "rms_dF": 2.0308971380180576e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.4210854715202004e-14,
+        "rms_dF": 1.4589469114444058e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 26504,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.4868995751603507e-14,
+        "rms_dF": 2.8291787494270584e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.3590171563304002e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 26518,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.4210854715202004e-14,
+        "rms_dF": 2.4397473630224132e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.3670542093263653e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 3.774758283725532e-15
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 21.0932781919837,
+      "p10": 21.057545207440853,
+      "p90": 21.16008810698986,
+      "min": 21.01423218846321
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 19.78447288274765,
+      "p10": 19.772220589220524,
+      "p90": 19.803005270659924,
+      "min": 19.75368894636631
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 19.684508442878723,
+      "p10": 19.67435460537672,
+      "p90": 19.70482487231493,
+      "min": 19.667984917759895
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 21.700359880924225,
+      "p10": 21.637846156954765,
+      "p90": 21.772052720189095,
+      "min": 21.622763946652412
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 20.407711155712605,
+      "p10": 20.388125255703926,
+      "p90": 20.437685772776604,
+      "min": 20.372575148940086
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.5114898085594177,
+      "p10": 0.49284063279628754,
+      "p90": 0.534718856215477,
+      "min": 0.4863440990447998
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 534,
+       "cudaLaunchKernelExC": 76,
+       "cuLaunchKernel": 27,
+       "cudaMemcpyToSymbolAsync": 38,
+       "cudaMemcpyAsync": 8,
+       "cudaMemsetAsync": 8
+      },
+      "n_launch_api": 691,
+      "n_gpu_ops": 686
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 693
+     },
+     "recaptures": [],
+     "recapture_s": 0.09552956186234951
+    },
+    "hybrid": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 4.218847493575595e-15,
+      "rms_dF": 1.6837707320346368e-15,
+      "finite": true
+     },
+     "capture_s": 0.08256843313574791,
+     "peak_mem_capture_MiB": 1296.3310546875,
+     "graph_resident_MiB": 67.32177734375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 26550,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.9968028886505635e-15,
+        "rms_dF": 1.6411034246764765e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.1086244689504383e-15,
+        "rms_dF": 1.0311303895687741e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 26570,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 4.440892098500626e-15,
+        "rms_dF": 1.7936975472391556e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.1405052046118837e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 26520,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 6.217248937900877e-15,
+        "rms_dF": 1.9837239036529584e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.2512450205173104e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 26502,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 2.0669016613463684e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.0658141036401503e-14,
+        "rms_dF": 1.4990311363134457e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 26504,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.842170943040401e-14,
+        "rms_dF": 3.539810316408145e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.0658141036401503e-14,
+        "rms_dF": 1.4821245183604239e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 26518,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.4210854715202004e-14,
+        "rms_dF": 2.438924307216469e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.5445989981411858e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 3.608224830031759e-15
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 17.08852592855692,
+      "p10": 16.999579407274723,
+      "p90": 17.248539812862873,
+      "min": 16.94745197892189
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 7.746756076812744,
+      "p10": 7.732791267335415,
+      "p90": 7.764788903295994,
+      "min": 7.724354043602943
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 7.6506659388542175,
+      "p10": 7.639416679739952,
+      "p90": 7.663716748356819,
+      "min": 7.635263726115227
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 17.80209317803383,
+      "p10": 17.61168520897627,
+      "p90": 18.374321423470974,
+      "min": 17.5546295940876
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 8.371383883059025,
+      "p10": 8.33879429847002,
+      "p90": 8.406434766948223,
+      "min": 8.327296003699303
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.5298210307955742,
+      "p10": 0.5089476704597473,
+      "p90": 0.5556099116802216,
+      "min": 0.4950035363435745
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 476,
+       "cudaLaunchKernelExC": 55,
+       "cuLaunchKernel": 28,
+       "cudaMemcpyToSymbolAsync": 38,
+       "cudaMemcpyAsync": 7,
+       "cudaMemsetAsync": 8
+      },
+      "n_launch_api": 612,
+      "n_gpu_ops": 607
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 614
+     },
+     "recaptures": [],
+     "recapture_s": 0.08758039772510529
+    }
+   },
+   "seq_edges": [
+    26550,
+    26570,
+    26520,
+    26502,
+    26504,
+    26518
+   ]
+  },
+  "wbox648": {
+   "n_atoms": 648,
+   "n_edges": 35698,
+   "E_cap": 42880,
+   "pbc": true,
+   "backends": {
+    "e3nn": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 2.6367796834847468e-15,
+      "rms_dF": 1.0673710866165951e-15,
+      "finite": true
+     },
+     "capture_s": 0.20104363560676575,
+     "peak_mem_capture_MiB": 6389.83447265625,
+     "graph_resident_MiB": 68.41357421875,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 35698,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.83026943495679e-15,
+        "rms_dF": 1.0637254849479202e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.3314683517128287e-15,
+        "rms_dF": 1.071950784802189e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 35680,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.831068712794149e-15,
+        "rms_dF": 1.1166125044195362e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.6645352591003757e-15,
+        "rms_dF": 1.1077140602005711e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 35696,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.1086244689504383e-15,
+        "rms_dF": 1.1741632909404282e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.284612214458186e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 35704,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 1.3482557069316738e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 1.343839331777442e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 35666,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 8.881784197001252e-15,
+        "rms_dF": 1.4065704761890767e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.4004427523377743e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 35690,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 4.440892098500626e-15,
+        "rms_dF": 1.4530974098330985e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.411922400721732e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 2.9976021664879227e-15
+     },
+     "padded_eager_vs_unpadded": {
+      "dE_per_atom": 0.0,
+      "max_dF": 2.4424906541753444e-15,
+      "rms_dF": 1.077689439736139e-15,
+      "finite": true
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 43.35543233901262,
+      "p10": 43.334016762673855,
+      "p90": 43.38670372962952,
+      "min": 43.32151263952255
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 46.55471071600914,
+      "p10": 46.47285267710686,
+      "p90": 46.57837674021721,
+      "min": 46.46144062280655
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 46.46101035177708,
+      "p10": 46.44926059991121,
+      "p90": 46.47907428443432,
+      "min": 46.43489234149456
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 44.93832774460316,
+      "p10": 44.91935819387436,
+      "p90": 45.00682931393385,
+      "min": 44.90821622312069
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 48.17552026361227,
+      "p10": 48.14535900950432,
+      "p90": 48.24870973825455,
+      "min": 48.11517708003521
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 1.5455102548003197,
+      "p10": 1.5139508992433548,
+      "p90": 1.592746376991272,
+      "min": 1.5030428767204285
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 734,
+       "cudaLaunchKernelExC": 102,
+       "cuLaunchKernel": 32,
+       "cudaMemcpyAsync": 13,
+       "cudaMemsetAsync": 12
+      },
+      "n_launch_api": 893,
+      "n_gpu_ops": 887
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 897
+     },
+     "recaptures": [],
+     "recapture_s": 0.21057314425706863
+    },
+    "flash": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 3.677613769070831e-15,
+      "rms_dF": 1.4021341304689011e-15,
+      "finite": true
+     },
+     "capture_s": 0.0983639508485794,
+     "peak_mem_capture_MiB": 2403.9814453125,
+     "graph_resident_MiB": 4.41357421875,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 35698,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.9837243786801082e-15,
+        "rms_dF": 1.3796566641354497e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.3592239273284576e-15,
+        "rms_dF": 1.0796904987204884e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 35680,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.5537836595300183e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.6645352591003757e-15,
+        "rms_dF": 1.1744203682494267e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 35696,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 4.884981308350689e-15,
+        "rms_dF": 1.714674628951787e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.2867148115819764e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 35704,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 1.840447156579923e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 1.4091774102576704e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 35666,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.4210854715202004e-14,
+        "rms_dF": 2.3321212826643756e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.4711333099467843e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 35690,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.0658141036401503e-14,
+        "rms_dF": 2.423646387251995e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 5.329070518200751e-15,
+        "rms_dF": 1.4806765703247893e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 3.3306690738754696e-15
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 22.622075863182545,
+      "p10": 22.591582499444485,
+      "p90": 22.689571231603622,
+      "min": 22.554997354745865
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 21.70584537088871,
+      "p10": 21.69493082910776,
+      "p90": 21.724840067327023,
+      "min": 21.69199101626873
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 21.601240150630474,
+      "p10": 21.593575552105904,
+      "p90": 21.62191867828369,
+      "min": 21.582823246717453
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 24.011199362576008,
+      "p10": 24.001084081828594,
+      "p90": 24.0494878962636,
+      "min": 23.985126987099648
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 23.277057334780693,
+      "p10": 23.2560770586133,
+      "p90": 23.29470030963421,
+      "min": 23.245397955179214
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 1.5045544132590294,
+      "p10": 1.492466777563095,
+      "p90": 1.5228599309921265,
+      "min": 1.4803837984800339
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 534,
+       "cudaLaunchKernelExC": 76,
+       "cuLaunchKernel": 27,
+       "cudaMemcpyToSymbolAsync": 38,
+       "cudaMemcpyAsync": 8,
+       "cudaMemsetAsync": 8
+      },
+      "n_launch_api": 691,
+      "n_gpu_ops": 684
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 690
+     },
+     "recaptures": [],
+     "recapture_s": 0.11278519406914711
+    },
+    "hybrid": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 3.4763858458575214e-15,
+      "rms_dF": 1.5242284900195923e-15,
+      "finite": true
+     },
+     "capture_s": 0.0840656477957964,
+     "peak_mem_capture_MiB": 1536.37646484375,
+     "graph_resident_MiB": 4.41357421875,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 35698,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.3584246494910985e-15,
+        "rms_dF": 1.5611200595291153e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.643718577388654e-15,
+        "rms_dF": 1.1027486317450564e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 35680,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 4.440892098500626e-15,
+        "rms_dF": 1.6991319633161138e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 2.6645352591003757e-15,
+        "rms_dF": 1.1836671125194128e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 35696,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 4.884981308350689e-15,
+        "rms_dF": 1.827666474936141e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 3.552713678800501e-15,
+        "rms_dF": 1.2758618731524324e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 35704,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.5987211554602254e-14,
+        "rms_dF": 2.2755051202926038e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 4.440892098500626e-15,
+        "rms_dF": 1.381141960257662e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 35666,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.5987211554602254e-14,
+        "rms_dF": 2.3294599959592992e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 7.105427357601002e-15,
+        "rms_dF": 1.4734729633841122e-15,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 35690,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 1.2434497875801753e-14,
+        "rms_dF": 2.651149034634183e-15,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 4.440892098500626e-15,
+        "rms_dF": 1.4529248207406888e-15,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 3.1502578323738817e-15
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 17.194196581840515,
+      "p10": 17.08912532776594,
+      "p90": 17.521069757640362,
+      "min": 16.961300745606422
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 9.678577072918415,
+      "p10": 9.64383240789175,
+      "p90": 9.688176028430462,
+      "min": 9.629961103200912
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 9.592294692993164,
+      "p10": 9.585781954228878,
+      "p90": 9.597517177462578,
+      "min": 9.577672928571701
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 18.7661312520504,
+      "p10": 18.633547611534595,
+      "p90": 18.97019036114216,
+      "min": 18.499471247196198
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 11.259169317781925,
+      "p10": 11.246208287775517,
+      "p90": 11.281759291887283,
+      "min": 11.239251121878624
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 1.5096589922904968,
+      "p10": 1.4930380508303642,
+      "p90": 1.530316285789013,
+      "min": 1.484764739871025
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 476,
+       "cudaLaunchKernelExC": 55,
+       "cuLaunchKernel": 28,
+       "cudaMemcpyToSymbolAsync": 38,
+       "cudaMemcpyAsync": 7,
+       "cudaMemsetAsync": 8
+      },
+      "n_launch_api": 612,
+      "n_gpu_ops": 605
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 7,
+       "cudaLaunchKernel": 3,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 11,
+      "n_gpu_ops": 610
+     },
+     "recaptures": [],
+     "recapture_s": 0.08475927822291851
+    }
+   },
+   "seq_edges": [
+    35698,
+    35680,
+    35696,
+    35704,
+    35666,
+    35690
+   ]
+  },
+  "single_C": {
+   "n_atoms": 1,
+   "n_edges": 0,
+   "E_cap": 64,
+   "pbc": false,
+   "backends": {
+    "e3nn": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 0.0,
+      "rms_dF": 0.0,
+      "finite": true
+     },
+     "capture_s": 0.06363226287066936,
+     "peak_mem_capture_MiB": 18.5068359375,
+     "graph_resident_MiB": 0.02490234375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 0.0
+     },
+     "padded_eager_vs_unpadded": {
+      "dE_per_atom": 0.0,
+      "max_dF": 0.0,
+      "rms_dF": 0.0,
+      "finite": true
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 11.182937771081924,
+      "p10": 11.141925677657127,
+      "p90": 11.22109442949295,
+      "min": 11.113082990050316
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 1.9669663161039352,
+      "p10": 1.9638512283563614,
+      "p90": 1.9724741578102112,
+      "min": 1.9615571945905685
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 1.8922537565231323,
+      "p10": 1.8898114562034607,
+      "p90": 1.894519291818142,
+      "min": 1.8871445208787918
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 11.594654060900211,
+      "p10": 11.524365469813347,
+      "p90": 11.683480069041252,
+      "min": 11.49260625243187
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 2.4641128256917,
+      "p10": 2.455129288136959,
+      "p90": 2.479817345738411,
+      "min": 2.451213076710701
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.37017185240983963,
+      "p10": 0.3605451434850693,
+      "p90": 0.380166620016098,
+      "min": 0.3551952540874481
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 322,
+       "cudaLaunchKernelExC": 34,
+       "cudaMemcpyAsync": 32,
+       "cuLaunchKernel": 1
+      },
+      "n_launch_api": 389,
+      "n_gpu_ops": 382
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 6,
+       "cudaLaunchKernel": 1,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 8,
+      "n_gpu_ops": 820
+     },
+     "recaptures": [],
+     "recapture_s": 0.05865626223385334
+    },
+    "flash": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 0.0,
+      "rms_dF": 0.0,
+      "finite": true
+     },
+     "capture_s": 0.050180044025182724,
+     "peak_mem_capture_MiB": 13.4013671875,
+     "graph_resident_MiB": 0.02490234375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 0.0
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 9.039721451699734,
+      "p10": 8.942056633532047,
+      "p90": 9.127265587449074,
+      "min": 8.918371051549911
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 1.4415569603443146,
+      "p10": 1.4388155192136765,
+      "p90": 1.4446541666984558,
+      "min": 1.4371071010828018
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 1.3720504939556122,
+      "p10": 1.3701731339097023,
+      "p90": 1.3750629499554634,
+      "min": 1.367008313536644
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 9.524057619273663,
+      "p10": 9.447971358895302,
+      "p90": 9.587228111922741,
+      "min": 9.437594562768936
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 1.9252821803092957,
+      "p10": 1.9148223102092743,
+      "p90": 1.9434558227658272,
+      "min": 1.9086915999650955
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.3685886040329933,
+      "p10": 0.35755522549152374,
+      "p90": 0.3794396296143532,
+      "min": 0.3517474979162216
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 318,
+       "cudaLaunchKernelExC": 34,
+       "cudaMemcpyAsync": 32,
+       "cuLaunchKernel": 1
+      },
+      "n_launch_api": 385,
+      "n_gpu_ops": 378
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 6,
+       "cudaLaunchKernel": 1,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 8,
+      "n_gpu_ops": 639
+     },
+     "recaptures": [],
+     "recapture_s": 0.050463950261473656
+    },
+    "hybrid": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 0.0,
+      "rms_dF": 0.0,
+      "finite": true
+     },
+     "capture_s": 0.06995617225766182,
+     "peak_mem_capture_MiB": 6.1162109375,
+     "graph_resident_MiB": 0.02490234375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 0.0
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 14.720250852406025,
+      "p10": 14.653705060482025,
+      "p90": 14.851075783371925,
+      "min": 14.600791037082672
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 1.1540474370121956,
+      "p10": 1.1525031179189682,
+      "p90": 1.156776212155819,
+      "min": 1.1516232043504715
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 1.0845819488167763,
+      "p10": 1.0834308341145515,
+      "p90": 1.0857123881578445,
+      "min": 1.082543283700943
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 15.220725908875465,
+      "p10": 15.14628566801548,
+      "p90": 15.324239060282707,
+      "min": 15.118543058633804
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 1.6342215240001678,
+      "p10": 1.6220776364207268,
+      "p90": 1.6478260979056358,
+      "min": 1.6125217080116272
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.37131551653146744,
+      "p10": 0.35971757024526596,
+      "p90": 0.3880484029650688,
+      "min": 0.3548748791217804
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 268,
+       "cudaLaunchKernelExC": 24,
+       "cuLaunchKernel": 4,
+       "cudaMemcpyAsync": 33
+      },
+      "n_launch_api": 329,
+      "n_gpu_ops": 322
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 6,
+       "cudaLaunchKernel": 1,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 8,
+      "n_gpu_ops": 583
+     },
+     "recaptures": [],
+     "recapture_s": 0.0722091943025589
+    }
+   },
+   "seq_edges": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "far_pair": {
+   "n_atoms": 2,
+   "n_edges": 0,
+   "E_cap": 64,
+   "pbc": false,
+   "backends": {
+    "e3nn": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 0.0,
+      "rms_dF": 0.0,
+      "finite": true
+     },
+     "capture_s": 0.06032392010092735,
+     "peak_mem_capture_MiB": 20.4853515625,
+     "graph_resident_MiB": 0.02490234375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 0.0
+     },
+     "padded_eager_vs_unpadded": {
+      "dE_per_atom": 0.0,
+      "max_dF": 0.0,
+      "rms_dF": 0.0,
+      "finite": true
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 11.507592163980007,
+      "p10": 11.4720419049263,
+      "p90": 11.572285555303097,
+      "min": 11.44813559949398
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 2.057907171547413,
+      "p10": 2.054557390511036,
+      "p90": 2.065163478255272,
+      "min": 2.0524226129055023
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 1.9786888733506203,
+      "p10": 1.976596936583519,
+      "p90": 1.9816068932414055,
+      "min": 1.9750557839870453
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 11.889110319316387,
+      "p10": 11.841939203441143,
+      "p90": 12.043088115751743,
+      "min": 11.819029226899147
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 2.5643110275268555,
+      "p10": 2.5521382689476013,
+      "p90": 2.5776801630854607,
+      "min": 2.5477204471826553
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.37744175642728806,
+      "p10": 0.36872420459985733,
+      "p90": 0.3928080201148987,
+      "min": 0.36220066249370575
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 376,
+       "cuLaunchKernel": 31,
+       "cudaLaunchKernelExC": 21,
+       "cudaMemcpyAsync": 8
+      },
+      "n_launch_api": 436,
+      "n_gpu_ops": 429
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 6,
+       "cudaLaunchKernel": 1,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 8,
+      "n_gpu_ops": 867
+     },
+     "recaptures": [],
+     "recapture_s": 0.06542961299419403
+    },
+    "flash": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 0.0,
+      "rms_dF": 0.0,
+      "finite": true
+     },
+     "capture_s": 0.05006595514714718,
+     "peak_mem_capture_MiB": 16.380859375,
+     "graph_resident_MiB": 0.02490234375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 0.0
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 9.462674148380756,
+      "p10": 9.427814930677414,
+      "p90": 9.533736482262611,
+      "min": 9.384315460920334
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 1.5614135190844536,
+      "p10": 1.5579704195261002,
+      "p90": 1.5636542811989784,
+      "min": 1.5560053288936615
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 1.4889854937791824,
+      "p10": 1.4867838472127914,
+      "p90": 1.4921372756361961,
+      "min": 1.484336331486702
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 9.945740923285484,
+      "p10": 9.910676628351212,
+      "p90": 10.01189686357975,
+      "min": 9.880391880869865
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 2.0543280988931656,
+      "p10": 2.0407602190971375,
+      "p90": 2.068198472261429,
+      "min": 2.037111669778824
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.37540122866630554,
+      "p10": 0.3653978928923607,
+      "p90": 0.38566794246435165,
+      "min": 0.3607161343097687
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 372,
+       "cuLaunchKernel": 31,
+       "cudaLaunchKernelExC": 21,
+       "cudaMemcpyAsync": 8
+      },
+      "n_launch_api": 432,
+      "n_gpu_ops": 425
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 6,
+       "cudaLaunchKernel": 1,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 8,
+      "n_gpu_ops": 686
+     },
+     "recaptures": [],
+     "recapture_s": 0.048910923302173615
+    },
+    "hybrid": {
+     "eager_vs_e3nn_fixed": {
+      "dE_per_atom": 0.0,
+      "max_dF": 0.0,
+      "rms_dF": 0.0,
+      "finite": true
+     },
+     "capture_s": 0.07278678938746452,
+     "peak_mem_capture_MiB": 6.609375,
+     "graph_resident_MiB": 0.02490234375,
+     "correctness_seq": [
+      {
+       "step": 0,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 1,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 2,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 3,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 4,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      },
+      {
+       "step": 5,
+       "E": 0,
+       "vs_e3nn": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       },
+       "vs_eager_same": {
+        "dE_per_atom": 0.0,
+        "max_dF": 0.0,
+        "rms_dF": 0.0,
+        "finite": true
+       }
+      }
+     ],
+     "repeat_replay": {
+      "max_dE_per_atom": 0.0,
+      "max_dF": 0.0
+     },
+     "t_eager_model": {
+      "n": 60,
+      "median": 15.00291470438242,
+      "p10": 14.933625236153603,
+      "p90": 15.18078912049532,
+      "min": 14.879275113344193
+     },
+     "t_graphed_model_copyin_replay": {
+      "n": 60,
+      "median": 1.2297658249735832,
+      "p10": 1.228717528283596,
+      "p90": 1.2328386306762695,
+      "min": 1.2271534651517868
+     },
+     "t_graphed_replay_only": {
+      "n": 60,
+      "median": 1.1579236015677452,
+      "p10": 1.156838797032833,
+      "p90": 1.1597033590078354,
+      "min": 1.1564549058675766
+     },
+     "t_e2e_eager_gpubuild": {
+      "n": 60,
+      "median": 15.53261373192072,
+      "p10": 15.439454466104507,
+      "p90": 15.718287229537964,
+      "min": 15.40284976363182
+     },
+     "t_e2e_graphed_gpubuild": {
+      "n": 60,
+      "median": 1.712915487587452,
+      "p10": 1.7005834728479385,
+      "p90": 1.7253579571843147,
+      "min": 1.6895700246095657
+     },
+     "t_gpubuild_only": {
+      "n": 60,
+      "median": 0.374453142285347,
+      "p10": 0.36346781998872757,
+      "p90": 0.38692355155944824,
+      "min": 0.3588106483221054
+     },
+     "api_eager_model": {
+      "api_calls": {
+       "cudaLaunchKernel": 319,
+       "cuLaunchKernel": 34,
+       "cudaLaunchKernelExC": 11,
+       "cudaMemcpyAsync": 7
+      },
+      "n_launch_api": 371,
+      "n_gpu_ops": 364
+     },
+     "api_graphed_step": {
+      "api_calls": {
+       "cudaMemcpyAsync": 6,
+       "cudaLaunchKernel": 1,
+       "cudaGraphLaunch": 1
+      },
+      "n_launch_api": 8,
+      "n_gpu_ops": 625
+     },
+     "recaptures": [],
+     "recapture_s": 0.07133500836789608
+    }
+   },
+   "seq_edges": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ },
+ "failures": [],
+ "flash_cg": {
+  "interactions.0": {
+   "kernel_class": "fused_uvu_TP_exp_opt_large",
+   "n_unique_cg": 5,
+   "cg_not_fp32_representable": 3,
+   "float_tensor_dtypes": [
+    "torch.float64"
+   ],
+   "cg_tensor_dtype": "torch.float64",
+   "max_abs_e3nn_fp64_cg_to_table": 6.106226635438361e-16,
+   "requested_dtype": "torch.float64",
+   "default_dtype_at_build": "torch.float32"
+  },
+  "interactions.1": {
+   "kernel_class": "fused_uvu_TP_exp_opt_large",
+   "n_unique_cg": 19,
+   "cg_not_fp32_representable": 17,
+   "float_tensor_dtypes": [
+    "torch.float64"
+   ],
+   "cg_tensor_dtype": "torch.float64",
+   "max_abs_e3nn_fp64_cg_to_table": 7.216449660063518e-16,
+   "requested_dtype": "torch.float64",
+   "default_dtype_at_build": "torch.float32"
+  }
+ },
+ "hybrid_backend_map": {
+  "node_embedding": "e3nn/torch mace.modules.blocks.LinearNodeEmbeddingBlock",
+  "radial_embedding": "e3nn/torch mace.modules.blocks.RadialEmbeddingBlock",
+  "spherical_harmonics": "e3nn/torch e3nn.o3._spherical_harmonics.SphericalHarmonics",
+  "interactions.0.linear_up": "e3nn/torch e3nn.o3._linear.Linear",
+  "interactions.0.conv_tp_weights": "e3nn/torch e3nn.nn._fc.FullyConnectedNet",
+  "interactions.0.conv_tp(+scatter_sum)": "FlashTP cgpatch (fused_uvu_TP_exp_opt_large, torch.float64) fused gather+TP+scatter",
+  "interactions.0.linear": "e3nn/torch e3nn.o3._linear.Linear",
+  "interactions.0.skip_tp": "e3nn/torch e3nn.o3._tensor_product._sub.FullyConnectedTensorProduct",
+  "interactions.1.linear_up": "e3nn/torch e3nn.o3._linear.Linear",
+  "interactions.1.conv_tp_weights": "e3nn/torch e3nn.nn._fc.FullyConnectedNet",
+  "interactions.1.conv_tp(+scatter_sum)": "FlashTP cgpatch (fused_uvu_TP_exp_opt_large, torch.float64) fused gather+TP+scatter",
+  "interactions.1.linear": "e3nn/torch e3nn.o3._linear.Linear",
+  "interactions.1.skip_tp": "e3nn/torch e3nn.o3._tensor_product._sub.FullyConnectedTensorProduct",
+  "products.0.symmetric_contractions": "cuEquivariance cuequivariance_torch.operations.symmetric_contraction.SymmetricContraction",
+  "products.0.linear": "e3nn/torch e3nn.o3._linear.Linear",
+  "products.1.symmetric_contractions": "cuEquivariance cuequivariance_torch.operations.symmetric_contraction.SymmetricContraction",
+  "products.1.linear": "e3nn/torch e3nn.o3._linear.Linear",
+  "readouts.0": "e3nn/torch mace.modules.blocks.LinearReadoutBlock",
+  "readouts.1": "e3nn/torch mace.modules.blocks.NonLinearReadoutBlock"
+ },
+ "r_max": 5.0,
+ "gpu_end": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz, 1980 MHz, 35, 121.85 W"
+}

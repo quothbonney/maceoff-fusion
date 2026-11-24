@@ -1,0 +1,22 @@
+max |CG used by kernel - exact fp64 wigner_3j| per tree; fp32 rows: table+fiber-index fingerprint equal across all trees
+case                                                                orig    fp64cg   cgpatch fp32_fprint_equal
+mace/medium.json:L0|default=float32|dtype=float32               1.04e-08  1.04e-08  1.04e-08 True
+mace/medium.json:L0|default=float32|dtype=float64               1.04e-08  1.04e-08  6.11e-16 -
+mace/medium.json:L0|default=float64|dtype=float32               1.04e-08  1.04e-08  1.04e-08 True
+mace/medium.json:L0|default=float64|dtype=float64               1.04e-08  6.11e-16  6.11e-16 -
+mace/medium.json:L1|default=float32|dtype=float32               1.04e-08  1.04e-08  1.04e-08 True
+mace/medium.json:L1|default=float32|dtype=float64               1.04e-08  1.04e-08  7.22e-16 -
+mace/medium.json:L1|default=float64|dtype=float32               1.04e-08  1.04e-08  1.04e-08 True
+mace/medium.json:L1|default=float64|dtype=float64               1.04e-08  7.22e-16  7.22e-16 -
+sevennet/sevennet-l3i5.json:L1|default=float32|dtype=float32    1.49e-08  1.49e-08  1.49e-08 True
+sevennet/sevennet-l3i5.json:L1|default=float32|dtype=float64    1.49e-08  1.49e-08  8.88e-16 -
+sevennet/sevennet-l3i5.json:L1|default=float64|dtype=float32    1.49e-08  1.49e-08  1.49e-08 True
+sevennet/sevennet-l3i5.json:L1|default=float64|dtype=float64    1.49e-08  8.88e-16  8.88e-16 -
+nequip/4_32_4_p_sc.txt:L1|default=float32|dtype=float32         1.49e-08  1.49e-08  1.49e-08 True
+nequip/4_32_4_p_sc.txt:L1|default=float32|dtype=float64         1.49e-08  1.49e-08  8.88e-16 -
+nequip/4_32_4_p_sc.txt:L1|default=float64|dtype=float32         1.49e-08  1.49e-08  1.49e-08 True
+nequip/4_32_4_p_sc.txt:L1|default=float64|dtype=float64         1.49e-08  8.88e-16  8.88e-16 -
+nequip/4_32_5_p_sc.txt:L1|default=float32|dtype=float32         1.49e-08  1.49e-08  1.49e-08 True
+nequip/4_32_5_p_sc.txt:L1|default=float32|dtype=float64         1.49e-08  1.49e-08  8.88e-16 -
+nequip/4_32_5_p_sc.txt:L1|default=float64|dtype=float32         1.49e-08  1.49e-08  1.49e-08 True
+nequip/4_32_5_p_sc.txt:L1|default=float64|dtype=float64         1.49e-08  8.88e-16  8.88e-16 -

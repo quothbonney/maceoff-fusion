@@ -1,0 +1,3 @@
+593eb759aef7fed0b319bed7fb1a5b0e5121a0e8a661aa91f8de05c0c0a1e379  scripts/hybrid/hybrid_backend.py
+806024c5061200c45cb53584b6df6a618f5be82c7db344f8d4b621a64e06b309  scripts/flash_proto/flashtp_adapter.py
+a9ec939285d2544bc2dff206da940bc9c024e39ad301a10109710df25d082aa0  results/review/0001-Keep-exact-fp64-CG-values-in-fp64-mode-CG-precision-.patch

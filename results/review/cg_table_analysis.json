@@ -1,0 +1,483 @@
+{
+ "tol": 1e-12,
+ "global": {
+  "lmax3_all_triples": {
+   "n_raw_unique": 225,
+   "n_clusters": 44,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.0034855388898852313,
+   "closest_pair": [
+    0.1690308509457032,
+    0.17251638983558842
+   ],
+   "tiny_nonzero_entries": 0,
+   "fp32_collapsed_distinct_values": 0,
+   "max_abs_fp32_rounding_err": 1.4856876784374862e-08,
+   "clusters_vs_tol": {
+    "1e-15": 44,
+    "1e-14": 44,
+    "1e-13": 44,
+    "1e-12": 44,
+    "1e-10": 44,
+    "1e-08": 44,
+    "1e-06": 44
+   }
+  },
+  "lmax5_all_triples": {
+   "n_raw_unique": 1642,
+   "n_clusters": 339,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.00012929380409126834,
+   "closest_pair": [
+    -0.1395726315597707,
+    -0.13944333775567944
+   ],
+   "tiny_nonzero_entries": 0,
+   "fp32_collapsed_distinct_values": 0,
+   "max_abs_fp32_rounding_err": 1.4856876784374862e-08,
+   "clusters_vs_tol": {
+    "1e-15": 339,
+    "1e-14": 339,
+    "1e-13": 339,
+    "1e-12": 339,
+    "1e-10": 339,
+    "1e-08": 339,
+    "1e-06": 339
+   }
+  },
+  "lmax6_all_triples": {
+   "n_raw_unique": 3483,
+   "n_clusters": 732,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 5.53958572187957e-06,
+   "closest_pair": [
+    0.04652421051992348,
+    0.04652975010564536
+   ],
+   "tiny_nonzero_entries": 0,
+   "fp32_collapsed_distinct_values": 0,
+   "max_abs_fp32_rounding_err": 1.4856876784374862e-08,
+   "clusters_vs_tol": {
+    "1e-15": 732,
+    "1e-14": 732,
+    "1e-13": 732,
+    "1e-12": 732,
+    "1e-10": 732,
+    "1e-08": 732,
+    "1e-06": 732
+   }
+  }
+ },
+ "configs": {
+  "mace/large.json:L0": {
+   "n_raw_unique": 14,
+   "n_clusters": 5,
+   "max_intra_cluster_spread": 6.106226635438361e-16,
+   "min_inter_cluster_gap": 0.06924912249073073,
+   "n_upstream_fp32_rounded": 5,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "mace/large.json:L1": {
+   "n_raw_unique": 42,
+   "n_clusters": 19,
+   "max_intra_cluster_spread": 7.216449660063518e-16,
+   "min_inter_cluster_gap": 0.00876498182451707,
+   "n_upstream_fp32_rounded": 19,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "mace/medium.json:L0": {
+   "n_raw_unique": 14,
+   "n_clusters": 5,
+   "max_intra_cluster_spread": 6.106226635438361e-16,
+   "min_inter_cluster_gap": 0.06924912249073073,
+   "n_upstream_fp32_rounded": 5,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "mace/medium.json:L1": {
+   "n_raw_unique": 42,
+   "n_clusters": 19,
+   "max_intra_cluster_spread": 7.216449660063518e-16,
+   "min_inter_cluster_gap": 0.00876498182451707,
+   "n_upstream_fp32_rounded": 19,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "mace/small.json:L0": {
+   "n_raw_unique": 14,
+   "n_clusters": 5,
+   "max_intra_cluster_spread": 6.106226635438361e-16,
+   "min_inter_cluster_gap": 0.06924912249073073,
+   "n_upstream_fp32_rounded": 5,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "mace/small.json:L1": {
+   "n_raw_unique": 14,
+   "n_clusters": 5,
+   "max_intra_cluster_spread": 6.106226635438361e-16,
+   "min_inter_cluster_gap": 0.06924912249073073,
+   "n_upstream_fp32_rounded": 5,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "nequip/4_32_1_p_sc.txt:L0": {
+   "n_raw_unique": 4,
+   "n_clusters": 3,
+   "max_intra_cluster_spread": 2.220446049250313e-16,
+   "min_inter_cluster_gap": 0.4226497308103744,
+   "n_upstream_fp32_rounded": 3,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 1
+  },
+  "nequip/4_32_1_p_sc.txt:L1": {
+   "n_raw_unique": 9,
+   "n_clusters": 5,
+   "max_intra_cluster_spread": 2.7755575615628914e-16,
+   "min_inter_cluster_gap": 0.16910197872576266,
+   "n_upstream_fp32_rounded": 5,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 1
+  },
+  "nequip/4_32_1_p_sc.txt:L2": {
+   "n_raw_unique": 9,
+   "n_clusters": 5,
+   "max_intra_cluster_spread": 2.7755575615628914e-16,
+   "min_inter_cluster_gap": 0.16910197872576266,
+   "n_upstream_fp32_rounded": 5,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 1
+  },
+  "nequip/4_32_1_p_sc.txt:L3": {
+   "n_raw_unique": 9,
+   "n_clusters": 5,
+   "max_intra_cluster_spread": 2.7755575615628914e-16,
+   "min_inter_cluster_gap": 0.16910197872576266,
+   "n_upstream_fp32_rounded": 5,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 1
+  },
+  "nequip/4_32_2_p_sc.txt:L0": {
+   "n_raw_unique": 9,
+   "n_clusters": 4,
+   "max_intra_cluster_spread": 4.996003610813204e-16,
+   "min_inter_cluster_gap": 0.13013667368966791,
+   "n_upstream_fp32_rounded": 4,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 2
+  },
+  "nequip/4_32_2_p_sc.txt:L1": {
+   "n_raw_unique": 67,
+   "n_clusters": 17,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.024445481967650562,
+   "n_upstream_fp32_rounded": 17,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 2
+  },
+  "nequip/4_32_2_p_sc.txt:L2": {
+   "n_raw_unique": 67,
+   "n_clusters": 17,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.024445481967650562,
+   "n_upstream_fp32_rounded": 17,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 2
+  },
+  "nequip/4_32_2_p_sc.txt:L3": {
+   "n_raw_unique": 67,
+   "n_clusters": 17,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.024445481967650562,
+   "n_upstream_fp32_rounded": 17,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 2
+  },
+  "nequip/4_32_3_p_sc.txt:L0": {
+   "n_raw_unique": 14,
+   "n_clusters": 5,
+   "max_intra_cluster_spread": 6.106226635438361e-16,
+   "min_inter_cluster_gap": 0.06924912249073073,
+   "n_upstream_fp32_rounded": 5,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "nequip/4_32_3_p_sc.txt:L1": {
+   "n_raw_unique": 226,
+   "n_clusters": 45,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.0034855388898852313,
+   "n_upstream_fp32_rounded": 45,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "nequip/4_32_3_p_sc.txt:L2": {
+   "n_raw_unique": 226,
+   "n_clusters": 45,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.0034855388898852313,
+   "n_upstream_fp32_rounded": 45,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "nequip/4_32_3_p_sc.txt:L3": {
+   "n_raw_unique": 226,
+   "n_clusters": 45,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.0034855388898852313,
+   "n_upstream_fp32_rounded": 45,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "nequip/4_32_4_p_sc.txt:L0": {
+   "n_raw_unique": 19,
+   "n_clusters": 6,
+   "max_intra_cluster_spread": 6.106226635438361e-16,
+   "min_inter_cluster_gap": 0.044631139675893716,
+   "n_upstream_fp32_rounded": 6,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 4
+  },
+  "nequip/4_32_4_p_sc.txt:L1": {
+   "n_raw_unique": 724,
+   "n_clusters": 155,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.00012929380409126834,
+   "n_upstream_fp32_rounded": 155,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 4
+  },
+  "nequip/4_32_4_p_sc.txt:L2": {
+   "n_raw_unique": 724,
+   "n_clusters": 155,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.00012929380409126834,
+   "n_upstream_fp32_rounded": 155,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 4
+  },
+  "nequip/4_32_4_p_sc.txt:L3": {
+   "n_raw_unique": 724,
+   "n_clusters": 155,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.00012929380409126834,
+   "n_upstream_fp32_rounded": 155,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 4
+  },
+  "nequip/4_32_5_p_sc.txt:L0": {
+   "n_raw_unique": 25,
+   "n_clusters": 7,
+   "max_intra_cluster_spread": 6.106226635438361e-16,
+   "min_inter_cluster_gap": 0.0318219887555698,
+   "n_upstream_fp32_rounded": 7,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 5
+  },
+  "nequip/4_32_5_p_sc.txt:L1": {
+   "n_raw_unique": 1643,
+   "n_clusters": 340,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.00012929380409126834,
+   "n_upstream_fp32_rounded": 340,
+   "path_upstream": "extcg",
+   "path_tol_dedupe": "extcg",
+   "lmax": 5
+  },
+  "nequip/4_32_5_p_sc.txt:L2": {
+   "n_raw_unique": 1643,
+   "n_clusters": 340,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.00012929380409126834,
+   "n_upstream_fp32_rounded": 340,
+   "path_upstream": "extcg",
+   "path_tol_dedupe": "extcg",
+   "lmax": 5
+  },
+  "nequip/4_32_5_p_sc.txt:L3": {
+   "n_raw_unique": 1643,
+   "n_clusters": 340,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.00012929380409126834,
+   "n_upstream_fp32_rounded": 340,
+   "path_upstream": "extcg",
+   "path_tol_dedupe": "extcg",
+   "lmax": 5
+  },
+  "sevennet/SevenNet-MF-ompa.json:L0": {
+   "n_raw_unique": 14,
+   "n_clusters": 5,
+   "max_intra_cluster_spread": 6.106226635438361e-16,
+   "min_inter_cluster_gap": 0.06924912249073073,
+   "n_upstream_fp32_rounded": 5,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "sevennet/SevenNet-MF-ompa.json:L1": {
+   "n_raw_unique": 226,
+   "n_clusters": 45,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.0034855388898852313,
+   "n_upstream_fp32_rounded": 45,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "sevennet/SevenNet-MF-ompa.json:L2": {
+   "n_raw_unique": 226,
+   "n_clusters": 45,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.0034855388898852313,
+   "n_upstream_fp32_rounded": 45,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "sevennet/SevenNet-MF-ompa.json:L3": {
+   "n_raw_unique": 226,
+   "n_clusters": 45,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.0034855388898852313,
+   "n_upstream_fp32_rounded": 45,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "sevennet/SevenNet-MF-ompa.json:L4": {
+   "n_raw_unique": 14,
+   "n_clusters": 5,
+   "max_intra_cluster_spread": 6.106226635438361e-16,
+   "min_inter_cluster_gap": 0.06924912249073073,
+   "n_upstream_fp32_rounded": 5,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "sevennet/sevennet-0.json:L0": {
+   "n_raw_unique": 9,
+   "n_clusters": 4,
+   "max_intra_cluster_spread": 4.996003610813204e-16,
+   "min_inter_cluster_gap": 0.13013667368966791,
+   "n_upstream_fp32_rounded": 4,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 2
+  },
+  "sevennet/sevennet-0.json:L1": {
+   "n_raw_unique": 67,
+   "n_clusters": 17,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.024445481967650562,
+   "n_upstream_fp32_rounded": 17,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 2
+  },
+  "sevennet/sevennet-0.json:L2": {
+   "n_raw_unique": 67,
+   "n_clusters": 17,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.024445481967650562,
+   "n_upstream_fp32_rounded": 17,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 2
+  },
+  "sevennet/sevennet-0.json:L3": {
+   "n_raw_unique": 67,
+   "n_clusters": 17,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.024445481967650562,
+   "n_upstream_fp32_rounded": 17,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 2
+  },
+  "sevennet/sevennet-0.json:L4": {
+   "n_raw_unique": 9,
+   "n_clusters": 4,
+   "max_intra_cluster_spread": 4.996003610813204e-16,
+   "min_inter_cluster_gap": 0.13013667368966791,
+   "n_upstream_fp32_rounded": 4,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 2
+  },
+  "sevennet/sevennet-l3i5.json:L0": {
+   "n_raw_unique": 14,
+   "n_clusters": 5,
+   "max_intra_cluster_spread": 6.106226635438361e-16,
+   "min_inter_cluster_gap": 0.06924912249073073,
+   "n_upstream_fp32_rounded": 5,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "sevennet/sevennet-l3i5.json:L1": {
+   "n_raw_unique": 226,
+   "n_clusters": 45,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.0034855388898852313,
+   "n_upstream_fp32_rounded": 45,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "sevennet/sevennet-l3i5.json:L2": {
+   "n_raw_unique": 226,
+   "n_clusters": 45,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.0034855388898852313,
+   "n_upstream_fp32_rounded": 45,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "sevennet/sevennet-l3i5.json:L3": {
+   "n_raw_unique": 226,
+   "n_clusters": 45,
+   "max_intra_cluster_spread": 8.881784197001252e-16,
+   "min_inter_cluster_gap": 0.0034855388898852313,
+   "n_upstream_fp32_rounded": 45,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  },
+  "sevennet/sevennet-l3i5.json:L4": {
+   "n_raw_unique": 14,
+   "n_clusters": 5,
+   "max_intra_cluster_spread": 6.106226635438361e-16,
+   "min_inter_cluster_gap": 0.06924912249073073,
+   "n_upstream_fp32_rounded": 5,
+   "path_upstream": "large",
+   "path_tol_dedupe": "large",
+   "lmax": 3
+  }
+ }
+}

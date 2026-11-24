@@ -1,0 +1,11 @@
+  return visitor(node)
+  return visitor(node)
+batch_size 32768
+cuEquivariance not installed, using e3nn Irreps directly for cueq config
+All Good
+All Good
+All Good
+All Good
+All Good
+All Good
+All Good

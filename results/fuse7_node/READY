@@ -1,0 +1,46 @@
+fuse7_node READY  (Agent C, 2026-11-10; test jobs 1034 [t1], 1038 [t2, final]; tile sweep 1037)
+
+IMPORT RECIPE (after hybrid/flash adapters + cueq SC are installed; fp64 CUDA model, MACE 0.3.17, e3nn linear/skip_tp)
+  sys.path.insert(0, f"{R}/scripts/cudagraph6"); import hybrid_gc as HB      # first, as usual
+  sys.path.insert(0, f"{R}/scripts/fuse7_node"); import fused_node as FN
+  calc, info = HB.build_calc(conv="flashtp", sc="cueq", dtype=torch.float64, check_indices=False)
+  h = FN.install(calc.models[0])      # ~0.03 s; FN.uninstall(model, h) restores (idempotent); FN.describe()
+  As a graphed7 transform:  transforms=(FN.install,)
+
+MECHANISM: instance-level forward override (types.MethodType stored in block.__dict__["forward"]) on interactions.0/1.
+  The copied forwards are verbatim mace 0.3.17 (sha256 of class forward source checked at install; install refuses on drift),
+  keep the `hasattr(self,"conv_fusion")` FlashTP branch, lammps/truncate_ghosts. Stock submodules are NOT replaced (state_dict
+  unchanged); uninstall pops the override + op table. Weights are snapshotted at install; a param._version guard raises if
+  the source weights are modified afterwards. Refuses: double install, non-e3nn linear/skip_tp, cueq reshape, biases,
+  non-fp64/non-CUDA model, other interaction classes.
+
+WHAT IS FUSED (one Triton kernel `_seg_linear_kernel`, fp64 tl.dot -> DMMA mma.sync.m16n8k16.f64 on sm_90)
+  L0: reshape(skip_tp(linear(m)/avg, node_attrs))  -> 1 launch fwd / 1 launch bwd. Per-species folded W[s,l] (10 x 4 x 128x128),
+      written directly in reshape layout [N,128,16].
+  L1: reshape(linear(m)/avg)                       -> 1 fwd / 1 bwd (1/avg folded; per-l 256/384/384/256 x 128).
+  L1: sc = skip_tp(node_feats, node_attrs)         -> 1 fwd / 1 bwd + 1 memset (1o half of node_feats has zero grad).
+  Profiler, L0 fwd+bwd incl. sum/ones-grad: 92 CUDA kernels stock -> 5 fused.
+  Folding: weights extracted by running the ORIGINAL modules on identity bases (all e3nn normalisation constants exact);
+  dense-map block-structure check (same l, same m, m-independent): rel err 0.0 for all three maps.
+  node_attrs: general (non-one-hot) supported exactly (sum_s a[n,s] W_s x); species absent from a row tile are skipped.
+  Backward: grad wrt x only (W^T gathered by species); node_attrs.requires_grad -> raises; double backward raises.
+  Graph: no host syncs, grid depends only on N, current stream; N=0 -> no launch.
+
+LOCAL RESULTS (job 1038; fused vs original modules, real captured inputs)
+  op fwd/bwd, aspirin / water648 / wbox648 / aspirin[:1,:2,:3,:0]: worst rel 2.7e-15 (fwd), 1.2e-15 (bwd); max abs <= 6.3e-15
+  general random attrs: L0 fwd 6.4e-16 / bwd 8.1e-16 rel; L1.sc ok. gradcheck (N=2) L0/L1.out/L1.sc: pass.
+  CUDA-graph capture fwd+bwd of each op: ok; replay with new x vs stock eager: rel <= 2.7e-15.
+  Whole model eager, fused vs stock e3nn (eV, eV/A):        |dE|/atom  max|dF|   RMS dF   [stock run-to-run max|dF|]
+     H2O 0 1.7e-16 1.4e-16 [3.3e-16]; aspirin 0 2.5e-15 1.4e-15 [1.8e-15]; water648 0 2.9e-15 1.1e-15 [2.7e-15];
+     wbox648 0 3.0e-15 1.2e-15, |dsigma| 2.8e-18 [2.7e-15]; single_C, far_OO (0 edges) exact 0.
+  Hybrid (FlashTP + cueq SC) + fused vs stock e3nn: max|dF| <= 5.0e-15 (hybrid alone: <= 4.9e-15); dE/atom 0 (energies
+     ~1e3-1e6 eV, perturbation below 1 ulp). Coexists with FlashTP conv_fusion + CueqSC; uninstall restores module objects.
+  Timings (us, H100, fwd+bwd; stock = e3nn modules):   eager stock -> fused | graph-replay stock -> fused
+     aspirin  L0 1532->167 | 190->39 ;  L1.out 842->164 | 112->22 ;  L1.sc 254->170 | 26.5->39.5 (stock fx-FCTP faster here)
+     water648 L0 1555->172 | 741->153 ;  L1.out 849->168 | 386->139 ;  L1.sc 262->171 | 43.7->31.5
+     sum per step (graph): aspirin 329->101 us ; water648 1171->323 us.  Eager fused cost is host/autograd overhead (~165 us).
+FILES: scripts/fuse7_node/{fused_node.py,test_node.py,tune.py,run_test.sh,run_tune.sh}; results/fuse7_node/{test_t2.json,tune.json};
+       logs/fuse7_node/{test_t1.log,test_t2.log,tune.log}
+KNOWN LIMITS: Integration (D) should note L1.sc under graph replay is ~13 us slower than stock at aspirin size (could leave
+  stock skip_tp by not fusing sc - not currently a switch). Species-tile skipping means mixed-species tiles do 1 GEMM per
+  species present (worst case 10x); fine for MACE-OFF systems (<=3-4 species per 16/32-row tile).

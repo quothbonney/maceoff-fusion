@@ -1,0 +1,9 @@
+{
+ "backend": "e3nn",
+ "flashTP": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/flashTP-cgpatch/flashTP_e3nn/__init__.py",
+ "capture": "no exception",
+ "E_graphed": -17663.67762117525,
+ "E_eager": -17663.67762117525,
+ "max_dF_graphed_vs_eager": 1.3322676295501878e-15,
+ "graphed_matches_eager": true
+}

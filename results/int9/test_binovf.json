@@ -1,0 +1,96 @@
+{
+ "job": "1143",
+ "node": "slurm-h100-206-077",
+ "gpu": "0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz, 28",
+ "nl": "auto",
+ "tol": {
+  "dE": 1e-11,
+  "dF": 1e-11,
+  "dS": 1e-14
+ },
+ "tests": {
+  "bin_overflow_recapture": {
+   "rows": [
+    {
+     "N": 648,
+     "dE_atom": 0.0,
+     "max_dF": 3.219646771412954e-15,
+     "dS": null,
+     "ok": true,
+     "sys": "water648",
+     "bin_cap0": 4,
+     "poisoned_before": true,
+     "check1": {
+      "ok": false,
+      "overflow": 6,
+      "max_E": 9633,
+      "last_E": 9633,
+      "E_cap": 31872,
+      "recaptured": true,
+      "new_bin_cap": 64,
+      "new_E_cap": 31872
+     },
+     "stats": {
+      "path": "graph",
+      "nl": "cell",
+      "captures": 2,
+      "recaptures": 1,
+      "proactive_recaptures": 0,
+      "overflows": 1,
+      "checks": 2,
+      "host_syncs": 2,
+      "steps": 2,
+      "evictions": 0,
+      "last_capture_s": 0.252447746694088,
+      "E_cap": 31872,
+      "n_edges_last": 26550,
+      "n_graphs": 1,
+      "ext_csr_layer_calls": 16,
+      "sort_fallback_layer_calls": 0
+     }
+    },
+    {
+     "N": 648,
+     "dE_atom": 0.0,
+     "max_dF": 4.440892098500626e-15,
+     "dS": null,
+     "ok": true,
+     "sys": "wbox648",
+     "bin_cap0": 8,
+     "poisoned_before": true,
+     "check1": {
+      "ok": false,
+      "overflow": 6,
+      "max_E": 11947,
+      "last_E": 11947,
+      "E_cap": 42880,
+      "recaptured": true,
+      "new_bin_cap": 64,
+      "new_E_cap": 42880
+     },
+     "stats": {
+      "path": "graph",
+      "nl": "cell",
+      "captures": 2,
+      "recaptures": 1,
+      "proactive_recaptures": 0,
+      "overflows": 1,
+      "checks": 2,
+      "host_syncs": 2,
+      "steps": 2,
+      "evictions": 0,
+      "last_capture_s": 0.22821636497974396,
+      "E_cap": 42880,
+      "n_edges_last": 35724,
+      "n_graphs": 1,
+      "ext_csr_layer_calls": 32,
+      "sort_fallback_layer_calls": 0
+     }
+    }
+   ],
+   "ok": true
+  }
+ },
+ "failures": [],
+ "ok": true
+}

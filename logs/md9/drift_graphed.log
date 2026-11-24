@@ -1,0 +1,53 @@
+job=1077 host=slurm-h100-206-077 date=2026-11-10T05:25:35+00:00 args=drift9.py graphed water192 0.5 4000 10 graphed_water192_dt0.5
+0, NVIDIA H100 80GB HBM3, GPU-a6a957a6-a4b5-edc7-17c3-2343ebb01051, 345 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+step 500 Etot/atom=-693.76115895 2.13 ms/step
+step 1000 Etot/atom=-693.76118681 2.12 ms/step
+step 1500 Etot/atom=-693.76119656 2.13 ms/step
+step 2000 Etot/atom=-693.76116602 2.12 ms/step
+step 2500 Etot/atom=-693.76122926 2.13 ms/step
+step 3000 Etot/atom=-693.76120208 2.13 ms/step
+step 3500 Etot/atom=-693.76117715 2.12 ms/step
+step 4000 Etot/atom=-693.76118844 2.13 ms/step
+  json.dump(info, open(f"{OUT}/traj_{tag}.json", "w"), indent=1, default=float)
+{"dt_fs": 0.5, "n_steps": 4000, "t_ps": 2.0, "drift_eV_atom_ps": -5.949287794205919e-06, "block_slopes_eV_atom_ps": [-9.104783122214003e-06, -5.714771951863584e-06, -5.297750447159772e-06, -8.293664174990788e-06], "block_slope_std": 1.8806842409318614e-06, "rms_fluct_eV_atom": 2.2956951896544645e-05, "rms_fluct_first1ps_eV_atom": 2.8027787163627677e-05, "max_minus_min_eV_atom": 0.00038522258842021984, "Etot0_eV_atom": -693.761386672706, "Etot_end_minus_0": 0.0001982285555186536, "T_start_K": 322.0581369890254, "T_end_K": 301.5563708916389, "T_mean_K": 333.7130919873823} 2.1258494025096297
+0, GPU-a6a957a6-a4b5-edc7-17c3-2343ebb01051, 1980 MHz
+exit=0 date=2026-11-10T05:26:10+00:00
+job=1077 host=slurm-h100-206-077 date=2026-11-10T05:26:10+00:00 args=drift9.py graphed wbox648 0.5 4000 20 graphed_wbox648_dt0.5
+0, NVIDIA H100 80GB HBM3, GPU-a6a957a6-a4b5-edc7-17c3-2343ebb01051, 1980 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+step 500 Etot/atom=-693.76036329 5.21 ms/step
+step 1000 Etot/atom=-693.76035212 5.22 ms/step
+step 1500 Etot/atom=-693.76036794 5.21 ms/step
+step 2000 Etot/atom=-693.76036006 5.21 ms/step
+step 2500 Etot/atom=-693.76038865 5.21 ms/step
+step 3000 Etot/atom=-693.76036567 5.23 ms/step
+step 3500 Etot/atom=-693.76037999 5.22 ms/step
+step 4000 Etot/atom=-693.76036515 5.22 ms/step
+  json.dump(info, open(f"{OUT}/traj_{tag}.json", "w"), indent=1, default=float)
+{"dt_fs": 0.5, "n_steps": 4000, "t_ps": 2.0, "drift_eV_atom_ps": -1.1567317286779535e-05, "block_slopes_eV_atom_ps": [-1.2923124116362995e-05, -7.691636470487274e-06, -8.814968705872537e-06, -1.8121085327754267e-05], "block_slope_std": 4.724962874442219e-06, "rms_fluct_eV_atom": 1.4223966307093813e-05, "rms_fluct_first1ps_eV_atom": 1.7126315745761146e-05, "max_minus_min_eV_atom": 0.00028799794188216765, "Etot0_eV_atom": -693.7604980404184, "Etot_end_minus_0": 0.00013289072899169696, "T_start_K": 295.5325953613855, "T_end_K": 409.7403322709771, "T_mean_K": 423.1961790974469} 5.214853010606021
+0, GPU-a6a957a6-a4b5-edc7-17c3-2343ebb01051, 1980 MHz
+exit=0 date=2026-11-10T05:27:00+00:00
+job=1077 host=slurm-h100-206-077 date=2026-11-10T05:27:00+00:00 args=drift9.py graphed wbox648 0.25 8000 40 graphed_wbox648_dt0.25
+0, NVIDIA H100 80GB HBM3, GPU-a6a957a6-a4b5-edc7-17c3-2343ebb01051, 1980 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+step 500 Etot/atom=-693.76046372 5.22 ms/step
+step 1000 Etot/atom=-693.76046392 5.23 ms/step
+step 1500 Etot/atom=-693.76046055 5.22 ms/step
+step 2000 Etot/atom=-693.76046397 5.23 ms/step
+step 2500 Etot/atom=-693.76046463 5.23 ms/step
+step 3000 Etot/atom=-693.76046367 5.23 ms/step
+step 3500 Etot/atom=-693.76046531 5.24 ms/step
+step 4000 Etot/atom=-693.76046745 5.16 ms/step
+step 4500 Etot/atom=-693.76046653 5.15 ms/step
+step 5000 Etot/atom=-693.76046402 5.15 ms/step
+step 5500 Etot/atom=-693.76046568 5.15 ms/step
+step 6000 Etot/atom=-693.76046678 5.14 ms/step
+step 6500 Etot/atom=-693.76046849 5.14 ms/step
+step 7000 Etot/atom=-693.76046494 5.16 ms/step
+step 7500 Etot/atom=-693.76046784 5.15 ms/step
+step 8000 Etot/atom=-693.76046779 5.15 ms/step
+  json.dump(info, open(f"{OUT}/traj_{tag}.json", "w"), indent=1, default=float)
+{"dt_fs": 0.25, "n_steps": 8000, "t_ps": 2.0, "drift_eV_atom_ps": -2.8604386057277444e-06, "block_slopes_eV_atom_ps": [-3.1478979714163734e-06, -3.4008997487155305e-06, -1.1649107432206997e-06, -3.3003839849205187e-06], "block_slope_std": 1.064170116738041e-06, "rms_fluct_eV_atom": 3.28975965030292e-06, "rms_fluct_first1ps_eV_atom": 4.1601339672222575e-06, "max_minus_min_eV_atom": 7.017858365543361e-05, "Etot0_eV_atom": -693.7604980404184, "Etot_end_minus_0": 3.0250059580794186e-05, "T_start_K": 295.5325953613855, "T_end_K": 418.30065521131496, "T_mean_K": 422.3005072324657} 5.184494039509445
+0, GPU-a6a957a6-a4b5-edc7-17c3-2343ebb01051, 1980 MHz
+exit=0 date=2026-11-10T05:28:10+00:00

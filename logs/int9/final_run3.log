@@ -1,0 +1,42 @@
+job=1137 host=slurm-h100-206-077 start=2026-11-10T06:07:06+00:00
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+waiting for TIMING_LOCK held by 1136 int9 slurm-h100-206-077 2026-11-10T06:03:13+00:00
+waiting for TIMING_LOCK held by 1136 int9 slurm-h100-206-077 2026-11-10T06:03:13+00:00
+waiting for TIMING_LOCK held by 1136 int9 slurm-h100-206-077 2026-11-10T06:03:13+00:00
+TIMING_LOCK: 1137 int9 slurm-h100-206-077 2026-11-10T06:07:37+00:00
+md5 f7eb8bd6702c903c53f2c2748640e256  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/bench9.py
+md5 cc67e5325688f2464021000ca27ccda9  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/brute_nl.py
+md5 6c51ea1bfec7e04832c6677527ed5800  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/common9.py
+md5 66315a7690b7b071eeab957017e0e854  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/dbg_ovf.py
+md5 1a487a9cab64687a057a54151adf0892  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/fin9.py
+md5 78133beb87bb1c30f8e8bf94f9b84733  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gen_systems.py
+md5 7eb7fc13ad0e29bb115d7e7fc093a5a8  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/gpu_step.py
+md5 64a8038bea51576265d2efefbb3f87d8  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/nodeconv_ext.py
+md5 1b039179a8e03ee3c221db8a90cc308f  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/prof9.py
+md5 d410bebfded9a70d729f166f8276f76b  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/summ9.py
+md5 5614810ddc470c6a37e9aad2824b3ad7  /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/int9/test9.py
+built stock {'build_install_s': 0.338772302493453}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built hybrid+embed+node {'build_install_s': 5.0075087789446115}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built nodehybrid+embed+node {'build_install_s': 0.6715569905936718}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built gpustep {'build_install_s': 0.46530700847506523}
+wbox192 stock {"E": 10588, "B1": 15.5655, "B2": 21.694, "peak_MiB": 1655.31396484375}
+  json.dump(res, open(out_path, "w"), indent=1)
+wbox192 hybrid+embed+node {"first_step_s": 13.082809148356318, "E": 10588, "E_cap": 12736, "B1": 2.8492, "B2": 3.5815, "B2_nl_only": 0.5149, "B2host": 3.9098, "peak_MiB": 507.36669921875}
+  json.dump(res, open(out_path, "w"), indent=1)
+wbox192 nodehybrid+embed+node {"first_step_s": 0.5997247863560915, "E": 10588, "E_cap": 12736, "B1": 1.7417, "B2": 2.3816, "B2_nl_only": 0.5177, "B2host": 2.7256, "peak_MiB": 423.36767578125}
+  json.dump(res, open(out_path, "w"), indent=1)
+wbox192 gpustep {"first_step_s": 0.11454105377197266, "E": 10588, "E_cap": 12736, "B1": 1.7458, "B2": 2.4133, "B2chk": 2.4105, "peak_MiB": 423.4130859375}
+wbox192 gpustep_hyb {"first_step_s": 0.0825842060148716, "E": 10588, "E_cap": 12736, "B1": 2.9548, "B2": 3.6223, "B2chk": 3.6197, "peak_MiB": 443.412109375}
+aspirin hybrid+embed+node {"first_step_s": 0.06877798028290272, "E": 302, "E_cap": 384, "B1": 0.7449, "B2": 0.9176, "B2_nl_only": 0.0887, "B2host": 1.2587, "peak_MiB": 78.5146484375}
+aspirin nodehybrid+embed+node {"first_step_s": 0.07501887530088425, "E": 302, "E_cap": 384, "B1": 0.7583, "B2": 0.9314, "B2_nl_only": 0.0894, "B2host": 1.2741, "peak_MiB": 77.1240234375}
+aspirin gpustep {"first_step_s": 0.43521448224782944, "E": 302, "E_cap": 384, "B1": 0.8371, "B2": 0.8446, "B2chk": 0.8566, "peak_MiB": 77.3369140625}
+  json.dump(res, open(out_path, "w"), indent=1)
+aspirin gpustep_hyb {"first_step_s": 0.23430201783776283, "E": 302, "E_cap": 384, "B1": 0.8398, "B2": 0.8465, "B2chk": 0.8592, "peak_MiB": 78.4453125}
+aspirin stock {"E": 302, "B1": 12.008, "B2": 15.8833, "peak_MiB": 80.7880859375}
+  json.dump(res, open(out_path, "w"), indent=1)
+DONE
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz
+end=2026-11-10T06:08:17+00:00

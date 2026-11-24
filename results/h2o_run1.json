@@ -1,0 +1,89 @@
+{
+  "label": "run1",
+  "host": "slurm-h100-206-077",
+  "CUDA_VISIBLE_DEVICES": "0",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "python": "3.11.17",
+  "torch": "2.11.0+cu128",
+  "torch_cuda": "12.8",
+  "cudnn": 91900,
+  "mace": "0.3.17",
+  "ase": "3.29.0",
+  "model_path": "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/models/MACE-OFF23_medium.model",
+  "model_dtype": "torch.float64",
+  "calc_default_dtype": "torch.float32",
+  "model_class": "ScaleShiftMACE",
+  "r_max": 5.0,
+  "atoms": [
+    "O",
+    "H",
+    "H"
+  ],
+  "positions_A": [
+    [
+      0.0,
+      0.0,
+      0.119262
+    ],
+    [
+      0.0,
+      0.763239,
+      -0.477047
+    ],
+    [
+      0.0,
+      -0.763239,
+      -0.477047
+    ]
+  ],
+  "energy_eV": -2081.11639716893,
+  "forces_eV_per_A": [
+    [
+      0.0,
+      0.0,
+      -0.6474868257116834
+    ],
+    [
+      0.0,
+      -0.34376560138079837,
+      0.3237434128558417
+    ],
+    [
+      0.0,
+      0.34376560138079837,
+      0.3237434128558417
+    ]
+  ],
+  "first_call_s": 0.45701598189771175,
+  "post_warmup_ms_median": 14.410573989152908,
+  "post_warmup_ms_min": 14.259722083806992,
+  "within_run_max_abs_dE": 0.0,
+  "within_run_max_abs_dF": 2.220446049250313e-16,
+  "warnings": [
+    "UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False. (_wigner.py:10)",
+    "DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`. (_script.py:1488)",
+    "DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`. (_script.py:1488)",
+    "DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`. (_script.py:1488)",
+    "DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`. (_script.py:1488)",
+    "DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`. (_script.py:1488)",
+    "UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False. (mace.py:274)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`. (_serialization.py:176)"
+  ]
+}

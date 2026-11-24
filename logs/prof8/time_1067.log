@@ -1,0 +1,25 @@
+job=1067 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built hybrid+embed+node {'build_install_s': 5.437508473172784}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built nodehybrid+embed+node {'build_install_s': 0.47924851067364216}
+H2O hybrid+embed+node {"replay": 0.6046, "step": 1.1484, "nk": 300, "first": 13.399, "fused_us": 76.3, "peak": 131}
+  json.dump(res, open(out_path, "w"), indent=1)
+H2O nodehybrid+embed+node {"replay": 0.6762, "step": 1.2808, "nk": 267, "first": 0.664, "fused_us": 122.8, "peak": 67}
+  json.dump(res, open(out_path, "w"), indent=1)
+aspirin nodehybrid+embed+node {"replay": 0.791, "step": 1.4146, "nk": 255, "first": 0.06, "fused_us": 169.1, "peak": 77}
+aspirin hybrid+embed+node {"replay": 0.7545, "step": 1.3814, "nk": 288, "first": 0.063, "fused_us": 97.2, "peak": 79}
+water192 hybrid+embed+node {"replay": 2.2049, "step": 2.8557, "nk": 297, "first": 0.088, "fused_us": 1181.2, "peak": 312}
+water192 nodehybrid+embed+node {"replay": 1.5283, "step": 2.1625, "nk": 282, "first": 0.065, "fused_us": 551.0, "peak": 296}
+org192 nodehybrid+embed+node {"replay": 1.3488, "step": 1.9881, "nk": 283, "first": 0.077, "fused_us": 363.8, "peak": 202}
+org192 hybrid+embed+node {"replay": 1.6909, "step": 2.341, "nk": 298, "first": 0.064, "fused_us": 661.9, "peak": 214}
+water648 hybrid+embed+node {"replay": 6.4983, "step": 7.1923, "nk": 301, "first": 0.078, "fused_us": 4544.5, "peak": 1039}
+water648 nodehybrid+embed+node {"replay": 3.0015, "step": 3.669, "nk": 286, "first": 0.073, "fused_us": 1097.3, "peak": 981}
+org648 nodehybrid+embed+node {"replay": 2.336, "step": 3.0141, "nk": 286, "first": 0.068, "fused_us": 726.0, "peak": 598}
+org648 hybrid+embed+node {"replay": 4.216, "step": 4.9051, "nk": 301, "first": 0.072, "fused_us": 2557.6, "peak": 642}
+wbox648 hybrid+embed+node {"replay": 8.3592, "step": 10.0638, "nk": 301, "first": 0.119, "fused_us": 6028.3, "peak": 1339}
+wbox648 nodehybrid+embed+node {"replay": 3.6717, "step": 5.3539, "nk": 286, "first": 0.083, "fused_us": 1394.4, "peak": 1271}
+  json.dump(res, open(out_path, "w"), indent=1)
+DONE
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz

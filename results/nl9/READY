@@ -1,0 +1,122 @@
+nl9 READY (agent A) -- GPU cell-list neighbour builder, dst-sorted edges + CSR emitted directly (no sort, no host sync)
+FINAL (kernel v5 'nl9_cell_v5'): tests job 1122 (logs/nl9/test_full5.log == test_final.log, results/nl9/tests.json,
+  table results/nl9/tests_summary.txt): 187 tests, 0 failures, H100 GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz.
+  timing job 1125 (logs/nl9/time3.log, results/nl9/timing.json), same GPU. Earlier versions: v3 thread-per-atom
+  (tests job 1093 187/187; 0.17-0.56 ms) superseded; v4 warp-per-atom (job 1112 187/187); v5 = v4 + dst written in
+  the fill kernel (no per-edge rowptr search).
+
+FILES  scripts/nl9/cell_nl.py (builder, CUDA load_inline, sm_90, --fmad=false), nlsys.py (systems / refs),
+       test_nl.py, time_nl.py, summ_nl.py, probe_sum.py + probe_mm2.py (fp64 rounding-order probes), job.sh
+       results/nl9/systems/{wclus2187,wclus5184,wbox2187,wbox5184}.extxyz (flash_proto water_cluster(9/12),
+       workloads/systems2 water_box(9/12), density 1.0); triclinic/outside variants generated in nlsys.load().
+
+API  (import: sys.path.insert(0, f"{R}/scripts/nl9"); from cell_nl import CellNeighborList, BatchTemplate, round_cap)
+  NL = CellNeighborList(r_max, pbc, cell, n_atoms, E_cap, device="cuda", bin_cap=None, bins_per_dim=None)
+  out = NL.build(positions)      # [N,3] fp64 cuda (caller's unwrapped coords). No host sync, no allocation,
+                                 # CUDA-graph capturable; 6 kernels in 2 extension calls, no torch ops:
+                                 # k_prep (bbox/zero, 1 block) k_bin (atomics into fixed bins) k_wscan<0> (warp per
+                                 # dst atom: count) k_rowscan2 (block scan -> rowptr, n_edges, E>E_cap flag)
+                                 # k_wscan<1> (ballot-compacted hits -> scratch, slot = rank by sender in row: sorted
+                                 # without a sort) k_final (unit_shifts/shifts, reverse-edge binary search -> perm_src,
+                                 # padding)
+  out (persistent buffers, overwritten by the next build; fixed shapes for fixed (N, E_cap)):
+    edge_index [2,E_cap] int64   row0 sender i, row1 receiver j (MACE: vec = pos[j]-pos[i]+shifts), sorted by
+                                 receiver (dst), within a row strictly by sender (deterministic), padding at the end
+    unit_shifts, shifts [E_cap,3] fp64
+    rowptr_dst [N+1] int32       rowptr_dst[N] = E real (padding excluded); == rowptr_src (symmetric list)
+    perm_dst [E_cap] int64       identity
+    perm_src [E_cap] int64       src-sorted order, derived WITHOUT a sort: perm_src[e] = reverse edge of e (binary
+                                 search of sender==dst(e) in row src(e)); identity on padding
+    rowptr_dst_pad/_src_pad      same with last entry E_cap  ->  (perm_dst, rowptr_dst_pad, perm_src, rowptr_src_pad)
+                                 is BITWISE EQUAL to nodetp8_bwd.csr.build_csr(edge_index, N) (tested every case)
+    n_edges 0-d int64 (true E, may exceed E_cap), overflow 0-d int32 bits {1: E>E_cap, 2: bin overflow,
+    4: reverse edge missing (appears together with 2)}, max_bin 0-d int32, cell/rcell/volume (as proto/stock)
+  batch: tpl = BatchTemplate(calc, atoms)  (static tensors from a stock batch, like ProtoBuilder._template)
+         bd = tpl.batch(out, positions, trim=False)  -> same keys/dtypes/values as ProtoBuilder.build except edge
+         order; padded to E_cap (trim=True slices to E with ONE host sync, for testing/eager only). positions is
+         used as given (no copy).
+  Caller contract: check out["overflow"]==0 before trusting outputs (graph: read after replay; C owns policy).
+    On E > E_cap rowptr is clamped to E_cap, n_edges is the true E -> resize to round_cap(1.2*n_edges).
+    On bin overflow max_bin tells the needed bin_cap. Edges are never dropped silently.
+
+PADDING  edges e in [E, E_cap): self-edge (N-1 -> N-1), unit_shift (m,0,0), shift = m*cell[0]; periodic
+  m = max(1, ceil(2 r_max/|cell[0]|)); open m = 1 (extended cell row 0 length = extent+2r+1 > r). |vec| >= r_max ->
+  polynomial envelope exactly 0 -> zero E/F/stress (also when MACE recomputes shifts from unit_shifts @ displaced
+  cell). Last node -> dst and src order preserved. Verified: padded batch vs stock within tolerance (model rows).
+
+SUPPORTED GEOMETRIES
+  pbc all False: bounding box (min/max) recomputed on device each build; bin width max(r(1+1e-9), extent/bpd) per
+    axis, at most bins_per_dim (default clamp(ceil(1.2 N^(1/3))+2, 4, 64)) per axis -> bins grow for expanding/sparse
+    systems instead of overflowing the grid; extended cell/rcell/volume computed on device bitwise = proto/stock.
+  pbc all True: orthorhombic or triclinic, every perpendicular height must give >= 3 bins of >= r_max(1+1e-9)
+    (i.e. height >= ~15.0 A for r=5). Atoms anywhere (outside the cell, many cells away) -> wrapped on device.
+  NotImplementedError (caller falls back to proto_graph): mixed pbc, < 3 bins per periodic dim (e.g. wbox192,
+    L=12.4 A), degenerate cell, N<1.
+CAPACITIES  E_cap (caller), bin_cap default: open 64; periodic max(64, round_up(0.25*bin_volume, 32)) (=64 for water;
+  observed max_bin 24 for liquid water, 31 with injected boundary pairs); bins: periodic prod(nb), open bpd^3.
+  memory (buffers): ~ 4*(nbins*bin_cap) + 52*N + 68*E_cap bytes (e.g. wbox5184: see TIMING table).
+
+EXACTNESS (decisions bitwise identical to proto_graph, which is the GPU reference)
+  open: d = pos[j]-pos[i]; periodic: w = floor(pos @ inv(cell)) (numpy inv), pw = pos - w@cell, d = (pw[j]-pw[i]) +
+  img@cell (img table from the same torch matmul as proto); d2 = (dx^2 + dz^2) + dy^2 (torch's (d*d).sum(-1)
+  reduction order -- probed, 0/4e6 mismatches); edge iff d2 < r*r; w@cell and S@cell computed as
+  fma(a2,C2c,fma(a1,C1c,a0*C0c)) == cuBLAS fp64 [M,3]@[3,3] (probed bitwise M=1..3e5) -> shifts bitwise = proto
+  even for triclinic + far-outside atoms. unit_shifts = (img - w[j]) + w[i] (referred to unwrapped positions).
+  Known: stock matscipy uses an opaque different fp64 path: for pairs with |d - r_max| <= 2.7e-15 A (incl. d == r
+  exactly, which matscipy includes) stock and proto/nl differ (boundary tests; such edges carry envelope weight ~0).
+  Every non-constructed system: edge set AND unit_shifts AND shifts bitwise equal to stock and proto.
+  Triclinic: frac = pos@inv uses non-FMA order (numpy CPU order unknown) -> w could differ from proto only for an
+  atom within ~1 ulp of a cell face; S is then compensated by img, only ulp-boundary pairs could differ.
+
+TEST TABLE (results/nl9/tests_summary.txt has every group)
+  edge sets bitwise (sorted, incl unit_shifts+shifts) vs proto AND stock, 4 configs each (walk 0.05 A), + CSR
+  invariants (rowptr monotone, dst sorted, rows strictly src-sorted, perm_src permutation & src-sorted & row bounds,
+  reverse map (src,dst swapped, S negated), padding, == build_csr) + determinism (2 builds bitwise):
+    H2O(6 edges) aspirin(300-304) org192 org648 water192 water648 wbox648 wbox648_outside wbox648_tric
+    wbox648_tric_outside wclus2187(99k) wclus5184(247k) wbox2187(120k) wbox2187_tric wbox5184(285k) single_C far_pair
+    -> all PASS
+  boundary r_max+-{1e-12,1e-13,2e-15,0} (open & across periodic face) + 3 random +-1e-13 perturbations; 300 pairs at
+    r(1+-1e-14..1e-12) in wbox648; 4x3 sets of 320 pairs at |d-r| 1e-16..1e-14 in wbox648/water648:
+    all bitwise == proto; == stock except symdiff edges with max |d-r| 2.7e-15 (documented above) -> PASS
+  unsupported -> NotImplementedError: wbox192, mixed pbc -> PASS
+  overflow: E_cap=E-1 and 64 -> flag 1, n_edges=E; E_cap=E exact -> no flag; bin_cap 4 (open) / 8 (pbc) -> flag 2;
+    bins_per_dim=2 -> flag 2; expanded x1.6 open system with bins_per_dim=4 -> exact (bins grow) -> PASS
+  CUDA graph: capture build once, replay with 5 walk steps (0.08 A) (+ open: rigid translation by (40,-13,7) and
+    x1.15 expansion -> bbox change): aspirin water648 wbox648 wbox648_tric wclus2187 wbox2187: every replay ==
+    proto/stock edges and bitwise == fresh eager builder -> PASS
+  whole model (stock e3nn MACE-OFF23 medium fp64 eager, forces + stress for pbc), nl batch padded AND trimmed vs
+    proto batch and stock batch, 2 configs: H2O aspirin org192 water192 org648 water648 wbox648 wbox648_tric
+    wbox648_outside wclus2187 wbox2187 single_C far_pair: keys/dtypes and all non-edge values bitwise == proto;
+    final run (job 1122): worst |dE|/atom 9.0e-13, max|dF| 8.5e-14 (tric), |dstress| <= 9.7e-17 for normal boxes ->
+    all within 1e-11/1e-11/1e-14 strictly. wbox648_outside (atoms up to ~3000 A from the cell): dstress 8.2e-15
+    (strict PASS in the final run; an earlier run hit 1.1e-14, i.e. at the noise floor measured between proto/stock
+    batches and their own repeated evaluations (~1e-14: atomics nondeterminism x large |pos|); the test accepts 2x floor).
+
+TIMING (B-level microbench, job 1125; time_nl.py; median [p10-p90] ms over 100 reps after 10 warmups (proto and
+  matscipy: 30 reps for N>3000); wall incl. cuda sync; positions already on GPU for the cell list; proto_graph.build
+  incl. its H2D + nonzero() host sync; matscipy = stock get_neighborhood on CPU. Concurrent jobs (correctness only):
+  md9dbg, int9test, md9dr_gs. Memory: nl = all persistent builder buffers (E_cap = round_cap(1.2E,64), output
+  included); proto = peak torch allocation during one build.)
+  system          N       E      cell eager      cell graph-replay  (device)   proto_graph       matscipy CPU     nl MiB  proto MiB
+  aspirin        21     302  0.039 [.039-.040]  0.024 [.023-.024]   0.021   0.432 [.419-.449]   0.091 [.089-.095]   0.09    32
+  water192      192    6634  0.051 [.049-.051]  0.034 [.034-.034]   0.031   0.452 [.442-.465]   0.893 [.882-.934]   0.83     2
+  org648        650   14856  0.051 [.050-.052]  0.035 [.035-.035]   0.032   0.480 [.467-.496]   2.52 [2.41-2.56]    2.02    23
+  water648      648   26550  0.059 [.058-.060]  0.042 [.042-.042]   0.039   0.479 [.466-.496]   4.00 [3.95-4.19]    3.14    23
+  wbox648 (P)   648   35698  0.072 [.071-.073]  0.052 [.052-.052]   0.049   1.460 [1.44-1.48]   8.12 [8.09-8.16]    3.48   607
+  wbox648_tric  648   32864  0.070 [.069-.072]  0.051 [.051-.052]   0.048   1.466 [1.45-1.49]   7.98 [7.95-8.01]    3.21   607
+  wclus2187    2187   99438  0.064 [.064-.065]  0.050 [.050-.051]   0.047   0.698 [.687-.712]  14.59 [14.55-14.67]  11.14   257
+  wbox2187 (P) 2187  120506  0.085 [.085-.086]  0.060 [.059-.060]   0.057   8.04 [8.02-8.07]   21.55 [21.48-21.65]  11.75  3560
+  wclus5184    5184  247652  0.092 [.092-.093]  0.075 [.074-.075]   0.072   1.71 [1.69-1.74]   42.88 [42.72-43.16]  27.14  1439
+  wbox5184 (P) 5184  285464  0.107 [.106-.107]  0.081 [.080-.082]   0.078  42.92 [42.75-43.13] 57.84 [57.20-58.26]  27.85  3547
+  -> 6-20x faster than proto for open systems, 28x (wbox648) to 530x (wbox5184) for periodic; no host sync; memory
+  O(N + E_cap) (~28 MiB at 5k atoms vs 1.4-3.5 GiB proto peak). Per-kernel (wbox5184, device us): wscan<1> 22,
+  final 20, wscan<0> 16, rowscan 7, bin 2.5, prep 1 (launch gaps make up the rest of the 81 us replay).
+  Note wbox648 has only 3x3x3 bins (L=18.6 A) -> each atom scans all 648 atoms; still 0.05 ms.
+
+INTEGRATION NOTES (for C)
+  * rowptr_dst/src exclude padding (per INTERFACES). If the node conv's backward leaves per-edge grads of padded edges
+    unwritten, either zero them or use rowptr_*_pad (== build_csr exactly, padding on node N-1 contributes 0).
+  * outputs are persistent buffers: capture NL.build(static_pos) inside the step graph; read overflow/n_edges after
+    replay (one D2H of 2 ints when the caller decides to check).
+  * open systems: cell/rcell/volume change per step and are produced on device by the builder (out["cell"] etc.).
+  * kernel cache: TORCH_EXTENSIONS_DIR (env.sh), name nl9_cell_v5; first build compiles (~1 min).

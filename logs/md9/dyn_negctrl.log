@@ -1,0 +1,8 @@
+job=1088 host=slurm-h100-206-077 date=2026-11-10T05:31:38+00:00 args=dyncheck.py graphed water192 --steps 20 --every 5 --inject drop_edge --tag negctrl_drop_edge
+0, NVIDIA H100 80GB HBM3, GPU-061de6be-fae9-91f4-5990-bfea9ed265ca, 345 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+water192 graphed_nodehybrid+embed+node_proto step 0 E=6634 dE/at=6.19e-04 maxdF=2.68e-01 dS=0.00e+00 eq=False ok=False
+  json.dump(out, open(f"{V.R}/results/md9/dyn_{args.provider}_{sysname}{tag}.json", "w"), indent=1, default=float)
+DONE water192 graphed_nodehybrid+embed+node_proto samples=5 fails=5 worst={'dE_per_atom': 0.0008793124732922782, 'max_dF': 0.42228098485410515, 'rms_dF': 0.05518022736808853, 'dstress': 0.0, 'maxF': 3.6783469984938373} edges_eq=False +180/-212 wall=2.3s
+0, GPU-061de6be-fae9-91f4-5990-bfea9ed265ca, 1980 MHz
+exit=0 date=2026-11-10T05:32:06+00:00

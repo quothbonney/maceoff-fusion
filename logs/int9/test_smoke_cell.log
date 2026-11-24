@@ -1,0 +1,18 @@
+job=1110 host=slurm-h100-206-077 start=2026-11-10T05:43:48+00:00
+0, NVIDIA H100 80GB HBM3, GPU-edefc586-3f13-ab62-907d-ba075a79f443, 345 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+ext_csr done 14.5 s; failures so far 0
+  json.dump(res, open(out_path, "w"), indent=1, default=float)
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  return dict(E=float(o[0][0]), F=o[1].detach().cpu().numpy().copy(), S=o[2].detach().cpu().numpy().copy() if stress else None)
+tiny done 1.0 s; failures so far 0
+traps done 1.6 s; failures so far 0
+overflow done 1.1 s; failures so far 0
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+systems done 2.7 s; failures so far 0
+FAILURES 0 []
+DONE
+0, GPU-edefc586-3f13-ab62-907d-ba075a79f443, 1980 MHz
+end=2026-11-10T05:44:20+00:00

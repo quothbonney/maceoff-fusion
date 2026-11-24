@@ -1,0 +1,41 @@
+{
+ "slurm_job": "1076",
+ "host": "slurm-h100-206-077",
+ "torch": "2.11.0+cu128",
+ "gpu": "0, NVIDIA H100 80GB HBM3, GPU-3ef4e875-4571-3cea-d408-241db662acb5, 1980 MHz, 1980 MHz",
+ "date": "2026-11-10T05:26:56",
+ "provider": "stock_eager",
+ "system": "water192",
+ "dt_fs": 0.5,
+ "nsteps": 4000,
+ "save_every": 10,
+ "wall_s": 72.39220902137458,
+ "ms_per_step": 18.098052255343646,
+ "provider_syncs": {
+  "d2h_positions": 4001
+ },
+ "check_failures": [],
+ "runner_stats": null,
+ "energy": {
+  "dt_fs": 0.5,
+  "n_steps": 4000,
+  "t_ps": 2.0,
+  "drift_eV_atom_ps": -5.781849375623497e-06,
+  "block_slopes_eV_atom_ps": [
+   -9.104782209133579e-06,
+   -5.714771716862131e-06,
+   -5.2947779020944e-06,
+   -5.287290671432915e-06
+  ],
+  "block_slope_std": 1.8470863656276595e-06,
+  "rms_fluct_eV_atom": 2.3162770872043485e-05,
+  "rms_fluct_first1ps_eV_atom": 2.802778585662985e-05,
+  "max_minus_min_eV_atom": 0.00038522258842021984,
+  "Etot0_eV_atom": -693.761386672706,
+  "Etot_end_minus_0": 0.00020220963551764726,
+  "T_start_K": 322.0581369890254,
+  "T_end_K": 329.02335744676685,
+  "T_mean_K": 333.7659806925564
+ },
+ "note": "wall includes snapshot clones every save_every steps and a sync every 500 steps (progress print)"
+}

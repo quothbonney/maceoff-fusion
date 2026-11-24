@@ -1,0 +1,52 @@
+job=1076 host=slurm-h100-206-077 date=2026-11-10T05:25:35+00:00 args=drift9.py stock water192 0.5 4000 10 stock_water192_dt0.5
+0, NVIDIA H100 80GB HBM3, GPU-3ef4e875-4571-3cea-d408-241db662acb5, 345 MHz, 1980 MHz
+step 500 Etot/atom=-693.76115895 21.83 ms/step
+step 1000 Etot/atom=-693.76118681 17.67 ms/step
+step 1500 Etot/atom=-693.76119656 17.56 ms/step
+step 2000 Etot/atom=-693.76116602 17.50 ms/step
+step 2500 Etot/atom=-693.76122927 17.48 ms/step
+step 3000 Etot/atom=-693.76120187 17.93 ms/step
+step 3500 Etot/atom=-693.76117670 17.56 ms/step
+step 4000 Etot/atom=-693.76118446 17.26 ms/step
+  json.dump(info, open(f"{OUT}/traj_{tag}.json", "w"), indent=1, default=float)
+{"dt_fs": 0.5, "n_steps": 4000, "t_ps": 2.0, "drift_eV_atom_ps": -5.781849375623497e-06, "block_slopes_eV_atom_ps": [-9.104782209133579e-06, -5.714771716862131e-06, -5.2947779020944e-06, -5.287290671432915e-06], "block_slope_std": 1.8470863656276595e-06, "rms_fluct_eV_atom": 2.3162770872043485e-05, "rms_fluct_first1ps_eV_atom": 2.802778585662985e-05, "max_minus_min_eV_atom": 0.00038522258842021984, "Etot0_eV_atom": -693.761386672706, "Etot_end_minus_0": 0.00020220963551764726, "T_start_K": 322.0581369890254, "T_end_K": 329.02335744676685, "T_mean_K": 333.7659806925564} 18.098052255343646
+0, GPU-3ef4e875-4571-3cea-d408-241db662acb5, 1980 MHz
+exit=0 date=2026-11-10T05:26:57+00:00
+job=1076 host=slurm-h100-206-077 date=2026-11-10T05:26:57+00:00 args=drift9.py stock wbox648 0.5 4000 20 stock_wbox648_dt0.5
+0, NVIDIA H100 80GB HBM3, GPU-3ef4e875-4571-3cea-d408-241db662acb5, 1980 MHz, 1980 MHz
+step 500 Etot/atom=-693.76036329 60.52 ms/step
+step 1000 Etot/atom=-693.76035212 54.91 ms/step
+step 1500 Etot/atom=-693.76036794 54.69 ms/step
+step 2000 Etot/atom=-693.76036006 53.77 ms/step
+step 2500 Etot/atom=-693.76038842 55.25 ms/step
+step 3000 Etot/atom=-693.76034298 53.72 ms/step
+step 3500 Etot/atom=-693.76036161 55.30 ms/step
+step 4000 Etot/atom=-693.76037753 55.09 ms/step
+  json.dump(info, open(f"{OUT}/traj_{tag}.json", "w"), indent=1, default=float)
+{"dt_fs": 0.5, "n_steps": 4000, "t_ps": 2.0, "drift_eV_atom_ps": -8.53792558214562e-06, "block_slopes_eV_atom_ps": [-1.2923123635666571e-05, -7.691653103382476e-06, -8.32497710850275e-06, -2.767939783776078e-06], "block_slope_std": 4.154953975463702e-06, "rms_fluct_eV_atom": 1.3952696639118643e-05, "rms_fluct_first1ps_eV_atom": 1.7126314647460662e-05, "max_minus_min_eV_atom": 0.00028799794188216765, "Etot0_eV_atom": -693.7604980404184, "Etot_end_minus_0": 0.00012051129488099832, "T_start_K": 295.5325953613855, "T_end_K": 428.81557213639616, "T_mean_K": 420.6449968727585} 55.40706314938143
+0, GPU-3ef4e875-4571-3cea-d408-241db662acb5, 1980 MHz
+exit=0 date=2026-11-10T05:30:48+00:00
+job=1076 host=slurm-h100-206-077 date=2026-11-10T05:30:48+00:00 args=drift9.py stock wbox648 0.25 8000 40 stock_wbox648_dt0.25
+0, NVIDIA H100 80GB HBM3, GPU-3ef4e875-4571-3cea-d408-241db662acb5, 1980 MHz, 1980 MHz
+step 500 Etot/atom=-693.76046372 59.47 ms/step
+step 1000 Etot/atom=-693.76046392 54.36 ms/step
+step 1500 Etot/atom=-693.76046055 58.40 ms/step
+step 2000 Etot/atom=-693.76046397 53.49 ms/step
+step 2500 Etot/atom=-693.76046463 53.23 ms/step
+step 3000 Etot/atom=-693.76046367 53.42 ms/step
+step 3500 Etot/atom=-693.76046531 55.34 ms/step
+step 4000 Etot/atom=-693.76046745 54.01 ms/step
+step 4500 Etot/atom=-693.76046654 53.72 ms/step
+step 5000 Etot/atom=-693.76046405 53.21 ms/step
+step 5500 Etot/atom=-693.76046321 53.31 ms/step
+step 6000 Etot/atom=-693.76047040 53.59 ms/step
+step 6500 Etot/atom=-693.76046580 54.78 ms/step
+step 7000 Etot/atom=-693.76046642 54.40 ms/step
+step 7500 Etot/atom=-693.76046602 55.04 ms/step
+step 8000 Etot/atom=-693.76046430 55.06 ms/step
+  json.dump(info, open(f"{OUT}/traj_{tag}.json", "w"), indent=1, default=float)
+{"dt_fs": 0.25, "n_steps": 8000, "t_ps": 2.0, "drift_eV_atom_ps": -2.528044624663716e-06, "block_slopes_eV_atom_ps": [-3.1478979714163734e-06, -3.4008763806406286e-06, -7.908426892849544e-07, -1.747833144771925e-06], "block_slope_std": 1.2261235574946613e-06, "rms_fluct_eV_atom": 3.2738827231760226e-06, "rms_fluct_first1ps_eV_atom": 4.1601365680950116e-06, "max_minus_min_eV_atom": 7.017858365543361e-05, "Etot0_eV_atom": -693.7604980404184, "Etot_end_minus_0": 3.3743275025699404e-05, "T_start_K": 295.5325953613855, "T_end_K": 415.04095891559814, "T_mean_K": 421.6133363393429} 54.67668706551194
+0, GPU-3ef4e875-4571-3cea-d408-241db662acb5, 1980 MHz
+exit=0 date=2026-11-10T05:38:15+00:00
+scripts/md9/drift_chain.sh: line 7: drift9.py: command not found
+srun: error: slurm-h100-206-077: task 0: Exited with exit code 127

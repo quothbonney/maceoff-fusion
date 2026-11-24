@@ -1,0 +1,32 @@
+srun: job 1127 queued and waiting for resources
+srun: job 1127 has been allocated resources
+job=1127 host=slurm-h100-206-077 date=2026-11-10T05:51:02+00:00 args=drift9.py gpustep water192 0.5 4000 10 rerun_gpustep_cell_water192_dt0.5
+0, NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 345 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+step 500 Etot/atom=-693.76115895 1.60 ms/step
+step 1000 Etot/atom=-693.76118681 1.60 ms/step
+step 1500 Etot/atom=-693.76119656 1.60 ms/step
+step 2000 Etot/atom=-693.76116602 1.60 ms/step
+step 2500 Etot/atom=-693.76122926 1.61 ms/step
+step 3000 Etot/atom=-693.76120208 1.61 ms/step
+step 3500 Etot/atom=-693.76117715 1.59 ms/step
+step 4000 Etot/atom=-693.76118844 1.60 ms/step
+  json.dump(info, open(f"{OUT}/traj_{tag}.json", "w"), indent=1, default=float)
+{"dt_fs": 0.5, "n_steps": 4000, "t_ps": 2.0, "drift_eV_atom_ps": -5.949287694594443e-06, "block_slopes_eV_atom_ps": [-9.104782607355536e-06, -5.714771951863584e-06, -5.297750447159772e-06, -8.293664109483697e-06], "block_slope_std": 1.8806840444109418e-06, "rms_fluct_eV_atom": 2.2956951896350038e-05, "rms_fluct_first1ps_eV_atom": 2.8027787162752184e-05, "max_minus_min_eV_atom": 0.00038522258842021984, "Etot0_eV_atom": -693.761386672706, "Etot_end_minus_0": 0.0001982285555186536, "T_start_K": 322.0581369890254, "T_end_K": 301.5563708916389, "T_mean_K": 333.7130919873823} 1.6006186720915139
+0, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 1980 MHz
+exit=0 date=2026-11-10T05:51:34+00:00
+job=1127 host=slurm-h100-206-077 date=2026-11-10T05:51:34+00:00 args=drift9.py gpustep wbox648 0.5 4000 20 rerun_gpustep_cell_wbox648_dt0.5
+0, NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 1980 MHz, 1980 MHz
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+step 500 Etot/atom=-693.76036329 3.75 ms/step
+step 1000 Etot/atom=-693.76035212 3.77 ms/step
+step 1500 Etot/atom=-693.76036794 3.77 ms/step
+step 2000 Etot/atom=-693.76036006 3.77 ms/step
+step 2500 Etot/atom=-693.76038865 3.77 ms/step
+step 3000 Etot/atom=-693.76036567 3.77 ms/step
+step 3500 Etot/atom=-693.76037999 3.77 ms/step
+step 4000 Etot/atom=-693.76036515 3.75 ms/step
+  json.dump(info, open(f"{OUT}/traj_{tag}.json", "w"), indent=1, default=float)
+{"dt_fs": 0.5, "n_steps": 4000, "t_ps": 2.0, "drift_eV_atom_ps": -1.1567317286779535e-05, "block_slopes_eV_atom_ps": [-1.2923124116362995e-05, -7.691636470487274e-06, -8.814968705872537e-06, -1.8121085327754267e-05], "block_slope_std": 4.724962874442219e-06, "rms_fluct_eV_atom": 1.4223966307225702e-05, "rms_fluct_first1ps_eV_atom": 1.7126315745758405e-05, "max_minus_min_eV_atom": 0.00028799794188216765, "Etot0_eV_atom": -693.7604980404184, "Etot_end_minus_0": 0.00013289072899169696, "T_start_K": 295.5325953613855, "T_end_K": 409.7403322709771, "T_mean_K": 423.1961790974469} 3.7665092046372592
+0, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 1980 MHz
+exit=0 date=2026-11-10T05:52:19+00:00

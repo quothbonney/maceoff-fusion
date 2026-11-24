@@ -1,0 +1,9 @@
+Collecting ninja
+  Downloading ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.4 kB)
+Collecting wheel
+  Downloading wheel-0.48.0-py3-none-any.whl.metadata (2.3 kB)
+Downloading ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (183 kB)
+Downloading wheel-0.48.0-py3-none-any.whl (33 kB)
+Installing collected packages: wheel, ninja
+
+Successfully installed ninja-1.13.2 wheel-0.48.0

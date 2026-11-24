@@ -1,0 +1,12 @@
+{
+ "src": "org192 start, atom order reversed",
+ "name": "org192_rev",
+ "n_atoms": 196,
+ "pbc": [
+  false,
+  false,
+  false
+ ],
+ "T_start_K": 322.0510844344246,
+ "slurm_job": "1068"
+}

@@ -1,0 +1,236 @@
++ source /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/env.sh
+++ export R=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study
+++ R=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study
+++ export XDG_CACHE_HOME=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/xdg PIP_CACHE_DIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/pip UV_CACHE_DIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/uv UV_PYTHON_INSTALL_DIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python
+++ XDG_CACHE_HOME=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/xdg
+++ PIP_CACHE_DIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/pip
+++ UV_CACHE_DIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/uv
+++ UV_PYTHON_INSTALL_DIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python
+++ export TMPDIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/tmp TORCH_EXTENSIONS_DIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch_extensions TORCHINDUCTOR_CACHE_DIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/inductor
+++ TMPDIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/tmp
+++ TORCH_EXTENSIONS_DIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch_extensions
+++ TORCHINDUCTOR_CACHE_DIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/inductor
+++ export TRITON_CACHE_DIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/triton CUDA_CACHE_PATH=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/cuda TORCH_HOME=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch HF_HOME=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/hf
+++ TRITON_CACHE_DIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/triton
+++ CUDA_CACHE_PATH=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/cuda
+++ TORCH_HOME=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/torch
+++ HF_HOME=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/hf
+++ export MPLCONFIGDIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/mpl PYTHONNOUSERSITE=1 UV_NO_CONFIG=1 PIP_DISABLE_PIP_VERSION_CHECK=1
+++ MPLCONFIGDIR=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/cache/mpl
+++ PYTHONNOUSERSITE=1
+++ UV_NO_CONFIG=1
+++ PIP_DISABLE_PIP_VERSION_CHECK=1
+++ export CUDA_VISIBLE_DEVICES=0
+++ CUDA_VISIBLE_DEVICES=0
+++ export CUDA_HOME=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1
+++ CUDA_HOME=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1
+++ export PATH=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/bin:/mnt/home/jordan+123/.local/bin:/mnt/home/jordan+123/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ PATH=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/toolchain/cuda-12.8.1/bin:/mnt/home/jordan+123/.local/bin:/mnt/home/jordan+123/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/bin/python3.11 -m venv /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-luna
++ /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-luna/bin/python -m pip install -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt --extra-index-url https://download.pytorch.org/whl/cu128
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cu128
+Collecting ase==3.29.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 1))
+  Using cached ase-3.29.0-py3-none-any.whl.metadata (4.4 kB)
+Collecting ConfigArgParse==1.9.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 2))
+  Using cached configargparse-1.9.0-py3-none-any.whl.metadata (24 kB)
+Collecting contourpy==1.3.3 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 3))
+  Using cached contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+Collecting cuda-bindings==12.9.7 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 4))
+  Using cached cuda_bindings-12.9.7-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (2.6 kB)
+Collecting cuda-pathfinder==1.6.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 5))
+  Using cached cuda_pathfinder-1.6.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting cuda-toolkit==12.8.1 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 6))
+  Downloading https://pypi.nvidia.com/cuda-toolkit/cuda_toolkit-12.8.1-py2.py3-none-any.whl (2.3 kB)
+Collecting cycler==0.12.1 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 7))
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting e3nn==0.4.4 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 8))
+  Using cached e3nn-0.4.4-py3-none-any.whl.metadata (5.1 kB)
+Collecting filelock==4.2.4 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 9))
+  Using cached filelock-4.2.4-py3-none-any.whl.metadata (2.0 kB)
+Collecting fonttools==4.68.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 10))
+  Using cached fonttools-4.68.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (139 kB)
+Collecting fsspec==2026.9.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 11))
+  Using cached fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting gitdb==4.0.12 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 12))
+  Using cached gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+Collecting GitPython==3.2.1 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 13))
+  Using cached gitpython-3.2.1-py3-none-any.whl.metadata (13 kB)
+Collecting h5py==3.16.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 14))
+  Using cached h5py-3.16.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+Collecting Jinja2==3.1.6 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 15))
+  Using cached https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting kiwisolver==1.5.1 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 16))
+  Using cached kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+Collecting lightning-utilities==0.15.3 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 17))
+  Using cached lightning_utilities-0.15.3-py3-none-any.whl.metadata (5.5 kB)
+Collecting lmdb==3.0.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 18))
+  Using cached lmdb-3.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (1.2 kB)
+Collecting mace-torch==0.3.17 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 19))
+  Using cached mace_torch-0.3.17-py3-none-any.whl.metadata (32 kB)
+Collecting MarkupSafe==3.0.3 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 20))
+  Using cached https://download.pytorch.org/whl/markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Collecting matplotlib==3.11.2 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 21))
+  Using cached matplotlib-3.11.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (80 kB)
+Collecting matscipy==1.3.1 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 22))
+  Using cached matscipy-1.3.1-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (37 kB)
+Collecting mpmath==1.3.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 23))
+  Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting networkx==3.6.1 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 24))
+  Using cached networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+Collecting ninja==1.13.2 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 25))
+  Using cached ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.4 kB)
+Collecting numpy==2.4.6 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 26))
+  Using cached numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting nvidia-cublas-cu12==12.8.4.1 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 27))
+  Downloading https://pypi.nvidia.com/nvidia-cublas-cu12/nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl (594.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 594.3/594.3 MB 34.6 MB/s eta 0:00:00
+Collecting nvidia-cuda-cupti-cu12==12.8.90 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 28))
+  Downloading https://pypi.nvidia.com/nvidia-cuda-cupti-cu12/nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (10.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 61.6 MB/s eta 0:00:00
+Collecting nvidia-cuda-nvrtc-cu12==12.8.93 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 29))
+  Downloading https://pypi.nvidia.com/nvidia-cuda-nvrtc-cu12/nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (88.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 88.0/88.0 MB 44.6 MB/s eta 0:00:00
+Collecting nvidia-cuda-runtime-cu12==12.8.90 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 30))
+  Downloading https://pypi.nvidia.com/nvidia-cuda-runtime-cu12/nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (954 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 954.8/954.8 kB 101.5 MB/s eta 0:00:00
+Collecting nvidia-cudnn-cu12==9.19.0.56 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 31))
+  Downloading https://pypi.nvidia.com/nvidia-cudnn-cu12/nvidia_cudnn_cu12-9.19.0.56-py3-none-manylinux_2_27_x86_64.whl (657.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 657.9/657.9 MB 68.2 MB/s eta 0:00:00
+Collecting nvidia-cufft-cu12==11.3.3.83 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 32))
+  Downloading https://pypi.nvidia.com/nvidia-cufft-cu12/nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (193.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 193.1/193.1 MB 66.6 MB/s eta 0:00:00
+Collecting nvidia-cufile-cu12==1.13.1.3 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 33))
+  Downloading https://pypi.nvidia.com/nvidia-cufile-cu12/nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 99.3 MB/s eta 0:00:00
+Collecting nvidia-curand-cu12==10.3.9.90 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 34))
+  Downloading https://pypi.nvidia.com/nvidia-curand-cu12/nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl (63.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.6/63.6 MB 83.6 MB/s eta 0:00:00
+Collecting nvidia-cusolver-cu12==11.7.3.90 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 35))
+  Downloading https://pypi.nvidia.com/nvidia-cusolver-cu12/nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl (267.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 267.5/267.5 MB 72.0 MB/s eta 0:00:00
+Collecting nvidia-cusparse-cu12==12.5.8.93 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 36))
+  Downloading https://pypi.nvidia.com/nvidia-cusparse-cu12/nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (288.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 288.2/288.2 MB 69.1 MB/s eta 0:00:00
+Collecting nvidia-cusparselt-cu12==0.7.1 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 37))
+  Downloading https://pypi.nvidia.com/nvidia-cusparselt-cu12/nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl (287.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 287.2/287.2 MB 60.9 MB/s eta 0:00:00
+Collecting nvidia-nccl-cu12==2.28.9 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 38))
+  Downloading https://pypi.nvidia.com/nvidia-nccl-cu12/nvidia_nccl_cu12-2.28.9-py3-none-manylinux_2_18_x86_64.whl (296.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 296.8/296.8 MB 61.4 MB/s eta 0:00:00
+Collecting nvidia-nvjitlink-cu12==12.8.93 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 39))
+  Downloading https://pypi.nvidia.com/nvidia-nvjitlink-cu12/nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (39.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.3/39.3 MB 85.4 MB/s eta 0:00:00
+Collecting nvidia-nvshmem-cu12==3.4.5 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 40))
+  Downloading https://pypi.nvidia.com/nvidia-nvshmem-cu12/nvidia_nvshmem_cu12-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (139.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 139.1/139.1 MB 56.5 MB/s eta 0:00:00
+Collecting nvidia-nvtx-cu12==12.8.90 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 41))
+  Downloading https://pypi.nvidia.com/nvidia-nvtx-cu12/nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.0/90.0 kB 15.7 MB/s eta 0:00:00
+Collecting opt-einsum-fx==0.1.4 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 42))
+  Using cached opt_einsum_fx-0.1.4-py3-none-any.whl.metadata (3.3 kB)
+Collecting opt_einsum==3.4.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 43))
+  Using cached opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)
+Collecting orjson==3.13.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 44))
+  Using cached orjson-3.13.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (42 kB)
+Collecting packaging==26.3 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 45))
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pandas==3.1.1 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 46))
+  Using cached pandas-3.1.1-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (16 kB)
+Collecting pillow==13.0.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 47))
+  Using cached pillow-13.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting prettytable==3.18.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 48))
+  Using cached prettytable-3.18.0-py3-none-any.whl.metadata (37 kB)
+Collecting pyparsing==3.3.3 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 49))
+  Using cached pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+Collecting python-dateutil==4.0.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 50))
+  Using cached python_dateutil-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+Collecting python_hostlist==2.3.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 51))
+  Using cached python_hostlist-2.3.0-py3-none-any.whl
+Collecting PyYAML==6.0.3 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 52))
+  Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting scipy==1.17.1 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 53))
+  Using cached scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Collecting smmap==5.0.3 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 54))
+  Using cached smmap-5.0.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting sympy==1.14.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 55))
+  Using cached sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting torch==2.11.0+cu128 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 56))
+  Using cached https://download-r2.pytorch.org/whl/cu128/torch-2.11.0%2Bcu128-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (29 kB)
+Collecting torch-ema==0.3 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 57))
+  Using cached torch_ema-0.3-py3-none-any.whl.metadata (415 bytes)
+Collecting torchmetrics==1.9.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 58))
+  Using cached torchmetrics-1.9.0-py3-none-any.whl.metadata (23 kB)
+Collecting tqdm==4.70.1 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 59))
+  Using cached tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting triton==3.6.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 60))
+  Using cached https://download-r2.pytorch.org/whl/triton-3.6.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.7 kB)
+Collecting typing_extensions==4.16.0 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 61))
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting tzdata==2026.6 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 62))
+  Using cached tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting wcwidth==0.9.4 (from -r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 63))
+  Using cached wcwidth-0.9.4-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (23 kB)
+Requirement already satisfied: setuptools<82 in ./venv-luna/lib/python3.11/site-packages (from torch==2.11.0+cu128->-r /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/pip_freeze_pre_flashtp_build.txt (line 56)) (79.0.1)
+Using cached ase-3.29.0-py3-none-any.whl (3.0 MB)
+Using cached configargparse-1.9.0-py3-none-any.whl (37 kB)
+Using cached contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (355 kB)
+Using cached cuda_bindings-12.9.7-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (7.6 MB)
+Using cached cuda_pathfinder-1.6.0-py3-none-any.whl (54 kB)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Using cached e3nn-0.4.4-py3-none-any.whl (387 kB)
+Using cached filelock-4.2.4-py3-none-any.whl (162 kB)
+Using cached fonttools-4.68.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.5 MB)
+Using cached fsspec-2026.9.0-py3-none-any.whl (221 kB)
+Using cached gitdb-4.0.12-py3-none-any.whl (62 kB)
+Using cached gitpython-3.2.1-py3-none-any.whl (231 kB)
+Using cached h5py-3.16.0-cp311-cp311-manylinux_2_28_x86_64.whl (5.0 MB)
+Using cached https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl (134 kB)
+Using cached kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+Using cached lightning_utilities-0.15.3-py3-none-any.whl (31 kB)
+Using cached lmdb-3.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (564 kB)
+Using cached mace_torch-0.3.17-py3-none-any.whl (937 kB)
+Using cached https://download.pytorch.org/whl/markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Using cached matplotlib-3.11.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.9 MB)
+Using cached matscipy-1.3.1-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (468 kB)
+Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
+Using cached networkx-3.6.1-py3-none-any.whl (2.1 MB)
+Using cached ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (183 kB)
+Using cached numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
+Using cached opt_einsum_fx-0.1.4-py3-none-any.whl (13 kB)
+Using cached opt_einsum-3.4.0-py3-none-any.whl (71 kB)
+Using cached orjson-3.13.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (130 kB)
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Using cached pandas-3.1.1-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.4 MB)
+Using cached pillow-13.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+Using cached prettytable-3.18.0-py3-none-any.whl (37 kB)
+Using cached pyparsing-3.3.3-py3-none-any.whl (126 kB)
+Using cached python_dateutil-4.0.0-py3-none-any.whl (92 kB)
+Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+Using cached scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+Using cached smmap-5.0.3-py3-none-any.whl (24 kB)
+Using cached sympy-1.14.0-py3-none-any.whl (6.3 MB)
+Using cached https://download-r2.pytorch.org/whl/cu128/torch-2.11.0%2Bcu128-cp311-cp311-manylinux_2_28_x86_64.whl (820.2 MB)
+Using cached torch_ema-0.3-py3-none-any.whl (5.5 kB)
+Using cached torchmetrics-1.9.0-py3-none-any.whl (983 kB)
+Using cached tqdm-4.70.1-py3-none-any.whl (80 kB)
+Using cached https://download-r2.pytorch.org/whl/triton-3.6.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (188.2 MB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Using cached tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+Using cached wcwidth-0.9.4-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (785 kB)
+Installing collected packages: python_hostlist, nvidia-cusparselt-cu12, mpmath, cuda-toolkit, wcwidth, tzdata, typing_extensions, triton, tqdm, sympy, smmap, PyYAML, pyparsing, pillow, packaging, orjson, opt_einsum, nvidia-nvtx-cu12, nvidia-nvshmem-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufile-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, ninja, networkx, MarkupSafe, lmdb, kiwisolver, fsspec, fonttools, filelock, cycler, cuda-pathfinder, ConfigArgParse, scipy, python-dateutil, prettytable, nvidia-cusparse-cu12, nvidia-cufft-cu12, nvidia-cudnn-cu12, lightning-utilities, Jinja2, h5py, gitdb, cuda-bindings, contourpy, pandas, nvidia-cusolver-cu12, matplotlib, GitPython, ase, torch, matscipy, torchmetrics, torch-ema, opt-einsum-fx, e3nn, mace-torch
+Successfully installed ConfigArgParse-1.9.0 GitPython-3.2.1 Jinja2-3.1.6 MarkupSafe-3.0.3 PyYAML-6.0.3 ase-3.29.0 contourpy-1.3.3 cuda-bindings-12.9.7 cuda-pathfinder-1.6.0 cuda-toolkit-12.8.1 cycler-0.12.1 e3nn-0.4.4 filelock-4.2.4 fonttools-4.68.0 fsspec-2026.9.0 gitdb-4.0.12 h5py-3.16.0 kiwisolver-1.5.1 lightning-utilities-0.15.3 lmdb-3.0.0 mace-torch-0.3.17 matplotlib-3.11.2 matscipy-1.3.1 mpmath-1.3.0 networkx-3.6.1 ninja-1.13.2 numpy-2.4.6 nvidia-cublas-cu12-12.8.4.1 nvidia-cuda-cupti-cu12-12.8.90 nvidia-cuda-nvrtc-cu12-12.8.93 nvidia-cuda-runtime-cu12-12.8.90 nvidia-cudnn-cu12-9.19.0.56 nvidia-cufft-cu12-11.3.3.83 nvidia-cufile-cu12-1.13.1.3 nvidia-curand-cu12-10.3.9.90 nvidia-cusolver-cu12-11.7.3.90 nvidia-cusparse-cu12-12.5.8.93 nvidia-cusparselt-cu12-0.7.1 nvidia-nccl-cu12-2.28.9 nvidia-nvjitlink-cu12-12.8.93 nvidia-nvshmem-cu12-3.4.5 nvidia-nvtx-cu12-12.8.90 opt-einsum-fx-0.1.4 opt_einsum-3.4.0 orjson-3.13.0 packaging-26.3 pandas-3.1.1 pillow-13.0.0 prettytable-3.18.0 pyparsing-3.3.3 python-dateutil-4.0.0 python_hostlist-2.3.0 scipy-1.17.1 smmap-5.0.3 sympy-1.14.0 torch-2.11.0+cu128 torch-ema-0.3 torchmetrics-1.9.0 tqdm-4.70.1 triton-3.6.0 typing_extensions-4.16.0 tzdata-2026.6 wcwidth-0.9.4
++ /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-luna/bin/python -m pip install --no-deps --no-build-isolation /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/src/lunatp
+Processing ./src/lunatp
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: LunaEquivariance
+  Building wheel for LunaEquivariance (pyproject.toml): started
+  Building wheel for LunaEquivariance (pyproject.toml): finished with status 'done'
+  Created wheel for LunaEquivariance: filename=lunaequivariance-0.2.0-py3-none-any.whl size=3900698 sha256=e5c481a6b540433f3c79a19ad68c504e7a285600e112b54572dbf1307ea5d7db
+  Stored in directory: /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/tmp/pip-ephem-wheel-cache-20tzzewo/wheels/1d/ec/b4/3fa2202869cd779752656ec348371c8df9ba03f74c01bd9bf1
+Successfully built LunaEquivariance
+Installing collected packages: LunaEquivariance
+Successfully installed LunaEquivariance-0.2.0
++ /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-luna/bin/python -m pip freeze
++ /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-luna/bin/python -I -c 'import torch,e3nn;print(torch.__version__, e3nn.__version__)'
+2.11.0+cu128 0.4.4

@@ -1,0 +1,13 @@
+{
+ "src": "results/workloads/systems/org192.extxyz (already 30 FIRE e3nn fp64)",
+ "mb_seed": 20261109,
+ "name": "org192",
+ "n_atoms": 196,
+ "pbc": [
+  false,
+  false,
+  false
+ ],
+ "T_start_K": 322.0510844344244,
+ "slurm_job": "1068"
+}

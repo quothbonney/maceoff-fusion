@@ -1,0 +1,12 @@
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+H2O 0 {'edge_index': ((2, 6), 'torch.int64'), 'edge_attrs': ((6, 16), 'torch.float64'), 'node_feats': ((3, 128), 'torch.float64'), 'tp_weights': ((6, 512), 'torch.float64')}
+H2O 1 {'edge_index': ((2, 6), 'torch.int64'), 'edge_attrs': ((6, 16), 'torch.float64'), 'node_feats': ((3, 512), 'torch.float64'), 'tp_weights': ((6, 1280), 'torch.float64')}
+H2O 3 -2081.11639716893 0.1s
+water648 0 {'edge_index': ((2, 26550), 'torch.int64'), 'edge_attrs': ((26550, 16), 'torch.float64'), 'node_feats': ((648, 128), 'torch.float64'), 'tp_weights': ((26550, 512), 'torch.float64')}
+water648 1 {'edge_index': ((2, 26550), 'torch.int64'), 'edge_attrs': ((26550, 16), 'torch.float64'), 'node_feats': ((648, 512), 'torch.float64'), 'tp_weights': ((26550, 1280), 'torch.float64')}
+water648 648 -449526.0097505144 2.0s
+saved /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/tmp/precision_inputs.pt c745037c1c5f5af2f6f22de7f632f9437f659d7af198e2f62c68bac55e32f00f

@@ -1,0 +1,25 @@
+SLURM_JOB_ID=1030 host=slurm-h100-206-077 date=2026-11-10T03:43:32+00:00
+index, name, uuid, clocks.current.sm [MHz]
+0, NVIDIA H100 80GB HBM3, GPU-3ef4e875-4571-3cea-d408-241db662acb5, 345 MHz
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/fuse7_embed/test_embed.py", line 22, in <module>
+    t0 = time.time(); FE.ext(); res["meta"]["build_s"] = time.time() - t0
+                      ^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/fuse7_embed/fused_embed.py", line 200, in ext
+    _EXT = load_inline(name="fuse7_embed_v1", cpp_sources=_CPP, cuda_sources=_CU,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/utils/cpp_extension.py", line 2174, in load_inline
+    return _jit_compile(
+           ^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/utils/cpp_extension.py", line 2268, in _jit_compile
+    _write_ninja_file_and_build_library(
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/utils/cpp_extension.py", line 2382, in _write_ninja_file_and_build_library
+    verify_ninja_availability()
+  File "/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/utils/cpp_extension.py", line 2448, in verify_ninja_availability
+    raise RuntimeError("Ninja is required to load C++ extensions (pip install ninja to get it)")
+RuntimeError: Ninja is required to load C++ extensions (pip install ninja to get it)
+rc=1

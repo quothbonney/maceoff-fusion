@@ -1,0 +1,11 @@
+{"jobs": {"1024": "parity, checks 1-3, timing A (GPU-4b202516)", "1025": "timing B (GPU-884d19b4)", "1026": "rerun 2b+3 (GPU-884d19b4)"},
+ "check1_kernels": "PASS", "check2_md_200step": {"result": "PASS", "hybrid_max_dE_per_atom": 1.5e-13, "hybrid_max_dF": 5.3e-15, "flash_max_dE_per_atom": 1.5e-13, "flash_max_dF": 4.0e-15},
+ "check2b_recapture": {"result": "PASS", "n_recaptures_per_backend": 2, "graphed_vs_eager_same_max_dF": 9.0e-12, "note": "absolute dF scales with |F|max=443 eV/A at 0.78 compression; matches eager-vs-e3nn noise"},
+ "check3": {"zero_edge": "PASS", "cap_exact_and_plus1": "PASS", "periodic_wbox648": "PASS", "multi_model_ABA": "PASS",
+            "same_N_diff_species": "SILENT WRONG RESULT (MEDIUM, API hazard)", "diff_N": "silent recapture then stale N (LOW)"},
+ "check4_parity": {"result": "PASS", "max_rel": 4.9e-15, "bitwise_equal": "27/48", "upstream_fp64": "all pass (3 configs, strict 1e-10)"},
+ "check5_timing_ms_median_A_B": {"aspirin_hybrid_graphed": [1.40, 1.40], "water192_hybrid_graphed": [2.97, 2.96], "water648_hybrid_graphed": [7.69, 7.71],
+     "aspirin_hybrid_eager": [15.16, 15.35], "aspirin_flash_eager": [9.64, 9.79], "aspirin_flash_graphed": [1.97, 1.97],
+     "water648_flash_graphed": [19.64, 19.72], "water648_flash_eager": [20.71, 20.70],
+     "verdict": "graphed reproduced within 3%; eager baselines ~10% faster than claimed -> claimed speedups ~7-10% high"},
+ "memory": "SUMMARY 'graph pool MiB' == peak during capture; resident delta 64-128 MiB allocated / 74-208 MiB reserved (hybrid/flash)"}

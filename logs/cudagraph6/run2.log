@@ -1,0 +1,196 @@
+job=1023 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:89: DeprecationWarning: `torch.jit.save` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/modules/models.py:87: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/ast.py:418: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+=== aspirin e3nn N=21 E=302 cap=384
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:41: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  return dict(dE_per_atom=float((E - Er).abs().max()) / max(n, 1), max_dF=float(d.max()) if d.numel() else 0.0,
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/profiler/profiler.py:224: UserWarning: Warning: Profiler clears events at the end of each cycle.Only events from the current cycle will be reported.To keep events across cycles, set acc_events=True.
+  _warn_once(
+{"t_eager_model": 11.322756297886372, "t_graphed_model_copyin_replay": 2.5425348430871964, "t_graphed_replay_only": 2.4813292548060417, "t_e2e_eager_gpubuild": 11.81291788816452, "t_e2e_graphed_gpubuild": 2.9671629890799522, "t_gpubuild_only": 0.3912542015314102}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== aspirin flash N=21 E=302 cap=384
+{"t_eager_model": 11.131444945931435, "t_graphed_model_copyin_replay": 1.991228200495243, "t_graphed_replay_only": 1.9092988222837448, "t_e2e_eager_gpubuild": 11.687823571264744, "t_e2e_graphed_gpubuild": 2.553616650402546, "t_gpubuild_only": 0.46608690172433853}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== aspirin hybrid N=21 E=302 cap=384
+{"t_eager_model": 16.860376112163067, "t_graphed_model_copyin_replay": 1.4377441257238388, "t_graphed_replay_only": 1.3551320880651474, "t_e2e_eager_gpubuild": 17.30423793196678, "t_e2e_graphed_gpubuild": 1.9814502447843552, "t_gpubuild_only": 0.4509417340159416}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== org192 e3nn N=196 E=3670 cap=4416
+{"t_eager_model": 13.808496296405792, "t_graphed_model_copyin_replay": 9.065327234566212, "t_graphed_replay_only": 8.97460151463747, "t_e2e_eager_gpubuild": 14.466571621596813, "t_e2e_graphed_gpubuild": 9.621177799999714, "t_gpubuild_only": 0.4642447456717491}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== org192 flash N=196 E=3670 cap=4416
+{"t_eager_model": 11.451348662376404, "t_graphed_model_copyin_replay": 6.108328700065613, "t_graphed_replay_only": 6.024166941642761, "t_e2e_eager_gpubuild": 12.012805789709091, "t_e2e_graphed_gpubuild": 6.676755845546722, "t_gpubuild_only": 0.4696603864431381}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== org192 hybrid N=196 E=3670 cap=4416
+{"t_eager_model": 16.857119277119637, "t_graphed_model_copyin_replay": 2.392127178609371, "t_graphed_replay_only": 2.311897464096546, "t_e2e_eager_gpubuild": 17.485538497567177, "t_e2e_graphed_gpubuild": 2.955576404929161, "t_gpubuild_only": 0.4712482914328575}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== water192 e3nn N=192 E=6634 cap=8000
+{"t_eager_model": 14.179312624037266, "t_graphed_model_copyin_replay": 11.62758283317089, "t_graphed_replay_only": 11.532347649335861, "t_e2e_eager_gpubuild": 14.767262153327465, "t_e2e_graphed_gpubuild": 12.187396176159382, "t_gpubuild_only": 0.46936236321926117}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== water192 flash N=192 E=6634 cap=8000
+{"t_eager_model": 11.507419869303703, "t_graphed_model_copyin_replay": 6.684774532914162, "t_graphed_replay_only": 6.594082340598106, "t_e2e_eager_gpubuild": 12.02111691236496, "t_e2e_graphed_gpubuild": 7.246196269989014, "t_gpubuild_only": 0.46737678349018097}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== water192 hybrid N=192 E=6634 cap=8000
+{"t_eager_model": 16.976455226540565, "t_graphed_model_copyin_replay": 3.007601946592331, "t_graphed_replay_only": 2.9237810522317886, "t_e2e_eager_gpubuild": 17.558252438902855, "t_e2e_graphed_gpubuild": 3.583132289350033, "t_gpubuild_only": 0.47226157039403915}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== org648 e3nn N=650 E=14856 cap=17856
+{"t_eager_model": 28.138303197920322, "t_graphed_model_copyin_replay": 28.15810963511467, "t_graphed_replay_only": 28.051278553903103, "t_e2e_eager_gpubuild": 28.677763417363167, "t_e2e_graphed_gpubuild": 28.747756965458393, "t_gpubuild_only": 0.5027661100029945}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== org648 flash N=650 E=14856 cap=17856
+{"t_eager_model": 19.377215765416622, "t_graphed_model_copyin_replay": 17.40507036447525, "t_graphed_replay_only": 17.311885952949524, "t_e2e_eager_gpubuild": 19.887415692210197, "t_e2e_graphed_gpubuild": 18.058479763567448, "t_gpubuild_only": 0.5304170772433281}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== org648 hybrid N=650 E=14856 cap=17856
+{"t_eager_model": 17.274352721869946, "t_graphed_model_copyin_replay": 5.366886034607887, "t_graphed_replay_only": 5.291124805808067, "t_e2e_eager_gpubuild": 17.61885453015566, "t_e2e_graphed_gpubuild": 6.00459985435009, "t_gpubuild_only": 0.5103116855025291}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== water648 e3nn N=648 E=26550 cap=31872
+{"t_eager_model": 36.65184509009123, "t_graphed_model_copyin_replay": 38.27264439314604, "t_graphed_replay_only": 38.161042146384716, "t_e2e_eager_gpubuild": 37.16237563639879, "t_e2e_graphed_gpubuild": 38.89167867600918, "t_gpubuild_only": 0.542687252163887}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== water648 flash N=648 E=26550 cap=31872
+{"t_eager_model": 21.0932781919837, "t_graphed_model_copyin_replay": 19.78447288274765, "t_graphed_replay_only": 19.684508442878723, "t_e2e_eager_gpubuild": 21.700359880924225, "t_e2e_graphed_gpubuild": 20.407711155712605, "t_gpubuild_only": 0.5114898085594177}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== water648 hybrid N=648 E=26550 cap=31872
+{"t_eager_model": 17.08852592855692, "t_graphed_model_copyin_replay": 7.746756076812744, "t_graphed_replay_only": 7.6506659388542175, "t_e2e_eager_gpubuild": 17.80209317803383, "t_e2e_graphed_gpubuild": 8.371383883059025, "t_gpubuild_only": 0.5298210307955742}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== wbox648 e3nn N=648 E=35698 cap=42880
+{"t_eager_model": 43.35543233901262, "t_graphed_model_copyin_replay": 46.55471071600914, "t_graphed_replay_only": 46.46101035177708, "t_e2e_eager_gpubuild": 44.93832774460316, "t_e2e_graphed_gpubuild": 48.17552026361227, "t_gpubuild_only": 1.5455102548003197}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== wbox648 flash N=648 E=35698 cap=42880
+{"t_eager_model": 22.622075863182545, "t_graphed_model_copyin_replay": 21.70584537088871, "t_graphed_replay_only": 21.601240150630474, "t_e2e_eager_gpubuild": 24.011199362576008, "t_e2e_graphed_gpubuild": 23.277057334780693, "t_gpubuild_only": 1.5045544132590294}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== wbox648 hybrid N=648 E=35698 cap=42880
+{"t_eager_model": 17.194196581840515, "t_graphed_model_copyin_replay": 9.678577072918415, "t_graphed_replay_only": 9.592294692993164, "t_e2e_eager_gpubuild": 18.7661312520504, "t_e2e_graphed_gpubuild": 11.259169317781925, "t_gpubuild_only": 1.5096589922904968}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== single_C e3nn N=1 E=0 cap=64
+{"t_eager_model": 11.182937771081924, "t_graphed_model_copyin_replay": 1.9669663161039352, "t_graphed_replay_only": 1.8922537565231323, "t_e2e_eager_gpubuild": 11.594654060900211, "t_e2e_graphed_gpubuild": 2.4641128256917, "t_gpubuild_only": 0.37017185240983963}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== single_C flash N=1 E=0 cap=64
+{"t_eager_model": 9.039721451699734, "t_graphed_model_copyin_replay": 1.4415569603443146, "t_graphed_replay_only": 1.3720504939556122, "t_e2e_eager_gpubuild": 9.524057619273663, "t_e2e_graphed_gpubuild": 1.9252821803092957, "t_gpubuild_only": 0.3685886040329933}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== single_C hybrid N=1 E=0 cap=64
+{"t_eager_model": 14.720250852406025, "t_graphed_model_copyin_replay": 1.1540474370121956, "t_graphed_replay_only": 1.0845819488167763, "t_e2e_eager_gpubuild": 15.220725908875465, "t_e2e_graphed_gpubuild": 1.6342215240001678, "t_gpubuild_only": 0.37131551653146744}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== far_pair e3nn N=2 E=0 cap=64
+{"t_eager_model": 11.507592163980007, "t_graphed_model_copyin_replay": 2.057907171547413, "t_graphed_replay_only": 1.9786888733506203, "t_e2e_eager_gpubuild": 11.889110319316387, "t_e2e_graphed_gpubuild": 2.5643110275268555, "t_gpubuild_only": 0.37744175642728806}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== far_pair flash N=2 E=0 cap=64
+{"t_eager_model": 9.462674148380756, "t_graphed_model_copyin_replay": 1.5614135190844536, "t_graphed_replay_only": 1.4889854937791824, "t_e2e_eager_gpubuild": 9.945740923285484, "t_e2e_graphed_gpubuild": 2.0543280988931656, "t_gpubuild_only": 0.37540122866630554}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+=== far_pair hybrid N=2 E=0 cap=64
+{"t_eager_model": 15.00291470438242, "t_graphed_model_copyin_replay": 1.2297658249735832, "t_graphed_replay_only": 1.1579236015677452, "t_e2e_eager_gpubuild": 15.53261373192072, "t_e2e_graphed_gpubuild": 1.712915487587452, "t_gpubuild_only": 0.374453142285347}
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/cudagraph6/run_cg6.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/cudagraph6/cg6_run2.json' mode='w' encoding='UTF-8'>
+  json.dump(res, open(out_path, "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+DONE failures: []
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz

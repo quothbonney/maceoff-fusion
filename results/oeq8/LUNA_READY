@@ -1,0 +1,21 @@
+LUNA_READY  (agent A, oeq8)  status: USABLE for conv (fwd + 1st-derivative bwd), fp64, both MACE-OFF uvu shapes. NOT yet CUDA-graph-capturable end-to-end (graph build).
+Library: LunaEquivariance 0.2.0, https://github.com/HPC-AI-Team/LunaEquivariance, commit 0ead67d1536067960d87cfa4f83644501be8a320, BSD-3-Clause.
+Clone: $R/src/lunatp (pinned at that commit, read-only). Venv: $R/venv-luna (torch 2.11.0+cu128, e3nn 0.4.4, mace 0.3.17; Luna installed --no-deps
+  because it declares e3nn>=0.5.2,<0.7 while mace-torch 0.3.17 pins e3nn==0.4.4 -- works with 0.4.4 for conv; it vendors its own irreps/CG).
+  JIT build via torch cpp_extension into $TORCH_EXTENSIONS_DIR/lunaeq (first run ~4-5 min for both layers). Job env: scripts/oeq8/job.sh venv-luna ...
+Adapter (scripts/oeq8/bench_ext.py, backend "luna"):
+  conv = LunaEquivariance.TensorProductConv(block.conv_tp, dtype=torch.float64).cuda()   # built from the e3nn module directly
+  perm = argsort(edge_index[1], stable)  ->  graph = LunaEquivariance.make_graph(src[perm], dst[perm], N)   # dst MUST be sorted ascending
+  out  = conv(x, y[perm], w[perm], graph=graph)          # mul_ir layout, e3nn weight layout [E, W], out [N, d_out]
+Numerics vs MACE conv_tp+gather+scatter_sum fp64, 6 systems x 2 layers: max scaled err <= 1.9e-15 (out,gx,gy,gw), max abs <= 6e-14,
+  run-to-run bitwise deterministic. CG = fp64 wigner_3j emitted as 17-digit literals (not fp32-rounded). E=0 works (zeros, correct shapes).
+Speed (H100, fp64, conv fwd+bwd, CUDA-graph replay, kernel-only with prebuilt graph): water648 L1 0.48 ms vs FlashTP-graphcap 2.83 ms (5.9x),
+  cueq fused 1.15, OEQ atomic 1.18; wbox648 L1 0.64 vs 3.80 (5.9x); water648 L0 0.22 vs 1.00. Full table: results/oeq8/BASELINES.md.
+BLOCKERS / caveats for integration (B/C/D):
+  1. make_graph (CUDA path) does status.to(CPU) (host sync) for validation and for num_segments -> data-dependent table sizes.
+     => graph build cannot be captured; build it eagerly once per forward (~0.2-0.3 ms incl. sync) and capture only the convs, or patch
+        make_graph_tables to fixed (upper-bound) segment table sizes and drop the status readback. Conv kernels themselves capture fine.
+  2. Requires edges sorted by dst. Cheapest: sort edge_index by dst ONCE before the model (MACE is edge-order agnostic), so y/w are produced
+     in dst order and no per-layer gather is needed; graph built once and shared by both layers.
+  3. Double backward exists in the library but was not tested here (not needed for E+F).
+  4. Symmetric-contraction operator: NOT evaluated (time budget).

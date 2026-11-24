@@ -1,0 +1,71 @@
+job=1061 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 345 MHz
+fwd: nodetp8_fwd.fwd (/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_fwd/nodetp_fwd.py)
+aspirin 0 21 302 {'out': ('1.78e-15', '5.43e-16', 14592, '0.0e+00'), 'gx': ('1.78e-14', '4.66e-16', 0, '0.0e+00'), 'gy': ('3.11e-15', '7.72e-16', 39, '1.1e-23'), 'gw': ('1.89e-15', '7.22e-16', 0, '0.0e+00')}
+aspirin 1 21 302 {'out': ('5.33e-15', '7.09e-16', 36480, '6.7e-16'), 'gx': ('3.91e-14', '1.30e-15', 0, '0.0e+00'), 'gy': ('8.88e-15', '3.01e-16', 19, '3.5e-23'), 'gw': ('8.88e-15', '9.16e-16', 0, '0.0e+00')}
+org192 0 196 3670 {'out': ('3.55e-15', '8.42e-16', 0, '0.0e+00'), 'gx': ('6.75e-14', '1.78e-15', 0, '0.0e+00'), 'gy': ('4.44e-15', '8.18e-16', 500, '1.6e-21'), 'gw': ('3.55e-15', '5.50e-16', 0, '0.0e+00')}
+org192 1 196 3670 {'out': ('7.11e-15', '7.96e-16', 1, '3.5e-17'), 'gx': ('4.62e-14', '1.33e-15', 0, '0.0e+00'), 'gy': ('1.42e-14', '5.70e-16', 368, '8.5e-22'), 'gw': ('1.07e-14', '6.05e-16', 1, '1.6e-20')}
+water192 0 192 6634 {'out': ('3.11e-15', '1.40e-15', 0, '0.0e+00'), 'gx': ('5.33e-14', '1.74e-15', 0, '0.0e+00'), 'gy': ('3.55e-15', '6.16e-16', 693, '4.1e-20'), 'gw': ('2.66e-15', '7.51e-16', 0, '0.0e+00')}
+water192 1 192 6634 {'out': ('5.33e-15', '8.91e-16', 0, '0.0e+00'), 'gx': ('6.39e-14', '1.60e-15', 0, '0.0e+00'), 'gy': ('1.78e-14', '6.23e-16', 431, '3.4e-21'), 'gw': ('8.88e-15', '6.96e-16', 2, '2.5e-19')}
+org648 0 650 14856 {'out': ('3.55e-15', '8.55e-16', 0, '0.0e+00'), 'gx': ('6.39e-14', '1.55e-15', 0, '0.0e+00'), 'gy': ('4.44e-15', '8.94e-16', 1452, '6.8e-21'), 'gw': ('5.33e-15', '8.51e-16', 2, '8.6e-18')}
+org648 1 650 14856 {'out': ('6.22e-15', '7.16e-16', 0, '0.0e+00'), 'gx': ('6.04e-14', '1.24e-15', 0, '0.0e+00'), 'gy': ('1.60e-14', '4.44e-16', 1032, '3.4e-20'), 'gw': ('1.24e-14', '8.40e-16', 5, '5.3e-17')}
+water648 0 648 26550 {'out': ('2.44e-15', '9.46e-16', 0, '0.0e+00'), 'gx': ('7.11e-14', '1.94e-15', 0, '0.0e+00'), 'gy': ('4.44e-15', '7.76e-16', 3104, '3.4e-21'), 'gw': ('3.55e-15', '8.22e-16', 3, '2.9e-17')}
+water648 1 648 26550 {'out': ('5.33e-15', '7.76e-16', 0, '0.0e+00'), 'gx': ('8.53e-14', '2.23e-15', 0, '0.0e+00'), 'gy': ('1.78e-14', '4.35e-16', 1982, '5.3e-21'), 'gw': ('1.24e-14', '8.49e-16', 8, '3.0e-19')}
+wbox648 0 648 35698 {'out': ('2.44e-15', '1.05e-15', 0, '0.0e+00'), 'gx': ('1.28e-13', '3.26e-15', 0, '0.0e+00'), 'gy': ('4.44e-15', '7.15e-16', 4893, '6.8e-21'), 'gw': ('3.11e-15', '8.24e-16', 4, '2.6e-17')}
+wbox648 1 648 35698 {'out': ('6.22e-15', '9.02e-16', 0, '0.0e+00'), 'gx': ('8.88e-14', '2.24e-15', 0, '0.0e+00'), 'gy': ('1.95e-14', '5.49e-16', 3179, '8.1e-20'), 'gw': ('1.24e-14', '9.17e-16', 13, '1.3e-17')}
+H2O 0 3 6 {'out': ('8.88e-16', '5.97e-16', 2304, '0.0e+00'), 'gx': ('8.88e-15', '5.95e-16', 0, '0.0e+00'), 'gy': ('1.78e-15', '4.50e-16', 0, '0.0e+00'), 'gw': ('8.88e-16', '5.63e-16', 0, '0.0e+00')}
+H2O 1 3 6 {'out': ('2.66e-15', '4.11e-16', 5760, '0.0e+00'), 'gx': ('1.07e-14', '4.10e-16', 0, '0.0e+00'), 'gy': ('1.07e-14', '6.69e-16', 0, '0.0e+00'), 'gw': ('2.78e-15', '4.86e-16', 0, '0.0e+00')}
+single_C 0 1 0 {'out': ('0.00e+00', '0.00e+00', 2048, '0.0e+00'), 'gx': ('0.00e+00', '0.00e+00', 128, '0.0e+00'), 'gy': ('0.00e+00', '0.00e+00', 0, '0.0e+00'), 'gw': ('0.00e+00', '0.00e+00', 0, '0.0e+00')}
+single_C 1 1 0 {'out': ('0.00e+00', '0.00e+00', 5120, '0.0e+00'), 'gx': ('0.00e+00', '0.00e+00', 512, '0.0e+00'), 'gy': ('0.00e+00', '0.00e+00', 0, '0.0e+00'), 'gw': ('0.00e+00', '0.00e+00', 0, '0.0e+00')}
+far_O_pair 0 2 0 {'out': ('0.00e+00', '0.00e+00', 4096, '0.0e+00'), 'gx': ('0.00e+00', '0.00e+00', 256, '0.0e+00'), 'gy': ('0.00e+00', '0.00e+00', 0, '0.0e+00'), 'gw': ('0.00e+00', '0.00e+00', 0, '0.0e+00')}
+far_O_pair 1 2 0 {'out': ('0.00e+00', '0.00e+00', 10240, '0.0e+00'), 'gx': ('0.00e+00', '0.00e+00', 1024, '0.0e+00'), 'gy': ('0.00e+00', '0.00e+00', 0, '0.0e+00'), 'gw': ('0.00e+00', '0.00e+00', 0, '0.0e+00')}
+WORST {'out': 1.4024748714581297e-15, 'out_abs': 7.105427357601002e-15, 'gx': 3.255202766370492e-15, 'gx_abs': 1.2789769243681803e-13, 'gy': 8.943336889641663e-16, 'gy_abs': 1.9539925233402755e-14, 'gw': 9.166884323319277e-16, 'gw_abs': 1.2434497875801753e-14}
+gradcheck 0 {'gradcheck': True, 'E0_gx_zero': True, 'E0_shapes': [[0, 16], [0, 512]]}
+gradcheck 1 {'gradcheck': True, 'E0_gx_zero': True, 'E0_shapes': [[0, 16], [0, 1280]]}
+  json.dump(res, open(f"{R}/results/nodetp8_bwd/local_{tag}.json", "w"), indent=1)
+DONE
+job=1061 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800, 1980 MHz
+##### backend node
+fwd impl: nodetp8_fwd.fwd (/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_fwd/nodetp_fwd.py)
+--- node eager_walk_repeat_stress
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  out = dict(energy=float(o["energy"][0]), forces=o["forces"].detach().cpu().numpy(),
+    ok=True n=60 worst={'dE': 8.955024755918063e-13, 'dF': 5.329070518200751e-15, 'dS': 4.5102810375396984e-17} extra={}
+  json.dump(res, open(out_path, "w"), indent=1)
+--- node systems_walk_repeat
+    ok=True n=90 worst={'dE': 8.955024755918063e-13, 'dF': 1.7763568394002505e-14, 'dS': 0} extra={'stats': {'captures': 10, 'recaptures': 0, 'evictions': 6, 'last_capture_s': 0.04747386462986469, 'key': {'n_atoms': 2, 'numbers_sha1': 'b2e15b1d5f7d', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 4, 'E_caps': [12672, 42880, 64, 64]}, 'edges': {'H2O': [6, 6, 6, 6, 6, 6, 6, 6, 6], 'aspirin': [302, 298, 298, 298, 298, 298, 302, 302, 302], 'water192': [6634, 6632, 6638, 6630, 6626, 6630, 6634, 6634, 6634], 'org192': [3670, 3662, 3656, 3670, 3672, 3668, 3670, 3670, 3670], 'water648': [26550, 26570, 26520, 26502, 26504, 26518, 26550, 26550, 26550], 'org648': [14856, 14856, 14866, 14872, 14868, 14848, 14856, 14856, 14856], 'wbox192': [10552, 10554, 10552, 10524, 10536, 10524, 10552, 10552, 10552], 'wbox648': [35698, 35680, 35696, 35704, 35666, 35690, 35698, 35698, 35698], 'single_C': [0, 0, 0, 0, 0, 0, 0, 0, 0], 'far_pair': [0, 0, 0, 0, 0, 0, 0, 0, 0]}}
+--- node stress_periodic_recapture
+    ok=True n=17 worst={'dE': 0.0, 'dF': 7.105427357601002e-15, 'dS': 1.1102230246251565e-16} extra={'stats': {'captures': 5, 'recaptures': 1, 'evictions': 0, 'last_capture_s': 0.043478380888700485, 'key': {'n_atoms': 1, 'numbers_sha1': '0f29b02f9eff', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': True}, 'n_graphs': 4, 'E_caps': [42880, 15936, 384, 64]}, 'recapture_flags': [True, False, False]}
+--- node forced_recapture
+    ok=True n=5 worst={'dE': 1.5158245029548803e-13, 'dF': 7.105427357601002e-15, 'dS': 0} extra={'stats': {'captures': 2, 'recaptures': 1, 'evictions': 0, 'last_capture_s': 0.046975601464509964, 'key': {'n_atoms': 192, 'numbers_sha1': 'c8aa538e33c6', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 1, 'E_caps': [10560]}, 'recapture_flags': [False, True, False, False, False]}
+--- node bug_a_species_order
+    ok=True n=6 worst={'dE': 0.0, 'dF': 4.405364961712621e-13, 'dS': 0} extra={'stats': {'captures': 3, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.04421927221119404, 'key': {'n_atoms': 21, 'numbers_sha1': '14a6d77bbf72', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 3, 'E_caps': [384, 384, 384]}}
+--- node bug_b_diffN_interleaved
+    ok=True n=13 worst={'dE': 1.5158245029548803e-13, 'dF': 4.440892098500626e-15, 'dS': 0} extra={'stats': {'captures': 3, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.04162067919969559, 'key': {'n_atoms': 21, 'numbers_sha1': '14a6d77bbf72', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 3, 'E_caps': [8000, 64, 384]}}
+--- node lru_eviction
+    ok=True n=5 worst={'dE': 0.0, 'dF': 3.247402347028583e-15, 'dS': 0} extra={'stats': {'captures': 5, 'recaptures': 0, 'evictions': 3, 'last_capture_s': 0.04458390362560749, 'key': {'n_atoms': 3, 'numbers_sha1': 'ccf114efd5cd', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 2, 'E_caps': [384, 64]}}
+--- node stock_builder
+    ok=True n=6 worst={'dE': 0.0, 'dF': 5.329070518200751e-15, 'dS': 4.5102810375396984e-17} extra={'stats': {'captures': 2, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.050746144726872444, 'key': {'n_atoms': 192, 'numbers_sha1': 'c8aa538e33c6', 'pbc': (True, True, True), 'cell_is_none': False, 'head': 'Default', 'dtype': 'torch.float64', 'stress': True}, 'n_graphs': 2, 'E_caps': [384, 12672]}}
+##### backend cueqsc_node
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+fwd impl: nodetp8_fwd.fwd (/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/nodetp8_fwd/nodetp_fwd.py)
+--- cueqsc_node eager_walk_repeat_stress
+    ok=True n=60 worst={'dE': 5.373014853550838e-13, 'dF': 5.329070518200751e-15, 'dS': 2.0383000842727483e-17} extra={}
+  json.dump(res, open(out_path, "w"), indent=1)
+--- cueqsc_node systems_walk_repeat
+    ok=True n=90 worst={'dE': 7.16401980473445e-13, 'dF': 2.4868995751603507e-14, 'dS': 0} extra={'stats': {'captures': 10, 'recaptures': 0, 'evictions': 6, 'last_capture_s': 0.06699256971478462, 'key': {'n_atoms': 2, 'numbers_sha1': 'b2e15b1d5f7d', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 4, 'E_caps': [12672, 42880, 64, 64]}, 'edges': {'H2O': [6, 6, 6, 6, 6, 6, 6, 6, 6], 'aspirin': [302, 298, 298, 298, 298, 298, 302, 302, 302], 'water192': [6634, 6632, 6638, 6630, 6626, 6630, 6634, 6634, 6634], 'org192': [3670, 3662, 3656, 3670, 3672, 3668, 3670, 3670, 3670], 'water648': [26550, 26570, 26520, 26502, 26504, 26518, 26550, 26550, 26550], 'org648': [14856, 14856, 14866, 14872, 14868, 14848, 14856, 14856, 14856], 'wbox192': [10552, 10554, 10552, 10524, 10536, 10524, 10552, 10552, 10552], 'wbox648': [35698, 35680, 35696, 35704, 35666, 35690, 35698, 35698, 35698], 'single_C': [0, 0, 0, 0, 0, 0, 0, 0, 0], 'far_pair': [0, 0, 0, 0, 0, 0, 0, 0, 0]}}
+--- cueqsc_node stress_periodic_recapture
+    ok=True n=17 worst={'dE': 0.0, 'dF': 7.105427357601002e-15, 'dS': 1.1102230246251565e-16} extra={'stats': {'captures': 5, 'recaptures': 1, 'evictions': 0, 'last_capture_s': 0.06510185822844505, 'key': {'n_atoms': 1, 'numbers_sha1': '0f29b02f9eff', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': True}, 'n_graphs': 4, 'E_caps': [42880, 15936, 384, 64]}, 'recapture_flags': [True, False, False]}
+--- cueqsc_node forced_recapture
+    ok=True n=5 worst={'dE': 1.5158245029548803e-13, 'dF': 7.105427357601002e-15, 'dS': 0} extra={'stats': {'captures': 2, 'recaptures': 1, 'evictions': 0, 'last_capture_s': 0.06802848726511002, 'key': {'n_atoms': 192, 'numbers_sha1': 'c8aa538e33c6', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 1, 'E_caps': [10560]}, 'recapture_flags': [False, True, False, False, False]}
+--- cueqsc_node bug_a_species_order
+    ok=True n=6 worst={'dE': 0.0, 'dF': 6.110667527536862e-13, 'dS': 0} extra={'stats': {'captures': 3, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.06381062790751457, 'key': {'n_atoms': 21, 'numbers_sha1': '14a6d77bbf72', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 3, 'E_caps': [384, 384, 384]}}
+--- cueqsc_node bug_b_diffN_interleaved
+    ok=True n=13 worst={'dE': 1.5158245029548803e-13, 'dF': 5.329070518200751e-15, 'dS': 0} extra={'stats': {'captures': 3, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.06410964950919151, 'key': {'n_atoms': 21, 'numbers_sha1': '14a6d77bbf72', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 3, 'E_caps': [8000, 64, 384]}}
+--- cueqsc_node lru_eviction
+    ok=True n=5 worst={'dE': 1.4848893090170256e-13, 'dF': 4.6351811278100286e-15, 'dS': 0} extra={'stats': {'captures': 5, 'recaptures': 0, 'evictions': 3, 'last_capture_s': 0.06534348241984844, 'key': {'n_atoms': 3, 'numbers_sha1': 'ccf114efd5cd', 'pbc': (False, False, False), 'cell_is_none': True, 'head': 'Default', 'dtype': 'torch.float64', 'stress': False}, 'n_graphs': 2, 'E_caps': [384, 64]}}
+--- cueqsc_node stock_builder
+    ok=True n=6 worst={'dE': 0.0, 'dF': 3.774758283725532e-15, 'dS': 1.6479873021779667e-17} extra={'stats': {'captures': 2, 'recaptures': 0, 'evictions': 0, 'last_capture_s': 0.21086272038519382, 'key': {'n_atoms': 192, 'numbers_sha1': 'c8aa538e33c6', 'pbc': (True, True, True), 'cell_is_none': False, 'head': 'Default', 'dtype': 'torch.float64', 'stress': True}, 'n_graphs': 2, 'E_caps': [384, 12672]}}
+  json.dump(res, open(out_path, "w"), indent=1)
+DONE failures: []

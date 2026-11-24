@@ -1,0 +1,62 @@
+SLURM_JOB_ID=979 host=slurm-h100-206-077 date=2026-11-08T21:53:44+00:00 SLURM_STEP_GPUS=4 CUDA_VISIBLE_DEVICES=0
+index, name, uuid
+0, NVIDIA H100 80GB HBM3, GPU-884d19b4-3b1e-5246-0d07-a1a68b778800
+GPU 0: NVIDIA H100 80GB HBM3 (UUID: GPU-884d19b4-3b1e-5246-0d07-a1a68b778800)
+--- probe: import cuequivariance_ops_torch WITHOUT LD_LIBRARY_PATH
+ops import ok 0.10.0
+--- probe: WITH LD_LIBRARY_PATH=/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/nvidia/cuda_nvrtc/lib:/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/nvidia/cublas/lib:/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/nvidia/cuda_runtime/lib
+ops import ok 0.10.0
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[    0.3s] building e3nn
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+INFO:root:CUDA version: 12.8, CUDA device: 0
+INFO:root:Using head Default out of  ['Default']
+[    0.5s] e3nn: construct 0.09s, params torch.float64
+[    0.5s] building cueq
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/calculators/mace.py:274: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+INFO:root:CUDA version: 12.8, CUDA device: 0
+INFO:root:Using head Default out of  ['Default']
+INFO:root:Converting models to CuEq for acceleration
+INFO:root:Creating new model with cuequivariance settings
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/venv-cueq/lib/python3.11/site-packages/mace/modules/models.py:87: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+[    3.2s] cueq: construct 2.67s, params torch.float64
+[    4.6s] H2O e3nn: E=-2081.1163971689 first=0.634s rep dE=0.00e+00 dF=3.33e-16
+[   15.3s] H2O cueq: E=-2081.1163971689 first=10.662s rep dE=0.00e+00 dF=0.00e+00
+[   15.3s] H2O cmp: {'abs_dE_eV': 0.0, 'abs_dE_per_atom_eV': 0.0, 'max_abs_dF_eVA': 6.106226635438361e-16, 'rms_dF_eVA': 3.074068356504136e-16, 'max_norm_dF_eVA': 6.329245045284193e-16, 'max_abs_F_ref_eVA': 0.6474868257116837}
+[   15.9s] H2O e3nn: median 14.58 ms p10 14.55 p90 14.63 min 14.54
+[   16.6s] H2O cueq: median 21.82 ms p10 21.72 p90 21.96 min 21.62
+[   17.3s] water_cluster_6x6x6 e3nn: E=-449526.0097505144 first=0.049s rep dE=0.00e+00 dF=2.66e-15
+[   17.8s] water_cluster_6x6x6 cueq: E=-449526.0097505144 first=0.351s rep dE=0.00e+00 dF=2.66e-15
+[   17.8s] water_cluster_6x6x6 cmp: {'abs_dE_eV': 0.0, 'abs_dE_per_atom_eV': 0.0, 'max_abs_dF_eVA': 4.440892098500626e-15, 'rms_dF_eVA': 9.473356806904788e-16, 'max_norm_dF_eVA': 4.492289430709826e-15, 'max_abs_F_ref_eVA': 2.182091817118298}
+[   19.4s] water_cluster_6x6x6 e3nn: median 44.66 ms p10 44.61 p90 44.77 min 44.59
+[   20.4s] water_cluster_6x6x6 cueq: median 27.79 ms p10 27.68 p90 28.06 min 27.61
+/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/scripts/backend/cueq_check_and_time.py:130: ResourceWarning: unclosed file <_io.TextIOWrapper name='/mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/backend/cueq_float64_run1.json' mode='w' encoding='UTF-8'>
+  json.dump(out, open(out_json, "w"), indent=2)
+[   20.4s] wrote /mnt/home/jordan+123/history-native-20261015-r5/maceoff-study/results/backend/cueq_float64_run1.json
+rc=0

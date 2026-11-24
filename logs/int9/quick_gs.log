@@ -1,0 +1,27 @@
+job=1109 host=slurm-h100-206-077 start=2026-11-10T05:43:48+00:00
+0, NVIDIA H100 80GB HBM3, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 345 MHz, 1980 MHz
+TIMING_LOCK: 1109 int9 slurm-h100-206-077 2026-11-10T05:43:48+00:00
+other job: 1110 int9smoke jordan+123 slurm-h100-206-077 RUNNING
+other job: 1105 md9cdyn2 jordan+123 slurm-h100-206-077 RUNNING
+other job: 1106 md9cdyn3 jordan+123 slurm-h100-206-077 RUNNING
+other job: 1107 md9dr_gc jordan+123 slurm-h100-206-077 RUNNING
+other job: 1098 md9dr_gs jordan+123 slurm-h100-206-077 RUNNING
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built gpustep {'build_install_s': 3.1534867864102125}
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+built nodehybrid+embed+node {'build_install_s': 0.4734008237719536}
+aspirin gpustep {"first_step_s": 14.3787402510643, "E": 302, "E_cap": 384, "B1": 1.0198, "B2": 1.117, "B2chk": 1.1312, "peak_MiB": 141.34619140625}
+  json.dump(res, open(out_path, "w"), indent=1)
+aspirin nodehybrid+embed+node {"first_step_s": 0.11223541758954525, "E": 302, "E_cap": 384, "B1": 0.7581, "B2": 0.9381, "B2_nl_only": 0.0931, "B2host": 1.2862, "peak_MiB": 77.3193359375}
+water648 nodehybrid+embed+node {"first_step_s": 0.08561854250729084, "E": 26550, "E_cap": 31872, "B1": 3.0372, "B2": 3.2309, "B2_nl_only": 0.1044, "B2host": 3.6345, "peak_MiB": 981.02587890625}
+water648 gpustep {"first_step_s": 0.18713009916245937, "E": 26550, "E_cap": 31872, "B1": 34.0588, "B2": 34.0638, "B2chk": 34.0187, "peak_MiB": 978.6630859375}
+wbox648 gpustep {"first_step_s": 0.277441980317235, "E": 35724, "E_cap": 42880, "B1": 45.8045, "B2": 45.8386, "B2chk": 45.9822, "peak_MiB": 1266.91162109375}
+wbox648 nodehybrid+embed+node {"first_step_s": 0.12314727902412415, "E": 35724, "E_cap": 42880, "B1": 3.699, "B2": 4.8407, "B2_nl_only": 1.026, "B2host": 5.2037, "peak_MiB": 1266.37255859375}
+water2187 nodehybrid+embed+node {"first_step_s": 0.1049501933157444, "E": 99438, "E_cap": 119360, "B1": 9.3085, "B2": 9.7082, "B2_nl_only": 0.3269, "B2host": 10.1378, "peak_MiB": 3449.8828125}
+water2187 gpustep {"first_step_s": 0.5939050149172544, "E": 99438, "E_cap": 119360, "B1": 125.653, "B2": 125.936, "B2chk": 126.0887, "peak_MiB": 3440.73095703125}
+wbox2187 gpustep {"first_step_s": 0.8872881587594748, "E": 120506, "E_cap": 144640, "B1": 153.9198, "B2": 153.6192, "B2chk": 153.814, "peak_MiB": 4117.49658203125}
+wbox2187 nodehybrid+embed+node {"first_step_s": 0.1833407450467348, "E": 120506, "E_cap": 144640, "B1": 10.8111, "B2": 18.4843, "B2_nl_only": 7.5902, "B2host": 18.8818, "peak_MiB": 4114.771484375}
+  json.dump(res, open(out_path, "w"), indent=1)
+DONE
+0, GPU-4b202516-7dca-26da-e0bf-7f5aef5ca845, 1980 MHz
+end=2026-11-10T05:44:53+00:00

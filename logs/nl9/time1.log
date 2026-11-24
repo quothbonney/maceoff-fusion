@@ -1,0 +1,14 @@
+job=1108 host=slurm-h100-206-077
+0, NVIDIA H100 80GB HBM3, GPU-edefc586-3f13-ab62-907d-ba075a79f443, 345 MHz, 1980 MHz
+aspirin        N=   21 E=    302 cell eager 0.063 graph 0.048 (dev 0.045) proto 0.381 matscipy 0.09 ms; nl buf 0.09 MiB proto peak 32.1 MiB
+water192       N=  192 E=   6634 cell eager 0.192 graph 0.177 (dev 0.174) proto 0.394 matscipy 0.89 ms; nl buf 0.83 MiB proto peak 2.0 MiB
+org648         N=  650 E=  14856 cell eager 0.203 graph 0.189 (dev 0.185) proto 0.426 matscipy 2.54 ms; nl buf 2.02 MiB proto peak 23.4 MiB
+water648       N=  648 E=  26550 cell eager 0.246 graph 0.231 (dev 0.228) proto 0.425 matscipy 4.00 ms; nl buf 3.14 MiB proto peak 23.4 MiB
+wbox648        N=  648 E=  35698 cell eager 0.507 graph 0.488 (dev 0.484) proto 1.336 matscipy 8.12 ms; nl buf 3.48 MiB proto peak 606.7 MiB
+wbox648_tric   N=  648 E=  32864 cell eager 0.477 graph 0.460 (dev 0.458) proto 1.334 matscipy 7.96 ms; nl buf 3.21 MiB proto peak 606.6 MiB
+wclus2187      N= 2187 E=  99438 cell eager 0.294 graph 0.280 (dev 0.277) proto 0.652 matscipy 14.55 ms; nl buf 11.14 MiB proto peak 257.0 MiB
+wbox2187       N= 2187 E= 120506 cell eager 0.604 graph 0.578 (dev 0.576) proto 7.920 matscipy 21.56 ms; nl buf 11.75 MiB proto peak 3559.5 MiB
+wclus5184      N= 5184 E= 247652 cell eager 0.351 graph 0.334 (dev 0.331) proto 1.652 matscipy 42.41 ms; nl buf 27.14 MiB proto peak 1439.2 MiB
+wbox5184       N= 5184 E= 285464 cell eager 0.589 graph 0.566 (dev 0.561) proto 42.541 matscipy 61.57 ms; nl buf 27.85 MiB proto peak 3546.9 MiB
+  json.dump(res, open(OUT, "w"), indent=1)
+0, GPU-edefc586-3f13-ab62-907d-ba075a79f443, 1980 MHz

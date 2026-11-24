@@ -1,0 +1,580 @@
+diff --git a/flashTP_e3nn/sptp_exp_opt_extcg/bwd_bwd_sptp_linear_v2_shared_exp.cu b/flashTP_e3nn/sptp_exp_opt_extcg/bwd_bwd_sptp_linear_v2_shared_exp.cu
+index 104c4ad..4e6fcf5 100644
+--- a/flashTP_e3nn/sptp_exp_opt_extcg/bwd_bwd_sptp_linear_v2_shared_exp.cu
++++ b/flashTP_e3nn/sptp_exp_opt_extcg/bwd_bwd_sptp_linear_v2_shared_exp.cu
+@@ -1,4 +1,5 @@
+ #include "sptp_exp_opt.hpp"
++#include <ATen/cuda/CUDAContext.h>
+ #include <cmath>
+ 
+ #define WARPSIZE 32 
+@@ -350,19 +351,19 @@ void bwd_bwd_sptp_linear_cuda_v2_shared_exp(
+     dim3 block(WARPSIZE, per_block_batch);
+ 
+     // setup constant memory 
+-    cudaMemcpyToSymbol(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int)); // int  , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int  , MAX_IN1_IR_CNT
+     
+-    cudaMemcpyToSymbol(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) ); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char)); // uchar4, MAX_NUM_PAT
+-    cudaMemcpyToSymbol(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short)); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_weight, t_path_weight.data<float>(), at::numel(t_path_weight)*sizeof(float)); // float, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int)); // int , MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // uchar4, MAX_NUM_PAT
++    cudaMemcpyToSymbolAsync(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_weight, t_path_weight.data<float>(), at::numel(t_path_weight)*sizeof(float), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // float, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_NUM_PATH
+     // cudaMemcpyToSymbol(cg_idx_array, t_cg_idx_array.data<u_short>(), at::numel(t_cg_idx_array)*sizeof(u_short)); // u_short, MAX_U_FIBER_CNT 
+ 
+     // cudaMemcpyToSymbol(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char)); // u_char4), MAX_U_FIBER_CNT 
+-    cudaMemcpyToSymbol(unique_cg_val, t_unique_cg_val.data<float>(), at::numel(t_unique_cg_val)*sizeof(float) ); // float , MAX_U_CG_VAL_CNT
++    cudaMemcpyToSymbolAsync(unique_cg_val, t_unique_cg_val.data<float>(), at::numel(t_unique_cg_val)*sizeof(float) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // float , MAX_U_CG_VAL_CNT
+ 
+     const int shared_memory_bytes = sizeof(float) * per_block_batch * (WARPSIZE * (max_ir_dim*7+perwarp_in2_size) + in2_size*2) + sizeof(u_char) * max_fiber_size * 4 + sizeof(u_short) * max_fiber_size;
+ 
+@@ -375,7 +376,7 @@ void bwd_bwd_sptp_linear_cuda_v2_shared_exp(
+         bwd_bwd_sptp_lienar_kernel_v2_shared_exp<float>,
+         cudaFuncAttributeMaxDynamicSharedMemorySize, shared_memory_bytes));
+ 
+-    bwd_bwd_sptp_lienar_kernel_v2_shared_exp<float><<<grid, block, shared_memory_bytes>>>(
++    bwd_bwd_sptp_lienar_kernel_v2_shared_exp<float><<<grid, block, shared_memory_bytes, at::cuda::getCurrentCUDAStream()>>>(
+         mem_dF_din1.data<float>(),
+         mem_dF_din2.data<float>(),
+         mem_dF_dW.data<float>(),
+diff --git a/flashTP_e3nn/sptp_exp_opt_extcg/bwd_bwd_sptp_linear_v2_shared_exp_double.cu b/flashTP_e3nn/sptp_exp_opt_extcg/bwd_bwd_sptp_linear_v2_shared_exp_double.cu
+index 8987725..90bd4b1 100644
+--- a/flashTP_e3nn/sptp_exp_opt_extcg/bwd_bwd_sptp_linear_v2_shared_exp_double.cu
++++ b/flashTP_e3nn/sptp_exp_opt_extcg/bwd_bwd_sptp_linear_v2_shared_exp_double.cu
+@@ -1,4 +1,5 @@
+ #include "sptp_exp_opt.hpp"
++#include <ATen/cuda/CUDAContext.h>
+ #include <cmath>
+ 
+ #define WARPSIZE 32 
+@@ -350,19 +351,19 @@ void bwd_bwd_sptp_linear_cuda_v2_shared_exp_double(
+     dim3 block(WARPSIZE, per_block_batch);
+ 
+     // setup constant memory 
+-    cudaMemcpyToSymbol(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int)); // int  , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int  , MAX_IN1_IR_CNT
+     
+-    cudaMemcpyToSymbol(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) ); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char)); // uchar4, MAX_NUM_PAT
+-    cudaMemcpyToSymbol(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short)); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_weight, t_path_weight.data<double>(), at::numel(t_path_weight)*sizeof(double)); // double, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int)); // int , MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // uchar4, MAX_NUM_PAT
++    cudaMemcpyToSymbolAsync(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_weight, t_path_weight.data<double>(), at::numel(t_path_weight)*sizeof(double), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // double, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_NUM_PATH
+     // cudaMemcpyToSymbol(cg_idx_array, t_cg_idx_array.data<u_short>(), at::numel(t_cg_idx_array)*sizeof(u_short)); // u_short, MAX_U_FIBER_CNT 
+ 
+     // cudaMemcpyToSymbol(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char)); // u_char4), MAX_U_FIBER_CNT 
+-    cudaMemcpyToSymbol(unique_cg_val, t_unique_cg_val.data<double>(), at::numel(t_unique_cg_val)*sizeof(double) ); // double , MAX_U_CG_VAL_CNT
++    cudaMemcpyToSymbolAsync(unique_cg_val, t_unique_cg_val.data<double>(), at::numel(t_unique_cg_val)*sizeof(double) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // double , MAX_U_CG_VAL_CNT
+ 
+     const int shared_memory_bytes = sizeof(double) * per_block_batch * (WARPSIZE * (max_ir_dim*7+perwarp_in2_size) + in2_size*2) + sizeof(u_char) * max_fiber_size * 4 + sizeof(u_short) * max_fiber_size;
+ 
+@@ -375,7 +376,7 @@ void bwd_bwd_sptp_linear_cuda_v2_shared_exp_double(
+         bwd_bwd_sptp_lienar_kernel_v2_shared_exp<double>,
+         cudaFuncAttributeMaxDynamicSharedMemorySize, shared_memory_bytes));
+ 
+-    bwd_bwd_sptp_lienar_kernel_v2_shared_exp<double><<<grid, block, shared_memory_bytes>>>(
++    bwd_bwd_sptp_lienar_kernel_v2_shared_exp<double><<<grid, block, shared_memory_bytes, at::cuda::getCurrentCUDAStream()>>>(
+         mem_dF_din1.data<double>(),
+         mem_dF_din2.data<double>(),
+         mem_dF_dW.data<double>(),
+diff --git a/flashTP_e3nn/sptp_exp_opt_extcg/bwd_sptp_linear_shared_exp.cu b/flashTP_e3nn/sptp_exp_opt_extcg/bwd_sptp_linear_shared_exp.cu
+index dd7f72a..777c83b 100644
+--- a/flashTP_e3nn/sptp_exp_opt_extcg/bwd_sptp_linear_shared_exp.cu
++++ b/flashTP_e3nn/sptp_exp_opt_extcg/bwd_sptp_linear_shared_exp.cu
+@@ -1,4 +1,5 @@
+ #include "sptp_exp_opt.hpp"
++#include <ATen/cuda/CUDAContext.h>
+ #include <cmath>
+ 
+ #define WARPSIZE 32 
+@@ -277,19 +278,19 @@ void bwd_sptp_linear_cuda_v1_shared_exp(
+     dim3 block(WARPSIZE, per_block_batch);
+ 
+     // setup constant memory 
+-    cudaMemcpyToSymbol(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int)); // int  , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int  , MAX_IN1_IR_CNT
+     
+-    cudaMemcpyToSymbol(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) ); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char)); // uchar4, MAX_NUM_PAT
+-    cudaMemcpyToSymbol(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short)); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_weight, t_path_weight.data<float>(), at::numel(t_path_weight)*sizeof(float)); // float, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int)); // int , MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // uchar4, MAX_NUM_PAT
++    cudaMemcpyToSymbolAsync(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_weight, t_path_weight.data<float>(), at::numel(t_path_weight)*sizeof(float), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // float, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_NUM_PATH
+     // cudaMemcpyToSymbol(cg_idx_array, t_cg_idx_array.data<u_short>(), at::numel(t_cg_idx_array)*sizeof(u_short)); // u_short, MAX_U_FIBER_CNT 
+ 
+     // cudaMemcpyToSymbol(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char)); // u_char4), MAX_U_FIBER_CNT 
+-    cudaMemcpyToSymbol(unique_cg_val, t_unique_cg_val.data<float>(), at::numel(t_unique_cg_val)*sizeof(float) ); // float , MAX_U_CG_VAL_CNT
++    cudaMemcpyToSymbolAsync(unique_cg_val, t_unique_cg_val.data<float>(), at::numel(t_unique_cg_val)*sizeof(float) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // float , MAX_U_CG_VAL_CNT
+ 
+     const int shared_memory_bytes = sizeof(float) * per_block_batch * (WARPSIZE * (max_ir_dim*5 + perwarp_in2_size) + in2_size) + sizeof(u_char) * max_fiber_size * 4 + sizeof(u_short) * max_fiber_size;
+ 
+@@ -302,7 +303,7 @@ void bwd_sptp_linear_cuda_v1_shared_exp(
+         bwd_sptp_lienar_kernel_v1_shared_exp<float>,
+         cudaFuncAttributeMaxDynamicSharedMemorySize, shared_memory_bytes));
+ 
+-    bwd_sptp_lienar_kernel_v1_shared_exp<float><<<grid, block, shared_memory_bytes>>>(
++    bwd_sptp_lienar_kernel_v1_shared_exp<float><<<grid, block, shared_memory_bytes, at::cuda::getCurrentCUDAStream()>>>(
+         in1.data<float>(),
+         in2.data<float>(),
+         weight.data<float>(),
+diff --git a/flashTP_e3nn/sptp_exp_opt_extcg/bwd_sptp_linear_shared_exp_double.cu b/flashTP_e3nn/sptp_exp_opt_extcg/bwd_sptp_linear_shared_exp_double.cu
+index 9dd5a73..0685c09 100644
+--- a/flashTP_e3nn/sptp_exp_opt_extcg/bwd_sptp_linear_shared_exp_double.cu
++++ b/flashTP_e3nn/sptp_exp_opt_extcg/bwd_sptp_linear_shared_exp_double.cu
+@@ -1,4 +1,5 @@
+ #include "sptp_exp_opt.hpp"
++#include <ATen/cuda/CUDAContext.h>
+ #include <cmath>
+ 
+ #define WARPSIZE 32 
+@@ -293,19 +294,19 @@ void bwd_sptp_linear_cuda_v1_shared_exp_double(
+     dim3 block(WARPSIZE, per_block_batch);
+ 
+     // setup constant memory 
+-    cudaMemcpyToSymbol(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int)); // int  , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int  , MAX_IN1_IR_CNT
+     
+-    cudaMemcpyToSymbol(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) ); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char)); // uchar4, MAX_NUM_PAT
+-    cudaMemcpyToSymbol(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short)); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_weight, t_path_weight.data<double>(), at::numel(t_path_weight)*sizeof(double)); // double, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int)); // int , MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // uchar4, MAX_NUM_PAT
++    cudaMemcpyToSymbolAsync(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_weight, t_path_weight.data<double>(), at::numel(t_path_weight)*sizeof(double), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // double, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_NUM_PATH
+     // cudaMemcpyToSymbol(cg_idx_array, t_cg_idx_array.data<u_short>(), at::numel(t_cg_idx_array)*sizeof(u_short)); // u_short, MAX_U_FIBER_CNT 
+ 
+     // cudaMemcpyToSymbol(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char)); // u_char4), MAX_U_FIBER_CNT 
+-    cudaMemcpyToSymbol(unique_cg_val, t_unique_cg_val.data<double>(), at::numel(t_unique_cg_val)*sizeof(double) ); // double , MAX_U_CG_VAL_CNT
++    cudaMemcpyToSymbolAsync(unique_cg_val, t_unique_cg_val.data<double>(), at::numel(t_unique_cg_val)*sizeof(double) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // double , MAX_U_CG_VAL_CNT
+ 
+     const int shared_memory_bytes = sizeof(double) * per_block_batch * (WARPSIZE * (max_ir_dim*5 + perwarp_in2_size) + in2_size) + sizeof(u_char) * max_fiber_size * 4 + sizeof(u_short) * max_fiber_size;;
+ 
+@@ -318,7 +319,7 @@ void bwd_sptp_linear_cuda_v1_shared_exp_double(
+         bwd_sptp_lienar_kernel_v1_shared_exp<double>,
+         cudaFuncAttributeMaxDynamicSharedMemorySize, shared_memory_bytes));
+ 
+-    bwd_sptp_lienar_kernel_v1_shared_exp<double><<<grid, block, shared_memory_bytes>>>(
++    bwd_sptp_lienar_kernel_v1_shared_exp<double><<<grid, block, shared_memory_bytes, at::cuda::getCurrentCUDAStream()>>>(
+         in1.data<double>(),
+         in2.data<double>(),
+         weight.data<double>(),
+diff --git a/flashTP_e3nn/sptp_exp_opt_extcg/fwd_sptp_linear_v2_shared_exp.cu b/flashTP_e3nn/sptp_exp_opt_extcg/fwd_sptp_linear_v2_shared_exp.cu
+index 71377fa..5abf2c9 100644
+--- a/flashTP_e3nn/sptp_exp_opt_extcg/fwd_sptp_linear_v2_shared_exp.cu
++++ b/flashTP_e3nn/sptp_exp_opt_extcg/fwd_sptp_linear_v2_shared_exp.cu
+@@ -1,4 +1,5 @@
+ #include "sptp_exp_opt.hpp"
++#include <ATen/cuda/CUDAContext.h>
+ #include <cmath>
+ 
+ #define WARPSIZE 32 
+@@ -202,20 +203,20 @@ void fwd_sptp_linear_cuda_v2_shared_exp(
+     if (in2_size%2 ==0) perwarp_in2_size = in2_size+1;
+ 
+     // setup constant memory 
+-    cudaMemcpyToSymbol(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int)); // int  , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int  , MAX_IN1_IR_CNT
+     
+-    cudaMemcpyToSymbol(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) ); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char)); // uchar4, MAX_NUM_PAT
+-    cudaMemcpyToSymbol(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short)); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_weight, t_path_weight.data<float>(), at::numel(t_path_weight)*sizeof(float)); // float, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int)); // int , MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // uchar4, MAX_NUM_PAT
++    cudaMemcpyToSymbolAsync(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_weight, t_path_weight.data<float>(), at::numel(t_path_weight)*sizeof(float), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // float, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_NUM_PATH
+ 
+     // cudaMemcpyToSymbol(cg_idx_array, t_cg_idx_array.data<u_short>(), at::numel(t_cg_idx_array)*sizeof(u_short)); // u_short, MAX_U_FIBER_CNT 
+ 
+     // cudaMemcpyToSymbol(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char)); // u_char4), MAX_U_FIBER_CNT 
+-    cudaMemcpyToSymbol(unique_cg_val, t_unique_cg_val.data<float>(), at::numel(t_unique_cg_val)*sizeof(float) ); // float , MAX_U_CG_VAL_CNT
++    cudaMemcpyToSymbolAsync(unique_cg_val, t_unique_cg_val.data<float>(), at::numel(t_unique_cg_val)*sizeof(float) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // float , MAX_U_CG_VAL_CNT
+ 
+     const int shared_memory_bytes = sizeof(float) * per_block_batch * (WARPSIZE * (max_ir_dim*3) + perwarp_in2_size) + sizeof(u_char) * max_fiber_size * 4 + sizeof(u_short) * max_fiber_size;
+ 
+@@ -228,7 +229,7 @@ void fwd_sptp_linear_cuda_v2_shared_exp(
+         fwd_sptp_lienar_kernel_v2_shared_exp<float>,
+         cudaFuncAttributeMaxDynamicSharedMemorySize, shared_memory_bytes));
+ 
+-    fwd_sptp_lienar_kernel_v2_shared_exp<float><<<grid, block, shared_memory_bytes>>>(
++    fwd_sptp_lienar_kernel_v2_shared_exp<float><<<grid, block, shared_memory_bytes, at::cuda::getCurrentCUDAStream()>>>(
+         in1.data<float>(),
+         in2.data<float>(),
+         weight.data<float>(),
+diff --git a/flashTP_e3nn/sptp_exp_opt_extcg/fwd_sptp_linear_v2_shared_exp_double.cu b/flashTP_e3nn/sptp_exp_opt_extcg/fwd_sptp_linear_v2_shared_exp_double.cu
+index 6ba3f97..e1c8942 100644
+--- a/flashTP_e3nn/sptp_exp_opt_extcg/fwd_sptp_linear_v2_shared_exp_double.cu
++++ b/flashTP_e3nn/sptp_exp_opt_extcg/fwd_sptp_linear_v2_shared_exp_double.cu
+@@ -1,4 +1,5 @@
+ #include "sptp_exp_opt.hpp"
++#include <ATen/cuda/CUDAContext.h>
+ #include <cmath>
+ 
+ #define WARPSIZE 32 
+@@ -208,19 +209,19 @@ void fwd_sptp_linear_cuda_v2_shared_exp_double(
+     if (in2_size%2 ==0) perwarp_in2_size = in2_size+1;
+ 
+     // setup constant memory 
+-    cudaMemcpyToSymbol(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int)); // int  , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int  , MAX_IN1_IR_CNT
+     
+-    cudaMemcpyToSymbol(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) ); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char)); // uchar4, MAX_NUM_PAT
+-    cudaMemcpyToSymbol(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short)); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_weight, t_path_weight.data<double>(), at::numel(t_path_weight)*sizeof(double)); // double, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int)); // int , MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // uchar4, MAX_NUM_PAT
++    cudaMemcpyToSymbolAsync(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_weight, t_path_weight.data<double>(), at::numel(t_path_weight)*sizeof(double), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // double, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_NUM_PATH
+     // cudaMemcpyToSymbol(cg_idx_array, t_cg_idx_array.data<u_short>(), at::numel(t_cg_idx_array)*sizeof(u_short)); // u_short, MAX_U_FIBER_CNT 
+ 
+     // cudaMemcpyToSymbol(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char)); // u_char4), MAX_U_FIBER_CNT 
+-    cudaMemcpyToSymbol(unique_cg_val, t_unique_cg_val.data<double>(), at::numel(t_unique_cg_val)*sizeof(double) ); // double , MAX_U_CG_VAL_CNT
++    cudaMemcpyToSymbolAsync(unique_cg_val, t_unique_cg_val.data<double>(), at::numel(t_unique_cg_val)*sizeof(double) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // double , MAX_U_CG_VAL_CNT
+ 
+     const int shared_memory_bytes = sizeof(double) * per_block_batch * (WARPSIZE * (max_ir_dim*3) + perwarp_in2_size) + sizeof(u_char) * max_fiber_size * 4 + sizeof(u_short) * max_fiber_size;
+ 
+@@ -233,7 +234,7 @@ void fwd_sptp_linear_cuda_v2_shared_exp_double(
+         fwd_sptp_lienar_kernel_v2_shared_exp<double>,
+         cudaFuncAttributeMaxDynamicSharedMemorySize, shared_memory_bytes));
+ 
+-    fwd_sptp_lienar_kernel_v2_shared_exp<double><<<grid, block, shared_memory_bytes>>>(
++    fwd_sptp_lienar_kernel_v2_shared_exp<double><<<grid, block, shared_memory_bytes, at::cuda::getCurrentCUDAStream()>>>(
+         in1.data<double>(),
+         in2.data<double>(),
+         weight.data<double>(),
+diff --git a/flashTP_e3nn/sptp_exp_opt_large/bwd_bwd_sptp_linear_v2_shared_exp.cu b/flashTP_e3nn/sptp_exp_opt_large/bwd_bwd_sptp_linear_v2_shared_exp.cu
+index 3178d9e..09fb108 100644
+--- a/flashTP_e3nn/sptp_exp_opt_large/bwd_bwd_sptp_linear_v2_shared_exp.cu
++++ b/flashTP_e3nn/sptp_exp_opt_large/bwd_bwd_sptp_linear_v2_shared_exp.cu
+@@ -1,4 +1,5 @@
+ #include "sptp_exp_opt.hpp"
++#include <ATen/cuda/CUDAContext.h>
+ #include <cmath>
+ 
+ #define WARPSIZE 32 
+@@ -327,18 +328,18 @@ void bwd_bwd_sptp_linear_cuda_v2_shared_exp(
+     dim3 block(WARPSIZE, per_block_batch);
+ 
+     // setup constant memory 
+-    cudaMemcpyToSymbol(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int)); // int  , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int  , MAX_IN1_IR_CNT
+     
+-    cudaMemcpyToSymbol(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) ); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char)); // uchar4, MAX_NUM_PAT
+-    cudaMemcpyToSymbol(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short)); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_weight, t_path_weight.data<float>(), at::numel(t_path_weight)*sizeof(float)); // float, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int)); // int , MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // uchar4, MAX_NUM_PAT
++    cudaMemcpyToSymbolAsync(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_weight, t_path_weight.data<float>(), at::numel(t_path_weight)*sizeof(float), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // float, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_NUM_PATH
+ 
+-    cudaMemcpyToSymbol(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char)); // u_char4), MAX_U_FIBER_CNT 
+-    cudaMemcpyToSymbol(unique_cg_val, t_unique_cg_val.data<float>(), at::numel(t_unique_cg_val)*sizeof(float) ); // float , MAX_U_CG_VAL_CNT
++    cudaMemcpyToSymbolAsync(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // u_char4), MAX_U_FIBER_CNT 
++    cudaMemcpyToSymbolAsync(unique_cg_val, t_unique_cg_val.data<float>(), at::numel(t_unique_cg_val)*sizeof(float) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // float , MAX_U_CG_VAL_CNT
+ 
+     const int shared_memory_bytes = sizeof(float) * per_block_batch * (WARPSIZE * (max_ir_dim*7+perwarp_in2_size) + in2_size*2);
+ 
+@@ -351,7 +352,7 @@ void bwd_bwd_sptp_linear_cuda_v2_shared_exp(
+         bwd_bwd_sptp_lienar_kernel_v2_shared_exp<float>,
+         cudaFuncAttributeMaxDynamicSharedMemorySize, shared_memory_bytes));
+ 
+-    bwd_bwd_sptp_lienar_kernel_v2_shared_exp<float><<<grid, block, shared_memory_bytes>>>(
++    bwd_bwd_sptp_lienar_kernel_v2_shared_exp<float><<<grid, block, shared_memory_bytes, at::cuda::getCurrentCUDAStream()>>>(
+         mem_dF_din1.data<float>(),
+         mem_dF_din2.data<float>(),
+         mem_dF_dW.data<float>(),
+diff --git a/flashTP_e3nn/sptp_exp_opt_large/bwd_bwd_sptp_linear_v2_shared_exp_double.cu b/flashTP_e3nn/sptp_exp_opt_large/bwd_bwd_sptp_linear_v2_shared_exp_double.cu
+index c1e7752..1cef56d 100644
+--- a/flashTP_e3nn/sptp_exp_opt_large/bwd_bwd_sptp_linear_v2_shared_exp_double.cu
++++ b/flashTP_e3nn/sptp_exp_opt_large/bwd_bwd_sptp_linear_v2_shared_exp_double.cu
+@@ -1,4 +1,5 @@
+ #include "sptp_exp_opt.hpp"
++#include <ATen/cuda/CUDAContext.h>
+ #include <cmath>
+ 
+ #define WARPSIZE 32 
+@@ -325,18 +326,18 @@ void bwd_bwd_sptp_linear_cuda_v2_shared_exp_double(
+     dim3 block(WARPSIZE, per_block_batch);
+ 
+     // setup constant memory 
+-    cudaMemcpyToSymbol(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int)); // int  , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int  , MAX_IN1_IR_CNT
+     
+-    cudaMemcpyToSymbol(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) ); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char)); // uchar4, MAX_NUM_PAT
+-    cudaMemcpyToSymbol(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short)); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_weight, t_path_weight.data<double>(), at::numel(t_path_weight)*sizeof(double)); // double, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int)); // int , MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // uchar4, MAX_NUM_PAT
++    cudaMemcpyToSymbolAsync(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_weight, t_path_weight.data<double>(), at::numel(t_path_weight)*sizeof(double), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // double, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_NUM_PATH
+ 
+-    cudaMemcpyToSymbol(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char)); // u_char4), MAX_U_FIBER_CNT 
+-    cudaMemcpyToSymbol(unique_cg_val, t_unique_cg_val.data<double>(), at::numel(t_unique_cg_val)*sizeof(double) ); // double , MAX_U_CG_VAL_CNT
++    cudaMemcpyToSymbolAsync(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // u_char4), MAX_U_FIBER_CNT 
++    cudaMemcpyToSymbolAsync(unique_cg_val, t_unique_cg_val.data<double>(), at::numel(t_unique_cg_val)*sizeof(double) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // double , MAX_U_CG_VAL_CNT
+ 
+     const int shared_memory_bytes = sizeof(double) * per_block_batch * (WARPSIZE * (max_ir_dim*7+perwarp_in2_size) + in2_size*2);
+ 
+@@ -349,7 +350,7 @@ void bwd_bwd_sptp_linear_cuda_v2_shared_exp_double(
+         bwd_bwd_sptp_lienar_kernel_v2_shared_exp<double>,
+         cudaFuncAttributeMaxDynamicSharedMemorySize, shared_memory_bytes));
+ 
+-    bwd_bwd_sptp_lienar_kernel_v2_shared_exp<double><<<grid, block, shared_memory_bytes>>>(
++    bwd_bwd_sptp_lienar_kernel_v2_shared_exp<double><<<grid, block, shared_memory_bytes, at::cuda::getCurrentCUDAStream()>>>(
+         mem_dF_din1.data<double>(),
+         mem_dF_din2.data<double>(),
+         mem_dF_dW.data<double>(),
+diff --git a/flashTP_e3nn/sptp_exp_opt_large/bwd_sptp_linear_shared_exp.cu b/flashTP_e3nn/sptp_exp_opt_large/bwd_sptp_linear_shared_exp.cu
+index bc001da..1d64e56 100644
+--- a/flashTP_e3nn/sptp_exp_opt_large/bwd_sptp_linear_shared_exp.cu
++++ b/flashTP_e3nn/sptp_exp_opt_large/bwd_sptp_linear_shared_exp.cu
+@@ -1,4 +1,5 @@
+ #include "sptp_exp_opt.hpp"
++#include <ATen/cuda/CUDAContext.h>
+ #include <cmath>
+ 
+ #define WARPSIZE 32 
+@@ -279,18 +280,18 @@ void bwd_sptp_linear_cuda_v1_shared_exp(
+     dim3 block(WARPSIZE, per_block_batch);
+ 
+     // setup constant memory 
+-    cudaMemcpyToSymbol(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int)); // int  , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int  , MAX_IN1_IR_CNT
+     
+-    cudaMemcpyToSymbol(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) ); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char)); // uchar4, MAX_NUM_PAT
+-    cudaMemcpyToSymbol(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short)); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_weight, t_path_weight.data<float>(), at::numel(t_path_weight)*sizeof(float)); // float, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int)); // int , MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // uchar4, MAX_NUM_PAT
++    cudaMemcpyToSymbolAsync(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_weight, t_path_weight.data<float>(), at::numel(t_path_weight)*sizeof(float), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // float, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_NUM_PATH
+ 
+-    cudaMemcpyToSymbol(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char)); // u_char4), MAX_U_FIBER_CNT 
+-    cudaMemcpyToSymbol(unique_cg_val, t_unique_cg_val.data<float>(), at::numel(t_unique_cg_val)*sizeof(float) ); // float , MAX_U_CG_VAL_CNT
++    cudaMemcpyToSymbolAsync(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // u_char4), MAX_U_FIBER_CNT 
++    cudaMemcpyToSymbolAsync(unique_cg_val, t_unique_cg_val.data<float>(), at::numel(t_unique_cg_val)*sizeof(float) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // float , MAX_U_CG_VAL_CNT
+ 
+     const int shared_memory_bytes = sizeof(float) * per_block_batch * (WARPSIZE * (max_ir_dim*5 + perwarp_in2_size) + in2_size);
+ 
+@@ -303,7 +304,7 @@ void bwd_sptp_linear_cuda_v1_shared_exp(
+         bwd_sptp_lienar_kernel_v1_shared_exp<float>,
+         cudaFuncAttributeMaxDynamicSharedMemorySize, shared_memory_bytes));
+ 
+-    bwd_sptp_lienar_kernel_v1_shared_exp<float><<<grid, block, shared_memory_bytes>>>(
++    bwd_sptp_lienar_kernel_v1_shared_exp<float><<<grid, block, shared_memory_bytes, at::cuda::getCurrentCUDAStream()>>>(
+         in1.data<float>(),
+         in2.data<float>(),
+         weight.data<float>(),
+diff --git a/flashTP_e3nn/sptp_exp_opt_large/bwd_sptp_linear_shared_exp_double.cu b/flashTP_e3nn/sptp_exp_opt_large/bwd_sptp_linear_shared_exp_double.cu
+index 1b732bc..f3884f5 100644
+--- a/flashTP_e3nn/sptp_exp_opt_large/bwd_sptp_linear_shared_exp_double.cu
++++ b/flashTP_e3nn/sptp_exp_opt_large/bwd_sptp_linear_shared_exp_double.cu
+@@ -1,4 +1,5 @@
+ #include "sptp_exp_opt.hpp"
++#include <ATen/cuda/CUDAContext.h>
+ #include <cmath>
+ 
+ #define WARPSIZE 32 
+@@ -274,18 +275,18 @@ void bwd_sptp_linear_cuda_v1_shared_exp_double(
+     dim3 block(WARPSIZE, per_block_batch);
+ 
+     // setup constant memory 
+-    cudaMemcpyToSymbol(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int)); // int  , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int  , MAX_IN1_IR_CNT
+     
+-    cudaMemcpyToSymbol(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) ); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char)); // uchar4, MAX_NUM_PAT
+-    cudaMemcpyToSymbol(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short)); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_weight, t_path_weight.data<double>(), at::numel(t_path_weight)*sizeof(double)); // double, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int)); // int , MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // uchar4, MAX_NUM_PAT
++    cudaMemcpyToSymbolAsync(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_weight, t_path_weight.data<double>(), at::numel(t_path_weight)*sizeof(double), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // double, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_NUM_PATH
+ 
+-    cudaMemcpyToSymbol(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char)); // u_char4), MAX_U_FIBER_CNT 
+-    cudaMemcpyToSymbol(unique_cg_val, t_unique_cg_val.data<double>(), at::numel(t_unique_cg_val)*sizeof(double) ); // double , MAX_U_CG_VAL_CNT
++    cudaMemcpyToSymbolAsync(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // u_char4), MAX_U_FIBER_CNT 
++    cudaMemcpyToSymbolAsync(unique_cg_val, t_unique_cg_val.data<double>(), at::numel(t_unique_cg_val)*sizeof(double) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // double , MAX_U_CG_VAL_CNT
+ 
+     const int shared_memory_bytes = sizeof(double) * per_block_batch * (WARPSIZE * (max_ir_dim*5 + perwarp_in2_size) + in2_size);
+ 
+@@ -298,7 +299,7 @@ void bwd_sptp_linear_cuda_v1_shared_exp_double(
+         bwd_sptp_lienar_kernel_v1_shared_exp<double>,
+         cudaFuncAttributeMaxDynamicSharedMemorySize, shared_memory_bytes));
+ 
+-    bwd_sptp_lienar_kernel_v1_shared_exp<double><<<grid, block, shared_memory_bytes>>>(
++    bwd_sptp_lienar_kernel_v1_shared_exp<double><<<grid, block, shared_memory_bytes, at::cuda::getCurrentCUDAStream()>>>(
+         in1.data<double>(),
+         in2.data<double>(),
+         weight.data<double>(),
+diff --git a/flashTP_e3nn/sptp_exp_opt_large/fwd_sptp_linear_v2_shared_exp.cu b/flashTP_e3nn/sptp_exp_opt_large/fwd_sptp_linear_v2_shared_exp.cu
+index 41800b1..772e295 100644
+--- a/flashTP_e3nn/sptp_exp_opt_large/fwd_sptp_linear_v2_shared_exp.cu
++++ b/flashTP_e3nn/sptp_exp_opt_large/fwd_sptp_linear_v2_shared_exp.cu
+@@ -1,4 +1,5 @@
+ #include "sptp_exp_opt.hpp"
++#include <ATen/cuda/CUDAContext.h>
+ #include <cmath>
+ 
+ #define WARPSIZE 32 
+@@ -200,18 +201,18 @@ void fwd_sptp_linear_cuda_v2_shared_exp(
+     if (in2_size%2 ==0) perwarp_in2_size = in2_size+1;
+ 
+     // setup constant memory 
+-    cudaMemcpyToSymbol(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int)); // int  , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int  , MAX_IN1_IR_CNT
+     
+-    cudaMemcpyToSymbol(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) ); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char)); // uchar4, MAX_NUM_PAT
+-    cudaMemcpyToSymbol(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short)); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_weight, t_path_weight.data<float>(), at::numel(t_path_weight)*sizeof(float)); // float, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int)); // int , MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // uchar4, MAX_NUM_PAT
++    cudaMemcpyToSymbolAsync(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_weight, t_path_weight.data<float>(), at::numel(t_path_weight)*sizeof(float), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // float, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_NUM_PATH
+ 
+     // cudaMemcpyToSymbol(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char)); // u_char4), MAX_U_FIBER_CNT 
+-    cudaMemcpyToSymbol(unique_cg_val, t_unique_cg_val.data<float>(), at::numel(t_unique_cg_val)*sizeof(float) ); // float , MAX_U_CG_VAL_CNT
++    cudaMemcpyToSymbolAsync(unique_cg_val, t_unique_cg_val.data<float>(), at::numel(t_unique_cg_val)*sizeof(float) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // float , MAX_U_CG_VAL_CNT
+ 
+     const int shared_memory_bytes = sizeof(float) * per_block_batch * (WARPSIZE * (max_ir_dim*3) + perwarp_in2_size) + at::numel(t_fiber_array); // + at::numel(t_unique_cg_val)*sizeof(float);
+ 
+@@ -224,7 +225,7 @@ void fwd_sptp_linear_cuda_v2_shared_exp(
+         fwd_sptp_lienar_kernel_v2_shared_exp<float>,
+         cudaFuncAttributeMaxDynamicSharedMemorySize, shared_memory_bytes));
+ 
+-    fwd_sptp_lienar_kernel_v2_shared_exp<float><<<grid, block, shared_memory_bytes>>>(
++    fwd_sptp_lienar_kernel_v2_shared_exp<float><<<grid, block, shared_memory_bytes, at::cuda::getCurrentCUDAStream()>>>(
+         in1.data<float>(),
+         in2.data<float>(),
+         weight.data<float>(),
+diff --git a/flashTP_e3nn/sptp_exp_opt_large/fwd_sptp_linear_v2_shared_exp_double.cu b/flashTP_e3nn/sptp_exp_opt_large/fwd_sptp_linear_v2_shared_exp_double.cu
+index 9631a74..361ca3d 100644
+--- a/flashTP_e3nn/sptp_exp_opt_large/fwd_sptp_linear_v2_shared_exp_double.cu
++++ b/flashTP_e3nn/sptp_exp_opt_large/fwd_sptp_linear_v2_shared_exp_double.cu
+@@ -1,4 +1,5 @@
+ #include "sptp_exp_opt.hpp"
++#include <ATen/cuda/CUDAContext.h>
+ #include <cmath>
+ 
+ #define WARPSIZE 32 
+@@ -198,22 +199,22 @@ void fwd_sptp_linear_cuda_v2_shared_exp_double(
+     if (in2_size%2 ==0) perwarp_in2_size = in2_size+1;
+ 
+     // setup constant memory 
+-    cudaMemcpyToSymbol(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int)); // int , MAX_IN1_IR_CNT
+-    cudaMemcpyToSymbol(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int)); // int  , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_idxing, t_in1_idxing.data<int>(), at::numel(t_in1_idxing)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_ival, t_in1_ival.data<int>(),  at::numel(t_in1_ival)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_IN1_IR_CNT
++    cudaMemcpyToSymbolAsync(in1_related_path_idx, t_in1_related_path_idx.data<int>(), at::numel(t_in1_related_path_idx)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int  , MAX_IN1_IR_CNT
+     
+-    cudaMemcpyToSymbol(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) ); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char)); // uchar4, MAX_NUM_PAT
+-    cudaMemcpyToSymbol(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short)); // ushort2, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(path_weight, t_path_weight.data<double>(), at::numel(t_path_weight)*sizeof(double)); // double, MAX_NUM_PATH
+-    cudaMemcpyToSymbol(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int)); // int , MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array1, t_path_array1.data<u_int>(), at::numel(t_path_array1)*sizeof(u_int) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_array2, t_path_array2.data<u_char>(), at::numel(t_path_array2)*sizeof(u_char), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // uchar4, MAX_NUM_PAT
++    cudaMemcpyToSymbolAsync(per_path_fiber_start, t_per_path_fiber_start.data<u_short>(), at::numel(t_per_path_fiber_start)*sizeof(u_short), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // ushort2, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(path_weight, t_path_weight.data<double>(), at::numel(t_path_weight)*sizeof(double), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // double, MAX_NUM_PATH
++    cudaMemcpyToSymbolAsync(per_path_weight_pos, t_per_path_weight_pos.data<int>(), at::numel(t_per_path_weight_pos)*sizeof(int), 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // int , MAX_NUM_PATH
+ 
+     // cudaMemcpyToSymbol(fiber_array, t_fiber_array.data<u_char>(), at::numel(t_fiber_array)*sizeof(u_char)); // u_char4), MAX_U_FIBER_CNT 
+-    cudaMemcpyToSymbol(unique_cg_val, t_unique_cg_val.data<double>(), at::numel(t_unique_cg_val)*sizeof(double) ); // double , MAX_U_CG_VAL_CNT
++    cudaMemcpyToSymbolAsync(unique_cg_val, t_unique_cg_val.data<double>(), at::numel(t_unique_cg_val)*sizeof(double) , 0, cudaMemcpyDeviceToDevice, at::cuda::getCurrentCUDAStream()); // double , MAX_U_CG_VAL_CNT
+ 
+     const int shared_memory_bytes = sizeof(double) * per_block_batch * (WARPSIZE * (max_ir_dim*3) + perwarp_in2_size) + at::numel(t_fiber_array); // + at::numel(t_unique_cg_val)*sizeof(double);
+     
+-    std::cout << "shared_memory_bytes " << shared_memory_bytes << std::endl;
++    // (graphcap) removed per-call host print of shared_memory_bytes
+     // int carveout = 100;
+     // CHECK_CUDA_ERROR(cudaFuncSetAttribute(
+     //     sptp_all_forward_kernel_v1<double>,
+@@ -223,7 +224,7 @@ void fwd_sptp_linear_cuda_v2_shared_exp_double(
+         fwd_sptp_lienar_kernel_v2_shared_exp<double>,
+         cudaFuncAttributeMaxDynamicSharedMemorySize, shared_memory_bytes));
+ 
+-    fwd_sptp_lienar_kernel_v2_shared_exp<double><<<grid, block, shared_memory_bytes>>>(
++    fwd_sptp_lienar_kernel_v2_shared_exp<double><<<grid, block, shared_memory_bytes, at::cuda::getCurrentCUDAStream()>>>(
+         in1.data<double>(),
+         in2.data<double>(),
+         weight.data<double>(),

@@ -1,0 +1,13 @@
+{
+ "src": "results/workloads/systems/wbox648.extxyz (already 30 FIRE e3nn fp64)",
+ "mb_seed": 20261109,
+ "name": "wbox648",
+ "n_atoms": 648,
+ "pbc": [
+  true,
+  true,
+  true
+ ],
+ "T_start_K": 295.53259536138546,
+ "slurm_job": "1068"
+}
