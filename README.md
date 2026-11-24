@@ -13,6 +13,7 @@ Headline (complete step from GPU-resident coordinates, ms; Phase 9 job 1145/1146
 | wbox2187 (periodic) | 2187 | 208.7 | 10.74 | 19x |
 | wbox5184 (periodic) | 5184 | 446 | 23.9 | 19x |
 
+- `REPORT.md` — research report: how the speedup was achieved, correctness, timings, next steps.
 - `STUDY_INDEX.md` — per-phase index of every script and result (original study README).
 - `scripts/`, `results/`, `logs/` — everything from the study under 5 MB per file (no `__pycache__`).
 - `LARGE_FILES_MANIFEST.txt` — files >= 5 MB (captured tensors, ncu reports) kept on the cluster, with sha256.
