@@ -1,0 +1,204 @@
+\section{End-to-end results and attribution}
+\label{sec:results}
+
+\subsection{The ladder}
+\Cref{fig:ladder} follows two systems through the phases at a constant \emph{model-only} boundary (prebuilt graph on GPU, forward+force backward), which is the only boundary measured in every phase. \Cref{tab:ladder} gives the same numbers.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.92\textwidth, height=6.2cm,
+  ymode=log, log basis y=10,
+  ylabel={model fwd+bwd, ms (log)},
+  symbolic x coords={stock,hybrid eager,graphed,+fused,node conv,GPUStep},
+  xtick=data, x tick label style={font=\small,rotate=15,anchor=north east},
+  ymin=0.4, ymax=60,
+  legend style={at={(0.98,0.97)},anchor=north east,font=\small},
+  grid=major, grid style={gray!20},
+  nodes near coords, every node near coord/.append style={font=\scriptsize},
+  point meta=explicit symbolic]
+\addplot[mark=*,thick,cnew,every node near coord/.append style={anchor=south,yshift=2pt}] coordinates {
+  (stock,36.63)[36.6] (hybrid eager,17.35)[17.4] (graphed,7.64)[7.64] (+fused,6.50)[6.50] (node conv,3.00)[3.00] (GPUStep,3.03)[3.03]};
+\addplot[mark=square*,thick,cnode,every node near coord/.append style={anchor=north,yshift=-2pt}] coordinates {
+  (stock,13.76)[13.8] (hybrid eager,17.01)[17.0] (graphed,1.37)[1.37] (+fused,0.744)[0.74] (node conv,0.791)[0.79] (GPUStep,0.807)[0.81]};
+\legend{water648 (648 atoms), aspirin (21 atoms)}
+\end{axis}
+\end{tikzpicture}
+\caption{Model-only time (prebuilt graph) through the phases. GPUStep's value includes its in-graph neighbour build. Sources: profile6 (stock, hybrid eager), validate7 PROFILE (graphed), validate7 (fused), prof8 (node), int9 final (GPUStep \Bone).}
+\label{fig:ladder}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\caption{Phase attribution at the model-only boundary, ms; factor relative to the previous step.}
+\label{tab:ladder}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Step & water648 & factor & aspirin & factor \\
+\midrule
+Stock e3nn, eager (Phase 6) & 36.63 & --- & 13.76 & --- \\
+Hybrid (FlashTP FP64-CG + cueq SC), eager & 17.35 & 2.11$\times$ & 17.01 & \textcolor{cbad}{0.81$\times$} \\
+Hybrid, CUDA graph & 7.64 & 2.27$\times$ & 1.37 & 12.4$\times$ \\
++ fused embedding + fused node op & 6.50 & 1.18$\times$ & 0.744 & 1.84$\times$ \\
+Node-centric convolution (node-hybrid) & 3.00 & 2.17$\times$ & 0.791 & \textcolor{cbad}{0.94$\times$} \\
+GPUStep \Bone{} (includes neighbour build) & 3.03 & 0.99$\times$ & 0.807 & 0.98$\times$ \\
+\midrule
+\textbf{Total} & & \textbf{12.1$\times$} & & \textbf{17.1$\times$} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The phases did very different work at the two sizes: at aspirin, CUDA graphs and the reduction of graph nodes by fusion account for almost all of the gain; at 648 atoms the gain is spread over kernel replacement (2.1$\times$), capture (2.3$\times$) and the node-centric convolution (2.2$\times$). Two steps lost time at aspirin (the eager hybrid and the node convolution), which we kept because they won at the sizes that matter for MD.
+
+\subsection{Final apples-to-apples timing}
+\Cref{tab:final} is the Phase-9 comparison of all four backends at all three boundaries on the same GPUs, runs A (job 1145) and B (job 1146) agreeing within 2\%; \Bthree{} is from job 1147 (stock \Bthree{} uses ASE, jobs 1084/1129). \Cref{fig:final-speedup} plots the \Btwo{} speedups.
+
+\begin{table}[p]
+\centering
+\caption{Final timings, median ms (run A). \Bone: replay with prebuilt graph (GPUStep includes its NL). \Btwo: complete step from GPU-resident coordinates. \Bthree: sustained MD ms/step. FlashTP-hyb = Phase-7 graphed hybrid+fused; node-hyb = Phase 8.}
+\label{tab:final}
+\small
+\begin{tabular}{llrrrrr}
+\toprule
+System & Backend & \Bone & \Btwo & \Bthree & \Btwo{} vs stock & peak MiB \\
+\midrule
+\multirow{4}{*}{aspirin (21)} & stock & 11.61 & 16.34 & --- & 1.0 & 113 \\
+ & FlashTP-hyb & 0.679 & 0.910 & --- & 18.0 & 143 \\
+ & node-hyb & 0.754 & 0.938 & 1.366 & 17.4 & 77 \\
+ & \textbf{GPUStep} & 0.807 & \textbf{0.814} & \textbf{0.896} & \textbf{20.1} & 77 \\
+\midrule
+\multirow{4}{*}{water192} & stock & 13.45 & 18.10 & 18.03 & 1.0 & 1132 \\
+ & FlashTP-hyb & 2.188 & 2.372 & --- & 7.6 & 312 \\
+ & node-hyb & 1.517 & 1.704 & 2.133 & 10.6 & 296 \\
+ & \textbf{GPUStep} & 1.553 & \textbf{1.560} & \textbf{1.601} & \textbf{11.6} & 296 \\
+\midrule
+\multirow{4}{*}{wbox192 (P)} & stock & 15.82 & 22.01 & --- & 1.0 & 1623 \\
+ & FlashTP-hyb & 2.948 & 3.605 & --- & 6.1 & 443 \\
+ & node-hyb & 1.730 & 2.380 & 2.784 & 9.2 & 423 \\
+ & GPUStep (fallback) & 1.739 & 2.414 & 2.342 & 9.1 & 423 \\
+\midrule
+\multirow{4}{*}{org648} & stock & 27.87 & 35.21 & --- & 1.0 & 2857 \\
+ & FlashTP-hyb & 4.185 & 4.374 & --- & 8.0 & 642 \\
+ & node-hyb & 2.320 & 2.514 & 2.980 & 14.0 & 598 \\
+ & \textbf{GPUStep} & 2.352 & \textbf{2.360} & \textbf{2.409} & \textbf{14.9} & 597 \\
+\midrule
+\multirow{4}{*}{water648} & stock & 36.39 & 45.45 & 45.86 & 1.0 & 4307 \\
+ & FlashTP-hyb & 6.481 & 6.682 & --- & 6.8 & 1039 \\
+ & node-hyb & 2.989 & 3.183 & 3.643 & 14.3 & 981 \\
+ & \textbf{GPUStep} & 3.028 & \textbf{3.044} & \textbf{3.082} & \textbf{14.9} & 976 \\
+\midrule
+\multirow{4}{*}{wbox648 (P)} & stock & 43.21 & 56.29 & 55.96 & 1.0 & 5445 \\
+ & FlashTP-hyb & 8.382 & 9.584 & --- & 5.9 & 1339 \\
+ & node-hyb & 3.667 & 4.851 & 5.236 & 11.6 & 1270 \\
+ & \textbf{GPUStep} & 3.723 & \textbf{3.733} & \textbf{3.773} & \textbf{15.1} & 1265 \\
+\midrule
+\multirow{4}{*}{water2187} & stock & 120.9 & 141.8 & 143.9 & 1.0 & 15720 \\
+ & FlashTP-hyb & 22.66 & 23.06 & --- & 6.1 & 3653 \\
+ & node-hyb & 9.181 & 9.568 & 10.148 & 14.8 & 3450 \\
+ & \textbf{GPUStep} & 9.248 & \textbf{9.251} & \textbf{9.310} & \textbf{15.3} & 3440 \\
+\midrule
+\multirow{4}{*}{wbox2187 (P)} & stock & 136.4 & 208.7 & 210.1 & 1.0 & 18332 \\
+ & FlashTP-hyb & 26.83 & 34.52 & --- & 6.0 & 4295 \\
+ & node-hyb & 10.66 & 18.36 & 18.88 & 11.4 & 4130 \\
+ & \textbf{GPUStep} & 10.74 & \textbf{10.74} & \textbf{10.84} & \textbf{19.4} & 4111 \\
+\midrule
+\multirow{4}{*}{water5184} & stock & 290.5 & 400.5 & 397.6 & 1.0 & 38714 \\
+ & FlashTP-hyb & 55.48 & 56.81 & --- & 7.0 & 8905 \\
+ & node-hyb & 21.22 & 22.53 & 23.27 & 17.8 & 8408 \\
+ & \textbf{GPUStep} & 21.35 & \textbf{21.37} & \textbf{21.54} & \textbf{18.7} & 8382 \\
+\midrule
+\multirow{4}{*}{wbox5184 (P)} & stock & 319.3 & 445.6 & 437.8 & 1.0 & 43406 \\
+ & FlashTP-hyb & 63.26 & 105.57 & --- & 4.2 & 10169 \\
+ & node-hyb & 23.78 & 66.05 & 66.84 & 6.7 & 9628 \\
+ & \textbf{GPUStep} & 23.90 & \textbf{23.95} & \textbf{24.09} & \textbf{18.6} & 9575 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  ybar, bar width=5pt,
+  width=\textwidth, height=6.5cm,
+  ylabel={\Btwo{} speedup over stock},
+  symbolic x coords={aspirin,water192,wbox192,org648,water648,wbox648,water2187,wbox2187,water5184,wbox5184},
+  xtick=data, x tick label style={font=\scriptsize,rotate=30,anchor=north east},
+  ymin=0, ymax=23, enlarge x limits=0.06,
+  legend style={at={(0.5,1.02)},anchor=south,legend columns=3,font=\small},
+  grid=major, grid style={gray!20}, ymajorgrids=true, xmajorgrids=false]
+\addplot[fill=cflash,draw=none] coordinates {(aspirin,18.0)(water192,7.6)(wbox192,6.1)(org648,8.0)(water648,6.8)(wbox648,5.9)(water2187,6.1)(wbox2187,6.0)(water5184,7.0)(wbox5184,4.2)};
+\addplot[fill=cnode,draw=none] coordinates {(aspirin,17.4)(water192,10.6)(wbox192,9.2)(org648,14.0)(water648,14.3)(wbox648,11.6)(water2187,14.8)(wbox2187,11.4)(water5184,17.8)(wbox5184,6.7)};
+\addplot[fill=cnew,draw=none,nodes near coords,every node near coord/.append style={font=\tiny,/pgf/number format/fixed,/pgf/number format/precision=0}] coordinates {(aspirin,20.1)(water192,11.6)(wbox192,9.1)(org648,14.9)(water648,14.9)(wbox648,15.1)(water2187,15.3)(wbox2187,19.4)(water5184,18.7)(wbox5184,18.6)};
+\legend{FlashTP hybrid (Phase 7), node-hybrid (Phase 8), GPUStep (Phase 9)}
+\end{axis}
+\end{tikzpicture}
+\caption{Complete-step (\Btwo) speedup over stock eager FP64 MACE. wbox = periodic; wbox192 uses the fallback builder.}
+\label{fig:final-speedup}
+\end{figure}
+
+\paragraph{Reading the table.}
+\begin{itemize}
+  \item GPUStep's \Bone{} is 0.04--0.2\,ms \emph{above} node-hybrid's at $\ge$2{,}187 atoms (it includes the 0.05--0.08\,ms builder and the $\sim$50\us{} padding fix-up), but its \Btwo{} is the best everywhere it applies, because it is equal to its \Bone{}.
+  \item Phase~9 gains 1.71$\times$ (wbox2187) and 2.76$\times$ (wbox5184) over Phase~8 at \Btwo{} for periodic boxes, and only 1.03--1.09$\times$ for clusters, where the old builder was 3--6\% of the step.
+  \item \Bthree{} tracks \Btwo{} within 0.02--0.18\,ms: integration and the every-10-steps check are nearly free. Against stock ASE MD, sustained throughput is 11.4$\times$ (water192) to 19.4$\times$ (wbox2187).
+  \item The same graph with the FlashTP convolution instead of the node convolution (``GPUStep w/ FlashTP'', not shown) was never faster (aspirin 0.872 vs 0.814\,ms), so no small-$N$ dispatch is needed.
+  \item Peak memory is unchanged from node-hybrid and 4.5$\times$ below stock at 5{,}184 atoms (9.6 vs 43.4\,GB); by memory, node-hybrid would fit $\sim$40{,}000 water atoms on 80\,GB versus $\sim$9{,}000 for stock.
+  \item Host synchronisations per MD step: stock 38, ASE 43, Phase-8 graphed 2 (clusters) to 30 (wbox5184), GPUStep 0 (+0.1 from \code{check()}).
+  \item First capture costs 0.24--0.84\,s per key; build/install 0.47\,s.
+\end{itemize}
+
+\subsection{Where the remaining time goes}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  xbar stacked, bar width=14pt,
+  width=0.95\textwidth, height=3.8cm, enlarge y limits=0.6,
+  xlabel={GPU kernel time per step, ms (wbox5184)},
+  symbolic y coords={GPUStep,Phase 8},
+  ytick=data, xmin=0, xmax=68,
+  legend style={at={(0.5,-0.42)},anchor=north,legend columns=4,font=\scriptsize},
+  reverse legend=false]
+\addplot[fill=cbad!70,draw=none] coordinates {(41.995,Phase 8) (0.052,GPUStep)};
+\addplot[fill=cnew,draw=none] coordinates {(6.441,Phase 8) (6.518,GPUStep)};
+\addplot[fill=cnew!60,draw=none] coordinates {(5.981,Phase 8) (5.975,GPUStep)};
+\addplot[fill=cnew!35,draw=none] coordinates {(5.483,Phase 8) (5.546,GPUStep)};
+\addplot[fill=cnode,draw=none] coordinates {(2.370,Phase 8) (2.367,GPUStep)};
+\addplot[fill=cflash,draw=none] coordinates {(2.294,Phase 8) (2.269,GPUStep)};
+\addplot[fill=gray!40,draw=none] coordinates {(1.196,Phase 8) (1.137,GPUStep)};
+\legend{neighbour list, conv backward, GEMM (radial MLP + linears), elementwise, fused node op, conv forward, other}
+\end{axis}
+\end{tikzpicture}
+\caption{Profile of one step at wbox5184 (job 1145, torch.profiler). The neighbour list falls from 42.0\,ms to 0.05\,ms; the model is unchanged.}
+\label{fig:profile}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\caption{GPU kernel time per step, \us{} (share), GPUStep (job 1145).}
+\label{tab:prof9}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Category & wbox5184 & water5184 & wbox2187 \\
+\midrule
+conv backward (node) & 6518 (27.3\%) & 5651 (26.5\%) & 2901 (27.1\%) \\
+GEMM (radial MLP + linears) & 5975 (25.0\%) & 5229 (24.5\%) & 2639 (24.7\%) \\
+elementwise & 5546 (23.2\%) & 4928 (23.1\%) & 2484 (23.2\%) \\
+fused node op & 2367 (9.9\%) & 2365 (11.1\%) & 1022 (9.6\%) \\
+conv forward (node) & 2269 (9.5\%) & 2020 (9.5\%) & 1005 (9.4\%) \\
+cueq symmetric contraction & 487 (2.0\%) & 486 (2.3\%) & 215 \\
+scatter/gather/index & 261 & 237 & 167 \\
+fused embedding & 232 & 202 & 106 \\
+sort/search (MACE index bwd) & 85 & 83 & 55 \\
+neighbour list & 52 & 49 & 40 \\
+\midrule
+kernel sum / wall & 23{,}864 / 23{,}976 & 21{,}320 / 21{,}416 & 10{,}685 / 10{,}778 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The step is now $\sim$99\% GPU-busy and 100\% model (\cref{fig:profile,tab:prof9}). The top individual kernels at wbox5184 are the node backward (6.5\,ms), an \code{AUnaryFunctor<double>} elementwise kernel (2.9\,ms), an \code{sm90} FP64 GEMM (2.7\,ms), the fused node GEMM (2.4\,ms), SiLU (1.8\,ms) and the node forward (1.6\,ms). At aspirin, by contrast, the GPU is busy only 756 of 1{,}247\us{} under the profiler: small systems remain launch-latency-bound even inside a graph.

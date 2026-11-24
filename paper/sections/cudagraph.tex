@@ -1,0 +1,68 @@
+\section{Phases 6--7: whole-model CUDA-graph capture}
+\label{sec:cudagraph}
+
+\subsection{Design study: is a megakernel justified?}
+Before writing code, Phase~6 ranked fusion boundaries by measured headroom (\code{results/design6/DESIGN.md}). The verdict on a persistent ``megakernel'' was \emph{no}: (i) at small $N$ the cost is host dispatch (GPU 8/12/40\% busy at 21/200/650 atoms) and graph replay alone removes 85--90\% of the attainable time; (ii) at 650 atoms FlashTP is 4.1 of 7.0\,ms of GPU time and is pinned at one block per SM by shared memory, an occupancy any fused stage would inherit; (iii) what only a persistent kernel adds is the removal of 20--40 inter-kernel gaps of 3--5\us, i.e.\ 0.1--0.3\,ms; (iv) it would require re-implementing FlashTP, the cueq contraction and FP64 GEMMs with a hand-written reverse pass and $\sim$10--12 grid-wide barriers. \Cref{tab:rank6} reproduces the ranking.
+
+\begin{table}[h]
+\centering
+\caption{Ranked fusion opportunities (Phase 6). Estimated speedups vs the best existing backend; e = eager, r = on top of graph replay.}
+\label{tab:rank6}
+\small
+\begin{tabularx}{\textwidth}{rXrrrl}
+\toprule
+Rank & Boundary & aspirin & $\sim$200 & $\sim$650 & Difficulty \\
+\midrule
+1 & whole fwd+bwd CUDA-graph replay (padded $E$, FlashTP stream fix) & 2.85--5.5$\times$ & 2.3--3.8$\times$ & 1.55--2.15$\times$ & medium \\
+2 & SC$\to$linear$\to$readout / cueq host path & e 1.3--1.4$\times$; r $\le$1.03 & e 1.3--1.4 & r $\le$1.02 & low--med \\
+3 & fold linear$\cdot\bar n^{-1}\cdot$skip\_tp to one GEMM & r 1.06--1.16 & r 1.07--1.19 & r 1.06--1.13 & low \\
+4 & radial MLP fused into the conv & $\le$1.03--1.09 & $\le$1.05--1.12 & $\le$1.08--1.19 & high \\
+5 & persistent megakernel & $\le$1.1 over 1--4 & $\le$1.1 & $\le$1.05 & very high \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Capturing autograd with a variable edge count}
+A CUDA graph~\cite{cudagraphs} freezes pointers and shapes; the edge count $E$ changes every MD step. We capture \code{model(compute\_force=True)}, i.e.\ forward plus \code{autograd.grad}, at a fixed capacity $E_{\text{cap}} = \max(64,\lceil1.2E\rceil_{64})$ and fill unused slots with \emph{padding edges} that contribute exactly zero:
+
+\begin{quote}
+Padding edge $k\ge E$ is a self-edge on some node with integer image shift $(m,0,0)$ chosen so that $|\text{shift}|\ge2r_{\max}$. Then (a) MACE's polynomial envelope multiplied by $\mathbb 1[r<r_{\max}]$ is exactly $0$; (b) the Bessel radial features are exactly $0$; (c) the bias-free radial MLP with $\mathrm{silu}(0)=0$ yields exactly zero tensor-product weights; (d) the message is $+0.0$; (e) the spherical harmonics are finite (no division by zero); and (f) the position gradient through a self-edge is $g-g=0$ exactly.
+\end{quote}
+
+$E=0$ needs no special case: all edges are padding. If $E>E_{\text{cap}}$ the graph is recaptured at $\lceil1.25E\rceil_{64}$. For stress, MACE recomputes shifts from the displaced cell, so the padding image multiplier is $m=\max(1,\lceil2r_{\max}/|\text{cell}_0|\rceil)$, computed on the GPU at every load.
+
+\subsection{FlashTP escapes capture}
+Stock FlashTP launches on the legacy default stream and uploads its metadata with synchronous \code{cudaMemcpyToSymbol}. Capturing it either raised \code{cudaErrorStreamCaptureImplicit} or, late in a process, \emph{succeeded without capturing the kernels}: replay took 0.108\,ms against 1.09\,ms of FlashTP work, and forces differed from eager by 576\,\eVA{} (hybrid) and 0.30\,\eVA{} (flash) while e3nn matched to $1.3\times10^{-15}$. A 580-line patch (\code{exp/graph-capture} @ \code{415e7a3}) moves every launch to \code{at::cuda::getCurrentCUDAStream()} and every constant upload to \code{cudaMemcpyToSymbolAsync(\ldots, DeviceToDevice, stream)}, and removes a per-call \code{std::cout}. The lesson we adopted: \emph{gate every captured graph against eager parity; never against ``no exception''}.
+
+\subsection{Phase 6 result and the hazards found by validation}
+Graph replay of the hybrid gave 11.7$\times$ at aspirin (16.86$\to$1.44\,ms), 5.6$\times$ at water192 and 2.2$\times$ at water648; launch API calls fell from 601 to 11. An independent validation agent then found two silent-wrong-result hazards:
+\begin{itemize}
+  \item \textbf{Same $N$, different species order.} \code{node\_attrs} and \code{atomic\_numbers} were captured statics. Reversed-species aspirin replayed the old graph and returned $|\Delta E|/N=6.7$\,eV and $|\Delta F|=308$\,\eVA{} with no error.
+  \item \textbf{Different $N$.} A stale \code{self.N} could index padding \code{k mod N} out of range.
+\end{itemize}
+It also found the eager baselines in the Phase-6 table $\sim$10\% too slow (quoted speedups inflated by 7--10\%) and a mislabelled memory column.
+
+\subsection{The corrected runner (Phase 7)}
+\code{scripts/graphed7/graphed\_runner.py} keys each graph on the tuple ($N$, atomic numbers in order, pbc, cell-is-zero, head, dtype, stress flag), keeps up to four graphs in an LRU, re-checks species on the host before every replay, owns per-graph node statics, and builds a fresh graph on capacity overflow rather than mutating one in place. It adds captured stress (a $[1,3,3]$ displacement created inside the capture). Across 142 test rows (walks, recapture, strained cells, species and size traps, LRU eviction) the worst errors were $1.3\times10^{-12}$\,eV/atom and $2.8\times10^{-14}$\,\eVA{} ($2.4\times10^{-12}$ at reversed-species aspirin where $|F|$ reaches 308\,\eVA, i.e.\ $8\times10^{-15}$ relative). The fixes cost nothing measurable ($\le0.7\%$). The first-ever capture in a process takes 13.5\,s, dominated by cuEquivariance JIT.
+
+\subsection{What the graph exposed}
+\Cref{tab:replayprof} profiles one replay (Phase 7, job 1033). With launch overhead gone, aspirin is still 16\% idle (inter-kernel gaps of 598 tiny kernels averaging 1.9\us) while water648 is 97\% busy and 60\% FlashTP. Padding costs up to 12.7\%.
+
+\begin{table}[h]
+\centering
+\caption{Graph replay of the hybrid (Phase 7, job 1033).}
+\label{tab:replayprof}
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+System & replay ms & busy & kernels & mean kernel & FlashTP share & padding cost \\
+\midrule
+aspirin & 1.372 & 84\% & 598 & 1.9\us & 10.9\% & +0.6\% \\
+water192 & 2.937 & 92\% & 607 & 4.4\us & --- & +8.9\% \\
+water648 & 7.641 & 97\% & 609 & 12.2\us & 59.9\% & +11.7\% \\
+wbox648 & 9.543 & 98\% & 609 & 15.4\us & 63.9\% & +12.7\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A roofline view at water648 is telling: FlashTP achieves 332\,GB/s (9.9\% of 3.35\,TB/s) while the radial MLP's FP64 GEMMs reach 27.7\,TFLOP/s (41\% of the 67\,TFLOP/s FP64 tensor peak). The convolution was far from any hardware limit, motivating \cref{sec:nodeconv}; the small-system idle time motivated \cref{sec:fusion}.

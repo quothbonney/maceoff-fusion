@@ -1,0 +1,41 @@
+\section{Introduction}
+\label{sec:intro}
+
+Machine-learned interatomic potentials (MLIPs) built on $E(3)$-equivariant message passing have become the accuracy workhorse for organic and materials simulation. MACE~\cite{batatia2022mace}, and in particular the transferable organic force field MACE-OFF~\cite{kovacs2023maceoff}, sit at a favourable point on the accuracy--cost curve: two interaction layers with high body-order messages replace the deep stacks of earlier equivariant networks. Even so, a single energy+force evaluation of the stock MACE-OFF23 \emph{medium} model in double precision takes 16\,ms for a 21-atom molecule and 446\,ms for a 5{,}184-atom periodic water box on an NVIDIA H100 (\cref{sec:results}). For molecular dynamics (MD), where one wants $10^5$--$10^7$ sequential steps, that latency is the binding constraint.
+
+This report documents a nine-phase engineering study whose goal was to make single-system, FP64 MACE-OFF23-medium inference on one H100 as fast as possible \emph{without changing its numerical result}: every optimised path was required to reproduce stock eager FP64 MACE to within $10^{-11}$\,eV/atom in energy and $10^{-11}$\,\eVA{} in force, with bitwise-identical neighbour sets. The final pipeline evaluates a complete MD step (neighbour list, forward, backward, and integration) entirely on the GPU, inside one CUDA graph, with zero host synchronisations per step. At the complete-step boundary it is 12--20$\times$ faster than stock MACE on every geometry the new neighbour builder supports, and 9$\times$ on the one small periodic cell that falls back to the older path (\cref{fig:final-speedup}).
+
+\paragraph{What this report is and is not.}
+The individual techniques are, almost without exception, known: fused tensor-product convolutions (FlashTP~\cite{lee2025flashtp}, OpenEquivariance~\cite{bharadwaj2025oeq}, cuEquivariance~\cite{cuequivariance}), destination-node (\emph{node-centric}) convolution with on-chip accumulation (LunaTP~\cite{lunatp}), CUDA-graph capture with padded edge buffers (as also used by e3j~\cite{e3j} and by MACE's own \code{compile\_mode}~\cite{mace_v0316}), and GPU cell lists (HOOMD~\cite{anderson2008hoomd}, JAX~MD~\cite{schoenholz2020jaxmd}). What we contribute is (i)~a careful, measured composition of all of them for FP64 MACE-OFF inference, (ii)~a set of correctness findings that the component libraries' own tests did not catch, (iii)~a phase-by-phase attribution of where the time went and why each step was taken, and (iv)~an honest catalogue of what did not work. We deliberately do \emph{not} claim state of the art: the strongest relevant baseline (MACE~0.3.17 with cuEquivariance and \code{torch.compile(mode="reduce-overhead")}) was available in the installed software but was not measured, and is the first experiment we recommend (\cref{sec:discussion}).
+
+\paragraph{Contributions.}
+\begin{enumerate}
+  \item \textbf{A precision bug in FlashTP's FP64 mode.} Upstream FlashTP rounds its Clebsch--Gordan (CG) table to FP32 even when asked for FP64, producing $2$--$3\times10^{-9}$\,eV/atom and $3$--$10\times10^{-8}$\,\eVA{} errors against e3nn while its own test harness reports ``All Good''. We identify two independent root causes and give a 4-file, $+40/-9$ patch that restores $\sim10^{-15}$ relative agreement (\cref{sec:precision}).
+  \item \textbf{A quantitative bottleneck map} of stock MACE-OFF23 inference across 3--5{,}184 atoms: a host launch floor below $\sim$650 atoms, two generic equivariant operators above it, and synchronous host-side graph construction throughout (\cref{sec:baseline}).
+  \item \textbf{A safe CUDA-graph runner} for MACE with padded edge capacity, keyed graphs and recapture, including the discovery of two ``silent wrong result'' hazards (species-order reuse, 6.7\,eV/atom error; and stock FlashTP kernels escaping capture, 576\,\eVA{} error) (\cref{sec:cudagraph}).
+  \item \textbf{Two fused kernels}: an FP64 edge embedding (spherical harmonics + Bessel radial basis + polynomial cutoff, forward and backward) and an algebraic per-species fold of the post-convolution linear, $1/\bar n$ normalisation and skip tensor product into one FP64 tensor-core GEMM (\cref{sec:fusion}).
+  \item \textbf{A capturable node-centric FP64 convolution} with a \emph{single fused source-centric backward} that produces all three gradients without atomics; 4.2$\times$ faster than FlashTP on the L1 convolution at 648 atoms (\cref{sec:nodeconv}). The forward follows LunaTP's node-centric organisation; the capturability and the fused backward are ours.
+  \item \textbf{A GPU-resident MD step}: a GPU cell-list builder that emits destination-sorted edges and both CSR views without any sort or host readback, bitwise-equal to the reference builder, captured together with the model in one CUDA graph, with explicit overflow detection that can never return a plausible-looking wrong answer (\cref{sec:gpustep}).
+  \item \textbf{A negative-results ledger} of more than twenty ideas, bugs and dead ends with their measured cost (\cref{sec:negative}).
+\end{enumerate}
+
+\paragraph{Headline numbers.} \Cref{tab:headline} summarises the end state at the complete-step boundary (\Btwo, defined in \cref{sec:method}).
+
+\begin{table}[h]
+\centering
+\caption{Complete step from GPU-resident coordinates (\Btwo), median ms, Phase~9 jobs 1145/1146 (agreement within 2\%). Speedups are relative to stock eager FP64 MACE.}
+\label{tab:headline}
+\begin{tabular}{lrrrr}
+\toprule
+System & Atoms & Stock (ms) & Final (ms) & Speedup \\
+\midrule
+aspirin & 21 & 16.3 & 0.814 & 20.0$\times$ \\
+water cluster & 648 & 45.5 & 3.04 & 15.0$\times$ \\
+periodic water box & 2{,}187 & 208.7 & 10.74 & 19.4$\times$ \\
+periodic water box & 5{,}184 & 446 & 23.9 & 18.7$\times$ \\
+periodic water box (fallback) & 192 & 22.0 & 2.41 & 9.1$\times$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{How the study was run.} Each phase was specified by a short written brief and executed by 1--4 parallel software agents working in disjoint directories under a coordinator-owned interface contract (e.g.\ \code{results/phase9/INTERFACES.md}). Every phase began by hashing all earlier artefacts and ended by verifying them unchanged; every timing was reproduced in at least two Slurm jobs; every performance claim was gated on a correctness check against eager stock MACE. The repository accompanying this report contains all scripts, results and logs; \cref{app:repro} maps every table to its source file.

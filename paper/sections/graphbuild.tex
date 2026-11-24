@@ -1,0 +1,24 @@
+\section{Phase 5: moving graph construction to the GPU}
+\label{sec:graphbuild}
+
+The prototype builder (\code{scripts/graph/proto\_graph.py}) caches every per-configuration tensor (species one-hots, head, \code{ptr}, \code{batch}) on the GPU keyed by $(Z,\text{pbc},\text{head})$, packs positions, cell, reciprocal cell and volume into one pinned FP64 buffer for a single host-to-device copy, and builds the neighbour list by brute force over all pairs and the required periodic images ($d<r_{\max}$, zero-image self pairs removed), reproducing matscipy's integer-shift convention. A \code{nonzero()} compacts the hits, which costs one host synchronisation. Its output is bitwise equal to stock after sorting edges (energy difference 0, force difference $\le3.1\times10^{-15}$).
+
+\begin{table}[h]
+\centering
+\caption{End-to-end (host coordinates in, E and F back) with the GPU prototype builder, median ms; speedup vs stock e3nn (Phase 5, job 1013).}
+\label{tab:e2e5}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+System & e3nn stock & FlashTP + proto & hybrid stock & hybrid + proto \\
+\midrule
+H$_2$O & 14.74 & 10.25 (1.44) & 18.86 (0.78) & 16.11 (0.92) \\
+water192 & 17.53 & 10.43 (1.68) & 19.83 (0.88) & 15.96 (1.10) \\
+water648 & 45.00 & 21.41 (2.10) & 24.72 (1.82) & 16.48 (2.73) \\
+water1536 & 101.01 & 45.66 (2.21) & 36.42 (2.77) & \textbf{20.47 (4.93)} \\
+waterbox648 & 55.46 & 23.64 (2.35) & 28.48 (1.95) & 17.36 (3.20) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The builder took 0.38--0.53\,ms for clusters up to 1{,}536 atoms, of which the GPU neighbour search was 0.10--0.23\,ms, and 1.40\,ms for the 648-atom box. Two weaknesses were noted at the time and became important in Phase~9: it is $O(N^2)$ (at 5{,}184 atoms in a box it takes 42\,ms, 64\% of the step), and the \code{nonzero()} compaction is a host synchronisation that prevents capture in a CUDA graph. For periodic boxes it loops over 27 images in chunks, incurring 29 synchronisations and 37 memcpy calls per build at 5{,}184 atoms.

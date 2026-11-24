@@ -1,0 +1,37 @@
+\section{Phases 3--5: composing existing kernels}
+\label{sec:backends}
+
+\subsection{Integration mechanism}
+MACE 0.3.17 contains a \code{conv\_fusion} hook in its interaction blocks (originally for cuEquivariance/OpenEquivariance): if the block has that attribute, \code{conv\_tp} is called as \code{conv\_tp(node\_feats, edge\_attrs, tp\_weights, edge\_index)} and must return the already-scattered message. Our adapters swap \code{conv\_tp} in memory, set the flag, and restore the original objects on uninstall; no MACE file is edited. The hardened v2 adapter (Phase~5) validates before installing, rejects unsupported block classes, dtypes and index ranges with a typed error, routes zero-edge graphs around the kernel (upstream FlashTP raises ``invalid configuration argument'' at $E=0$), keeps exactly the stock \code{state\_dict} keys via hooks, and asserts at build time that the CG table is FP64 and within $10^{-14}$ of e3nn.
+
+A Phase-3 adapter bug is worth recording: it cached the int32 copy of \code{edge\_index} keyed on \code{(data\_ptr, numel, \_version)}. PyTorch's caching allocator reuses addresses, so a new neighbour list could hit the stale cache entry. Fixed geometries passed; a 5-step random walk produced force errors of 13--79\,\eVA. The cache was removed (the cast now happens every call).
+
+\subsection{The hybrid backend}
+cuEquivariance's symmetric contraction is fast on the GPU (21.7\,MB saved for backward vs 995\,MB for e3nn at water648) and FlashTP's convolution is fast; neither library's whole-model path was best. The \emph{hybrid} takes the e3nn model, installs FlashTP (FP64 CG) for both convolutions, converts a deep copy with MACE's \code{convert\_e3nn\_cueq} and transplants only its \code{SymmetricContraction} modules, wrapped to transpose between e3nn's \code{mul\_ir} and cuEquivariance's \code{ir\_mul} layouts and to pass the element index $\arg\max(\text{node\_attrs})$. Layer parity is $\le2.1\times10^{-15}$ relative; whole-model forces $\le2.1\times10^{-14}$\,\eVA{} over random walks.
+
+\subsection{Eager results}
+\Cref{tab:bench4} shows the four-way comparison at the ASE boundary (Phase 4, run 1; run 2 within 1--2\%). Eagerly, no backend wins everywhere: FlashTP alone is best for small molecules (1.14$\times$), the hybrid for 400--650 atoms (1.8$\times$), and the hybrid and full cuEquivariance tie at 1{,}536 atoms (2.8$\times$). cuEquivariance is 1.5$\times$ \emph{slower} than stock at small $N$ because of its $\sim$10\,ms host floor, and its first call costs 10.8\,s of JIT.
+
+\begin{table}[h]
+\centering
+\caption{ASE call (host coordinates in, forces out), median ms; speedup vs e3nn in parentheses (Phase 4, job 994).}
+\label{tab:bench4}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+System & e3nn & FlashTP (FP64 CG) & cuEquivariance & hybrid \\
+\midrule
+H$_2$O & 14.67 & 12.82 (1.14) & 21.87 (0.67) & 18.56 (0.79) \\
+water192 & 17.61 & 14.25 (1.24) & 23.25 (0.76) & 19.99 (0.88) \\
+water648 & 44.73 & 29.19 (1.53) & 27.88 (1.60) & 24.31 (1.84) \\
+water1536 & 101.15 & 61.41 (1.65) & 35.94 (2.81) & 36.09 (2.80) \\
+\midrule
+peak MiB, water648 & 4302 & 2161 & 1020 & 1076 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The 12-system workload sweep of Phase~5 (organic clusters, water series, periodic boxes; \code{results/workloads/summary\_v2.md}) confirmed the crossover: FlashTP fastest up to $\sim$480 atoms (1.12--1.44$\times$), hybrid fastest beyond (1.50$\times$ org648, 1.80$\times$ water648, 1.90$\times$ wbox648).
+
+\subsection{Why eager composition stalls}
+At water648 the hybrid's forward is 8.7\,ms of wall for 2.5\,ms of GPU work (\cref{tab:stockprof}). Faster kernels had exposed the host floor completely. The next two phases removed it: first the graph build (\cref{sec:graphbuild}), then the model's own launch overhead (\cref{sec:cudagraph}).

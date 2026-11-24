@@ -1,0 +1,121 @@
+\section{Phase 9: a GPU-resident MD step}
+\label{sec:gpustep}
+
+After Phase~8 the per-step cost outside the model was: an $O(N^2)$ neighbour build with host synchronisations (42\,ms, 64\% of the step at wbox5184; 41\% at wbox2187), an in-model CSR sort, a host round-trip of positions and forces for the ASE integrator, and up to 30 synchronisations per step. Phase~9 put the whole step on the GPU.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw,rounded corners=2pt,minimum height=0.9cm,align=center,font=\small,fill=#1},
+  box/.default=white, >=Stealth, node distance=0.35cm]
+\node[box=blue!6] (pos) {positions\\(static buffer)};
+\node[box=blue!6,right=of pos] (nl) {cell-list NL\\6 kernels};
+\node[box=blue!6,right=of nl] (pad) {spread padding\\CSR fix-up};
+\node[box=blue!6,right=of pad] (fwd) {MACE fwd\\node-hybrid};
+\node[box=blue!6,right=of fwd] (bwd) {force / stress\\backward};
+\node[box=blue!6,below=0.6cm of bwd] (flag) {NaN poison +\\sticky flags $\to$ pinned};
+\node[draw,dashed,rounded corners,fit=(pos)(nl)(pad)(fwd)(bwd)(flag),inner sep=6pt,label={[font=\small]above:one CUDA graph per key $(N,Z,\text{pbc},\text{cell},\text{stress})$}] (g) {};
+\node[box=gray!10,below=0.6cm of pos] (vv) {velocity Verlet\\(GPU tensors)};
+\node[box=gray!10,right=of vv] (chk) {check() every\\10 steps (1 sync)};
+\draw[->] (pos)--(nl); \draw[->] (nl)--(pad); \draw[->] (pad)--(fwd); \draw[->] (fwd)--(bwd); \draw[->] (bwd)--(flag);
+\draw[->] (vv)--(pos); \draw[->] (flag.west) -- ++(-1.0,0) |- (vv.east);
+\draw[->,dashed] (chk) -- (vv);
+\end{tikzpicture}
+\caption{GPU-resident step. One device-to-device copy and one graph launch per force evaluation; the host is consulted once every 10 steps.}
+\label{fig:gpustep}
+\end{figure}
+
+\subsection{Cell-list neighbour builder}
+\code{scripts/nl9/cell\_nl.py} (CUDA via \code{load\_inline}, \code{--fmad=false}) launches six kernels with no host synchronisation and no data-dependent allocation:
+\begin{enumerate}
+  \item \code{k\_prep}: zero counters; for open systems compute the bounding box with a block reduction, bin widths $\ge r_{\max}(1+10^{-9})$, and MACE's extended cell, reciprocal cell and volume, bitwise equal to the reference.
+  \item \code{k\_bin}: one thread per atom; fractional coordinates, wrapping, and \code{atomicAdd} into a fixed-capacity bin. A slot beyond capacity sets overflow bit 2.
+  \item \code{k\_wscan<0>}: one \emph{warp per destination atom}. Lanes 0--26 each own one of the 27 neighbour bins and its periodic image; a warp inclusive scan flattens them into one candidate space; lanes stride over candidates, locate their bin by a 5-step binary search, evaluate $d^2$ and count hits with \code{\_\_ballot\_sync}/\code{\_\_popc}.
+  \item \code{k\_rowscan2}: a two-level warp-shuffle scan turns per-row counts into \code{rowptr}; the true total $E$ is recorded even when it exceeds $E_{\text{cap}}$ (overflow bit 1).
+  \item \code{k\_wscan<1>}: repeats the scan and writes hits. \emph{Sender order without a sort}: within a destination row senders are unique (cell heights $\ge3r_{\max}$ imply one image per pair), so each hit's final slot is its rank among the row's hits, computed deterministically.
+  \item \code{k\_final}: one thread per slot. Real edges get unit shifts referred back to the caller's unwrapped positions; the \emph{source CSR permutation} is obtained from the symmetric reverse edge: for edge $(i\to j,S)$ a binary search in row $i$ (sender-sorted) finds the reverse edge $(j\to i,-S)$, whose slot is \code{perm\_src[e]}. A missing reverse edge sets bit 4. Unused slots become padding self-edges.
+\end{enumerate}
+The output contract is destination-sorted \code{edge\_index}, \code{unit\_shifts}, \code{shifts}, \code{rowptr} (identical for both orders since the list is symmetric), \code{perm\_src}, \code{n\_edges} and a 3-bit \code{overflow} word. The tuple (\code{perm\_dst}, \code{rowptr\_dst}, \code{perm\_src}, \code{rowptr\_src}) is bitwise equal to Phase~8's sort-based \code{build\_csr} in every test.
+
+\paragraph{Bitwise neighbour decisions.} Matching the reference builder edge-for-edge required reproducing floating-point evaluation order. torch evaluates \code{(d*d).sum(-1)} for a length-3 last dimension as $(d_x^2+d_z^2)+d_y^2$, found by probing; the naive order mismatched 945{,}980 of $4\times10^6$ random pairs at the cutoff. Integer-shift products $S\cdot\text{cell}$ must equal cuBLAS's FP64 $[M,3]\times[3,3]$, which we found to be \code{fma(a2,C2, fma(a1,C1, a0*C0))} for all $M$ up to $3\times10^5$; without this, triclinic cells with atoms far outside the box mismatched shifts by $1.4\times10^{-14}$. After both fixes: 0 mismatches. Stock matscipy itself differs from both GPU builders for pairs within $2.7\times10^{-15}$\,\AA{} of $r_{\max}$ (it includes $d=r_{\max}$ exactly); those edges carry envelope weight $\approx0$.
+
+\paragraph{Supported geometries.} Open systems (bounding-box bins, recomputed each build so expanding systems grow bins rather than overflow), and fully periodic orthorhombic or triclinic cells whose perpendicular heights admit $\ge3$ bins of width $\ge r_{\max}$, i.e.\ $\gtrsim15$\,\AA{} at $r_{\max}=5$\,\AA. Atoms may be anywhere, including thousands of \AA{} outside the cell. Smaller cells, mixed periodicity and degenerate cells raise \code{NotImplementedError} and the caller falls back.
+
+\paragraph{Evolution and timing.} A first thread-per-atom version (in-row insertion sort) replayed in 0.17--0.58\,ms; the warp-per-atom rewrite took 0.024--0.085\,ms. \Cref{tab:nltime} compares the final builder with the Phase-5 prototype and matscipy.
+
+\begin{table}[h]
+\centering
+\caption{Neighbour-list build, median ms (job 1125). ``cell'' is CUDA-graph replay of the new builder; proto includes its host sync.}
+\label{tab:nltime}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+System & $N$ & $E$ & cell (replay) & proto (GPU, $O(N^2)$) & matscipy (CPU) \\
+\midrule
+aspirin & 21 & 302 & 0.024 & 0.432 & 0.091 \\
+water192 & 192 & 6{,}634 & 0.034 & 0.452 & 0.893 \\
+water648 & 648 & 26{,}550 & 0.042 & 0.479 & 3.996 \\
+wbox648 & 648 & 35{,}698 & 0.052 & 1.460 & 8.115 \\
+wclus2187 & 2{,}187 & 99{,}438 & 0.050 & 0.698 & 14.594 \\
+wbox2187 & 2{,}187 & 120{,}506 & 0.060 & 8.036 & 21.547 \\
+wclus5184 & 5{,}184 & 247{,}652 & 0.075 & 1.712 & 42.883 \\
+wbox5184 & 5{,}184 & 285{,}464 & 0.081 & 42.916 & 57.837 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The captured step (GPUStep)}
+\code{scripts/int9/gpu\_step.py} captures, per key, the builder, a padding fix-up, the model forward and force (and optionally stress) backward, an overflow guard, and an asynchronous copy of device flags to pinned host memory. A call is one device-to-device copy into the static position buffer plus \code{graph.replay()}: zero host synchronisations. The convolution receives the builder's CSR through an external holder (\code{nodeconv\_ext.py}) identified by object identity, so no sort runs inside the model; the only remaining sorts in the step are MACE's own \code{index} backward, present in every backend.
+
+\paragraph{Padding must be spread.} The builder places all $P=E_{\text{cap}}-E$ padding edges on node $N-1$, which keeps both orders sorted. Inside the model this was catastrophic: one CTA of the node-centric convolution received $\sim$$P$ edges, and MACE's index backward accumulated $P$ duplicates into one row. Steps became 10--40$\times$ slower (water2187: 126\,ms vs 9.3\,ms; wbox5184: 1{,}969\,ms vs 24\,ms). The fix re-homes padding edge $k$ to node $k\bmod N$ and rebuilds both CSRs without a sort in $O(E_{\text{cap}})$ elementwise work: with $c_n=\#\{k<P:k\bmod N=n\}=\max(0,\lfloor(P-n+N-1)/N\rfloor)$ and its exclusive prefix sum $\bar c_n$, real edge $e$ with destination $d$ moves to slot $e+\bar c_d$, padding $k$ to $\text{rowptr}'_n+\deg_n+\lfloor k/N\rfloor$, and likewise for the source order. This costs $\sim$50\us{} and is the main reason \Bone{} is slightly slower than Phase~8's.
+
+\paragraph{Overflow can never look valid.} If any overflow bit is set, the real-edge count and row pointers are forced to zero so the model sees a \emph{consistent all-padding graph} (an earlier version fed an inconsistent CSR and triggered an illegal memory access that destroyed the CUDA context), and energy, forces and stress are poisoned with NaN. Flags are sticky. \code{check()} performs one counted synchronisation, reads the flags, and recaptures with $E_{\text{cap}}=\lceil1.25E_{\max}\rceil_{64}$ (or a larger bin capacity) on overflow, returning \code{ok=False} so the caller rolls back; it also recaptures proactively when $E_{\max}>0.98E_{\text{cap}}$. A caller that never checks receives NaN, never a plausible wrong number.
+
+\paragraph{Capture hygiene.} Python's cyclic garbage collector, freeing an old graph's pinned buffer during a new capture, caused the caching host allocator to record a CUDA event inside the capture and invalidate it. GC is now disabled across warm-up and capture.
+
+\paragraph{Fallbacks.} Unsupported geometries use Phase~8's runner with the prototype builder (synchronising, outside the graph). A capturable $O(N^2)$ brute-force builder exists but materialises $[B,27,N,3]$ candidate tensors, compacts with a cumulative sum and three scatters over all candidates (all non-hits written to one dump slot), then sorts; at wbox192 it took $\sim$4.3\,ms, slower than the synchronising fallback (2.38\,ms), so it is not used automatically.
+
+\subsection{GPU velocity Verlet}
+\code{scripts/md9/vv.py} implements ASE's momentum-form velocity Verlet on FP64 GPU tensors. Potential and kinetic energy are written to preallocated device buffers at a device-side step index, so logging needs no synchronisation. Every 10 steps the integrator calls \code{check()}; on success it checkpoints $(x,p,F)$ by device copies, on overflow it rolls back and repeats. Over all Phase-9 MD runs there were zero overflows, rollbacks or recaptures. A version that also captures the two half-kicks as small graphs (\code{gpustep\_cg}) gained at most 0.6\%.
+
+\subsection{Correctness}
+\begin{table}[h]
+\centering
+\caption{Phase 9 correctness, all passing (tolerances $10^{-11}$\,eV/atom, $10^{-11}$\,\eVA, $10^{-14}$\,eV/\AA$^3$).}
+\label{tab:corr9}
+\small
+\begin{tabular}{p{6.4cm}rrrr}
+\toprule
+Test & samples & $|\Delta E|/N$ & $\max|\Delta F|$ & $|\Delta\sigma|$ \\
+\midrule
+Builder: edge sets, CSR, boundary pairs at $r_{\max}\pm$ulp, overflow, capture; 17 systems (job 1122) & 187 & --- & --- & --- \\
+Builder batch through stock model & --- & 9.0e-13 & 8.5e-14 & $\le$9.7e-17 \\
+GPUStep vs stock, 10 systems, 7-config walks, stress (job 1144) & 98 & 1.1e-12 & 2.1e-14 & 7.0e-17 \\
+GPUStep vs Phase-8 node-hybrid + proto & 98 & 6.3e-13 & \textbf{0 (bitwise)} & 1.3e-17 \\
+Overflow, proactive recapture, compression walk, bin overflow & 20 & 1.5e-13 & 3.6e-13 & 0 \\
+Species-order and atom-count traps & 7 & 1.7e-13 & 8.5e-13 & 0 \\
+Fallback paths (wbox192, mixed pbc) & 15 & 1.5e-13 & 7.1e-15 & 5.6e-17 \\
+Zero-edge and tiny systems & 3 & 0 & 1.0e-15 & 0 \\
+MD: 10 systems $\times$ 3 providers, 500--1000 steps, sampled on identical coordinates & 51--201 each & 1.3e-12 & 8.4e-15 & 4.7e-17 \\
+Negative control: one edge dropped & 5/5 fail & 8.8e-4 & 0.42 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At every sampled MD step the neighbour set matched stock bitwise; an isolated atom always had exactly zero force; GPUStep and the Phase-8 graphed path produced \emph{bitwise-identical trajectories} over 2\,ps, meaning the builder reproduces the Phase-8 stable-sort edge order exactly. NVE drift matched stock within block noise (\cref{tab:drift9}). One excluded case: with atoms $\sim$3{,}000\,\AA{} outside the cell, stress differed from stock by $1.1\times10^{-14}$ in one run, the same size as the reference builder's own noise there (atomics $\times$ large coordinates); it passes at $8.2\times10^{-15}$ in the final run and the global tolerance was not loosened.
+
+\begin{table}[h]
+\centering
+\caption{NVE drift over 2\,ps, eV/atom/ps $\pm$ std of 4 block slopes.}
+\label{tab:drift9}
+\small
+\begin{tabular}{lrrr}
+\toprule
+System, $\Delta t$ & stock eager & Phase-8 graphed & GPUStep \\
+\midrule
+water192, 0.5\,fs & $-5.78\times10^{-6}\pm1.8\times10^{-6}$ & $-5.95\times10^{-6}\pm1.9\times10^{-6}$ & $-5.95\times10^{-6}\pm1.9\times10^{-6}$ \\
+wbox648, 0.5\,fs & $-8.54\times10^{-6}\pm4.2\times10^{-6}$ & $-1.16\times10^{-5}\pm4.7\times10^{-6}$ & $-1.16\times10^{-5}\pm4.7\times10^{-6}$ \\
+wbox648, 0.25\,fs & $-2.53\times10^{-6}\pm1.2\times10^{-6}$ & $-2.86\times10^{-6}\pm1.1\times10^{-6}$ & $-2.86\times10^{-6}\pm1.1\times10^{-6}$ \\
+\bottomrule
+\end{tabular}
+\end{table}

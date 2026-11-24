@@ -1,0 +1,48 @@
+\section{Background: the MACE-OFF23 medium model}
+\label{sec:background}
+
+\subsection{Architecture}
+MACE~\cite{batatia2022mace} represents each atom $i$ by node features $h_i$ that are direct sums of irreducible representations (irreps) of $O(3)$, and builds messages from many-body products of neighbour information. MACE-OFF23~\cite{kovacs2023maceoff} is a family of short-range organic force fields trained on SPICE data at the $\omega$B97M-D3(BJ)/def2-TZVPPD level; we study the \emph{medium} model (cutoff $r_{\max}=5.0$\,\AA, 128 channels, $L_{\max}=1$), whose published force RMSEs are of order 5--20\,meV/\AA. \Cref{tab:arch} records the layer inventory we extracted from the checkpoint (Phase~2, \code{results/mace\_layer\_inventory.json}).
+
+\begin{table}[h]
+\centering
+\caption{MACE-OFF23 medium layer inventory (checkpoint sha256 \code{4842c52a\ldots}, mace-off @ 91a78c5). ``uvu'' is e3nn's channel-diagonal tensor-product mode.}
+\label{tab:arch}
+\small
+\begin{tabular}{p{3.6cm}p{5.2cm}p{5.2cm}}
+\toprule
+Item & Interaction layer 0 & Interaction layer 1 \\
+\midrule
+Block class & RealAgnosticInteractionBlock & RealAgnosticResidualInteractionBlock \\
+Node features in & $128\times0e$ & $128\times0e+128\times1o$ (512) \\
+Edge attributes $Y$ & \multicolumn{2}{l}{spherical harmonics $l\le3$: $0e+1o+2e+3o$ (16), component normalisation} \\
+Edge features & \multicolumn{2}{l}{8 Bessel functions $\times$ polynomial cutoff ($p=5$)} \\
+Radial MLP & $8\to64\to64\to64\to512$ & $8\to64\to64\to64\to1280$ \\
+conv\_tp & 4 uvu paths, out $128\times\{0e,1o,2e,3o\}$ (2048) & 10 uvu paths, out 5120 (unsimplified) \\
+Path weights & $1,\sqrt3,\sqrt5,\sqrt7$ & $1,1,\sqrt3\times3,\sqrt5\times3,\sqrt7\times2$ \\
+CG non-zeros / unique values & 16 / 5 & 86 / 19 \\
+linear (after scatter) & $4\cdot128\to128\times\{0e..3o\}$ & $256{\cdot}0e{+}384{\cdot}1o{+}384{\cdot}2e{+}256{\cdot}3o\to128\times\{0e..3o\}$ \\
+skip\_tp & FCTP with $10\times0e$ species one-hot & FCTP $\to128\times0e$ \\
+Symmetric contraction & \multicolumn{2}{l}{correlation order 3, input $[N,128,16]$, 10 elements} \\
+$\bar n$ (avg\_num\_neighbors) & \multicolumn{2}{l}{18.4177} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The equivariant convolution}
+For layer $\ell$, with sender features $x_{s}$, edge attributes $y_e = Y(\hat r_e)$ and per-edge weights $w_e = \mathrm{MLP}_\ell(\mathrm{RBF}(r_e))$, the message to receiver $n$ is
+\begin{equation}
+  m_n \;=\; \frac{1}{\bar n}\sum_{e:\,\mathrm{dst}(e)=n} \mathrm{TP}_{\text{uvu}}\bigl(x_{\mathrm{src}(e)},\, y_e,\, w_e\bigr),
+  \label{eq:conv}
+\end{equation}
+where, for every path $p=(l_1,l_2\to l_3)$ and channel $u$,
+\begin{equation}
+  \mathrm{TP}_{\text{uvu}}(x,y,w)_{p,u,k} \;=\; \alpha_p\, w_{p,u} \sum_{i,j} C^{(p)}_{ijk}\, x_{u,i}\, y_j ,
+  \label{eq:tp}
+\end{equation}
+with $C^{(p)}$ the real Wigner-3j (CG) coefficients and $\alpha_p$ the path weight. Stock MACE evaluates \cref{eq:conv} by gathering $x_{\mathrm{src}(e)}$ to edges, running e3nn's code-generated tensor product on $[E,\cdot]$ tensors, and scattering with \code{scatter\_sum}. At 648 water molecules ($E=26{,}550$) the L1 output alone is an $[E,5120]$ FP64 tensor of 1.09\,GB, which is the root of both the time and the memory cost of the stock path.
+
+Forces are $F=-\partial E/\partial r$ via autograd; stress uses a symmetric displacement $\varepsilon$ with $\sigma=V^{-1}\partial E/\partial\varepsilon$. The backward of \cref{eq:tp} needs three gradients: $\partial/\partial x$ (scattered to senders), $\partial/\partial y$ and $\partial/\partial w$ (per edge).
+
+\subsection{Graph conventions}
+MACE's \code{edge\_index[0]} is the sender and \code{edge\_index[1]} the receiver; the edge vector is $r_{\mathrm{recv}}-r_{\mathrm{send}}+\text{shift}$ with $\text{shift}=S\cdot\text{cell}$ for integer image vector $S$. Stock neighbour lists come from matscipy~\cite{matscipy} and are ordered by \emph{sender}. Self-pairs are removed only when $S=0$; periodic self-images are kept. These conventions matter: the node-centric kernels of \cref{sec:nodeconv,sec:gpustep} need receiver order, and bitwise neighbour-set equality was a hard gate.

@@ -1,0 +1,54 @@
+\section{Experimental methodology}
+\label{sec:method}
+
+\subsection{Hardware and software}
+All measurements used single NVIDIA H100 80GB HBM3 (SXM) GPUs on one Slurm node (driver 580.126.20, SM clock 1980\,MHz, logged per job together with the GPU UUID). Eight physical GPUs were used across jobs; no job shared a GPU. The software stack was contained in the study directory: uv-managed CPython 3.11.17, torch 2.11.0+cu128, mace-torch 0.3.17, e3nn 0.4.4, ASE 3.29.0, matscipy 1.3.1, cuequivariance 0.10.0, Triton 3.6, and a CUDA 12.8.1 toolkit extracted (not installed) from the NVIDIA runfile because the system toolkit was CUDA 13.0. FlashTP was built from upstream \code{d52e414} for \code{sm\_90}; OpenEquivariance 0.8.0 and LunaEquivariance 0.2.0 (\code{0ead67d}) were installed in isolated environments for evaluation only.
+
+\subsection{Systems}
+\Cref{tab:systems} lists the workloads. Water clusters are generated deterministically (molecules on a 3.1\,\AA{} lattice, random rotation, 0.1\,\AA{} jitter); periodic boxes at 1.0\,g/cm$^3$; organic clusters are random mixtures of drug-like fragments relaxed for $\le$30 FIRE steps. Three different 648-atom periodic boxes appear in the record (35{,}724, 35{,}698 and 35{,}198 edges in Phases 5, 5--9 and the Phase-5 review respectively); we only compare timings within one.
+
+\begin{table}[h]
+\centering
+\caption{Workloads ($E$ = directed edges at $r_{\max}=5$\,\AA).}
+\label{tab:systems}
+\small
+\begin{tabular}{lrrl}
+\toprule
+System & $N$ & $E$ & Notes \\
+\midrule
+H$_2$O & 3 & 6 & \\
+aspirin & 21 & 302 & \\
+org192 / org648 & 196 / 650 & 3{,}670 / 14{,}856 & organic clusters \\
+water192 / water648 & 192 / 648 & 6{,}634 / 26{,}550 & clusters \\
+water1536 & 1{,}536 & 67{,}960 & Phases 3--5 \\
+water2187 / water5184 & 2{,}187 / 5{,}184 & --- & Phase 9 clusters \\
+wbox192 / wbox648 & 192 / 648 & 10{,}552 / 35{,}698 & periodic \\
+wbox2187 / wbox5184 & 2{,}187 / 5{,}184 & --- & periodic, Phase 9 \\
+single C; O$_2$ at 20\,\AA & 1 / 2 & 0 & zero-edge \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Timing boundaries}
+Speedups are meaningless without a boundary. We used five over the study and, in Phase~9, standardised on three:
+\begin{description}
+  \item[\Bone{} replay] energy+forces with a prebuilt neighbour graph already on the GPU (model only).
+  \item[\Btwo{} complete step] from coordinates already resident on the GPU, including neighbour construction and any host synchronisation it requires.
+  \item[\Bthree{} sustained MD] ms per velocity-Verlet step including integration and \emph{all} host interaction actually required; for stock MACE this is ASE's \code{VelocityVerlet}.
+\end{description}
+Earlier phases also used \emph{ase\_total} (\code{calc.reset}+\code{get\_potential\_energy}+\code{get\_forces}, host coordinates in and out) and \emph{full step} (GPU build $+$ host-to-device copy-in $+$ replay). We label every number with its boundary; in particular the frequently quoted 3.669\,ms for water648 in Phase~8 is a host-coordinate full step, not \Btwo.
+
+\subsection{Timing protocol}
+Unless stated, timings are medians with [p10--p90] over $\ge$50 repetitions after $\ge$10 warm-ups, CUDA-synchronised, with backends interleaved in blocks in one process. Each headline table was reproduced in a second Slurm job on a different GPU (agreement 0.3--2\%). In Phase~9 a lock file serialised timing jobs so that no two ran concurrently. Profiles used \code{torch.profiler} (CUPTI) and, in Phase~8, Nsight Compute \code{--set full}; Nsight Compute locks SM clocks at 1.59\,GHz, so its durations are not compared with wall times.
+
+\subsection{Correctness gates}
+All optimised paths were gated against eager stock FP64 MACE on the same batch:
+\begin{itemize}
+  \item $|\Delta E|/N \le 10^{-11}$\,eV, $\max|\Delta F|\le10^{-11}$\,\eVA, $|\Delta\sigma|\le10^{-14}$\,eV/\AA$^3$ (Phase~8 onwards; $10^{-11}$ before);
+  \item neighbour sets (including integer image vectors) bitwise equal after sorting;
+  \item local operators: max abs and max abs/max$|$ref$|$ $\le 10^{-12}$ for outputs and all gradients.
+\end{itemize}
+Test suites included random walks that change the neighbour list, repeated calls, forced recapture, cell strain, species-order and atom-count traps, zero-edge systems, and MD runs with sampled identical-coordinate comparisons. The stock reference is itself not bitwise reproducible (atomics in \code{scatter\_sum}): its run-to-run force noise is $\le3.7\times10^{-15}$\,\eVA.
+
+\subsection{Process discipline}
+Each phase had a coordinator-owned interface contract listing directories, APIs, tolerances and systems; agents wrote only in their own \code{scripts/}, \code{results/}, \code{logs/} subdirectories. At the start of each phase every prior artefact was hashed (482 files by Phase~9) and verified unchanged at the end. No installed package or upstream source was modified in place; FlashTP changes lived in separate git worktrees.

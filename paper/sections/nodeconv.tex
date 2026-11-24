@@ -1,0 +1,87 @@
+\section{Phase 8: a capturable node-centric FP64 convolution}
+\label{sec:nodeconv}
+
+\subsection{Why FlashTP is slow here: Nsight Compute}
+Nsight Compute (\code{--set full}, job 1043) on FlashTP's two FP64 kernels showed they are \emph{latency-bound}, not bandwidth-, compute- or atomics-bound (\cref{tab:ncu}). Each block maps one warp per edge across 32 channels (the 128 channels are split over \code{gridDim.y} chunks: 4 for L0, 8 for L1), accumulates into shared memory with read-modify-write, and scatters with \code{atomicAdd}. Shared memory (116\,KB forward, 228.5\,KB backward) caps occupancy at one CTA per SM. FP64 pipe utilisation is 3--9\%, DRAM 2--12\%, and the L2 atomic unit is $\sim$2\% busy even though L1 forward at water648 issues 136\,M FP64 reductions. Top stalls are \emph{wait}, \emph{short scoreboard} (the shared-memory RMW) and \emph{long scoreboard} (gathers), $\sim$26\% each. FlashTP runs 10--16$\times$ above both its DRAM and FP64 floors.
+
+\begin{table}[h]
+\centering
+\caption{FlashTP FP64 kernels under Nsight Compute (Phase 8).}
+\label{tab:ncu}
+\small
+\begin{tabular}{lrr}
+\toprule
+Property & forward & backward \\
+\midrule
+dynamic shared memory & 115.8--116.1\,KB & 228.5\,KB \\
+block shape (warps = edges) & (32, 21) & (32, 17) \\
+occupancy theoretical / achieved & 32.8\% / 30--31\% & 26.6\% / 25.6\% \\
+L1/shared LSU utilisation & 60--72\% & 60--72\% \\
+FP64 pipe utilisation & 3--9\% & 3--9\% \\
+time per edge, L1 at large $N$ & $\sim$34\,ns & $\sim$72\,ns \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Existing alternatives}
+Before building, Phase~8 benchmarked every available backend on identical captured inputs (\cref{tab:convonly}). LunaTP's kernels were the fastest by a wide margin (5.4--5.9$\times$ FlashTP on L1 at 648 atoms) and implement exactly the destination-node organisation we intended to build. We did not adopt LunaTP for three reasons: its \code{make\_graph} reads a status tensor back to the host and allocates data-dependent tables, so it cannot be captured in a CUDA graph; it requires destination-sorted edges, which MACE does not provide; and its package pins e3nn $\ge0.5.2$ against MACE's 0.4.4. OpenEquivariance's deterministic mode also executes in destination order (with a fix-up kernel) but is slow at small $N$; its atomic mode is non-deterministic. cuEquivariance's fused convolution requires the \code{ir\_mul} layout and incurs transposes plus a large eager host cost.
+
+\subsection{Forward kernel}
+The forward (\code{scripts/nodetp8\_fwd/}, code-generated CUDA) assigns one CTA per destination node and one thread per channel $u$ (the uvu product is channel-diagonal, so 128 threads cover a node). $G\in\{1,..,4\}$ edge slices of 128 threads split a node's incoming edges and reduce once in shared memory behind a named barrier. Each thread walks \code{perm\_dst[rowptr[n]:rowptr[n+1]]}, loads $x_{\mathrm{src}(e),u,\cdot}$ (all input irreps of channel $u$), the 16 broadcast values $y_e$, and the coalesced weights $w_{e,\,p\cdot128+u}$, prefetching the next edge's operands into registers. Output accumulators live in registers (16 per thread for L0, 40 for L1) and are written once: no atomics, and zero in-degree yields exact zeros. CG non-zeros are baked into the source as \code{\%.17g} literals of \code{o3.wigner\_3j}$\times\alpha_p$, verified equal to e3nn's buffers; products $x_i y_j$ shared by several paths are computed once. L1 uses 238 registers/thread (2 CTAs/SM). LunaTP-style path grouping was implemented and measured \emph{slower} (it re-gathers $x$ and runs more warps of the register-heavy code), so it is off. The forward is 2.4--6.2$\times$ faster than FlashTP's and reaches $\sim$2\,TB/s at 648 atoms, $\sim$60\% of the HBM roofline (every layer is HBM-bound; $w$ dominates at 4\,KB/edge for L0 and 10\,KB/edge for L1).
+
+\subsection{Fused source-centric backward}
+The three gradients of \cref{eq:tp} share the products $g_{\mathrm{dst}(e)}\cdot x_{\mathrm{src}(e)}$. Splitting them would read the upstream gradient $g$ twice, and a destination-centric $\partial x$ would need atomics. We instead launch \emph{one} kernel per layer with one CTA per \emph{source} node and thread $=$ channel, walking the source-CSR. With $h_k=\alpha_p g_{\mathrm{dst},u,k}$ and $s_k=w_{p,u}h_k$, for every CG non-zero $(i,j,k,v)$:
+\begin{align}
+  \partial w_{e,p,u} &\mathrel{+}= v\,x_i\,y_j\,h_k, &
+  \partial y_{e,j} &\mathrel{+}= v\,x_i\,s_k \ (\text{summed over } u), &
+  \partial x_{n,u,i} &\mathrel{+}= v\,y_j\,s_k .
+\end{align}
+$\partial w_e$ is a direct store (each edge has exactly one source); $\partial y_e$ is reduced across the 128 channels by warp shuffles plus one double-buffered shared-memory round with a single \code{\_\_syncthreads} per edge; $\partial x$ stays in registers and is written once. The kernel is deterministic and atomic-free. This fused backward is, to our knowledge, the main design difference from LunaTP, which uses its source-CSR for input gradients but not a single fused pass. At water648 it is 4.7$\times$ faster than FlashTP's backward (406 vs 1{,}911\us{} under replay).
+
+\subsection{CSR construction and integration}
+Both CSR views are built on the GPU with a stable \code{torch.sort} on int32 keys (half the radix passes of int64) and \code{torch.searchsorted}; \code{bincount} is avoided because CUDA \code{bincount} computes its length on the host. The build is capturable and costs 52--102\us{} in a graph. It runs once per model call and is shared by both layers and the backward. \code{NodeConvFunction} is an \code{autograd.Function} installed through MACE's \code{conv\_fusion} hook; uninstall restores the original objects exactly. Local errors: $\le1.1\times10^{-15}$ (out), $3.3\times10^{-15}$ ($\partial x$), $8.9\times10^{-16}$ ($\partial y$), $8.5\times10^{-16}$ ($\partial w$) relative; gradcheck passes. The resulting model, node-centric convolution + cuEquivariance contraction + both fused kernels under the Phase-7 runner, is called \emph{node-hybrid}.
+
+\begin{table}[h]
+\centering
+\caption{Convolution-only forward+backward under graph replay, ms, identical real inputs (job 1065; LunaTP and OEQ from job 1056--1057). ``Ours'' includes a CSR build every call; LunaTP ``kernel'' excludes its non-capturable \code{make\_graph}.}
+\label{tab:convonly}
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+Case & e3nn & FlashTP & cuEq & OEQ atomic & OEQ det & LunaTP kernel & \textbf{ours} \\
+\midrule
+aspirin L0 & 0.187 & 0.061 & 0.043 & n/a & 0.263 & 0.034 & 0.109 \\
+aspirin L1 & 0.596 & 0.095 & 0.114 & 0.039 & 0.633 & 0.045 & 0.110 \\
+water192 L1 & 4.394 & 0.763 & 0.419 & 0.305 & 0.705 & 0.151 & 0.337 \\
+water648 L0 & 3.264 & 1.009 & 0.409 & 0.385 & 0.337 & 0.215 & 0.401 \\
+water648 L1 & 16.367 & 2.839 & 1.151 & 1.179 & 0.992 & 0.484 & 0.676 \\
+org648 L1 & 9.365 & 1.626 & 0.903 & 0.702 & 0.672 & 0.302 & 0.475 \\
+wbox648 L1 & 21.851 & 3.780 & 1.361 & 1.593 & 1.269 & 0.643 & 0.892 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\Cref{tab:convonly} is the honest comparison: our convolution beats FlashTP by 2.3--4.2$\times$ from 192 atoms up, but is \emph{slower} than FlashTP at aspirin and 1.4--3$\times$ slower than LunaTP's kernels everywhere. Its advantage over LunaTP is that it can live inside a CUDA graph with MACE's native edge order.
+
+\subsection{Whole-model effect}
+\begin{table}[h]
+\centering
+\caption{Whole model under graph replay, hybrid+embed+node (FlashTP conv) vs node-hybrid+embed+node, ms (job 1067; job 1066 within 0.3\%). ``Step'' is the host-coordinate full step.}
+\label{tab:node8}
+\small
+\begin{tabular}{lrrrrl}
+\toprule
+System & FlashTP replay / step & node replay / step & replay speedup & conv share & peak MiB \\
+\midrule
+H$_2$O & 0.605 / 1.148 & 0.676 / 1.281 & \textcolor{cbad}{0.89$\times$} & 13\%$\to$18\% & 131$\to$67 \\
+aspirin & 0.754 / 1.381 & 0.791 / 1.415 & \textcolor{cbad}{0.95$\times$} & 13\%$\to$21\% & 79$\to$77 \\
+water192 & 2.205 / 2.856 & 1.528 / 2.163 & 1.44$\times$ & 54\%$\to$36\% & 312$\to$296 \\
+org192 & 1.691 / 2.341 & 1.349 / 1.988 & 1.25$\times$ & 39\%$\to$27\% & 214$\to$202 \\
+water648 & 6.498 / 7.192 & 3.001 / 3.669 & \textbf{2.17$\times$} & 70\%$\to$37\% & 1039$\to$981 \\
+org648 & 4.216 / 4.905 & 2.336 / 3.014 & 1.80$\times$ & 61\%$\to$31\% & 642$\to$598 \\
+wbox648 & 8.359 / 10.064 & 3.672 / 5.354 & \textbf{2.28$\times$} & 72\%$\to$38\% & 1339$\to$1271 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The small-$N$ regression (\cref{tab:node8}) has three causes: the CSR radix sort ($\sim$35\us), a backward grid of only 21 CTAs on 132 SMs at aspirin, and extra memsets. Phase~9 removed the first by having the neighbour builder emit the CSR directly. Interestingly, the FLASHTP\_NCU analysis had predicted that a 2$\times$ faster convolution would save $\sim$29\% at water648; the realised 4.1$\times$ saved 54\%. An optimistic bound from substituting LunaTP's kernel times into our graph (excluding its non-capturable graph build and a 0.1--0.2\,ms permutation) would gain a further 1.08--1.21$\times$ at the whole-model level.

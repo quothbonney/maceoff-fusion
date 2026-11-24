@@ -1,0 +1,42 @@
+\section{Phase 7: two fused FP64 kernels}
+\label{sec:fusion}
+
+\subsection{Fused edge embedding}
+Stock MACE computes the edge embedding with e3nn's \code{SphericalHarmonics} ($l\le3$, normalised, component normalisation) and \code{RadialEmbeddingBlock} (8 Bessel functions $\times$ polynomial cutoff $p=5$, no distance transform), 54 kernels forward and 168 forward+backward. We replaced both modules with hand-written CUDA (\code{load\_inline}, \code{sm\_90}, \code{--fmad=false}):
+\begin{itemize}
+  \item \code{fe\_sh\_fwd}/\code{fe\_sh\_bwd}: one thread per edge, closed-form e3nn polynomials in e3nn's order and signs, the analytic gradient including the $(I-\hat u\hat u^\top)/|v|$ projection, and \code{F.normalize(eps=1e-12)} semantics with explicit round-to-nearest intrinsics.
+  \item \code{fe\_radial\_fwd}/\code{fe\_radial\_bwd}: $\sqrt{2/r_c}\,\sin(\omega_k r)/r\cdot u(r)\cdot\mathbb 1[r<r_c]$ and its derivative.
+\end{itemize}
+Edge vectors and lengths stay stock so that gradients flow to positions and to the stress displacement. Operator errors: SH $\le2.7\times10^{-15}$, radial $\le1.6\times10^{-16}$, gradients $\le2.1\times10^{-14}$, including lengths at $r_c-10^{-14}$, exactly $r_c$, and beyond. Under replay, forward+backward fell from 0.39 to 0.046\,ms at water648 (168 $\to$ 10 kernels).
+
+\subsection{Fused post-convolution node update}
+After aggregation each interaction applies an e3nn \code{Linear}, divides by $\bar n$, and (layer 0) a \code{FullyConnectedTensorProduct} with the species one-hot (\code{skip\_tp}). Because the one-hot selects a single species per node, all three linear maps fold into one per-species, per-$l$ matrix:
+\begin{equation}
+  M_{l,z} \;=\; \bar n^{-1}\, L_l\, W^{\text{skip}}_{l,z}, \qquad z\in\{1..10\},\ l\in\{0..3\},
+\end{equation}
+($10\times4\times128\times128$ FP64, 5.2\,MB). The weights are \emph{extracted numerically} by evaluating the original modules on identity bases, so every e3nn normalisation constant is taken exactly as applied; a block-structure check must pass at $10^{-14}$ (measured: exactly 0). One Triton~\cite{tillet2019triton} kernel (\code{\_seg\_linear\_kernel}) performs the segmented per-species GEMM with FP64 \code{tl.dot}, which lowers to DMMA \code{mma.sync.m16n8k16.f64} on \code{sm\_90}, writing directly into the $[N,128,16]$ layout the symmetric contraction expects. Species tiles whose one-hot column is zero within a row tile are skipped. Layer 0 went from 92 kernels to 5 for forward+backward; under replay the three node ops at water648 fell from 1{,}171 to 323\us. The override is installed as an instance-level \code{forward} on the two interaction blocks; it is a verbatim copy of MACE 0.3.17's forward and refuses to install if the class source hash differs.
+
+\subsection{Integrated effect}
+\Cref{tab:fuse7} (jobs 1041/1042, within 0.5\%) shows that both fusions win at every size and are super-additive at the smallest: removing 311 graph nodes at aspirin saves 0.62\,ms because each node also carries 0.5--1\us{} of launch gap. Predicted savings from the profile matched measurement (water648: $-0.28$ vs $-0.36$\,ms for embed; $-0.78$ vs $-0.83$\,ms for node). Peak memory at water648 fell from 1{,}298 to 1{,}039\,MiB.
+
+\begin{table}[h]
+\centering
+\caption{Graph replay with fused kernels, ms (Phase 7, job 1041). ``full step'' adds GPU neighbour build and host copy-in.}
+\label{tab:fuse7}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+System & hybrid & +embed & +node & \textbf{+both} (replay / full step) & graph nodes \\
+\midrule
+H$_2$O & 1.004 & 0.928 & 0.896 & \textbf{0.670} / 1.276 ($-33\%$) & 623$\to$300 \\
+aspirin & 1.365 & 1.070 & 1.021 & \textbf{0.744} / 1.365 ($-46\%$) & 599$\to$288 \\
+water192 & 2.932 & 2.598 & 2.539 & \textbf{2.203} / 2.847 ($-25\%$) & 608$\to$297 \\
+org192 & 2.317 & 1.995 & 2.010 & \textbf{1.690} / 2.346 ($-27\%$) & 609$\to$298 \\
+water648 & 7.675 & 7.319 & 6.842 & \textbf{6.498} / 7.177 ($-15\%$) & 610$\to$301 \\
+org648 & 5.299 & 4.967 & 4.555 & \textbf{4.223} / 4.895 ($-20\%$) & 610$\to$301 \\
+wbox648 & 9.587 & 9.226 & 8.765 & \textbf{8.398} / 10.048 ($-12\%$) & 610$\to$301 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Cost and caveats.} The layer-1 \code{skip\_tp} Triton kernel is $\sim$13\us{} \emph{slower} than stock at aspirin under replay (no switch was added to keep it stock); the species tile-skip has a $10\times$ worst case for fully mixed tiles; each new $N$ triggers 0.5--0.7\,s of Triton specialisation; the embedding extension needs $\sim$45\,s for its first build. Graphed FlashTP (without cueq) was slower than the hybrid at every size and was dropped.

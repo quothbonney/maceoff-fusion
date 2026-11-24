@@ -1,0 +1,91 @@
+\section{Phases 2--4: FlashTP's FP64 mode is FP32-accurate}
+\label{sec:precision}
+
+\subsection{Symptom}
+Phase~2 built FlashTP for \code{sm\_90} against a contained CUDA~12.8.1 toolkit and ran its own example harness, unmodified, on the MACE medium \code{ir\_config} in FP64. Every case printed ``All Good'' (7/7). Upstream's criterion fails a value only if it is outside \code{isclose(rtol=1e-5, atol=1e-8)} \emph{and} differs by more than $10^{-4}$, i.e.\ an FP32-grade test. Re-scoring the same outputs at FP64-grade tolerance ($\text{rtol}=\text{atol}=10^{-10}$) failed every case (\cref{tab:flashcheck}).
+
+\begin{table}[h]
+\centering
+\caption{FlashTP's own FP64 test (Phase 2, \code{results/flashtp\_check\_*.json}). Relative errors measured where $|\text{ref}|>10^{-6}$.}
+\label{tab:flashcheck}
+\small
+\begin{tabular}{lrrrrcc}
+\toprule
+Case & out max abs & out max rel & $\partial w$ max rel & $\partial^2 w$ max rel & Upstream & FP64 strict \\
+\midrule
+L0, $E=4096$ & 2.54e-7 & 1.79e-8 & 1.79e-8 & 2.74e-8 & pass & \textbf{fail} \\
+L1, $E=4096$ & 5.39e-7 & 1.17e-2 & 5.16e-4 & 6.91e-4 & pass & \textbf{fail} \\
+L1, $E=32768$ & 5.46e-7 & 6.91e-3 & 5.88e-3 & 7.78e-3 & pass & \textbf{fail} \\
+L1, $E=131072$ & 5.82e-7 & 5.10e-2 & 8.67e-3 & 1.38e-2 & pass & \textbf{fail} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+In the whole model (Phase~3, job 972), unmodified FlashTP gave $2.2$--$3.2\times10^{-9}$\,eV/atom and $3.3$--$9.8\times10^{-8}$\,\eVA{} errors against e3nn across H$_2$O to 1{,}536 waters, eight orders of magnitude above e3nn's own run-to-run noise ($3.7\times10^{-15}$\,\eVA).
+
+\subsection{Root causes}
+An emulation of FlashTP's arithmetic in PyTorch (Phase 2, \code{inspect\_mace\_layers.py}) reproduced the error exactly when, and only when, the CG table was rounded to FP32 (exact math: $\le4\times10^{-15}$; FP32 CG: $3.4\times10^{-8}$--$1.1\times10^{-7}$). Two independent causes were found:
+\begin{enumerate}
+  \item \code{extract\_cg\_info()} casts every \code{wigner\_3j} value to FP32 before de-duplicating the table (intent: merge values that differ only by rounding noise), and \code{cgmat2fiber()} looks values up through the same FP32 cast. The kernels store \code{\_\_constant\_\_ double unique\_cg\_val[]}, but it only ever contains FP32-representable numbers: $\max|C-C_{\text{exact}}|=1.04\times10^{-8}$.
+  \item \code{wigner\_3j()} is called without \code{dtype}, so CG precision follows \code{torch.get\_default\_dtype()} rather than the module's \code{dtype} argument. A first fix for cause~1 (branch \code{exp/fp64-cg}) therefore still silently produced FP32 CGs whenever the caller had not set the global default dtype first; upstream's example and our adapter both happened to set it, masking the second bug until the Phase-4 review.
+\end{enumerate}
+
+\subsection{Fix}
+The minimal patch (\code{upstream/fp64-cg-minimal} @ \code{0e4d820}; 4 files, $+40/-9$; not sent upstream) changes only the FP64 branch: call \code{wigner\_3j(..., dtype=float64)}, merge values within $10^{-12}$ in one sorted pass, snap every matrix entry to its table representative (keeping exact zeros), and look up with \code{.to(self.dtype)}. The FP32 branch is byte-identical to upstream and its metadata is bitwise unchanged. The tolerance is safe by a wide margin (\cref{tab:cgtol}).
+
+\begin{table}[h]
+\centering
+\caption{Distinct real CG values in e3nn 0.4.4's FP64 \code{wigner\_3j} (Phase 4 review).}
+\label{tab:cgtol}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Set & distinct values & max spread of equal values & min gap between distinct values \\
+\midrule
+all triples $l\le3$ & 44 & 8.9e-16 & 3.5e-3 \\
+all triples $l\le5$ & 339 & 8.9e-16 & 1.3e-4 \\
+all triples $l\le6$ & 732 & 8.9e-16 & 5.5e-6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\Cref{tab:cgpatch} shows kernel-level parity before and after across MACE, SevenNet and NequIP configurations. After the patch, whole-model MACE errors fell to $\le1.5\times10^{-13}$\,eV/atom and $\le5.3\times10^{-15}$\,\eVA{} (job 978). One FP64 path remains imprecise: the \code{extcg} forward kernel declares \code{float reg\_w\_path\_norm} (\code{fwd\_sptp\_linear\_v2\_shared\_exp\_double.cu:137}), capping NequIP-style configurations at $2.5\times10^{-8}$; MACE-OFF23 medium uses the \code{large} kernel in both layers and is unaffected.
+
+\begin{table}[h]
+\centering
+\caption{Worst relative error over outputs and first/second derivatives vs e3nn, 4096 random edges (job 995).}
+\label{tab:cgpatch}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Layer (kernel) & upstream & exp/fp64-cg, default FP64 & exp/fp64-cg, default FP32 & minimal patch \\
+\midrule
+MACE medium L0 (large) & 1.94e-8 & 1.27e-15 & 1.94e-8 & 1.43e-15 \\
+MACE medium L1 (large) & 1.63e-7 & 5.38e-15 & 1.63e-7 & 5.4e-15 \\
+SevenNet l3i5 L1 (large) & 1.64e-7 & 2.33e-14 & 1.64e-7 & 2.33e-14 \\
+NequIP 4\_32\_5 L1 (extcg) & 1.99e-7 & 2.51e-8 & 1.99e-7 & 2.51e-8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Does it matter physically?}
+The model's force error versus DFT is $\sim$10\,meV/\AA, so $10^{-7}$\,\eVA{} is irrelevant for any single evaluation. It does matter for (a) regression testing, where a backend that cannot be distinguished from e3nn at $10^{-12}$ cannot be distinguished from a subtly broken one either, and (b) the honesty of an ``FP64'' label. MD in Phase~4 showed the patched FlashTP is \emph{chaotically} indistinguishable from e3nn: the trajectory divergence rate between e3nn and FlashTP (19.1\,ps$^{-1}$) matches that between two e3nn reruns (17.0\,ps$^{-1}$), and NVE drift agrees within block noise (\cref{tab:md4}).
+
+\begin{table}[h]
+\centering
+\caption{Phase 4 NVE (water192, 2\,ps, ASE VelocityVerlet). Drift = linear-fit slope $\pm$ std of 4 block slopes.}
+\label{tab:md4}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Run & drift (eV/atom/ps) & RMS fluct.\ (eV/atom) & s/step \\
+\midrule
+e3nn, 0.25\,fs & $-1.326\times10^{-6}\pm1.29\times10^{-6}$ & 5.97e-6 & 0.0182 \\
+FlashTP, 0.25\,fs & $-1.346\times10^{-6}\pm1.25\times10^{-6}$ & 5.97e-6 & 0.0147 \\
+e3nn, 0.5\,fs & $-5.990\times10^{-6}\pm1.73\times10^{-6}$ & 2.35e-5 & 0.0185 \\
+FlashTP, 0.5\,fs & $-5.921\times10^{-6}\pm1.71\times10^{-6}$ & 2.33e-5 & 0.0150 \\
+e3nn, 1.0\,fs & $-2.79\times10^{-5}\pm1.71\times10^{-5}$ & 1.06e-4 & 0.0190 \\
+FlashTP, 1.0\,fs & $-2.94\times10^{-5}\pm9.87\times10^{-6}$ & 1.08e-4 & 0.0153 \\
+\bottomrule
+\end{tabular}
+\end{table}

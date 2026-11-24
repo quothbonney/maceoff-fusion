@@ -1,0 +1,68 @@
+\clearpage
+\section{Negative results, bugs and dead ends}
+\label{sec:negative}
+
+We list everything that failed, regressed, or was abandoned, with its measured cost, because several of these are traps that the next person optimising an equivariant MLIP will meet.
+
+\small
+\begin{longtable}{p{0.5cm}p{4.4cm}p{6.0cm}p{4.0cm}}
+\caption{Ledger of negative results.}\label{tab:negative}\\
+\toprule
+\# & What & Evidence & Outcome \\
+\midrule
+\endfirsthead
+\toprule
+\# & What & Evidence & Outcome \\
+\midrule
+\endhead
+\multicolumn{4}{l}{\emph{Correctness traps}}\\
+1 & FlashTP FP64 rounds CG to FP32 & $3$--$10\times10^{-8}$\,\eVA; upstream test passes & Patched (\cref{sec:precision}) \\
+2 & FlashTP CG precision follows global default dtype & first fix silently FP32 under default float32 & Second patch \\
+3 & FlashTP \code{extcg} kernel keeps a \code{float} path norm & caps NequIP-style configs at $2.5\times10^{-8}$ & Documented, not fixed (needs rebuild) \\
+4 & FlashTP crashes at $E=0$ & ``invalid configuration argument'' & Adapter bypass \\
+5 & Edge-index cache keyed on \code{data\_ptr} & allocator reuse $\Rightarrow$ 13--79\,\eVA{} errors on walks & Cache removed \\
+6 & Stock FlashTP not captured by CUDA graph & capture ``succeeds''; 576\,\eVA{} error & Stream patch; parity-gated capture \\
+7 & Graph reuse across species order & reversed aspirin: 6.7\,eV/atom, 308\,\eVA{} & Keyed graphs \\
+8 & Graph reuse across $N$ & stale padding index & Keyed graphs \\
+9 & NL distance sum order & 945{,}980/4M boundary mismatches & Match torch order \\
+10 & NL shift product order & triclinic far-outside shifts off by $1.4\times10^{-14}$ & Match cuBLAS FMA order \\
+11 & Bin overflow with inconsistent CSR & illegal memory access, lost context & All-padding graph + NaN \\
+12 & GC during capture & capture invalidated (abort) & GC disabled around capture \\
+13 & \code{empty}-allocated gradients for uncovered edges & garbage $\partial y,\partial w$ if CSR misses padding & CSR must cover all $E_{\text{cap}}$ \\
+\midrule
+\multicolumn{4}{l}{\emph{Performance regressions and rejected ideas}}\\
+14 & cuEquivariance eagerly at small $N$ & 0.52--0.76$\times$ stock (10\,ms host floor); 10.8\,s first call & Use only its SC, only under graphs \\
+15 & Hybrid eagerly below $\sim$400 atoms & 0.79--0.88$\times$ stock & Fixed by CUDA graphs \\
+16 & Graphed e3nn (padding, no kernel change) & slower than eager at 648 (38.3 vs 36.7\,ms) & Abandoned \\
+17 & Megakernel & $\le$0.1--0.3\,ms attainable & Not built (\cref{sec:cudagraph}) \\
+18 & Triton L1 \code{skip\_tp} at aspirin & +13\us{} vs stock & Kept (net win elsewhere) \\
+19 & LunaTP-style path grouping in our forward & slower (re-gathers $x$, register pressure) & Disabled \\
+20 & $G=8$ edge slices & register spills & Capped at $G\le4$ \\
+21 & Node conv at H$_2$O/aspirin & 0.89/0.95$\times$ (CSR sort, 21 CTAs) & Partly fixed in Phase 9 \\
+22 & All padding on last node & 10--40$\times$ slower steps (wbox5184: 1{,}969\,ms) & Spread padding \\
+23 & Thread-per-atom cell list & 0.17--0.58\,ms & Warp-per-atom (0.02--0.08\,ms) \\
+24 & Capturable $O(N^2)$ small-cell builder & $\sim$4.3\,ms at wbox192 vs 2.38\,ms fallback & Not used automatically \\
+25 & Separate small graphs for VV half-kicks & $\le$0.6\% gain & Optional \\
+26 & Many graphs in one process & OOM, 29\,GB in graph pools & One process per large system \\
+\midrule
+\multicolumn{4}{l}{\emph{Measurement and process issues}}\\
+27 & Phase-6 eager baselines $\sim$10\% slow & speedups inflated 7--10\% & Corrected by independent validation \\
+28 & ``graph pool MiB'' column mislabelled & was peak during capture & Relabelled \\
+29 & Phase-1 JSONs overwritten & numbers survive in logs, within 2\% & Noted \\
+30 & Three different ``wbox648'' files & 35{,}724 / 35{,}698 / 35{,}198 edges & Never compared across \\
+31 & Transient 5--16$\times$ slow jobs (05:31--05:48) & drift runs only & Reran; bitwise identical energies \\
+32 & Script overwritten while bash read it & spurious exit 127 & Runs verified exit 0 \\
+33 & Patch notes diffstat & said $+43/-6$ for one file; actual $+37/-6$ & Corrected in review \\
+\bottomrule
+\end{longtable}
+
+\subsection{Lessons}
+\begin{enumerate}
+  \item \textbf{Re-score library tests at your own tolerance.} FlashTP's FP64 harness tests FP32-grade agreement. ``All Good'' meant nothing for an FP64 claim.
+  \item \textbf{A capture that raises nothing may contain nothing.} Every graph must be checked against eager output, not against the absence of an exception.
+  \item \textbf{A graph is a function of more than shapes.} Species order, $N$, cell and every captured static are part of the key.
+  \item \textbf{Padding placement is a performance parameter.} ``Put the padding at the end'' is correct for sorting and disastrous for a destination-owned kernel.
+  \item \textbf{Bitwise equality with a reference requires matching evaluation order}, including the reduction order of a three-element sum and cuBLAS's FMA chain.
+  \item \textbf{Overflow handling must produce a consistent but obviously wrong result}, never a plausible one and never undefined memory.
+  \item \textbf{Measure the next bottleneck before building.} Each phase's profile predicted the next phase's gain within $\sim$30\%, and twice prevented building something unnecessary (the megakernel; a small-$N$ FlashTP dispatch).
+\end{enumerate}

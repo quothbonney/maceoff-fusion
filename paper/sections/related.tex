@@ -1,0 +1,36 @@
+\section{Related work and provenance of ideas}
+\label{sec:related}
+
+\Cref{tab:provenance} states, technique by technique, where each idea used in this study came from and what, if anything, is different here. We are explicit because almost every component has a close antecedent.
+
+\paragraph{Equivariant tensor-product libraries.}
+\textbf{e3nn}~\cite{geiger2022e3nn} is the reference implementation MACE uses and our ground truth. \textbf{FlashTP}~\cite{lee2025flashtp} fuses gather, sparse uvu tensor product and scatter into one edge-parallel kernel, skipping CG zeros and reducing with atomics; it reports up to 41.6$\times$ kernel speedups over e3nn and integrates with SevenNet, and ships an \code{ir\_config} for MACE. \textbf{cuEquivariance}~\cite{cuequivariance} (NVIDIA) expresses equivariant operations as segmented polynomials with JIT kernels; MACE can convert to it (\code{--enable\_cueq})~\cite{macedocs_cuda}. \textbf{OpenEquivariance}~\cite{bharadwaj2025oeq} is a JIT sparse kernel generator that fuses the tensor product with graph convolution and reports up to 6.2$\times$ FP64 inference speedup for the MACE foundation model over the unoptimised implementation (the GPU and model behind that number are not stated in the paper body). \textbf{LunaTP}~\cite{lunatp} (October 2026) organises CG tensor-product computation around \emph{destination} nodes, stores the adjacency in destination-CSR, accumulates messages in registers without atomics, and uses a source-CSR for input gradients; it reports MACE-L training speedups of 2.10$\times$ over e3nn (about 1.19$\times$ over FlashTP and 1.14$\times$ over OpenEquivariance by our reading of its throughput table), FP64 kernel microbenchmarks, but no MACE inference results. \textbf{Sobek}~\cite{sobek} reorders radial projection, CG coupling and aggregation so that the expanded per-edge weights are never materialised; it is benchmarked on synthetic graphs in FP32 on an RTX~5090. \textbf{e3j}~\cite{e3j} is a JAX backend with Pallas kernels; it reports 4.906\,ms/step for NPT MD of a 1{,}503-atom solvated system with a custom MACE (correlation 2, FP32) on H100 versus 6.586\,ms with cuEquivariance and 68.3\,ms with e3nn, and manages a static padded edge buffer that is expanded and recompiled on overflow.
+
+\paragraph{Whole-model compilation.}
+PyTorch~2's \code{torch.compile}~\cite{ansel2024pytorch2} with \code{mode="reduce-overhead"} captures CUDA graphs. MACE v0.3.16 added end-to-end \code{compile\_mode="reduce-overhead"} and a cuEquivariance-SC + OpenEquivariance-conv hybrid~\cite{mace_v0316}; the MACE~0.3.17 used here contains that code path (\code{mace/calculators/mace.py}, \code{compile\_mode=}). We did not benchmark it; see \cref{sec:discussion}.
+
+\paragraph{GPU MD infrastructure.}
+Binned (cell-list) neighbour lists entirely on the GPU date at least to HOOMD~\cite{anderson2008hoomd}; JAX~MD~\cite{schoenholz2020jaxmd} uses fixed-capacity neighbour buffers with overflow flags and reallocation, an idiom we follow. ASE~\cite{larsen2017ase} and matscipy~\cite{matscipy} provide the stock MD driver and neighbour list.
+
+\begin{table}[t]
+\centering
+\caption{Provenance of each technique used in the final pipeline.}
+\label{tab:provenance}
+\small
+\begin{tabularx}{\textwidth}{p{3.4cm}p{3.6cm}X}
+\toprule
+Technique & Antecedent & What is different here \\
+\midrule
+Fused edge-parallel TP conv & FlashTP~\cite{lee2025flashtp} & FP64 CG fix; CUDA-stream fix for graph capture; later replaced \\
+FP64 symmetric contraction & cuEquivariance via MACE converter & Wrapped into an e3nn model (``hybrid''); layout transposes \\
+Exact FP64 CG literals & OEQ (hex), LunaTP (\%.17e) & \%.17g of \code{o3.wigner\_3j}$\times\alpha_p$, verified equal to e3nn buffers \\
+Destination-node conv, dst-CSR, register accumulation & LunaTP~\cite{lunatp} & One CTA per node, thread$=$channel; capturable CSR; $y,w$ read through permutation \\
+Source-centric backward & LunaTP (src-CSR for $\partial x$) & One fused kernel for $\partial x,\partial y,\partial w$, no atomics, deterministic \\
+CUDA-graph capture, padded edges & standard; e3j, MACE \code{compile\_mode} & Zero-contribution padding self-edges proved exact; keyed graphs; parity-gated capture \\
+Embedding fusion & --- & Hand-written FP64 SH$+$Bessel$+$cutoff fwd/bwd, \code{--fmad=false} \\
+Linear$\cdot\bar n^{-1}\cdot$skip\_tp fold & --- & Per-species algebraic fold to one FP64 DMMA GEMM (Triton) \\
+Radial-projection folding & Sobek~\cite{sobek} & \emph{Not done}; proposed (\cref{sec:discussion}) \\
+GPU cell list, overflow flags & HOOMD, JAX~MD & Emits dst-sorted edges $+$ both CSRs with no sort; bitwise-equal to reference \\
+\bottomrule
+\end{tabularx}
+\end{table}
